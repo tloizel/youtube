@@ -1,5 +1,6 @@
 var views = 0;
-var Lvl = 1;
+var creativity = 1; //creativity level
+var viewTimer = null;
 
 //Basic Add function
 function addition(number){
@@ -7,18 +8,17 @@ function addition(number){
   document.getElementById("views").innerHTML = views;
 }
 
-//Basic Upgrade function
-function upgradeLvl(){
-  var upCost = Math.floor(10* Math.pow(1.2,Lvl));
+//Basic Upgrade function according to views
+function upgrade(){
+  var upCost = Math.floor(10* Math.pow(1.2,creativity));
   if(views >= upCost){
-    Lvl = Lvl + 1;
+    creativity = creativity + 1;
     views = views - upCost;
     document.getElementById("views").innerHTML = views;
-    document.getElementById("Lvl").innerHTML = "Lvl : " + Lvl;
-    console.log(views);
+    document.getElementById("creativityLvl").innerHTML = "Lvl : "+creativity;
   }
-    upCost = Math.floor(10 * Math.pow(1.2,Lvl));
-    document.getElementById('upgradeCost').innerHTML = "Cost : " + upCost;
+    nextCost = Math.floor(10 * Math.pow(1.2,creativity));
+    document.getElementById('upgradeCost').innerHTML = "Cost : "+nextCost;
 }
 
 //Basic Add function for Autoclick
@@ -27,9 +27,20 @@ function autoviews(number){
   document.getElementById("views").innerHTML = views;
 }
 
+//start timer
+ function startTimer() {
+        viewTimer = setInterval(function(){autoviews(1);},1000);
+    }
 
-window.setInterval(function(){
-  autoviews(1);
-}, 1000);
+//stop timer
+ function stopTimer() {
+        clearInterval(viewTimer);
+    }
 
+//view range
+function updateTextInput(val) {
+   document.getElementById("idea").innerHTML=val; 
+   document.getElementById("ideaRange").max = creativity*100;
+}
 
+console.log(views);
