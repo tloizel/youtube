@@ -1,23 +1,44 @@
 <div>
   <span id="views" class="span">0</span>
-<input class="button"
+  <input class="button"
        id="b"
        type="button"
        value="Views"
        onclick="addition(1)" >
+<div>
+AutoViews
+<input type="button" 
+       id="start"
+       onclick="startTimer()" 
+       value="Start"/>
+<input type="button" 
+       id="stop"
+       onclick="stopTimer()" 
+       value="Stop" />
+
+</div>
+<br>
+<div>I. Production</div>
+<br>
+<div>1. Idea</div>
+Quality
+<input type="range"
+       id="ideaRange"
+       min="0"
+       max="100"
+       onchange="updateTextInput(this.value)">
+Quantity
+<br>
+  <span id="idea" class="span">0</span>
+  <br>
 </div>
 <br>
 <div>
-  <span id="Lvl" class="span">Lvl : 1</span>
+  <span id="creativityLvl" class="span">Lvl : 1</span>
 <input class="button"
-       id="b"
+       id="creaButton"
        type="button"
        value="Upgrade"
-       onclick="upgradeLvl()" >
+       onclick="upgrade()" >
   <span id="upgradeCost" class="span">Cost : 12</span>
 </div>
-<div>
-  <button class="span" onclick="autoviews()">AutoViews</button>
-</div>
-
-
