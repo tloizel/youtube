@@ -1,1 +1,11 @@
+.span {
+  font-family: roboto;
+  border: solid;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 15px;
+}
 
+.button {
+  border-style: groove;
+}
