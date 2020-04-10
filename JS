@@ -1,8 +1,13 @@
 var views = 0;
 var creativity = 1; //creativity level
 var viewTimer = null;
+var shootEdit = 10;
+var ShootEditRem = 10;
+var videosEdited = 0;
 
-//Basic Add function
+
+
+//Basic Add function for Views
 function addition(number){
   views = views + number //* Math.ceil(Lvl/2);
   document.getElementById("views").innerHTML = views;
@@ -42,5 +47,21 @@ function updateTextInput(val) {
    document.getElementById("idea").innerHTML=val; 
    document.getElementById("ideaRange").max = creativity*100;
 }
+
+//Clicks left for edit
+function clicksLeft(){
+  if(ShootEditRem>0){
+    ShootEditRem = ShootEditRem - 1 ;
+    document.getElementById("editClicks").innerHTML = ShootEditRem;
+  }
+  else{
+    ShootEditRem = shootEdit;
+    document.getElementById("editClicks").innerHTML = ShootEditRem; 
+    videosEdited = videosEdited + 1 ;
+    document.getElementById("videosEdited").innerHTML = videosEdited;
+  }
+}
+
+
 
 console.log(views);
