@@ -1,17 +1,17 @@
 <div>
   <span id="views" class="span">0</span>
   <input class="button"
-       id="b"
-       type="button"
-       value="Views"
-       onclick="addition(1)" >
+         id="viewsButton"
+         type="button"
+         value="Views"
+         onclick="addition(1)" >
 <div>
 AutoViews
-<input type="button" 
-       id="start"
-       onclick="startTimer()" 
-       value="Start"/>
-<input type="button" 
+  <input type="button" 
+         id="start"
+         onclick="startTimer()" 
+         value="Start"/>
+  <input type="button" 
        id="stop"
        onclick="stopTimer()" 
        value="Stop" />
@@ -22,23 +22,34 @@ AutoViews
 <br>
 <div>1. Idea</div>
 Quality
-<input type="range"
-       id="ideaRange"
-       min="0"
-       max="100"
-       onchange="updateTextInput(this.value)">
+  <input type="range"
+         id="ideaRange"
+         min="0"
+         max="100"
+         onchange="updateTextInput(this.value)">
 Quantity
 <br>
   <span id="idea" class="span">0</span>
-  <br>
+<br>
 </div>
 <br>
 <div>
   <span id="creativityLvl" class="span">Lvl : 1</span>
-<input class="button"
-       id="creaButton"
-       type="button"
-       value="Upgrade"
-       onclick="upgrade()" >
+  <input class="button"
+         id="creaButton"
+         type="button"
+         value="Upgrade"
+         onclick="upgrade()" >
   <span id="upgradeCost" class="span">Cost : 12</span>
 </div>
+<br>
+<div>2. Shoot & Edit</div>
+<div>
+  <span id="editClicks" class="span">10</span>
+  <input class="button"
+         id="editButton"
+         type="button"
+         value="Edit"
+         onclick="clicksLeft()" >
+  Videos edited :<span id="videosEdited" class="span">0</span>
+<div>
