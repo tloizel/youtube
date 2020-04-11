@@ -9,18 +9,17 @@
 AutoViews
   <input type="button" 
          id="start"
-         onclick="startTimer()" 
+         onclick="startTimerIdeas()" 
          value="Start"/>
   <input type="button" 
        id="stop"
-       onclick="stopTimer()" 
+       onclick="stopTimers()" 
        value="Stop" />
 
 </div>
 <br>
-<div>I. Production</div>
-<br>
-<div>1. Idea</div>
+<h1>I. Production</h1>
+  <h2>1. Idea</h2>
 Quality
   <input type="range"
          id="ideaRange"
@@ -45,7 +44,7 @@ Quantity
   </p> 
 </div>
 <br>
-<div>2. Shoot & Edit</div>
+  <h2>2. Shoot & Edit</h2>
 <div>
   <span id="editClicks" class="span">10</span>
   <input class="button"
@@ -55,3 +54,19 @@ Quantity
          onclick="clicksLeft()" >
   Videos edited :<span id="videosEdited" class="span">0</span>
 <div>
+<br>
+  <h2>3. Upload</h1>
+<div>
+    <input class="button"
+         id="uploadB"
+         type="button"
+         value="Upload Video"
+         onclick="uploadT()" >
+</div>
+<div>
+  Upload speed : <span id="uploadSpeed" class="span">1Mb/s </span>
+</div>
+  <br>
+<div>
+  Videos online : <span id="videos" class="span">0 </span>
+</div>
