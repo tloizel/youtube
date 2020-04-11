@@ -1,57 +1,76 @@
-<div>
-  <span id="views" class="span">0</span>
-  <input class="button"
-         id="viewsButton"
-         type="button"
-         value="Views"
-         onclick="addition(1)" >
-<div>
-AutoViews
-  <input type="button" 
-         id="start"
-         onclick="startTimer()" 
-         value="Start"/>
-  <input type="button" 
-       id="stop"
-       onclick="stopTimer()" 
-       value="Stop" />
+var views = 0;
+var viewTimer = null;
+var creativity = 1; //creativity level
+var ideasQt;
+var shootEdit = 10;
+var ShootEditRem = 10;
+var videosEdited = 0;
 
-</div>
-<br>
-<div>I. Production</div>
-<br>
-<div>1. Idea</div>
-Quality
-  <input type="range"
-         id="ideaRange"
-         min="1"
-         max="100"
-         onchange="updateTextInput(this.value)">
-Quantity
-<br>
-  <span id="idea" class="span">0</span>
-<br>
-</div>
-<br>
-<div>
-  <span id="creativityLvl" class="span">Lvl : 1</span>
-  <input class="button"
-         id="creaButton"
-         type="button"
-         value="Upgrade"
-         onclick="upgrade()" >
-  <span id="upgradeCost" class="span">Cost : 12</span>
-  <p> Ideas generated : <span id="ideasGen" class="span">0</span> 
-  </p> 
-</div>
-<br>
-<div>2. Shoot & Edit</div>
-<div>
-  <span id="editClicks" class="span">10</span>
-  <input class="button"
-         id="editButton"
-         type="button"
-         value="Edit"
-         onclick="clicksLeft()" >
-  Videos edited :<span id="videosEdited" class="span">0</span>
-<div>
+
+
+
+//Basic Add function for Views
+function addition(number){
+  views = views + number //* Math.ceil(Lvl/2);
+  document.getElementById("views").innerHTML = views;
+}
+
+//Basic Upgrade function according to views
+function upgrade(){
+  var upCost = Math.floor(10* Math.pow(1.2,creativity));
+  if(views >= upCost){
+    creativity = creativity + 1;
+    views = views - upCost;
+    document.getElementById("views").innerHTML = views;
+    document.getElementById("creativityLvl").innerHTML = "Lvl : "+creativity;
+  }
+    nextCost = Math.floor(10 * Math.pow(1.2,creativity));
+    document.getElementById('upgradeCost').innerHTML = "Cost : "+nextCost;
+}
+
+//Basic Add function for Autoclick
+function autoviews(number){
+  views = views + number
+  document.getElementById("views").innerHTML = views;
+}
+
+//start timer
+ function startTimer() {
+        viewTimer = setInterval(function(){
+          autoviews(1);
+          updateTextInput(ideasQt);
+        },1000);
+    }
+
+//stop timer
+ function stopTimer() {
+        clearInterval(viewTimer);
+    }
+
+//view range
+function updateTextInput(rangeValue) {
+   
+   document.getElementById("idea").innerHTML = rangeValue; 
+   document.getElementById("ideaRange").max = creativity*100;
+  
+   ideasQt = rangeValue;
+   ideasQt = parseInt(ideasQt) + parseInt(ideasQt);
+   document.getElementById("ideasGen").innerHTML = ideasQt;
+}
+
+
+//Clicks left for edit
+function clicksLeft(){
+  if(ShootEditRem>0){
+    ShootEditRem = ShootEditRem - 1 ;
+    document.getElementById("editClicks").innerHTML = ShootEditRem;
+  }
+  else{
+    ShootEditRem = shootEdit;
+    document.getElementById("editClicks").innerHTML = ShootEditRem; 
+    videosEdited = videosEdited + 1 ;
+    document.getElementById("videosEdited").innerHTML = videosEdited;
+  }
+}
+
+
