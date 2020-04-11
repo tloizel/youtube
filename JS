@@ -1,9 +1,11 @@
 var views = 0;
-var creativity = 1; //creativity level
 var viewTimer = null;
+var creativity = 1; //creativity level
+var ideasQt;
 var shootEdit = 10;
 var ShootEditRem = 10;
 var videosEdited = 0;
+
 
 
 
@@ -34,7 +36,10 @@ function autoviews(number){
 
 //start timer
  function startTimer() {
-        viewTimer = setInterval(function(){autoviews(1);},1000);
+        viewTimer = setInterval(function(){
+          autoviews(1);
+          updateTextInput(ideasQt);
+        },1000);
     }
 
 //stop timer
@@ -43,10 +48,16 @@ function autoviews(number){
     }
 
 //view range
-function updateTextInput(val) {
-   document.getElementById("idea").innerHTML=val; 
+function updateTextInput(rangeValue) {
+   
+   document.getElementById("idea").innerHTML = rangeValue; 
    document.getElementById("ideaRange").max = creativity*100;
+  
+   ideasQt = rangeValue;
+   ideasQt = parseInt(ideasQt) + parseInt(ideasQt);
+   document.getElementById("ideasGen").innerHTML = ideasQt;
 }
+
 
 //Clicks left for edit
 function clicksLeft(){
@@ -63,5 +74,3 @@ function clicksLeft(){
 }
 
 
-
-console.log(views);
