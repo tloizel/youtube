@@ -1,13 +1,11 @@
 var views = 0;
 var viewTimer = null;
 var creativity = 1; //creativity level
-var ideasQt;
+var rangeIdea = 0;
+var ideasQt = 0;
 var shootEdit = 10;
 var ShootEditRem = 10;
 var videosEdited = 0;
-
-
-
 
 //Basic Add function for Views
 function addition(number){
@@ -38,7 +36,7 @@ function autoviews(number){
  function startTimer() {
         viewTimer = setInterval(function(){
           autoviews(1);
-          updateTextInput(ideasQt);
+          ideasGen();
         },1000);
     }
 
@@ -48,14 +46,16 @@ function autoviews(number){
     }
 
 //view range
-function updateTextInput(rangeValue) {
-   
+function ideaRangeMax(rangeValue) {
+   rangeIdea = rangeValue; //stores range value quantity
    document.getElementById("idea").innerHTML = rangeValue; 
-   document.getElementById("ideaRange").max = creativity*100;
-  
-   ideasQt = rangeValue;
-   ideasQt = parseInt(ideasQt) + parseInt(ideasQt);
-   document.getElementById("ideasGen").innerHTML = ideasQt;
+   document.getElementById("ideaRange").max = creativity + 9; //increases slider max value
+}
+
+//Adds up range value quantities in Ideas generated
+function ideasGen() {
+    ideasQt = parseInt(rangeIdea) + ideasQt;
+    document.getElementById("ideasGen").innerHTML = ideasQt;
 }
 
 
@@ -65,12 +65,16 @@ function clicksLeft(){
     ShootEditRem = ShootEditRem - 1 ;
     document.getElementById("editClicks").innerHTML = ShootEditRem;
   }
-  else{
+  else if(ShootEditRem == 0 && ideasQt > 0){
     ShootEditRem = shootEdit;
     document.getElementById("editClicks").innerHTML = ShootEditRem; 
-    videosEdited = videosEdited + 1 ;
+    videosEdited = videosEdited + 1;
     document.getElementById("videosEdited").innerHTML = videosEdited;
+    ideasQt = ideasQt - 1;
+    document.getElementById("ideasGen").innerHTML = ideasQt;
   }
 }
 
-
+//get number of ideas generated 
+//remove 1 from ideas generated
+//add 1 video edited
