@@ -24,7 +24,7 @@ AutoViews
 Quality
   <input type="range"
          id="ideaRange"
-         min="0"
+         min="1"
          max="100"
          onchange="updateTextInput(this.value)">
 Quantity
@@ -41,6 +41,8 @@ Quantity
          value="Upgrade"
          onclick="upgrade()" >
   <span id="upgradeCost" class="span">Cost : 12</span>
+  <p> Ideas generated : <span id="ideasGen" class="span">0</span> 
+  </p> 
 </div>
 <br>
 <div>2. Shoot & Edit</div>
