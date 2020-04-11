@@ -1,11 +1,13 @@
 var views = 0;
-var viewTimer = null;
+var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 0;
 var ideasQt = 0;
 var shootEdit = 10;
 var ShootEditRem = 10;
 var videosEdited = 0;
+var videosUploaded = 0;
+var uploadTimer = null;
 
 //Basic Add function for Views
 function addition(number){
@@ -32,17 +34,17 @@ function autoviews(number){
   document.getElementById("views").innerHTML = views;
 }
 
-//start timer
- function startTimer() {
-        viewTimer = setInterval(function(){
+//start timer ideas
+ function startTimerIdeas() {
+        ideaTimer = setInterval(function(){
           autoviews(1);
           ideasGen();
         },1000);
     }
 
-//stop timer
- function stopTimer() {
-        clearInterval(viewTimer);
+//stop timers
+ function stopTimers() {
+        clearInterval(ideaTimer);
     }
 
 //view range
@@ -61,7 +63,7 @@ function ideasGen() {
 
 //Clicks left for edit
 function clicksLeft(){
-  if(ShootEditRem>0){
+  if(ShootEditRem > 0){
     ShootEditRem = ShootEditRem - 1 ;
     document.getElementById("editClicks").innerHTML = ShootEditRem;
   }
@@ -75,6 +77,19 @@ function clicksLeft(){
   }
 }
 
-//get number of ideas generated 
-//remove 1 from ideas generated
-//add 1 video edited
+//start timer for upload
+function uploadT() {
+   uploadTimer = setInterval(function(){
+   upload();
+   },4000);
+}
+
+//Click to upload
+function upload() {
+  if (videosEdited > 0) {
+      videosUploaded = videosUploaded + 1;
+      document.getElementById("videos").innerHTML = videosUploaded;
+      videosEdited = videosEdited - 1;
+      document.getElementById("videosEdited").innerHTML = videosEdited;
+  }
+}
