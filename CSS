@@ -1,3 +1,7 @@
+body {
+  font-family: montserrat, sans-serif;
+}
+
 .span {
   font-family: roboto;
   border: solid;
@@ -10,15 +14,21 @@
   border-style: groove;
 }
 
-
-
-#myProgress {
-  width: 100%;
-  background-color: grey;
+.parentFlex {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
 }
 
-#myBar {
-  width: 1%;
-  height: 30px;
-  background-color: green;
+.childFlex {
+  height: 12em;
+  width: 20em;
+  padding: 10px;
+  text-align: center;
+  border-style: outset;
+  border-radius: 25px;
+  border-color: red;
+  border-width: 5px;
 }
