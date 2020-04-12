@@ -89,9 +89,9 @@ function move() {
       if (width >= 100) {
         clearInterval(id);
         loadState = 0;
-      videosUploaded = videosUploaded + 1;
+      videosUploaded++;
       document.getElementById("videos").innerHTML = videosUploaded;
-      videosEdited = videosEdited - 1;
+      videosEdited--;
       document.getElementById("videosEdited").innerHTML = videosEdited;
       } 
       else {
