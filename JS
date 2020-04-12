@@ -7,7 +7,7 @@ var shootEdit = 10;
 var ShootEditRem = 10;
 var videosEdited = 0;
 var videosUploaded = 0;
-var uploadTimer = null;
+var loadState = 0;
 
 //Basic Add function for Views
 function addition(number){
@@ -77,19 +77,29 @@ function clicksLeft(){
   }
 }
 
-//start timer for upload
-function uploadT() {
-   uploadTimer = setInterval(function(){
-   upload();
-   },4000);
-}
+//loading bar
 
-//Click to upload
-function upload() {
-  if (videosEdited > 0) {
+function move() {
+  if (videosEdited > 0 && loadState == 0) {
+    loadState = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        loadState = 0;
       videosUploaded = videosUploaded + 1;
       document.getElementById("videos").innerHTML = videosUploaded;
       videosEdited = videosEdited - 1;
       document.getElementById("videosEdited").innerHTML = videosEdited;
+      } 
+      else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
   }
 }
+
+
