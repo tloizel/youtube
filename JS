@@ -7,7 +7,6 @@ var shootEdit = 10;
 var ShootEditRem = 10;
 var videosEdited = 0;
 var videosUploaded = 0;
-var loadState = 0;
 
 //Basic Add function for Views
 function addition(number){
@@ -80,6 +79,7 @@ function clicksLeft(){
 //loading bar
 
 function move() {
+  var loadState = 0;
   if (videosEdited > 0 && loadState == 0) {
     loadState = 1;
     var elem = document.getElementById("myBar");
