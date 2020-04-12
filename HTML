@@ -1,12 +1,17 @@
-<div>
-  <span id="views" class="span">0</span>
+<div class = "parentFlex">
+ <div class = "childFlex">
+   <div>
+   <h3>0. Timer</h3>
+<span id="views" class="span">0</span>
+     <br><br>
   <input class="button"
          id="viewsButton"
          type="button"
          value="Views"
          onclick="addition(1)" >
+   </div>
 <div>
-AutoViews
+  <p>AutoViews</p>
   <input type="button" 
          id="start"
          onclick="startTimerIdeas()" 
@@ -15,64 +20,64 @@ AutoViews
        id="stop"
        onclick="stopTimers()" 
        value="Stop" />
-
+   </div>
 </div>
-<br>
-<h1>I. Production</h1>
+
+  <div class = "childFlex">
   <h2>1. Idea</h2>
-Quality
+    <em>Quality</em>
   <input type="range"
          id="ideaRange"
          min="1"
          max="2"
          onchange="ideaRangeMax(this.value)">
-Quantity
+    <em>Quantity</em>
 <br>
-  <span id="idea" class="span">0</span>
+    <span id="idea"><em>0</em></span>
 <br>
-</div>
 <br>
-<div>
   <span id="creativityLvl" class="span">Lvl : 1</span>
   <input class="button"
          id="creaButton"
          type="button"
          value="Upgrade"
          onclick="upgrade()" >
-  <span id="upgradeCost" class="span">Cost : 12</span>
-  <p> Ideas generated : <span id="ideasGen" class="span">0</span> 
+    <span id="upgradeCost"><em>Cost : 12</em></span>
+  <p>Ideas generated : <span id="ideasGen" class="span">0</span> 
   </p> 
-</div>
 <br>
+  </div>
+  
+  <div class = "childFlex">
   <h2>2. Shoot & Edit</h2>
-<div>
+    <div>
   <span id="editClicks" class="span">10</span>
   <input class="button"
          id="editButton"
          type="button"
          value="Edit"
          onclick="clicksLeft()" >
-  Videos edited :<span id="videosEdited" class="span">0</span>
-<div>
+    </div>
+    <br>
+  <p>Videos edited :<span id="videosEdited" class="span">0</span>
+    </p>
 <br>
+  </div>
+  <div class = "childFlex">
+    <div>
   <h2>3. Upload</h1>
-<div>
     <input class="button"
-         id="uploadB"
-         type="button"
-         value="Upload Video"
-         onclick="move()" >
-</div>
-<div>
-  Upload speed : <span id="uploadSpeed" class="span">1Mb/s </span>
-</div>
+           id="uploadB"
+           type="button"
+           value="Upload Video"
+           onclick="uploadT()">
+
+  <p>Upload speed : <span id="uploadSpeed">1Mb/s</span>
+      </p>
+    </div>
   <br>
-<div>
-  Videos online : <span id="videos" class="span">0 </span>
-</div>
-  
-<div id="myProgress">
-  <div id="myBar"></div>
-</div>
 
-
+  <p>Videos online : <span id="videos" class="span">0</span>
+    </p>
+    </div>
+</div>
