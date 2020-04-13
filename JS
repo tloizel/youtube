@@ -1,14 +1,18 @@
 var views = 0;
 var ideaTimer = null;
 var creativity = 1; //creativity level
-var rangeIdea = 0;
-var ideasQt = 0;
-var ideasQtTotal = 0;
+var rangeIdea = 5; //value of Qt on range
+var ideaQl =  1; //value of Ql on range
+var ideasQt = 0; //amount of ideas ready to edit
+var ideasQtTotal = 0; //amount of ideas since beginning DONT NEED THIS ANYMORE MAYBE
+var ideaQlArray = new Array();
 var shootEdit = 10; //SHOOT & EDIT : technical thomas variable gtfo
 var ShootEditRem = 10; //SHOOT & EDIT : number of remaining clicks
 var videosEdited = 0; //SHOOT & EDIT : number of videos edited
 var shootEditMemory = 5; //SHOOT & EDIT : Max videos edited 
 var videosUploaded = 0; //UPLOAD : Videos online
+var averageQlArrayNum = 0; // UPLOAD : the average Ql numerator
+var averageQlArray = 0; //UPLOAD : average video quality after upload
 
 //Basic Add function for Views
 function addition(number){
@@ -54,18 +58,32 @@ function ideaRangeMax(rangeValue) {
    document.getElementById("idea").innerHTML = rangeValue;
    var maxRangeValue = creativity + 9; //increases slider max value
    document.getElementById("ideaRange").max = maxRangeValue;
-   var ideaQl = maxRangeValue - rangeValue;
+   ideaQl = maxRangeValue - rangeValue;
    document.getElementById("ideaQl").innerHTML = ideaQl;
 }
 
-//Adds up range value quantities in Ideas generated
+//Adds up range value quantities in Ideas generated and calculates Ql array
 function ideasGen() {
-    ideasQt = parseInt(rangeIdea) + ideasQt;
+    rangeIdea = parseInt(rangeIdea);
+    
+    var arrayAdd = fillArray(ideaQl, rangeIdea);
+    ideaQlArray = ideaQlArray.concat(arrayAdd);
+    document.getElementById("arrayQl").innerHTML = ideaQlArray;
+  
+    ideasQt = rangeIdea + ideasQt;
     document.getElementById("ideasGen").innerHTML = ideasQt;
     ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
     document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
 }
 
+//to calculate the right array to separate grouped ideas
+function fillArray(value, len) {
+  var arr = [];
+  for (var i = 0; i < len; i++) {
+    arr.push(value);
+  }
+  return arr;
+}
 
 //SHOOT EDIT : ALL & Clicks left for edit
 function clicksLeft(){
@@ -99,6 +117,9 @@ function move() {
       document.getElementById("videos").innerHTML = videosUploaded;
       videosEdited--;
       document.getElementById("videosEdited").innerHTML = videosEdited;
+      
+      averageQl();
+        
       } 
       else {
         width++;
@@ -106,4 +127,14 @@ function move() {
       }
     }
   }
+}
+
+//calculate average
+function averageQl(){
+  var nextQl = ideaQlArray[0];
+  averageQlArrayNum = averageQlArrayNum + nextQl;
+  averageQlArray = averageQlArrayNum/videosUploaded;
+  ideaQlArray.shift();
+  document.getElementById("averageQl").innerHTML = averageQlArray;
+  document.getElementById("arrayQl").innerHTML = ideaQlArray;
 }
