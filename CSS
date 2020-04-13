@@ -42,7 +42,7 @@ body {
   flex-flow: row wrap;
   align-items: center;
   justify-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .childFlex {
@@ -67,3 +67,4 @@ body {
   height: 30px;
   background-color: green;
 }
+
