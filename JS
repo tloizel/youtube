@@ -3,10 +3,12 @@ var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 0;
 var ideasQt = 0;
-var shootEdit = 10;
-var ShootEditRem = 10;
-var videosEdited = 0;
-var videosUploaded = 0;
+var ideasQtTotal = 0;
+var shootEdit = 10; //SHOOT & EDIT : technical thomas variable gtfo
+var ShootEditRem = 10; //SHOOT & EDIT : number of remaining clicks
+var videosEdited = 0; //SHOOT & EDIT : number of videos edited
+var shootEditMemory = 5; //SHOOT & EDIT : Max videos edited 
+var videosUploaded = 0; //UPLOAD : Videos online
 
 //Basic Add function for Views
 function addition(number){
@@ -49,24 +51,29 @@ function autoviews(number){
 //view range
 function ideaRangeMax(rangeValue) {
    rangeIdea = rangeValue; //stores range value quantity
-   document.getElementById("idea").innerHTML = rangeValue; 
-   document.getElementById("ideaRange").max = creativity + 9; //increases slider max value
+   document.getElementById("idea").innerHTML = rangeValue;
+   var maxRangeValue = creativity + 9; //increases slider max value
+   document.getElementById("ideaRange").max = maxRangeValue;
+   var ideaQl = maxRangeValue - rangeValue;
+   document.getElementById("ideaQl").innerHTML = ideaQl;
 }
 
 //Adds up range value quantities in Ideas generated
 function ideasGen() {
     ideasQt = parseInt(rangeIdea) + ideasQt;
     document.getElementById("ideasGen").innerHTML = ideasQt;
+    ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
+    document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
 }
 
 
-//Clicks left for edit
+//SHOOT EDIT : ALL & Clicks left for edit
 function clicksLeft(){
   if(ShootEditRem > 0){
     ShootEditRem = ShootEditRem - 1 ;
     document.getElementById("editClicks").innerHTML = ShootEditRem;
   }
-  else if(ShootEditRem == 0 && ideasQt > 0){
+  else if(ShootEditRem == 0 && ideasQt > 0 && videosEdited < shootEditMemory){
     ShootEditRem = shootEdit;
     document.getElementById("editClicks").innerHTML = ShootEditRem; 
     videosEdited = videosEdited + 1;
@@ -77,7 +84,6 @@ function clicksLeft(){
 }
 
 //loading bar
-
 function move() {
   var loadState = 0;
   if (videosEdited > 0 && loadState == 0) {
@@ -101,5 +107,3 @@ function move() {
     }
   }
 }
-
-
