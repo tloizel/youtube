@@ -16,7 +16,7 @@ var averageQlArray = 0; //UPLOAD : average video quality after upload
 
 //Basic Add function for Views
 function addition(number){
-  views = views + number //* Math.ceil(Lvl/2);
+  views = views + number
   document.getElementById("views").innerHTML = views;
 }
 
@@ -41,9 +41,10 @@ function autoviews(number){
 
 //start timer ideas
  function startTimerIdeas() {
-        ideaTimer = setInterval(function(){
+       ideaTimer = setInterval(function(){
           autoviews(1);
           ideasGen();
+          
         },1000);
     }
 
@@ -56,7 +57,7 @@ function autoviews(number){
 function ideaRangeMax(rangeValue) {
    rangeIdea = rangeValue; //stores range value quantity
    document.getElementById("idea").innerHTML = rangeValue;
-   var maxRangeValue = creativity + 9; //increases slider max value
+   var maxRangeValue = creativity + 40; //increases slider max value
    document.getElementById("ideaRange").max = maxRangeValue;
    ideaQl = maxRangeValue - rangeValue;
    document.getElementById("ideaQl").innerHTML = ideaQl;
@@ -119,7 +120,8 @@ function move() {
       document.getElementById("videosEdited").innerHTML = videosEdited;
       
       averageQl();
-        
+      LDR();
+      subRefresh();
       } 
       else {
         width++;
@@ -138,3 +140,40 @@ function averageQl(){
   document.getElementById("averageQl").innerHTML = averageQlArray;
   document.getElementById("arrayQl").innerHTML = ideaQlArray;
 }
+
+var adAmount = 0;
+var cashAmount = 0;
+
+function addAdLoad(number){
+  if (adAmount < 5){
+    adAmount++;
+  }
+  document.getElementById("adLoad").innerHTML = adAmount;
+}
+
+function subAdLoad(number){
+  if (adAmount > 0){
+   adAmount--; 
+  }
+  document.getElementById("adLoad").innerHTML = adAmount;
+}
+
+var likeDislikeRatio = 50;
+function LDR() {
+  if (likeDislikeRatio < 0){
+    likeDislikeRatio = 0;
+  }else{
+    likeDislikeRatio = Math.floor(averageQlArray - adAmount * 10);  
+  }
+  document.getElementById("likeDislikeRatio").innerHTML = likeDislikeRatio + "%";
+}
+
+var subscribers = 0;
+function subRefresh(){
+  subscribers = subscribers + videosUploaded * likeDislikeRatio;
+  document.getElementById("subscriberAmount").innerHTML = subscribers;
+}
+
+//ratio = Ql - AL x 10
+//Subs = videos x ratio
+//videos * adload = cash
