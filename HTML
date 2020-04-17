@@ -1,4 +1,4 @@
-<div class = "parentFlex">
+  <div class = "parentFlex">
  <div class = "childFlex">
    <div>
    <h3>0. Timer</h3>
@@ -88,6 +88,32 @@
     </p>
     <p>average Ql : <span id="averageQl" class="span">0</span>
     </p>
-    </div> <!--end of child flex-->
+    </div>
+  <div class = "childFlex">
+  <h2>4. Subscribers</h1>
+      <p>Like/Dislike Ratio :
+      <span id="likeDislikeRatio">50%<span></p>
+      <p>Subscribers :
+      <span id="subscriberAmount" >0<span></p>
+      </div>
+  
+  
+      <div class = "childFlex">
+    <div>
+  <h2>5. Ca$h</h1>
+      <p>Cash :
+      <span id="cashAmount" >$0<span></p>
+      <p>Ad Load :
+      <span id="adLoad" >0 ads / video<span></p>
+      <input class="button"
+             id="subAdButton"
+             type="button"
+             value="-"
+             onclick="subAdLoad(1)">
+      <input class="button"
+             id="addAdButton"
+             type="button"
+             value="+"
+             onclick="addAdLoad(1)">
+      </div>
 </div> <!--end of parent flex-->
-
