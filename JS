@@ -1,179 +1,262 @@
-var views = 0;
+//GENERAL
+var ticker = 0;
+
+//IDEA
 var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 5; //value of Qt on range
-var ideaQl =  1; //value of Ql on range
+var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
-var ideasQtTotal = 0; //amount of ideas since beginning DONT NEED THIS ANYMORE MAYBE
-var ideaQlArray = new Array();
-var shootEdit = 10; //SHOOT & EDIT : technical thomas variable gtfo
-var ShootEditRem = 10; //SHOOT & EDIT : number of remaining clicks
-var videosEdited = 0; //SHOOT & EDIT : number of videos edited
-var shootEditMemory = 5; //SHOOT & EDIT : Max videos edited 
-var videosUploaded = 0; //UPLOAD : Videos online
-var averageQlArrayNum = 0; // UPLOAD : the average Ql numerator
-var averageQlArray = 0; //UPLOAD : average video quality after upload
+var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
 
-//Basic Add function for Views
+//SHOOT AND EDIT
+var shootEdit = 10; //
+var shootEditRem = 10; //number of remaining clicks
+var videosEdited = 0; //number of videos edited
+var computerMemory = 5; //max videos edited 
+
+//UPLOAD
+var ideaQlArray = new Array();
+var videosUploaded = 0; //Videos online
+var averageQlNum = 0; //average Ql numerator
+var averageQl = 0; //average video quality after upload
+
+//SUBS
+var views = 0;
+var likeDislikeRatio = 0;
+var subscribers = 0;
+
+//CASH
+var adAmount = 0;
+var cashAmount = 0;
+
+//TIMERS
+  //Function for ticker
+function autoticker(number){
+  ticker = ticker + number
+  document.getElementById("ticker").innerHTML = ticker;
+}
+
+  //start timer1
+function startTimer1(){
+  ideaTimer = setInterval(function(){
+              autoticker(1);
+              ideasGen();
+              },3000);
+}
+
+  //start timer2 _ NOT A FUNCTION
+window.setInterval(function(){
+                   viewsRefresh();
+                   cashGen();
+                   },1000);
+
+  //stop timers
+function stopTimers() {
+  clearInterval(ideaTimer);
+}
+
+
+
+//Function to manually add views
 function addition(number){
   views = views + number
   document.getElementById("views").innerHTML = views;
 }
 
-//Basic Upgrade function according to views
-function upgrade(){
+//Upgrade CREATIVITY according to views
+function upgradeCreativity(){
   var upCost = Math.floor(10* Math.pow(1.2,creativity));
-  if(views >= upCost){
-    creativity = creativity + 1;
-    views = views - upCost;
-    document.getElementById("views").innerHTML = views;
-    document.getElementById("creativityLvl").innerHTML = "Lvl : "+creativity;
-  }
-    nextCost = Math.floor(10 * Math.pow(1.2,creativity));
-    document.getElementById('upgradeCost').innerHTML = "Cost : "+nextCost;
+    if(views >= upCost){
+     creativity += 1;
+     views -= upCost;
+     document.getElementById("views").innerHTML = views;
+     document.getElementById("creativityLvl").innerHTML = "Lvl : " + creativity;
+   }
+  var nextCost = Math.floor(10 * Math.pow(1.2,creativity));
+  document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
 }
 
-//Basic Add function for Autoclick
-function autoviews(number){
-  views = views + number
-  document.getElementById("views").innerHTML = views;
+//Upgrade MEMORY according to views
+function upgradeMemory(){
+  var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
+    if(views >= upCost){
+     computerMemory += 1;
+     views -= upCost;
+     document.getElementById("views").innerHTML = views;
+     document.getElementById("computerMemory").innerHTML = computerMemory + "Gb";
+   }
+  var nextCost = Math.floor(10 * Math.pow(1.2,computerMemory));
+  document.getElementById('upgradeMemoryCost').innerHTML = "<em> Cost </em>: " + nextCost;
 }
 
-//start timer ideas
- function startTimerIdeas() {
-       ideaTimer = setInterval(function(){
-          autoviews(1);
-          ideasGen();
-          
-        },1000);
-    }
-
-//stop timers
- function stopTimers() {
-        clearInterval(ideaTimer);
-    }
-
-//view range
+//idea range
 function ideaRangeMax(rangeValue) {
-   rangeIdea = rangeValue; //stores range value quantity
-   document.getElementById("idea").innerHTML = rangeValue;
-   var maxRangeValue = creativity + 40; //increases slider max value
-   document.getElementById("ideaRange").max = maxRangeValue;
-   ideaQl = maxRangeValue - rangeValue;
-   document.getElementById("ideaQl").innerHTML = ideaQl;
+  rangeIdea = rangeValue; //stores range value quantity
+  document.getElementById("idea").innerHTML = rangeValue;
+  var maxRangeValue = creativity + 9; //increases slider max value
+  document.getElementById("ideaRange").max = maxRangeValue;
+  ideaQl = maxRangeValue - rangeValue;
+  document.getElementById("ideaQl").innerHTML = ideaQl;
 }
 
-//Adds up range value quantities in Ideas generated and calculates Ql array
+//Adds up range value quantities in ideas generated and calculates Ql array
 function ideasGen() {
-    rangeIdea = parseInt(rangeIdea);
-    
-    var arrayAdd = fillArray(ideaQl, rangeIdea);
-    ideaQlArray = ideaQlArray.concat(arrayAdd);
-    document.getElementById("arrayQl").innerHTML = ideaQlArray;
-  
-    ideasQt = rangeIdea + ideasQt;
-    document.getElementById("ideasGen").innerHTML = ideasQt;
-    ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
-    document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
+  rangeIdea = parseInt(rangeIdea);
+  var arrayAdd = newArray(ideaQl, rangeIdea);
+  ideaQlArray = ideaQlArray.concat(arrayAdd);
+  document.getElementById("arrayQl").innerHTML = ideaQlArray;
+  ideasQt = ideasQt + rangeIdea;
+  document.getElementById("ideasGen").innerHTML = ideasQt;
+  ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
+  document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
 }
 
-//to calculate the right array to separate grouped ideas
-function fillArray(value, len) {
+//to de-group Qt into correct array
+function newArray(value, len) {
   var arr = [];
-  for (var i = 0; i < len; i++) {
-    arr.push(value);
-  }
+    for (var i = 0; i < len; i++) {
+       arr.push(value);
+      }
   return arr;
 }
 
-//SHOOT EDIT : ALL & Clicks left for edit
+//Shoot & Edit
 function clicksLeft(){
-  if(ShootEditRem > 0){
-    ShootEditRem = ShootEditRem - 1 ;
-    document.getElementById("editClicks").innerHTML = ShootEditRem;
-  }
-  else if(ShootEditRem == 0 && ideasQt > 0 && videosEdited < shootEditMemory){
-    ShootEditRem = shootEdit;
-    document.getElementById("editClicks").innerHTML = ShootEditRem; 
+  if(shootEditRem > 0){
+    shootEditRem -= 1 ;
+    document.getElementById("editClicks").innerHTML = shootEditRem;
+   }
+  else if(shootEditRem == 0 && ideasQt > 0 && videosEdited < computerMemory){
+    shootEditRem = shootEdit;
+    document.getElementById("editClicks").innerHTML = shootEditRem; 
     videosEdited = videosEdited + 1;
     document.getElementById("videosEdited").innerHTML = videosEdited;
     ideasQt = ideasQt - 1;
     document.getElementById("ideasGen").innerHTML = ideasQt;
-  }
-}
-
-//loading bar
-function move() {
-  var loadState = 0;
-  if (videosEdited > 0 && loadState == 0) {
-    loadState = 1;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        loadState = 0;
-      videosUploaded++;
-      document.getElementById("videos").innerHTML = videosUploaded;
-      videosEdited--;
-      document.getElementById("videosEdited").innerHTML = videosEdited;
-      
-      averageQl();
-      LDR();
-      subRefresh();
-      } 
-      else {
-        width++;
-        elem.style.width = width + "%";
-      }
     }
-  }
+  var clicksPercentage = Math.round((1-shootEditRem/shootEdit)*100);
+  setPercentage(clicksPercentage);
 }
 
-//calculate average
-function averageQl(){
+//upload video
+function uploadVideo() {
+ var loadState = 0;
+   if (videosEdited > 0 && loadState == 0) {
+     loadState = 1;
+     document.getElementById("uploadB").disabled = true; 
+     var elem = document.getElementById("myBar");
+     var width = 1;
+     var id = setInterval(frame, 10);
+ function frame() {
+   if (width >= 100) {
+     clearInterval(id);
+     loadState = 0;
+     videosUploaded++;
+     document.getElementById("videos").innerHTML = videosUploaded;
+     videosEdited--;
+     document.getElementById("videosEdited").innerHTML = videosEdited;
+     averageQlCalculation();//calculated average Ql at each upload
+     LDR();//calculated new ratio at each upload
+     subRefresh();//calculated sub count at each upload
+     viewsFromSubs();//calculated view count at each upload
+     document.getElementById("uploadB").disabled = false; 
+     } 
+   else {
+     width++;
+     elem.style.width = width + "%";
+     }
+   }
+ }
+}
+
+//calculate average video quality
+function averageQlCalculation(){
   var nextQl = ideaQlArray[0];
-  averageQlArrayNum = averageQlArrayNum + nextQl;
-  averageQlArray = averageQlArrayNum/videosUploaded;
+  averageQlNum = averageQlNum + nextQl;
+  averageQl = averageQlNum/videosUploaded;
   ideaQlArray.shift();
-  document.getElementById("averageQl").innerHTML = averageQlArray;
+  document.getElementById("averageQl").innerHTML = averageQl;
   document.getElementById("arrayQl").innerHTML = ideaQlArray;
 }
 
-var adAmount = 0;
-var cashAmount = 0;
-
+//increase ad load
 function addAdLoad(number){
-  if (adAmount < 5){
-    adAmount++;
-  }
+    if (adAmount < 5){
+      adAmount++;
+      LDR();
+    }
   document.getElementById("adLoad").innerHTML = adAmount;
 }
 
+//decrease ad load
 function subAdLoad(number){
-  if (adAmount > 0){
-   adAmount--; 
-  }
+    if (adAmount > 0){
+      adAmount--; 
+      LDR();
+    }
   document.getElementById("adLoad").innerHTML = adAmount;
 }
 
-var likeDislikeRatio = 50;
+//Like Dislike ration calculation
 function LDR() {
-  if (likeDislikeRatio < 0){
-    likeDislikeRatio = 0;
-  }else{
-    likeDislikeRatio = Math.floor(averageQlArray - adAmount * 10);  
-  }
+  likeDislikeRatio = Math.floor(averageQl*10 - adAmount*10); 
+    if (likeDislikeRatio < 0){
+     likeDislikeRatio = 0;
+    } 
+    else if (likeDislikeRatio > 100){
+     likeDislikeRatio = 100;
+    }
   document.getElementById("likeDislikeRatio").innerHTML = likeDislikeRatio + "%";
 }
 
-var subscribers = 0;
+//increase subscriber count
 function subRefresh(){
-  subscribers = subscribers + videosUploaded * likeDislikeRatio;
+    if(likeDislikeRatio >= 50){
+      subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
+    }
+    else {
+      subscribers -= videosUploaded * parseInt(likeDislikeRatio/10);
+    }
+    if (subscribers < 0){
+      subscribers = 0;
+    }
   document.getElementById("subscriberAmount").innerHTML = subscribers;
 }
 
-//ratio = Ql - AL x 10
-//Subs = videos x ratio
+//Views from subs
+function viewsFromSubs(){
+  views += subscribers;
+  views = Math.floor(views);
+  document.getElementById("views").innerHTML = views;
+}
+
+//views calculation
+function viewsRefresh(){
+  views += 0.05*subscribers;
+  var viewsRound = views.toFixed();
+  document.getElementById("views").innerHTML = viewsRound;
+}
+
 //videos * adload = cash
+function cashGen(){
+  cashAmount += 0.0001*videosUploaded*views*adAmount;
+  var cashAmountRound = cashAmount.toFixed(2);
+  document.getElementById("cashAmount").innerHTML = cashAmountRound;
+}
+
+//function for cicular progress bar
+function setPercentage(v){
+  $('.mask span').html(v+'%');
+  var perct = v*3.6;
+    if(v >= 50){
+       $('.right-block').css('background','inherit'); 
+       perct = perct - 180;
+    }
+    else{
+       $('.right-block').css('background','#ccc'); 
+    }
+  $('.right-block').css('transform','rotate('+perct+'deg)'); 
+}
+
+
