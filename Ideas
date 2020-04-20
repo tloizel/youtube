@@ -4,13 +4,58 @@ TO DO
 3- put subDiff on same line (two spans aligned)
 
 
-
-Random events you light not always qualify for by that more you want to hit that goal.
-Hard cap to limit videos. Ex : computer memory
+IDEAS
+Random events 
 Discard ideas or videos: Idea scrapper or Computer failure
 Track subscriber number on a live chart
 
 
 DEBUG
 Can't edit in advance when no videos are ready
-Clicking repeatedly upload increments videos edited negatively!
+
+
+
+
+Sprint 1. Projects
+
+
+//IDEA
+var creativity = 1; //creativity level
+var rangeIdea = 5; //value of Qt on range
+var ideaQl =  5; //value of Ql on range
+var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
+
+
+
+
+//SHOOT AND EDIT
+var shootEdit = 10; //
+var videosEdited = 0; //number of videos edited
+var computerMemory = 5; //max videos edited 
+
+
+
+
+//UPLOAD
+var videosUploaded = 0; //Videos online
+var averageQl = 0; //average video quality after upload
+
+
+
+
+//SUBS
+var views = 0;
+var likeDislikeRatio = 0;
+var subscribers = 0;
+
+
+
+
+//CASH
+var adAmount = 0;
+var cashAmount = 0;
+
+
+
+
+
