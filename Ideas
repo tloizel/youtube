@@ -34,15 +34,13 @@ var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
 - binge watched youtube 17 hours straight, 'inspiration' is flowing
 - invite a mate over, brainstorm until dawn
 - figure out translating isn't plagiarism
-- watch the OGs of youtube =3
+- watch the OGs of youtube
 - take on guitar lessons, music videos seem to be a thing
 - vlog everything you do, morning routine and all
 - Open a gaming channel, surely you can figure out how to play minecraft
-- Copy YouTube videos concepts from other countries
 - Take adderall (less creativity next day)
-- Watch classic movies
-
-
+- Finish Netflix
+- Buy your beloved greenscreen
 
 
 //SHOOT AND EDIT
@@ -57,13 +55,15 @@ var computerMemory = 5; //max videos edited
 - Buy an external hardrive
 - Convince your parents to pay for extra cloud storage
 - Delete old footage and live to regret it
-- Black Friday shopping spree
+- Black Friday computer shopping spree
 - upgrade laptop, because tools make the man
 - Hire a video editor, you ain't got time for this no more
 - Watch classic flicks
 - Listen to an Scorcese interview about editing
 - Casey's vlogs teach you more than film school
 - Free 1 month trial for cloud storage, autobilled right after
+- Buy a gaming mouse for those extra clicks
+- The shorter the better
 
 
 
@@ -76,11 +76,14 @@ var averageQl = 0; //average video quality after upload
 - 10 000th video, unstoppable
 - 1Mth video, you should stop now, TikTok's the next big thing
 - creative block, happens to the best of us
+- Mom unplugged the wifi for the night
 - figure out how to use you're phone's hotspot
 - buy a ethernet cable, old school style
 - convince mum to upgrade internet plan 
 - your building upgrade to fibre-optic internet
-- Upload videos from the library
+- Upload videos from the school library
+- Convince dad to get home internet
+- Improve video size
 
 
 
@@ -114,11 +117,12 @@ var subscribers = 0;
 - Spam your video on everyone's FB/IG/TW
 - Write a letter to your favorite YouTuber for a shootout (fails)
 - Add method acting to your videos
-- Search for trends
+- Copy the mainstream
+- Accomplish every YouTube challenge
 - Setup autoclickers on all library computers to watch your videos on repeat
 - Annotation restarts the video for the extra view
-
-
+- Put bewbs in thumbnail
+- Actually improve content
 
 
 
@@ -133,9 +137,9 @@ var cashAmount = 0;
 - Product placement for a terrible online game
 - sell overpriced ice-cream at the beach
 - youtube RED can't be that bad
-- monetize all other social media
+- share on all other social media
 - Launch a Patreon
-- Eat noodles and save money
+- Eat noodles and save money on food
 - Sell your "rare" Pokemon cards
 - Steal in mom's purse
 - Get a loan from your friends
