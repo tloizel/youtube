@@ -73,7 +73,7 @@
   </div> <!--end of child flex SHOOT AND EDT-->
  
   <div class = "childFlex">
-    <h2>3. Upload</h1>
+    <h2>3. Upload</h2>
     <input class="button"
            id="uploadB"
            type="button"
@@ -92,12 +92,12 @@
   </div> <!--end of child flex UPLOAD-->
   
   <div class = "childFlex">
-     <h2>4. Subscribers</h1>
+     <h2>4. Subscribers</h2>
      <p>Like/Dislike Ratio :
      <span id="likeDislikeRatio">0%<span></p>
      <p>Subscribers :
-       <span id="subscriberAmount" >0<span></p>
-       <p><span id="subDifference" >0<span></p>
+       <span style=“display: inline;” id="subscriberAmount" >0</span>
+       <span style=“display: inline;” id="subDifference" >+0</span></p>
      <p>Views
      <span id="views" class="span">0</span>   
      <input class="button"
@@ -109,9 +109,9 @@
    </div> <!--end of child SUBSCRIBERS-->
   
   <div class = "childFlex">
-    <h2>5. Ca$h</h1>
+    <h2>5. Ca$h</h2>
     <p>Cash :
-    <span id="cashAmount" >$0<span></p>
+    <span id="cashAmount" >$0.00<span></p>
     <p>Ad Load :
     <span id="adLoad" >0<span></p>
     <input class="button"
@@ -125,5 +125,61 @@
            value="+"
            onclick="addAdLoad(1)">
  </div> <!--end of child flex CASH-->
+ 
+ <div class = "childFlex">
+    <h2>6. Comments</h2>
+    <input class="button"
+           id="commentB"
+           type="button"
+           value="Next Comment"
+           onclick="callComment()"><br>
+   <div class="comments">
+    <span>&nbsp;.&nbsp;</span><span id="comment1"></span><br>
+    <span>&nbsp;.&nbsp;</span><span class="oldComment" id="comment2"></span><br>
+    <span>&nbsp;.&nbsp;</span><span class="oldComment" id="comment3"></span><br>
+    <span>&nbsp;.&nbsp;</span><span class="oldComment" id="comment4"></span><br>
+   </div>
+ </div> <!--end of child flex COMMENTS--> 
+      
+ <div class = "childFlex">
+    <h2>7. Projects</h2>
+    <div   id="ideaProjectsB"
+           class="project"
+           onclick="callProject(ideaProjects)">
+     <span class="projectName" id="ideaProjectsName">Click</span><br>
+     <span class="projectDesc" id="ideaProjectsDesc">to discover your first Idea project</span>
+    </div>
+    <div   id="shootEditProjectsB"
+           class="project"
+           onclick="callProject(shootEditProjects)">
+     <span class="projectName" id="shootEditProjectsName">Click</span><br>
+     <span class="projectDesc" id="shootEditProjectsDesc">to discover your first Shoot&Edit project</span>
+    </div>
+    <div   id="uploadProjectsB"
+           class="project"
+           onclick="callProject(uploadProjects)">
+     <span class="projectName" id="uploadProjectsName">Click</span><br>
+     <span class="projectDesc" id="uploadProjectsDesc">to discover your first Upload project</span>
+    </div>
+    <div   id="subProjectsB"
+           class="project"
+           onclick="callProject(subProjects)">
+     <span class="projectName" id="subProjectsName">Click</span><br>
+     <span class="projectDesc" id="subProjectsDesc">to discover your first Subs project</span>
+    </div>
+    <div   id="cashProjectsB"
+           class="project"
+           onclick="callProject(cashProjects)">
+     <span class="projectName" id="cashProjectsName">Click</span><br>
+     <span class="projectDesc" id="cashProjectsDesc">to discover your first Cash project</span>
+    </div>
+    <div   id="viewsProjectsB"
+           class="project"
+           onclick="callProject(viewsProjects)">
+     <span class="projectName" id="viewsProjectsName">Click</span><br>
+     <span class="projectDesc" id="viewsProjectsDesc">to discover your first Views project</span>
+    </div>
+   
+ </div> <!--end of child flex PROJECTS-->       
       
 </div> <!--end of parent flex-->
