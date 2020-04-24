@@ -31,11 +31,15 @@ var adAmount = 0;
 var cashAmount = 0;
 
 //COMMENTS
-var allComments = ["First", "gay", "love your vids", "keep it up", "hey man", "this is ok i guess", "unsub"]
-var comment1 = null;
-var comment2 = null;
-var comment3 = null;
-var comment4 = null;
+var comments = [
+  {name: "good", type: "positive"},
+  {name: "great", type: "positive"},
+  {name: "toll", type: "positive"},
+  {name: "gay", type: "negative"},
+  {name: "unsub", type: "negative"},
+  {name: "trash", type: "negative"}
+  ];
+var commentBox = ["","","",""];
 
 //TIMERS
   //Function for ticker
@@ -306,17 +310,45 @@ function setPercentage(v){
   $('.right-block').css('transform','rotate('+perct+'deg)'); 
 }
 
-//Call Comments
+//call comments
 function callComment(){
-  comment4 = comment3;
-  comment3 = comment2;
-  comment2 = comment1;
-  comment1 = allComments[0];
-  document.getElementById("comment1").innerHTML = comment1;
-  document.getElementById("comment2").innerHTML = comment2;
-  document.getElementById("comment3").innerHTML = comment3;
-  document.getElementById("comment4").innerHTML = comment4;
-  allComments.shift();
+  commentBox.unshift(commentType());
+  commentArrayShift();
+}
+  
+//décalé comments
+function commentArrayShift(){
+  document.getElementById("comment1").innerHTML = commentBox[0];
+  document.getElementById("comment2").innerHTML = commentBox[1];
+  document.getElementById("comment3").innerHTML = commentBox[2];
+  document.getElementById("comment4").innerHTML = commentBox[3];
+  if (commentBox.length > 4){
+    commentBox.pop();
+  }
+  console.log(commentBox);
+}
+
+function commentType() {
+  var com;
+  if (likeDislikeRatio >= 50){
+     var positiveComment = comments.filter(function(e) {
+     return e.type === "positive";
+     });
+      let x = getRandomInt(0,positiveComment.length)
+      com = positiveComment[x].name;
+  }else{
+      var negativeComment = comments.filter(function(e) {
+      return e.type === "negative";
+      });
+      let x = getRandomInt(0,negativeComment.length)
+      com = negativeComment[x].name;
+  }
+  return com;
+}
+
+//Gets a random integer between `min` and `max` 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 //project arrays
@@ -365,8 +397,8 @@ function callProject(array) {
   document.getElementById(projectDesc).innerHTML = array[0][3];
     if (eval(array[0][1]) == true && array.length>0) {
         eval(array[0][4]);
-        allComments.unshift(array[0][5]);
-        callComment();
+        commentBox.unshift(array[0][5]);
+        commentArrayShift();
         array.shift();
         document.getElementById(projectName).innerHTML = array[0][2];
         document.getElementById(projectDesc).innerHTML = array[0][3];
