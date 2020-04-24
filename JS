@@ -382,19 +382,12 @@ var cashProjects = [
   ["cashProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
   ["cashProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
-var viewsProjects = [
-  ["viewsProjects", "views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["viewsProjects", "views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["viewsProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
-  ["viewsProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
-];
+
 
 //Call Projects
 function callProject(array) {
   var projectName = array[0][0]+"Name";
   var projectDesc = array[0][0]+"Desc";
-  document.getElementById(projectName).innerHTML = array[0][2];
-  document.getElementById(projectDesc).innerHTML = array[0][3];
     if (eval(array[0][1]) == true && array.length>0) {
         eval(array[0][4]);
         commentBox.unshift(array[0][5]);
