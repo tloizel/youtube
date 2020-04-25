@@ -152,7 +152,7 @@ body {
 }
 
 .oldComment {
-  color:grey;
+  opacity:0.4;
 }
 
 .project {
@@ -167,7 +167,7 @@ body {
   margin:10px;
 }
 
-.projectName {
+.projectTitle {
   font-weight:bold;
   font-size:16pt;
 }
