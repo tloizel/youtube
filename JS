@@ -39,7 +39,11 @@ var comments = [
   {name: "unsub", type: "negative"},
   {name: "trash", type: "negative"}
   ];
-var commentBox = ["","","",""];
+var commentBox = [{comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
+                  ];
 
 //TIMERS
   //Function for ticker
@@ -265,13 +269,14 @@ function subDifferenceColor(v){
     var element = document.getElementById("subDifference");
     if(v < 0){
       document.getElementById("subDifference").innerHTML = vRound;
-      element.classList.add("red");
       element.classList.remove("green");
+      element.classList.add("red");
+
     }
     else{
       document.getElementById("subDifference").innerHTML = "+"+vRound;
-      element.classList.add("green");
       element.classList.remove("red");
+      element.classList.add("green");
     }
 }
 
@@ -312,22 +317,39 @@ function setPercentage(v){
 
 //call comments
 function callComment(){
-  commentBox.unshift(commentType());
+  commentBox.unshift({comment:commentType(),source:"callComment"});
   commentArrayShift();
 }
   
 //décalé comments
 function commentArrayShift(){
-  document.getElementById("comment1").innerHTML = commentBox[0];
-  document.getElementById("comment2").innerHTML = commentBox[1];
-  document.getElementById("comment3").innerHTML = commentBox[2];
-  document.getElementById("comment4").innerHTML = commentBox[3];
+  var i = 0;
+  do {
+     var commentId = "comment" + (i+1);
+      commentStyle(commentBox[i].source,commentId);
+      document.getElementById(commentId).innerHTML = commentBox[i].comment;
+      i++;
+  } while(i < 4);
+  
   if (commentBox.length > 4){
-    commentBox.pop();
+      commentBox.pop();
   }
-  console.log(commentBox);
 }
 
+//comment css style
+function commentStyle(commentSource,id){
+  var element = document.getElementById(id);
+  if(commentSource == "callComment"){
+    element.classList.remove("green");
+    element.classList.add("red");
+  }
+  else if (commentSource == "callProject"){
+    element.classList.remove("red");
+    element.classList.add("green");
+  }
+}
+
+//generate random positive or negative comment
 function commentType() {
   var com;
   if (likeDislikeRatio >= 50){
@@ -353,47 +375,47 @@ function getRandomInt(min, max) {
 
 //project arrays
 var ideaProjects = [
-  ["ideaProjects", "views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["ideaProjects", "views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["ideaProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
-  ["ideaProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var shootEditProjects = [
-  ["shootEditProjects", "views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["shootEditProjects", "views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["shootEditProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
-  ["shootEditProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var uploadProjects = [
-  ["uploadProjects", "views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["uploadProjects", "views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["uploadProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
-  ["uploadProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var subProjects = [
-  ["subProjects", "views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["subProjects", "views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["subProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
-  ["subProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var cashProjects = [
-  ["cashProjects", "views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["cashProjects", "views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["cashProjects", "subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
-  ["cashProjects", "views<10", "End of projects", "congrats", "views+=1", "end of projects"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 
 
 //Call Projects
-function callProject(array) {
-  var projectName = array[0][0]+"Name";
-  var projectDesc = array[0][0]+"Desc";
-    if (eval(array[0][1]) == true && array.length>0) {
-        eval(array[0][4]);
-        commentBox.unshift(array[0][5]);
+function callProject(array,title,desc) {
+  var projectTitle = title.id;
+  var projectDesc = desc.id;
+    if (eval(array[0][0]) == true && array.length>0) {
+        eval(array[0][3]);
+        commentBox.unshift({comment:array[0][4],source:"callProject"});
         commentArrayShift();
         array.shift();
-        document.getElementById(projectName).innerHTML = array[0][2];
-        document.getElementById(projectDesc).innerHTML = array[0][3];
+        document.getElementById(projectTitle).innerHTML = array[0][1];
+        document.getElementById(projectDesc).innerHTML = array[0][2];
   }
 }
