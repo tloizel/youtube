@@ -267,16 +267,17 @@ function SubsRefresh(){
 function subDifferenceColor(v){
     var vRound = v.toFixed();
     var element = document.getElementById("subDifference");
+    var newone = element.cloneNode(true);
+    element.parentNode.replaceChild(newone, element);
     if(v < 0){
-      document.getElementById("subDifference").innerHTML = vRound;
-      element.classList.remove("green");
-      element.classList.add("red");
-
+      newone.innerHTML = vRound;
+      newone.classList.remove("animatedGreen");
+      newone.classList.add("animatedRed");
     }
     else{
-      document.getElementById("subDifference").innerHTML = "+"+vRound;
-      element.classList.remove("red");
-      element.classList.add("green");
+      newone.innerHTML = "+"+vRound;
+      newone.classList.remove("animatedRed");
+      newone.classList.add("animatedGreen");
     }
 }
 
@@ -321,7 +322,7 @@ function callComment(){
   commentArrayShift();
 }
   
-//décalé comments
+//décaler comments
 function commentArrayShift(){
   var i = 0;
   do {
