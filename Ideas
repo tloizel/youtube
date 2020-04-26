@@ -1,9 +1,19 @@
 TO DO 
 
+1. Fill project table (google drive), order, conditions, effects
+2. Projects appearing (keyframes)
+3. Make subscribers adds & substractions disappear (next to sub count)
+4. Add project effect in commentBox
+5. Add project effect next/above to the relevant span.
+6. Add span editor speed
+7. Computer memory cost unit
+8. TOTAL (QtT) in Ticker box (utilities)
+9. Tester function dans array[effect] en string ou non
 
-1. Build project table (google drive)
-2. Implement Axel's appearing effecting in code
-3. make comments appear according to positive or negative
+*After play-testing*
+1. Add cash expenses : editor salary, wifi, electricity. Expenses/s
+2. CSS V2 draft on paper
+3. Narration Array Object included in commentBox. Ex : Story beginning, Move out event at X subs
 
 
 IDEAS
@@ -11,6 +21,7 @@ IDEAS
 Random events 
 Discard ideas or videos: Idea scrapper or Computer failure
 Track subscriber number on a live chart
+Upload button as an enter button
 
 
 DEBUG
