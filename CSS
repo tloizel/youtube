@@ -147,6 +147,39 @@ body {
   color:green;
 }
 
+/* FOR SUB DIFF */
+
+.subDifferenceClass {
+  position: relative;
+  color:black;
+  opacity:0;
+}
+
+.subDifferenceClass.animatedRed {
+  animation-name: animationRed;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+.subDifferenceClass.animatedGreen {
+  animation-name: animationGreen;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animationRed {
+  0%    {bottom:0px;opacity:100;color:red;}
+  100%   {bottom:10px;opacity:0;color:red;}
+
+}
+
+@keyframes animationGreen {
+  0%    {bottom:0px;opacity:100;color:green;}
+  100%   {bottom:10px;opacity:0;color:green;}
+}
+
+/* END OF SUB DIFF */
+
 .callCommentcolor {
   color:black;
 }
