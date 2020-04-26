@@ -46,7 +46,7 @@ body {
 }
 
 .childFlex {
-  height: 20em;
+  height: 22em;
   width: 20em;
   padding: 10px;
   text-align: center;
@@ -146,6 +146,16 @@ body {
 .green {
   color:green;
 }
+
+.callCommentcolor {
+  color:black;
+}
+
+.projectCommentcolor {
+  color:purple;
+}
+
+
 
 .comments {
   text-align:left;
