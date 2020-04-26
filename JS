@@ -94,13 +94,13 @@ function upgradeCreativity(){
   document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
 }
 
-//Upgrade MEMORY according to views
+//Upgrade MEMORY according to cashAmount
 function upgradeMemory(){
   var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
-    if(views >= upCost){
+    if(cashAmount >= upCost){
      computerMemory += 1;
-     views -= upCost;
-     document.getElementById("views").innerHTML = views;
+     cashAmount -= upCost;
+     document.getElementById("cashAmount").innerHTML = "$" + cashAmount;
      document.getElementById("computerMemory").innerHTML = computerMemory + "Gb";
    }
   var nextCost = Math.floor(10 * Math.pow(1.2,computerMemory));
@@ -340,12 +340,12 @@ function commentArrayShift(){
 function commentStyle(commentSource,id){
   var element = document.getElementById(id);
   if(commentSource == "callComment"){
-    element.classList.remove("green");
-    element.classList.add("red");
+    element.classList.remove("projectCommentcolor");
+    element.classList.add("callCommentcolor");
   }
   else if (commentSource == "callProject"){
-    element.classList.remove("red");
-    element.classList.add("green");
+    element.classList.remove("callCommentcolor");
+    element.classList.add("projectCommentcolor");
   }
 }
 
@@ -375,33 +375,33 @@ function getRandomInt(min, max) {
 
 //project arrays
 var ideaProjects = [
-  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy [<em>+10000 views</em>]"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy [<em>+30000 views</em>]"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain [<em>+1000 cash</em>]"],
   ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var shootEditProjects = [
-  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy [<em>+10000 views</em>]"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy [<em>+30000 views</em>]"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain [<em>+1000 cash</em>]"],
   ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var uploadProjects = [
-  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy [<em>+10000 views</em>]"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy [<em>+30000 views</em>]"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain [<em>+1000 cash</em>]"],
   ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var subProjects = [
-  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy [<em>+10000 views</em>]"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy [<em>+30000 views</em>]"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain [<em>+1000 cash</em>]"],
   ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 var cashProjects = [
-  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy"],
-  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy"],
-  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain"],
+  ["views>10", "Casey Shoutout", "10 views required", "views+=10000", "damn casey's your boy [<em>+10000 views</em>]"],
+  ["views>15", "RWJ shoutout", "15 views required", "views+=30000", "damn ray's your boy [<em>+30000 views</em>]"],
+  ["subscribers>10", "Extra pocket money", "10 subs required", "cashAmount+=1000", "make it rain [<em>+1000 cash</em>]"],
   ["views<10", "End of projects", "congrats", "views+=1", "end of projects"],
 ];
 
