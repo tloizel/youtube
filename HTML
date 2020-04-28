@@ -13,6 +13,7 @@
            id="stop"
            onclick="stopTimers()" 
            value="Stop" />
+   
   </div> <!--end of child flex ticker-->
 
   <div class = "childFlex">
@@ -135,10 +136,10 @@
            value="Next Comment"
            onclick="callComment()"><br>
    <div class="comments">
-    <span>&nbsp;.&nbsp;</span><span id="comment1"></span><br>
-    <span>&nbsp;.&nbsp;</span><span class="oldComment" id="comment2"></span><br>
-    <span>&nbsp;.&nbsp;</span><span class="oldComment" id="comment3"></span><br>
-    <span>&nbsp;.&nbsp;</span><span class="oldComment" id="comment4"></span><br>
+    <span>&nbsp;>&nbsp;</span><span id="comment1"></span><br>
+    <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment2"></span><br>
+    <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment3"></span><br>
+    <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment4"></span><br>
    </div>
  </div> <!--end of child flex COMMENTS--> 
       
@@ -146,31 +147,31 @@
     <h2>7. Projects</h2>
     <div   id="ideaProjectsB"
            class="project"
-           onclick="callProject(ideaProjects,ideaProjectsTitle,ideaProjectsDesc)">
+           onclick="callProject(ideaProjects,ideaProjectsTitle,ideaProjectsDesc,0)">
      <span class="projectTitle" id="ideaProjectsTitle">Casey Shoutout</span><br>
      <span class="projectDesc" id="ideaProjectsDesc">10 views required</span>
     </div>
     <div   id="shootEditProjectsB"
            class="project"
-           onclick="callProject(shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc)">
+           onclick="callProject(shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,1)">
      <span class="projectTitle" id="shootEditProjectsTitle">Casey Shoutout</span><br>
      <span class="projectDesc" id="shootEditProjectsDesc">10 views required</span>
     </div>
     <div   id="uploadProjectsB"
            class="project"
-           onclick="callProject(uploadProjects,uploadProjectsTitle,uploadProjectsDesc)">
+           onclick="callProject(uploadProjects,uploadProjectsTitle,uploadProjectsDesc,2)">
      <span class="projectTitle" id="uploadProjectsTitle">Casey Shoutout</span><br>
      <span class="projectDesc" id="uploadProjectsDesc">10 views requiredt</span>
     </div>
     <div   id="subProjectsB"
            class="project"
-           onclick="callProject(subProjects,subProjectsTitle,subProjectsDesc)">
+           onclick="callProject(subProjects,subProjectsTitle,subProjectsDesc,3)">
      <span class="projectTitle" id="subProjectsTitle">Casey Shoutout</span><br>
      <span class="projectDesc" id="subProjectsDesc">10 views required</span>
     </div>
     <div   id="cashProjectsB"
            class="project"
-           onclick="callProject(cashProjects,cashProjectsTitle,cashProjectsDesc)">
+           onclick="callProject(cashProjects,cashProjectsTitle,cashProjectsDesc,4)">
      <span class="projectTitle" id="cashProjectsTitle">Casey Shoutout</span><br>
      <span class="projectDesc" id="cashProjectsDesc">10 views required</span>
     </div>
@@ -178,5 +179,3 @@
  </div> <!--end of child flex PROJECTS-->       
       
 </div> <!--end of parent flex-->
-      
-
