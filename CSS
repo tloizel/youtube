@@ -76,6 +76,8 @@ body {
   align-items: center;
   justify-items: center;
   justify-content: space-around;
+  border: 10px solid red;
+  border-radius: 25px;
 }
 
 .childFlex {
@@ -110,7 +112,7 @@ body {
   width:100px;
   height:100px;
   border-radius:50%;
-  background:yellowgreen;
+  background:green;
   overflow:hidden;
   box-shadow: -3px -3px 7px #ffffffa6, 3px 3px 5px rgba(94, 104, 121, 0.712);
 	position: relative;
