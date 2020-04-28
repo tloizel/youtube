@@ -1,5 +1,6 @@
 body {
   font-family: montserrat, sans-serif;
+  background-color: #dde1e7;
 }
 
 .span {
@@ -37,6 +38,38 @@ body {
   outline: 0;
 }
 
+#ideaRange{
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: red;
+  width: 50%;
+  height: 5px;
+  border-radius: 15px;
+  box-shadow: 0px 1px #999;
+  opacity: 0.8;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#ideaRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 8px solid #bcbcbc;
+  height: 25px;
+  width: 25px;
+  border-radius: 510%;
+  background: red;
+  cursor: pointer;
+  box-shadow: 0px 1px #999;  
+}
+
+#ideaRange:hover {
+  opacity: 1;
+}
+
+#ideaRange:focus {
+  outline: 0;
+}
+
 .parentFlex {
   display: flex;
   flex-flow: row wrap;
@@ -48,19 +81,18 @@ body {
 .childFlex {
   height: 22em;
   width: 20em;
+  margin: 15px;
   padding: 10px;
   text-align: center;
-  border-style: outset;
   border-radius: 25px;
-  border-color: red;
-  border-width: 5px;
-  box-shadow: 0px 5px #999;
+  box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
+  background-color: edc9c9;
 }
 
 #myProgress {
   width: 100%;
-  background-color: grey;
-  border-style: outset;
+  background-color: lightgrey;
+  box-shadow: inset -3px -3px 4px #ffffffb0, inset 3px 3px 4px rgba(94, 104, 121, 0.692);
 }
 
 #myBar {
@@ -73,12 +105,15 @@ body {
 
 .progress-holder{
   margin: auto;
+  margin-top: 15px;
   position:relative;
   width:100px;
   height:100px;
   border-radius:50%;
   background:yellowgreen;
   overflow:hidden;
+  box-shadow: -3px -3px 7px #ffffffa6, 3px 3px 5px rgba(94, 104, 121, 0.712);
+	position: relative;
 }
 
 .semi-circle{
@@ -120,13 +155,14 @@ body {
     position: absolute;
     left: 10%;
     top: 10%;
-    background: #fff;
+    background: #dde1e7;
     border-radius: 50%;
-    text-align:center;
+    text-align: center;
+  box-shadow: inset -3px -3px 5px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.671);
    }
 
 .mask span{
-    color: yellowgreen;
+    color: black;
     font-size: 20px;
     font-family: Arial;
     position: absolute;
@@ -189,11 +225,15 @@ body {
 }
 
 .comments {
+  margin: 10px;
+  padding: 10px;
   text-align:left;
+  border-radius: 10px;
+  box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);
 }
 
 .oldComment {
-  opacity:0.4;
+  opacity:0.5;
 }
 
 .project {
@@ -203,7 +243,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0px 3px #999;
-  background-color:grey;
+  background-color:red;
   color:white;
   margin:10px;
 }
@@ -213,4 +253,28 @@ body {
   font-size:16pt;
 }
 
+.project.animated{
+  animation-name: reveal;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
 
+@keyframes reveal {
+  0% {opacity: 100;}
+  5% {opacity: 0;}
+  10% {opacity: 100;}
+  15% {opacity: 0;}
+  20% {opacity: 100;}
+  25% {opacity: 0;}
+  30% {opacity: 100;}
+  35% {opacity: 0;}
+  40% {opacity: 100;}
+  45% {opacity: 0;}
+  50% {opacity: 100;}
+  55% {opacity: 0;
+  background-color: white;
+  color:red;}
+  100% {opacity: 100;
+  color: white;}
