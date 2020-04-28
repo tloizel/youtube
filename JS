@@ -43,6 +43,12 @@ var commentBox = [{comment:"",source:""},
                   {comment:"",source:""},
                   {comment:"",source:""},
                   {comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
+                  {comment:"",source:""},
                   ];
 
 //TIMERS
@@ -140,7 +146,7 @@ function newArray(value, len) {
 
 //Shoot & Edit
 function clicksLeft(){
-  if(shootEditRem > 0){
+  if(shootEditRem > 0 && ideasQt>0){
     shootEditRem -= 1 ;
     document.getElementById("editClicks").innerHTML = shootEditRem;
    }
@@ -169,6 +175,7 @@ function uploadVideo() {
    if (width >= 100) {
      clearInterval(id);
      loadState = 0;
+     elem.style.width = 0 + "%";
      videosUploaded++;
      document.getElementById("videos").innerHTML = videosUploaded;
      videosEdited--;
@@ -330,9 +337,9 @@ function commentArrayShift(){
       commentStyle(commentBox[i].source,commentId);
       document.getElementById(commentId).innerHTML = commentBox[i].comment;
       i++;
-  } while(i < 4);
+  } while(i < 10);
   
-  if (commentBox.length > 4){
+  if (commentBox.length > 10){
       commentBox.pop();
   }
 }
@@ -422,6 +429,7 @@ function callProject(array,title,desc,num) {
   }
 }
 
+//flickering effect on appearing objects
 function flickAppear(class1,num) {
   var element = document.getElementsByClassName(class1)[num];
   var clone = element.cloneNode(true);
