@@ -3,6 +3,14 @@ body {
   background-color: #dde1e7;
 }
 
+.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   -user-select: none;
+}
+
 .span {
   font-family: roboto;
   border: solid;
@@ -82,8 +90,8 @@ body {
 }
 
 .childFlex {
-  height: 30em;
-  width: 20em;
+  height: 33em;
+  width: 24em;
   margin: 15px;
   padding: 10px;
   text-align: center;
@@ -95,6 +103,7 @@ body {
 /* SHOOT AND EDIT PROGRESS CIRCLE */
 
 .progress-holder{
+  cursor: pointer;
   margin: auto;
   margin-top: 15px;
   position:relative;
@@ -186,7 +195,6 @@ body {
   height: 30px;
   background-color: green;
 }
-
 
 .red {
   color:red;
