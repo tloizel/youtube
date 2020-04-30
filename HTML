@@ -46,13 +46,9 @@
   <div class = "childFlex">
     <h2>2. Shoot & Edit</h2>
     <span id="editClicks" class="span">10</span>
-    <input class="button"
-           id="editButton"
-           type="button"
-           value="Edit"
-           onclick="clicksLeft()" > 
 
-<div class="progress-holder">
+<div class="progress-holder unselectable"
+     onclick="clicksLeft()">
   <div class="semi-circle"></div>
   <div class="left-block"></div>
   <div class="right-block"></div>
@@ -62,10 +58,21 @@
     <span id="videosEdited" class="span">0</span></p>
       
     <p>Editor Speed :
-    <span id="editorSpeed">1 click/sec</span></p>
+    <span id="editorSpeed">1 clicks/sec</span>
+    <input class="button"
+           id="subEditorButton"
+           type="button"
+           value="-"
+           onclick="upgradeEditSpeed(0)">
+    <input class="button"
+           id="addEditorButton"
+           type="button"
+           value="+"
+           onclick="upgradeEditSpeed(1)">
+    </p>
 
     <p>Computer Memory :
-      <span id="computerMemory" class="span">5Gb</span></p>
+    <span id="computerMemory" class="span">5Gb</span></p>
     <span id="upgradeMemoryCost"><em>Cost </em>: $24</span>
   <input class="button"
            id="memoryButton"
@@ -75,6 +82,11 @@
     <br><br>
     <canvas id="memoryCanvas">
     </canvas>
+    
+   <input class="button"
+           type="button"
+           value="Activate auto edit"
+           onclick="autoEdit()" >  
     
   </div> <!--end of child flex SHOOT AND EDT-->
  
@@ -86,7 +98,17 @@
            value="Upload Video"
            onclick="uploadVideo()">
      <p>Upload speed : <span id="uploadSpeed">100kB/s</span>
-     </p>
+    <input class="button"
+           id="subUploadButton"
+           type="button"
+           value="-"
+           onclick="upgradeUploadSpeed(0)">
+    <input class="button"
+           id="addUploadButton"
+           type="button"
+           value="+"
+           onclick="upgradeUploadSpeed(1)">
+    </p>
      <div id="myProgress">
      <div id="myBar"></div></div>
      <p>Videos online : <span id="videos" class="span">0</span>
@@ -95,6 +117,12 @@
      </p>
      <p>average Ql : <span id="averageQl" class="span">0</span>
      </p>
+    
+    <input class="button"
+           type="button"
+           value="Activate auto upload"
+           onclick="autoUpload()" > 
+    
   </div> <!--end of child flex UPLOAD-->
   
   <div class = "childFlex">
@@ -124,12 +152,12 @@
            id="subAdButton"
            type="button"
            value="-"
-           onclick="subAdLoad(1)">
+           onclick="changeAdLoad(0)">
     <input class="button"
            id="addAdButton"
            type="button"
            value="+"
-           onclick="addAdLoad(1)">
+           onclick="changeAdLoad(1)">
  </div> <!--end of child flex CASH-->
  
  <div class = "childFlex">
