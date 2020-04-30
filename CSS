@@ -6,6 +6,7 @@ body {
 .span {
   font-family: roboto;
   border: solid;
+  text-align: center;
   padding-left: 20px;
   padding-right: 20px;
   margin: 15px;
@@ -81,7 +82,7 @@ body {
 }
 
 .childFlex {
-  height: 22em;
+  height: 30em;
   width: 20em;
   margin: 15px;
   padding: 10px;
@@ -89,18 +90,6 @@ body {
   border-radius: 25px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: edc9c9;
-}
-
-#myProgress {
-  width: 100%;
-  background-color: lightgrey;
-  box-shadow: inset -3px -3px 4px #ffffffb0, inset 3px 3px 4px rgba(94, 104, 121, 0.692);
-}
-
-#myBar {
-  width: 0%;
-  height: 30px;
-  background-color: green;
 }
 
 /* SHOOT AND EDIT PROGRESS CIRCLE */
@@ -174,7 +163,29 @@ body {
     left: calc(0px);
 }
 
+#memoryCanvas {
+    width: 90%;
+    height: 100px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #DDE1E7;
+    box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #ffbcc2;
+}
+
 /* END OF SHOOT AND EDIT PROGRESS CIRCLE */
+
+/*Upload bar*/
+#myProgress {
+  width: 100%;
+  background-color: lightgrey;
+  box-shadow: inset -3px -3px 4px #ffffffb0, inset 3px 3px 4px rgba(94, 104, 121, 0.692);
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: green;
+}
 
 
 .red {
