@@ -57,21 +57,25 @@
   <div class="left-block"></div>
   <div class="right-block"></div>
   <div class="mask"><span>0%</span></div>
-</div>
-    
-<br>
-    <p>Videos edited :<span id="videosEdited" class="span">0</span>
-    </p>
-    <p><em>Computer Memory :</em><span id="computerMemory" class="span">5Gb</span>
-    </p>
-    <input class="button"
+</div>      
+    <p>Videos edited
+    <span id="videosEdited" class="span">0</span></p>
+      
+    <p>Editor Speed :
+    <span id="editorSpeed">1 click/sec</span></p>
+
+    <p>Computer Memory :
+      <span id="computerMemory" class="span">5Gb</span></p>
+    <span id="upgradeMemoryCost"><em>Cost </em>: $24</span>
+  <input class="button"
            id="memoryButton"
            type="button"
            value="Upgrade"
            onclick="upgradeMemory()" >
-    <span id="upgradeMemoryCost"><em>Cost </em>: $24</span>
-<br>
-    <p><em>Editor Speed :</em><span id="editorSpeed" class="span">1 click per sec</span>
+    <br><br>
+    <canvas id="memoryCanvas">
+    </canvas>
+    
   </div> <!--end of child flex SHOOT AND EDT-->
  
   <div class = "childFlex">
