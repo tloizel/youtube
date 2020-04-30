@@ -14,12 +14,15 @@ var shootEdit = 10; //
 var shootEditRem = 10; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
 var computerMemory = 6; //max videos edited 
+var editorSpeed = 1;
 
 //UPLOAD
 var ideaQlArray = new Array();
 var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
+var uploadSpeed = 1; //*100
+var loadState = 0;//load state of progress bar
 
 //SUBS
 var views = 11;
@@ -61,12 +64,27 @@ function autoticker(number){
   document.getElementById("ticker").innerHTML = ticker;
 }
 
-  //start timer1
+//start timer1
 function startTimer1(){
   ideaTimer = setInterval(function(){
               autoticker(1);
               ideasGen();
               },3000);
+}
+
+//start auto edit
+function autoEdit(){
+var  editorTimer = setInterval(function(){
+                   for (var i = 0; i < editorSpeed; i++) {clicksLeft();}
+                   },1000);
+}
+
+//start auto upload
+function autoUpload(){
+var uploaderTimer = setInterval(function(){
+                   if (loadState == 0){
+                   uploadVideo();};
+                   },1000/uploadSpeed);
 }
 
   //start timer2 _ NOT A FUNCTION
@@ -134,6 +152,21 @@ function newArray(value, len) {
   return arr;
 }
 
+//change editor speed
+function upgradeEditSpeed(number){
+  if(number==1){
+    if (editorSpeed < 5){
+      editorSpeed++;
+    }
+  }
+  else {
+    if (editorSpeed > 1 ){
+      editorSpeed--; 
+    }
+  }
+  document.getElementById("editorSpeed").innerHTML = editorSpeed+" clicks/sec";
+}
+
 //Shoot & Edit
 function clicksLeft(){
   if(shootEditRem > 0 && ideasQt>0){
@@ -153,6 +186,7 @@ function clicksLeft(){
   memoryBlockRefresh();
 }
 
+//draw all memory blocks empty and full
 function memoryBlockRefresh() {
   var memoryCanvas = document.getElementById("memoryCanvas");
   var ctx = memoryCanvas.getContext("2d");
@@ -231,15 +265,30 @@ function upgradeMemory(){
   memoryBlockRefresh();
 }
 
+//change upload speed
+function upgradeUploadSpeed(number){
+  if(number==1){
+    if (uploadSpeed < 20){
+      uploadSpeed++;
+    }
+  }
+  else {
+    if (uploadSpeed > 1 ){
+      uploadSpeed--; 
+    }
+  }
+  var uploadSpeedConversion = uploadSpeed*100;
+  document.getElementById("uploadSpeed").innerHTML = uploadSpeedConversion+" kB/s";
+}
+
 //Upload video
 function uploadVideo() {
- var loadState = 0;
    if (videosEdited > 0 && loadState == 0) {
      loadState = 1;
      document.getElementById("uploadB").disabled = true; 
      var elem = document.getElementById("myBar");
      var width = 1;
-     var id = setInterval(frame, 10);
+     var id = setInterval(frame, 1000/uploadSpeed);
  function frame() {
    if (width >= 100) {
      clearInterval(id);
@@ -274,21 +323,20 @@ function averageQlCalculation(){
   document.getElementById("arrayQl").innerHTML = ideaQlArray;
 }
 
-//increase ad load
-function addAdLoad(number){
+//change ad load
+function changeAdLoad(number){
+  if(number==1){
     if (adAmount < 5){
       adAmount++;
       LDR();
     }
-  document.getElementById("adLoad").innerHTML = adAmount;
-}
-
-//decrease ad load
-function subAdLoad(number){
+  }
+  else {
     if (adAmount > 0){
       adAmount--; 
       LDR();
     }
+  }
   document.getElementById("adLoad").innerHTML = adAmount;
 }
 
