@@ -13,7 +13,7 @@ var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
 var shootEdit = 10; //
 var shootEditRem = 10; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var computerMemory = 5; //max videos edited 
+var computerMemory = 6; //max videos edited 
 
 //UPLOAD
 var ideaQlArray = new Array();
@@ -28,7 +28,7 @@ var subscribers = 0;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 0;
+var cashAmount = 100;
 
 //COMMENTS
 var comments = [
@@ -50,6 +50,9 @@ var commentBox = [{comment:"",source:""},
                   {comment:"",source:""},
                   {comment:"",source:""},
                   ];
+
+//PAGE LOAD FUNCTIONS
+memoryBlockRefresh();//refreshes the memory block canvas
 
 //TIMERS
   //Function for ticker
@@ -100,19 +103,6 @@ function upgradeCreativity(){
   document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
 }
 
-//Upgrade MEMORY according to cashAmount
-function upgradeMemory(){
-  var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
-    if(cashAmount >= upCost){
-     computerMemory += 1;
-     cashAmount -= upCost;
-     document.getElementById("cashAmount").innerHTML = "$" + cashAmount;
-     document.getElementById("computerMemory").innerHTML = computerMemory + "Gb";
-   }
-  var nextCost = Math.floor(10 * Math.pow(1.2,computerMemory));
-  document.getElementById('upgradeMemoryCost').innerHTML = "<em> Cost </em>: " + nextCost;
-}
-
 //idea range
 function ideaRangeMax(rangeValue) {
   rangeIdea = rangeValue; //stores range value quantity
@@ -160,9 +150,88 @@ function clicksLeft(){
     }
   var clicksPercentage = Math.round((1-shootEditRem/shootEdit)*100);
   setPercentage(clicksPercentage);
+  memoryBlockRefresh();
 }
 
-//upload video
+function memoryBlockRefresh() {
+  var memoryCanvas = document.getElementById("memoryCanvas");
+  var ctx = memoryCanvas.getContext("2d");
+  ctx.clearRect(0,0,memoryCanvas.width,memoryCanvas.height);
+  memoryEmpty();
+  memoryFill();
+}
+
+//draws emptymemory squares
+function drawMemory(x, y, w, h){
+    var cns1 = document.getElementById("memoryCanvas");
+    var ctx = cns1.getContext("2d");
+      //ctx.fillStyle = "black";
+      ctx.beginPath();
+      ctx.rect(x, y, w, h);
+      ctx.stroke();
+}
+
+//draws empty memory slots at start
+function memoryEmpty(){
+  var width = memoryCanvas.width;
+  var height = memoryCanvas.height;
+  var numberSquares = computerMemory;
+   for (var j=0; j<3; j++){
+     let squaresHeight = 10+50*j+30;
+     if (numberSquares>0 && squaresHeight<height) {
+      for ( var i=0; i < 20; i++) {
+      let squaresWidth = 10+40*i+30;
+        if (numberSquares>0 && squaresWidth<width) {
+        drawMemory(10+40*i,10+50*j,30,30);
+        numberSquares -= 1;
+        }
+      }
+     }
+   }
+}
+
+//draws memory squares
+function drawSquare(x, y, w, h){
+    var cns1 = document.getElementById("memoryCanvas");
+    var ctx = cns1.getContext("2d");
+    ctx.fillStyle = "black";
+    ctx.fillRect(x,y,w,h);
+}
+
+//draws memory squares in canvas
+function memoryFill() {
+  var width = memoryCanvas.width;
+  var height = memoryCanvas.height;
+  var numberSquares = videosEdited
+   for (var j=0; j<3; j++){
+     let squaresHeight = 10+50*j+30;
+     if (numberSquares>0 && squaresHeight<height) {
+      for ( var i=0; i < 20; i++) {
+      let squaresWidth = 10+40*i+30;
+        if (numberSquares>0 && squaresWidth<width) {
+        drawSquare(10+40*i,10+50*j,30,30);
+        numberSquares -= 1;
+        }
+      }
+     }
+   }
+}
+
+//Upgrade MEMORY according to cashAmount
+function upgradeMemory(){
+  var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
+    if(cashAmount >= upCost){
+     computerMemory += 1;
+     cashAmount -= upCost;
+     document.getElementById("cashAmount").innerHTML = "$" + cashAmount;
+     document.getElementById("computerMemory").innerHTML = computerMemory + "Gb";
+   }
+  var nextCost = Math.floor(10 * Math.pow(1.2,computerMemory));
+  document.getElementById('upgradeMemoryCost').innerHTML = "<em> Cost </em>: " + "$" + nextCost;
+  memoryBlockRefresh();
+}
+
+//Upload video
 function uploadVideo() {
  var loadState = 0;
    if (videosEdited > 0 && loadState == 0) {
@@ -184,6 +253,7 @@ function uploadVideo() {
      LDR();//calculated new ratio at each upload
      SubsFromUpload();//calculated sub count at each upload
      viewsFromSubs();//calculated view count at each upload
+     memoryBlockRefresh();//refreshes the memory block canvas
      document.getElementById("uploadB").disabled = false; 
      } 
    else {
