@@ -4,10 +4,11 @@ var ticker = 0;
 //IDEA
 var ideaTimer = null;
 var creativity = 1; //creativity level
-var rangeIdea = 5; //value of Qt on range
-var ideaQl =  5; //value of Ql on range
+var rangeIdea = 1; //value of Qt on range
+var ideaQl =  6; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
+var ideaSpeed = 1000;
 
 //SHOOT AND EDIT
 var shootEdit = 10; //
@@ -17,7 +18,7 @@ var computerMemory = 6; //max videos edited
 var editorSpeed = 1;
 
 //UPLOAD
-var ideaQlArray = new Array();
+var ideaQlArray = newArray();
 var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
@@ -25,13 +26,14 @@ var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
-var views = 11;
+var views = 0;
 var likeDislikeRatio = 0;
 var subscribers = 0;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 100;
+var cashAmount = 0;
+var adLoadMax = 6;
 
 //COMMENTS
 var comments = [
@@ -56,6 +58,8 @@ var commentBox = [{comment:"",source:""},
 
 //PAGE LOAD FUNCTIONS
 memoryBlockRefresh();//refreshes the memory block canvas
+ideasGen();
+
 
 //TIMERS
   //Function for ticker
@@ -69,7 +73,7 @@ function startTimer1(){
   ideaTimer = setInterval(function(){
               autoticker(1);
               ideasGen();
-              },3000);
+              },ideaSpeed);
 }
 
 //start auto edit
@@ -115,7 +119,7 @@ function upgradeCreativity(){
      creativity += 1;
      views -= upCost;
      document.getElementById("views").innerHTML = views;
-     document.getElementById("creativityLvl").innerHTML = "Lvl : " + creativity;
+     document.getElementById("creativityLvl").innerHTML = "Creativity Level : " + creativity;
    }
   var nextCost = Math.floor(10 * Math.pow(1.2,creativity));
   document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
@@ -125,7 +129,7 @@ function upgradeCreativity(){
 function ideaRangeMax(rangeValue) {
   rangeIdea = rangeValue; //stores range value quantity
   document.getElementById("idea").innerHTML = rangeValue;
-  var maxRangeValue = creativity + 9; //increases slider max value
+  var maxRangeValue = creativity + 5; //increases slider max value
   document.getElementById("ideaRange").max = maxRangeValue;
   ideaQl = maxRangeValue - rangeValue;
   document.getElementById("ideaQl").innerHTML = ideaQl;
@@ -150,6 +154,13 @@ function newArray(value, len) {
        arr.push(value);
       }
   return arr;
+}
+
+//changes idea speed in set interval & updates "ideas/min"
+function changeIdeaSpeed(time) {
+  ideaSpeed = time;
+  let ideaSpeedConversion = ideaSpeed/1000;
+  document.getElementById("ideaSpeed").innerHTML = "ideas/" + ideaSpeedConversion + "s";
 }
 
 //change editor speed
@@ -326,7 +337,7 @@ function averageQlCalculation(){
 //change ad load
 function changeAdLoad(number){
   if(number==1){
-    if (adAmount < 5){
+    if (adAmount < adLoadMax){
       adAmount++;
       LDR();
     }
@@ -359,7 +370,7 @@ function SubsFromUpload(){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
     }
     else {
-      subscribers -= videosUploaded * parseInt(likeDislikeRatio/10);
+      subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
     }
     if (subscribers < 0){
       subscribers = 0;
