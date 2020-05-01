@@ -19,17 +19,19 @@
   <div class = "childFlex">
     <h2>1. Idea</h2>
     <em>Quality</em>
-    <span id="ideaQl"><em>1</em></span>
+    <span id="ideaQl"><em><b>1</em></b></span>
     <input type="range"
            id="ideaRange"
            min="1"
-           max="10"
+           max="6"
+           value="1"
            onchange="ideaRangeMax(this.value)">
-    <em>Quantity</em>
-    <span id="idea"><em>10</em></span>
+    
+    <span id="idea"><em><b>6</em></b></span>
+    <span id="ideaSpeed"><em>ideas/60s</em></span>
 <br>
 <br>
-    <span id="creativityLvl" class="span">Lvl : 1</span>
+    <span id="creativityLvl" class="span">Creativity Level : 1</span>
     <input class="button"
            id="creaButton"
            type="button"
@@ -45,7 +47,7 @@
   
   <div class = "childFlex">
     <h2>2. Shoot & Edit</h2>
-    <span id="editClicks" class="span">10</span>
+    <span id="editClicks" class="span">100</span>
 
 <div class="progress-holder unselectable"
      onclick="clicksLeft()">
