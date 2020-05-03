@@ -22,6 +22,7 @@ var ideaQlArray = newArray();
 var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
+var averageQlFactor = 1; //factor used to chnage LDR directly
 var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
@@ -34,6 +35,8 @@ var subscribers = 0;
 var adAmount = 0;
 var cashAmount = 0;
 var adLoadMax = 6;
+var income = 0;
+var expenses = 0;
 
 //COMMENTS
 var comments = [
@@ -97,6 +100,11 @@ window.setInterval(function(){
                    viewsRefresh();
                    cashGen();
                    },1000);
+
+//refreshes cashAmount with income and expenses per min
+window.setInterval(function(){
+                   cashRefresh();
+                   },60000);
 
   //stop timers
 function stopTimers() {
@@ -328,7 +336,7 @@ function uploadVideo() {
 function averageQlCalculation(){
   var nextQl = ideaQlArray[0];
   averageQlNum = averageQlNum + nextQl;
-  averageQl = averageQlNum/videosUploaded;
+  averageQl = averageQlNum/videosUploaded * averageQlFactor;
   ideaQlArray.shift();
   document.getElementById("averageQl").innerHTML = averageQl;
   document.getElementById("arrayQl").innerHTML = ideaQlArray;
@@ -434,6 +442,13 @@ function viewsRefresh(){
 //videos * adload = cash
 function cashGen(){
   cashAmount += 0.0001*videosUploaded*views*adAmount;
+  var cashAmountRound = cashAmount.toFixed(2);
+  document.getElementById("cashAmount").innerHTML = "$"+cashAmountRound;
+}
+  
+// refreshes cash amount with income and expenses
+function cashRefresh() {
+  cashAmount += income - expenses;
   var cashAmountRound = cashAmount.toFixed(2);
   document.getElementById("cashAmount").innerHTML = "$"+cashAmountRound;
 }
