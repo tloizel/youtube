@@ -562,14 +562,14 @@ var cashProjects = [
 function callProject(array,title,desc,num) {
   var projectTitle = title.id;
   var projectDesc = desc.id;
-    if (eval(array[0][0]) == true && array.length>0) {
+    if (eval(array[0][2]) == true && array.length>0) {
         eval(array[0][3]);
         commentBox.unshift({comment:array[0][4],source:"callProject"});
         commentArrayShift();
         array.shift();
         flickAppear("project",num);
-        document.getElementById(projectTitle).innerHTML = array[0][1];
-        document.getElementById(projectDesc).innerHTML = array[0][2];
+        document.getElementById(projectTitle).innerHTML = array[0][0];
+        document.getElementById(projectDesc).innerHTML = array[0][1];
   }
 }
 
