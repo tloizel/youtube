@@ -14,8 +14,8 @@ var ideaSpeed = 60000; //speed of idea generation
 var shootEdit = 10; //
 var shootEditRem = 10; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var computerMemory = 6; //max videos edited 
-var editorSpeed = 1;
+var computerMemory = 1; //max videos edited 
+var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD
 var ideaQlArray = newArray();
