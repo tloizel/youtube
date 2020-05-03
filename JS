@@ -8,7 +8,7 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  6; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
-var ideaSpeed = 1000;
+var ideaSpeed = 60000;
 
 //SHOOT AND EDIT
 var shootEdit = 10; //
