@@ -178,7 +178,8 @@ body {
     text-align: center;
     border-radius: 10px;
     background-color: #DDE1E7;
-    box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #ffbcc2;
+   /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
+    border:solid;
 }
 
 /* END OF SHOOT AND EDIT PROGRESS CIRCLE */
