@@ -100,6 +100,42 @@ body {
   background-color: edc9c9;
 }
 
+.childFlexHidden {
+  opacity: 0;
+  height: 33em;
+  width: 24em;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
+  background-color: edc9c9;
+}
+
+.childFlexHidden.animated{
+  animation-name: revealChildFlex;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+@keyframes revealChildFlex {
+  0% {opacity: 1;}
+  5% {opacity: 0;}
+  10% {opacity: 1;}
+  15% {opacity: 0;}
+  20% {opacity: 1;}
+  25% {opacity: 0;}
+  30% {opacity: 1;}
+  35% {opacity: 0;}
+  40% {opacity: 1;}
+  45% {opacity: 0;}
+  50% {opacity: 1;}
+  55% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 /* SHOOT AND EDIT PROGRESS CIRCLE */
 
 .progress-holder{
@@ -276,27 +312,31 @@ body {
 }
 
 .project.animated{
-  animation-name: reveal;
+  animation-name: revealProject;
   animation-duration: 1000ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
 
-@keyframes reveal {
-  0% {opacity: 100;}
+@keyframes revealProject {
+  0% {opacity: 1;}
   5% {opacity: 0;}
-  10% {opacity: 100;}
+  10% {opacity: 1;}
   15% {opacity: 0;}
-  20% {opacity: 100;}
+  20% {opacity: 1;}
   25% {opacity: 0;}
-  30% {opacity: 100;}
+  30% {opacity: 1;}
   35% {opacity: 0;}
-  40% {opacity: 100;}
+  40% {opacity: 1;}
   45% {opacity: 0;}
-  50% {opacity: 100;}
+  50% {opacity: 1;}
   55% {opacity: 0;
   background-color: white;
   color:red;}
-  100% {opacity: 100;
+  100% {opacity: 1;
   color: white;}
+}
+  
+
+  
