@@ -14,11 +14,11 @@
            id="stop"
            onclick="stopTimers()" 
            value="Stop" />
-   
   </div> 
 -->  
 
   <div class = "childFlex">
+  <div class = "childFlexTop">
     <h2>1. Idea</h2>
     <em>Quality</em>
     <span id="ideaQl"><em>5</em></span>
@@ -30,8 +30,7 @@
            onchange="ideaRangeMax(this.value)">
     <em>Quantity</em>
     <span id="idea"><em>1</em></span>
-<br>
-<br>
+<br><br><br>
     <span id="creativityLvl" class="span">Creativity Level : 1</span>
     
 <!--TEMP
@@ -48,26 +47,33 @@
     <p>TOTAL (QtT)<span id="ideasGenTotal" class="span">0</span> 
     </p> 
 <br>
+    </div>
+  <div id="ideaProjectsB"
+       class="project"
+       onclick="callProject(ideaProjects,ideaProjectsTitle,ideaProjectsDesc,0)">
+     <span class="projectTitle" id="ideaProjectsTitle">Binge watch Youtube</span><br>
+     <span class="projectDesc" id="ideaProjectsDesc">50 Total Ideas Generated</span>
+    </div>
   </div> <!--end of child flex IDEA-->
   
   <div class = "childFlex">
+  <div class = "childFlexTop">
     <h2>2. Shoot & Edit</h2>
-    <span id="editClicks" class="span">10</span>
-
-<div class="progress-holder unselectable"
-     onclick="clicksLeft()">
+  <div class="progress-holder unselectable"
+       onclick="clicksLeft()">
   <div class="semi-circle"></div>
   <div class="left-block"></div>
   <div class="right-block"></div>
   <div class="mask"><span>0%</span></div>
-</div>      
+</div>
+    <br>
+    <span id="editClicks" class="span">10</span>
     <p>Videos edited
     <span id="videosEdited" class="span">0</span></p>
-    <p>Total Videos edited
+    <p>T Videos edited
     <span id="videosEditedTotal" class="span">0</span></p>
-      
     <p>Editor Speed :
-    <span id="editorSpeed">1 clicks/sec</span>
+      <span id="editorSpeed">1 clicks/sec</span></p>
       
   <!--TEMP    
     <input class="button"
@@ -80,13 +86,13 @@
            type="button"
            value="+"
            onclick="upgradeEditSpeed(1)">
-   -->   
-    </p>
+   -->
 
-    <p>Computer Memory :
-    <span id="computerMemory" class="span">1Gb</span></p>
+    <p id="computerMemoryText"><em>Computer Memory</em></p>
+<!--TEMP
+      <span id="computerMemory" class="span">1Gb</span>
     
-<!--TEMP    
+    
     <span id="upgradeMemoryCost"><em>Cost </em>: $24</span>
   <input class="button"
            id="memoryButton"
@@ -105,10 +111,17 @@
            value="Activate auto edit"
            onclick="autoEdit()" >  
 -->     
-
+    </div>
+    <div   id="shootEditProjectsB"
+           class="project"
+ onclick="callProject(shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,1)">
+     <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
+     <span class="projectDesc" id="shootEditProjectsDesc">5 Videos Edited</span>
+    </div>
   </div> <!--end of child flex SHOOT AND EDT-->
  
   <div class = "childFlex">
+  <div class = "childFlexTop">
     <h2>3. Upload</h2>
     <input class="button"
            id="uploadB"
@@ -146,10 +159,16 @@
            value="Activate auto upload"
            onclick="autoUpload()" > 
 --> 
-    
+  </div>
+  <div   id="uploadProjectsB"
+         class="project"                    onclick="callProject(uploadProjects,uploadProjectsTitle,uploadProjectsDesc,2)">
+     <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
+     <span class="projectDesc" id="uploadProjectsDesc">5 Uploads</span>
+    </div>
   </div> <!--end of child flex UPLOAD-->
   
   <div class = "childFlex">
+  <div class = "childFlexTop">
      <h2>4. Subscribers</h2>
      <p>Like/Dislike Ratio :
        <span id="likeDislikeRatio">0%<span></p>
@@ -169,10 +188,17 @@
             onclick="addition(1)" > 
   -->     
      </p>
-         
+   </div>
+      <div id="subProjectsB"
+           class="project"
+         onclick="callProject(subProjects,subProjectsTitle,subProjectsDesc,3)">
+     <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
+     <span class="projectDesc" id="subProjectsDesc">50 Subscribers</span>
+    </div> 
    </div> <!--end of child SUBSCRIBERS-->
   
-  <div class = "childFlexHidden" id="test">
+  <div class = "childFlexHidden">
+  <div class = "childFlexTop">
     <h2>5. Ca$h</h2>
     <p>Cash :
     <span id="cashAmount" >$0.00<span></p>
@@ -188,9 +214,17 @@
            type="button"
            value="+"
            onclick="changeAdLoad(1)">
+ </div>
+      <div id="cashProjectsB"
+           class="project"
+           onclick="callProject(cashProjects,cashProjectsTitle,cashProjectsDesc,4)">
+     <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
+     <span class="projectDesc" id="cashProjectsDesc">1k Views</span>
+   </div>
  </div> <!--end of child flex CASH-->
  
  <div class = "childFlex">
+ <div class = "childFlexTop">
     <h2>6. Comments</h2>
    
 <!--TEMP   
@@ -213,9 +247,10 @@
     <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment9"></span><br>
     <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment10"></span><br>
    </div>
+   </div>
  </div> <!--end of child flex COMMENTS--> 
       
- <div class = "childFlex">
+ <!--<div class = "childFlex">
     <h2>7. Projects</h2>
     <div   id="ideaProjectsB"
            class="project"
@@ -226,8 +261,8 @@
     <div   id="shootEditProjectsB"
            class="project"
            onclick="callProject(shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,1)">
-     <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
-     <span class="projectDesc" id="shootEditProjectsDesc">5 Videos Edited</span>
+     <span class="projectTitle" id="shootEditProjectsTitle">Borrow your sister's USB key</span><br>
+     <span class="projectDesc" id="shootEditProjectsDesc">5 Total Videos Edited</span>
     </div>
     <div   id="uploadProjectsB"
            class="project"
