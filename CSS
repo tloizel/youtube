@@ -84,17 +84,24 @@ body {
   flex-flow: row wrap;
   align-items: center;
   justify-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 10px solid red;
   border-radius: 25px;
+  padding: 0.5em;
 }
 
 .childFlex {
   height: 33em;
   width: 24em;
-  margin: 15px;
-  padding: 10px;
   text-align: center;
+  margin: 1em;
+  margin-bottom: 5em;
+}
+
+.childFlexTop {
+  height: 30em;
+  padding: 0.5em;
+  margin-bottom: 1em;
   border-radius: 25px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: edc9c9;
@@ -104,12 +111,9 @@ body {
   opacity: 0;
   height: 33em;
   width: 24em;
-  margin: 15px;
-  padding: 10px;
   text-align: center;
-  border-radius: 25px;
-  box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-  background-color: edc9c9;
+  margin: 1em;
+  margin-bottom: 5em;
 }
 
 .childFlexHidden.animated{
@@ -208,14 +212,32 @@ body {
     left: calc(0px);
 }
 
+/*
+editClicks {
+  padding-top: 10px;
+  padding-right: 10px;
+  text-align: right;
+}
+shootEditcolumn {
+  column-count: 11;
+  height: 150px;
+}
+*/
+#computerMemoryText {
+    text-transform: uppercase;
+    font-size: 14pt;
+    text-align: left;
+    margin-left: 20px;
+}
+
 #memoryCanvas {
     width: 90%;
-    height: 100px;
+    height: 90px;
     text-align: center;
     border-radius: 10px;
     background-color: #DDE1E7;
    /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
-    border:solid;
+    border: solid;
 }
 
 /* END OF SHOOT AND EDIT PROGRESS CIRCLE */
@@ -291,24 +313,26 @@ body {
 }
 
 .oldComment {
-  opacity:0.5;
+  opacity: 0.5;
 }
 
 .project {
-  padding:5px;
+  height: 3em;
+  width: 100%;
+  padding: 1.5em 0em 1em 0em;
+  text-align: center;
   border-width: 2px;
   transition-duration: 50ms;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0px 3px #999;
-  background-color:red;
-  color:white;
-  margin:10px;
+  background-color: red;
+  color: white;
 }
 
 .projectTitle {
-  font-weight:bold;
-  font-size:16pt;
+  font-weight: bold;
+  font-size: 16pt;
 }
 
 .project.animated{
@@ -337,6 +361,3 @@ body {
   100% {opacity: 1;
   color: white;}
 }
-  
-
-  
