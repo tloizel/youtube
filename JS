@@ -11,10 +11,10 @@ var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 10; //clicks required to edit a video
-var shootEditRem = 10; //number of remaining clicks
+var shootEdit = 300; //clicks required to edit a video
+var shootEditRem = 300; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 5; //TOTAL number of videos edited
+var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -24,13 +24,13 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to chnage LDR directly
-var uploadSpeed = 25; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 2000000;
+var subscribers = 0;
 
 //CASH
 var adAmount = 0;
@@ -51,14 +51,14 @@ var comments = [
 {name: "beautiful editing", type: "positive"},
 {name: "best channel out there", type: "positive"},
 {name: "can you do a meet up? ", type: "positive"},
-{name: "i didn't understand this video ..", type: "negative"},
-{name: "This is terrible, unsubed", type: "negative"},
+{name: "i didn't understand this video...", type: "negative"},
+{name: "This is terrible, unsubbed", type: "negative"},
 {name: "why was this in my recommendations?", type: "negative"},
-{name: "I never subed to this channel", type: "negative"},
+{name: "I never subbed to this channel", type: "negative"},
 {name: "check out my channel Thomas Loizel on youtube", type: "negative"},
 {name: "you remind me of thumbsupmovies", type: "negative"},
 {name: "was this filmed with a potato?", type: "negative"},
-{name: "why am I watching this", type: "negative"}
+{name: "why am I watching this", type: "negative"},
   ];
 var commentBox = [{comment:"",source:""},
                   {comment:"",source:""},
@@ -138,8 +138,8 @@ function addition(number){
   document.getElementById("views").innerHTML = views;
 }
 
-//Upgrade CREATIVITY according to views
-function upgradeCreativity(){
+//Upgrade CREATIVITY according to views NOT USED
+function upgradeCrea(){
   var upCost = Math.floor(10* Math.pow(1.2,creativity));
     if(views >= upCost){
      creativity += 1;
@@ -149,6 +149,12 @@ function upgradeCreativity(){
    }
   var nextCost = Math.floor(10 * Math.pow(1.2,creativity));
   document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
+}
+
+//Upgrades creativity
+function upgradeCreativity(num){
+  creativity += num;
+  document.getElementById("creativityLvl").innerHTML = "Creativity Level : " + creativity;
 }
 
 //idea range
@@ -189,7 +195,7 @@ function changeIdeaSpeed(time) {
   document.getElementById("ideaSpeed").innerHTML = "ideas/" + ideaSpeedConversion + "s";
 }
 
-//change editor speed
+//change editor speed NOT USED
 function upgradeEditSpeed(number){
   if(number==1){
     if (editorSpeed < 5){
@@ -589,23 +595,23 @@ function disableDiv(button,state){
 
 //project arrays
 var ideaProjects = [
-["Binge watch Youtube","10 Total Ideas Generated","ideasQtTotal>=10","creativity+=1","17 hours later, inspiration is flowing [+1 Creativity]"],
-["Invite a mate over","30 Total Ideas Generated & 1k Views","views>=1000 && ideasQtTotal>=30","creativity+=1","You brainstorm until dawn [+1 Creativity]"],
-["Watch the OGs of Youtube","60% LDR","likeDislikeRatio>=60","creativity+=2","Rhett and who?  [+2 Creativity]"],
-["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","creativity+=2","Music channels seem to be a thing [+2 Creativity & -$500]"],
+["Binge watch Youtube","10 Total Ideas Generated","ideasQtTotal>=10","upgradeCreativity(1)","17 hours later, inspiration is flowing [+1 Creativity]"],
+["Invite a mate over","30 Total Ideas Generated & 1k Views","views>=1000 && ideasQtTotal>=30","upgradeCreativity(1)","You brainstorm until dawn [+1 Creativity]"],
+["Watch the OGs of Youtube","60% LDR","likeDislikeRatio>=60","upgradeCreativity(2)","Rhett and who?  [+2 Creativity]"],
+["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=2000","Music channels seem to be a thing [+2 Creativity & -$500]"],
 ["Creative block","Less than 20% LDR","likeDislikeRatio<=20","creativity+=0","Happens to the best of us [absolutely nothing]"],
 ["Finish Netflix","500 Total Ideas Generated & 70% LDR","likeDislikeRatio>=70 && ideasQtTotal>=500","ideaSpeed-=10000","Get that inspo [-10s Speed]"],
-["Buy a kitten","2k Total Ideas Generated & 500k views & $1k","views>=500000 && ideasQtTotal=2000 && cashAmount >=1000","creativity+=2","They're the real OGs of Youtube [+2 Creativity & -$1k]"],
-["Buy a greenscreen","80% LDR & $2k","likeDislikeRatio>=80 && ideasQtTotal>=2000","creativity+=3","Your bedroom is now a creative cocoon [+3 Creativity]"],
-["Figure out translating isn't plagiarism","10k Total Ideas Generated & 50k Subscribers & -1000 moral standards","ideasQtTotal>=10000 && subscribers>=50000","ideaSpeed-=20000","Ask Math Podcast about it [-10s Speed]"],
-["Start streaming video games","300k Subscribers & $5k","subscribers>=300000 && cashAmount>=5000","creativity+=3","About to reach the Ender Dragon... [+3 Creativity & -$5k]"],
-["Start a daily vlog","5M Views & 1M Subscribers","views>=5000000 && subscribers>=1000000","ideaSpeed-=30000","Daily routine and all [-10s Speed]"],
-["End of projects","","views<1","","Congratulations"],
+["Buy a kitten","2k Total Ideas Generated & 500k views & $1k","views>=500000 && ideasQtTotal=2000 && cashAmount >=1000","upgradeCreativity(2)","They're the real OGs of Youtube [+2 Creativity & -$1k]"],
+["Buy a greenscreen","80% LDR & $2k","likeDislikeRatio>=80 && ideasQtTotal>=2000","upgradeCreativity(3)","Your bedroom is now a creative cocoon [+3 Creativity]"],
+["Figure out translating isn't plagiarism","10k Total Ideas Generated & 50k Subscribers & -1000 moral standards","ideasQtTotal>=10000 && subscribers>=50000","ideaSpeed-=10000","Ask Math Podcast about it [-10s Speed]"],
+["Start streaming video games","300k Subscribers & $5k","subscribers>=300000 && cashAmount>=5000","upgradeCreativity(3);cashAmount-=5000","About to reach the Ender Dragon... [+3 Creativity & -$5k]"],
+["Start a daily vlog","5M Views & 1M Subscribers","views>=5000000 && subscribers>=1000000","ideaSpeed-=20000","Daily routine and all [-20s Speed]"],
+["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
-["Borrow your sister's USB key","5 Total Videos Edited & Full Memory & A Tasty Treat","computerMemory==videosEdited&&videosEditedTotal>=5","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
+["Borrow your sister's USB key","5 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=5","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
 ["Watch an iMovie tutorial","10 Total Videos Edited","videosEditedTotal>=10","shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
-["Buy a gaming mouse","100","videosEditedTotal>=5&&cashAmount>=100","shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
+["Buy a gaming mouse","12 Total Videos Edited & $100","videosEditedTotal>=12&&cashAmount>=100","shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
 ["Delete old footage","20 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=20","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
 ["Laptop upgrade","$2k","cashAmount>=100","shootEditRem-=50;cashAmount-=2000","Because tools make the man [-50 Clicks & -$2k]"],
 ["Watch a Final Cut tutorial","30 Total Videos Edited & $3k","videosEditedTotal>=30&&cashAmount>=3000","shootEditRem-=50;cashAmount-=3000","Thirty hours later, you're a master [-50 Clicks & -$3k]"],
@@ -622,7 +628,7 @@ var shootEditProjects = [
 ["End of projects","","views<1","","Congratulations []"],
 ];
 var uploadProjects = [
-["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while your there [+1 Upload Speed]"],
+["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while you're there [+1 Upload Speed]"],
 ["Figure out how to use hotspot","25 Uploads & $200","videosUploaded>=25 && cashAmount>=200","upgradeUploadSpeed(2)","Parents weren't please with the phone bill [+2 Upload Speed]"],
 ["Buy an ethernet cable","50 Uploads & $500","videosUploaded>=50 && cashAmount>=500","upgradeUploadSpeed(3)","Old school but efficient [+3 Upload Speed]"],
 ["Convince parents that wifi isn't an FBI spying device","200 uploads & $1k","videosUploaded>=200 && cashAmount>=1000","upgradeUploadSpeed(4)","Or is it..? [+4 Upload Speed]"],
@@ -632,17 +638,17 @@ var uploadProjects = [
 ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(7)","Worth it but you're paying boy [+7 Upload Speed]"],
 ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(8)","MUUUUUUUUUUUUUUUUUUUUUM [+8 Upload Speed]"],
 ["Your building now has fibre-optic internet","500k Uploads","videosUploaded>=500000","upgradeUploadSpeed(10)","Can't get more efficient [+10 Upload Speed]"],
-["End of projects","","views<1","","Congratulations"],
+["End of projects","","views<1","","Congratulations []"],
 ];
 var subProjects = [
 ["Reply to comments","50 Subscribers","subscribers>=50","views+=200","Love you guys [+200 Views]"],
 ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500","Don't make it a minute long tho [+500 Views]"],
-["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All my friends unsubed, but it had to be done [LDRF = 0.9]"],
+["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [LDRF = 0.9]"],
 ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
 ["Shoutout from Philip DeFranco","5k Subscribers","subscribers>=5000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
 ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('childFlexHidden',0);disableButton('subAdButton',false);disableButton('addAdButton',false);disableDiv('cashProjectsB','auto')","Youtube money is gonna be rolling in booooy [Money Time]"],
 ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
-["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [Still your fave tho :( ]"],
+["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
 ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [LDRF = 0.8]"],
 ["Shoutout from MysteryGuitarMan","200k Subscribers","subscribers>=200000","LDRF(1.1)","Will he ever take off his glasses? [LDRF = 1.1]"],
 ["Master the art of thumbnails","300k Subscribers","subscribers>=300000","views+=100000","Bewbs in thumbnail seems to work... [+100k Views]"],
@@ -659,7 +665,7 @@ var subProjects = [
 ["Shoutout from Casey","200M Subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* [LDRF = 1.5]"],
 ["Figure out the algorithm","500M Subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret [+1B Views]"],
 ["Overtake T-Series","1B Subscribers","subscribers>=1000000000","views+=10000000000","Thank you [+10B Views]"],
-["End of projects","","views<1","","Congratulations"],
+["End of projects","","views<1","","Congratulations []"],
 ];
 var cashProjects = [
 ["Extra pocket money","1k Views","views>=1000","cashAmount+=20","Mum was feeling generous [+$20]"],
@@ -677,5 +683,5 @@ var cashProjects = [
 ["Greed is good","700M Views","views>=700000000","adLoadMax+=5","You've made AdBlock a thing [+5 Ad Amount]"],
 ["Sell overpriced ice-cream on the beach","1B Views","views>=1000000000","cashAmount+=500000","Supply and demand my friend [+$500k]"],
 ["Sell you rare Pokemon cards","10B Views","views>=10000000000","cashAmount+=1000000","That wasn't easy... [+$1M]"],
-["End of projects","","views<1","","Congratulations"],
+["End of projects","","views<1","","Congratulations []"],
 ];
