@@ -11,10 +11,10 @@ var ideasQtTotal = 0; //amount of ideas since beginning NOT USED YET
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 100; //clicks required to edit a video
-var shootEditRem = 100; //number of remaining clicks
+var shootEdit = 10; //clicks required to edit a video
+var shootEditRem = 10; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEditedTotal = 5; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -24,13 +24,13 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to chnage LDR directly
-var uploadSpeed = 2; //*100
+var uploadSpeed = 25; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 0;
+var subscribers = 2000000;
 
 //CASH
 var adAmount = 0;
@@ -287,8 +287,14 @@ function memoryFill() {
    }
 }
 
-//Upgrade MEMORY according to cashAmount
-function upgradeMemory(){
+//Upgrades MEMORY by num & Refreshes Computer Memory canvas
+function upgradeMemory(num){
+  computerMemory += num;
+  memoryBlockRefresh();
+}
+
+//NOT USED Upgrade MEMORY according to cashAmount
+function upgradeMemoryCash(){
   var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
     if(cashAmount >= upCost){
      computerMemory += 1;
@@ -585,24 +591,23 @@ var ideaProjects = [
 ];
 
 var shootEditProjects = [
-["Borrow your sister's USB key","5 Total Videos Edited & Full Memory & A Tasty Treat","computerMemory=videosEditedTotal&&videosEditedTotal>=5","computerMemory+=1","It shall never be returned [+1 Memory]"],
+["Borrow your sister's USB key","5 Total Videos Edited & Full Memory & A Tasty Treat","computerMemory==videosEdited&&videosEditedTotal>=5","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
 ["Watch an iMovie tutorial","10 Total Videos Edited","videosEditedTotal>=10","shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
 ["Buy a gaming mouse","100","videosEditedTotal>=5&&cashAmount>=100","shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
-["Delete old footage","20 Total Videos Edited & Full Memory","computerMemory=videosEditedTotal&&videosEditedTotal>=20","computerMemory+=1","You will live to regret that [+1 Memory]"],
+["Delete old footage","20 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=20","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
 ["Laptop upgrade","$2k","cashAmount>=100","shootEditRem-=50;cashAmount-=2000","Because tools make the man [-50 Clicks & -$2k]"],
 ["Watch a Final Cut tutorial","30 Total Videos Edited & $3k","videosEditedTotal>=30&&cashAmount>=3000","shootEditRem-=50;cashAmount-=3000","Thirty hours later, you're a master [-50 Clicks & -$3k]"],
-["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","computerMemory+=1;cashAmount-=3000","It shall never be backed up [+1 Memory & -$4k]"],
+["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(1);cashAmount-=3000","It shall never be backed up [+1 Memory & -$4k]"],
 ["Get a 'professional' editor","$5k & 80% LDR & 100k Subscribers & 5M Views","cashAmount>=5000&&likeDislikeRatio>=80&&subscribers>=100000&&views>=5000000","autoEditor();expenses+=2000;cashAmount-=5000","Little cousin helps out [AutoEditor Level 1 & -$2k/min Salary]"],
-["1 month iCloud storage trial","1000 Total Videos Edited & $1k & Full Memory","computerMemory=videosEditedTotal&&videosEditedTotal>=1000&&cashAmount>=1000","computerMemory+=1;cashAmount-=1000","Forgot to unsubscribe one month later [+1 Memory & -$1k]"],
+["1 month iCloud storage trial","1000 Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=1000&&cashAmount>=1000","upgradeMemory(1);cashAmount-=1000","Forgot to unsubscribe one month later [+1 Memory & -$1k]"],
 ["Switch to Adobe Premiere","$5k","cashAmount>=5000","shootEditRem-=50;cashAmount-=5000","Aaah now that's the sofware you need [-50 Clicks & -$5k]"],
-["Buy a curved monitor","cash","","","Was that really necessary? []"],
-["Convince parents that iCloud storage is useful","$7k & Full Memory","computerMemory=videosEditedTotal&&videosEditedTotal&&cashAmount>=7000","computerMemory+=1;cashAmount-=7000","That was a battle worth fighting for [+1 Memory & -$7k]"],
+["Convince parents that iCloud storage is useful","$7k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=7000","upgradeMemory(1);cashAmount-=7000","That was a battle worth fighting for [+1 Memory & -$7k]"],
 ["Hire an editor on Fiverr","$5k & 85% LDR & 1M Subscribers & 50M Views","cashAmount>=5000&&likeDislikeRatio>=85&&subscribers>=1000000&&views>=50000000","editorSpeed=2;expenses+=3000;cashAmount-=7000","You'll pay him with exposure as well [AutoEditor Level 2 & -$5k/min Salary]"],
-["Google Drive premium account","$10k & Full Memory","computerMemory=videosEditedTotal&&videosEditedTotal&&cashAmount>=10000","computerMemory+=1;cashAmount-=10000","Data-driven [+1 Memory & -$10k]"],
+["Google Drive premium account","$10k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=10000","upgradeMemory(1);cashAmount-=10000","Data-driven [+1 Memory & -$10k]"],
 ["Hire a professional editor","$10k & 90% LDR & 10M Subscribers & 500M Views","cashAmount>=10000&&likeDislikeRatio>=90&&subscribers>=10000000&&views>=500000000","editorSpeed=3;expenses+=5000;cashAmount-=10000","This is getting real [AutoEditor Level 3 & -$10k/min Salary]"],
-["Get a AWS server","$25k & Full Memory","computerMemory=videosEditedTotal&&videosEditedTotal&&cashAmount>=25000","computerMemory+=1;cashAmount-=25000","Hopefully Jeff will see this game [+1 Memory & -$25k]"],
+["Get a AWS server","$25k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=25000","upgradeMemory(1);cashAmount-=25000","Hopefully Jeff will see this game [+1 Memory & -$25k]"],
 ["Hire Casey himself","$1M & 95% LDR & 50M Subscribers & 1B Views","cashAmount>=1000000&&likeDislikeRatio>=95&&subscribers>=50000000&&views>=1000000000","editorSpeed=4;expenses+=40000;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 4 & -$50k/min Salary]"],
-["End of projects","","views<1","","Congratulations"],
+["End of projects","","views<1","","Congratulations []"],
 ];
 var uploadProjects = [
 ["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while your there [+1 Upload Speed]"],
