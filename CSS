@@ -228,6 +228,7 @@ shootEditcolumn {
     font-size: 14pt;
     text-align: left;
     margin-left: 20px;
+    margin-bottom: -4px;
 }
 
 #memoryCanvas {
@@ -317,9 +318,9 @@ shootEditcolumn {
 }
 
 .project {
-  height: 3em;
+  height: auto;
   width: 100%;
-  padding: 1.5em 0em 1em 0em;
+  padding: 5% 0em 5% 0em;
   text-align: center;
   border-width: 2px;
   transition-duration: 50ms;
@@ -332,7 +333,11 @@ shootEditcolumn {
 
 .projectTitle {
   font-weight: bold;
-  font-size: 16pt;
+  font-size: 1.5vw;
+}
+
+.projectDesc {
+  font-size: 1vw;
 }
 
 .project.animated{
