@@ -8,11 +8,11 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 60000; //speed of idea generation
+var ideaSpeed = 600; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 300; //clicks required to edit a video
-var shootEditRem = 300; //number of remaining clicks
+var shootEdit = 10; //clicks required to edit a video
+var shootEditRem = 10; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
@@ -24,7 +24,7 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to chnage LDR directly
-var uploadSpeed = 1; //*100
+var uploadSpeed = 100; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
@@ -427,7 +427,7 @@ function SubsRefresh(){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
     }
     else {
-      subscribers -= videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
+      subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10)*0.01;
     }
     if (subscribers < 0){
       subscribers = 0;
@@ -596,7 +596,7 @@ function disableDiv(button,state){
 //project arrays
 var ideaProjects = [
 ["Binge watch Youtube","10 Total Ideas Generated","ideasQtTotal>=10","upgradeCreativity(1)","17 hours later, inspiration is flowing [+1 Creativity]"],
-["Invite a mate over","30 Total Ideas Generated & 1k Views","views>=1000 && ideasQtTotal>=30","upgradeCreativity(1)","You brainstorm until dawn [+1 Creativity]"],
+["Invite a mate over","30 Total Ideas Generated","ideasQtTotal>=30","upgradeCreativity(1)","You brainstorm until dawn [+1 Creativity]"],
 ["Watch the OGs of Youtube","60% LDR","likeDislikeRatio>=60","upgradeCreativity(2)","Rhett and who?  [+2 Creativity]"],
 ["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=2000","Music channels seem to be a thing [+2 Creativity & -$500]"],
 ["Creative block","Less than 20% LDR","likeDislikeRatio<=20","creativity+=0","Happens to the best of us [absolutely nothing]"],
