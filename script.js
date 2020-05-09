@@ -11,8 +11,8 @@ var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 10; //clicks required to edit a video
-var shootEditRem = 10; //number of remaining clicks
+var shootEdit = 300; //clicks required to edit a video
+var shootEditRem = 300; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
