@@ -8,7 +8,7 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 600; //speed of idea generation
+var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
 var shootEdit = 10; //clicks required to edit a video
@@ -24,7 +24,7 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to chnage LDR directly
-var uploadSpeed = 100; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
