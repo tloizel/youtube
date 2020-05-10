@@ -595,18 +595,18 @@ function disableDiv(button,state){
 
 //project arrays
 var ideaProjects = [
-["Binge watch Youtube","10 Total Ideas Generated","ideasQtTotal>=10","upgradeCreativity(1)","17 hours later, inspiration is flowing [+1 Creativity]"],
-["Invite a mate over","30 Total Ideas Generated","ideasQtTotal>=30","upgradeCreativity(1)","You brainstorm until dawn [+1 Creativity]"],
-["Watch the OGs of Youtube","60% LDR","likeDislikeRatio>=60","upgradeCreativity(2)","Rhett and who?  [+2 Creativity]"],
-["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=2000","Music channels seem to be a thing [+2 Creativity & -$500]"],
-["Creative block","Less than 20% LDR","likeDislikeRatio<=20","creativity+=0","Happens to the best of us [absolutely nothing]"],
-["Finish Netflix","500 Total Ideas Generated & 70% LDR","likeDislikeRatio>=70 && ideasQtTotal>=500","ideaSpeed-=10000","Get that inspo [-10s Speed]"],
-["Buy a kitten","2k Total Ideas Generated & 500k views & $1k","views>=500000 && ideasQtTotal=2000 && cashAmount >=1000","upgradeCreativity(2)","They're the real OGs of Youtube [+2 Creativity & -$1k]"],
-["Buy a greenscreen","80% LDR & $2k","likeDislikeRatio>=80 && ideasQtTotal>=2000","upgradeCreativity(3)","Your bedroom is now a creative cocoon [+3 Creativity]"],
-["Figure out translating isn't plagiarism","10k Total Ideas Generated & 50k Subscribers & -1000 moral standards","ideasQtTotal>=10000 && subscribers>=50000","ideaSpeed-=10000","Ask Math Podcast about it [-10s Speed]"],
-["Start streaming video games","300k Subscribers & $5k","subscribers>=300000 && cashAmount>=5000","upgradeCreativity(3);cashAmount-=5000","About to reach the Ender Dragon... [+3 Creativity & -$5k]"],
-["Start a daily vlog","5M Views & 1M Subscribers","views>=5000000 && subscribers>=1000000","ideaSpeed-=20000","Daily routine and all [-20s Speed]"],
-["End of projects","","views<1","","Congratulations []"],
+  ["Binge watch Youtube","10 Total Ideas Generated","ideasQtTotal>=10","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing [+1 Creativity]"],
+  ["Invite a mate over","30 Total Ideas Generated","ideasQtTotal>=30","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn [+1 Creativity]"],
+  ["Watch the OGs of Youtube","60% LDR","likeDislikeRatio>=60","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Rhett and who?  [+2 Creativity]"],
+  ["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=2000;ideaRangeMax(rangeIdea)","Music channels seem to be a thing [+2 Creativity & -$500]"],
+  ["Creative block","Less than 20% LDR","likeDislikeRatio<=20","creativity+=0","Happens to the best of us [absolutely nothing]"],
+  ["Finish Netflix","500 Total Ideas Generated & 70% LDR","likeDislikeRatio>=70 && ideasQtTotal>=500","ideaSpeed-=10000","Get that inspo [-10s Speed]"],
+  ["Buy a kitten","2k Total Ideas Generated & 500k views & $1k","views>=500000 && ideasQtTotal=2000 && cashAmount >=1000","upgradeCreativity(2);ideaRangeMax(rangeIdea)","They're the real OGs of Youtube [+2 Creativity & -$1k]"],
+  ["Buy a greenscreen","80% LDR & $2k","likeDislikeRatio>=80 && ideasQtTotal>=2000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Your bedroom is now a creative cocoon [+3 Creativity]"],
+  ["Figure out translating isn't plagiarism","10k Total Ideas Generated & 50k Subscribers & -1000 moral standards","ideasQtTotal>=10000 && subscribers>=50000","ideaSpeed-=10000","Ask Math Podcast about it [-10s Speed]"],
+  ["Start streaming video games","300k Subscribers & $5k","subscribers>=300000 && cashAmount>=5000","upgradeCreativity(3);cashAmount-=5000;ideaRangeMax(rangeIdea)","About to reach the Ender Dragon... [+3 Creativity & -$5k]"],
+  ["Start a daily vlog","5M Views & 1M Subscribers","views>=5000000 && subscribers>=1000000","ideaSpeed-=20000","Daily routine and all [-20s Speed]"],
+  ["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
 ["Borrow your sister's USB key","5 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=5","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
