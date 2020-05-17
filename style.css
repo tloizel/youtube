@@ -107,24 +107,19 @@ body {
     background-color: edc9c9;
   }
   
-  .childFlexHidden {
+  .reveal {
     opacity: 0;
-    height: 33em;
-    width: 24em;
-    text-align: center;
-    margin: 1em;
-    margin-bottom: 5em;
   }
   
-  .childFlexHidden.animated{
-    animation-name: revealChildFlex;
+  .reveal.animated{
+    animation-name: revealElement;
     animation-duration: 1000ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
   }
   
-  @keyframes revealChildFlex {
+  @keyframes revealElement {
     0% {opacity: 1;}
     5% {opacity: 0;}
     10% {opacity: 1;}

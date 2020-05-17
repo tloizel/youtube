@@ -613,7 +613,7 @@ var ideaProjects = [
 ];
 var shootEditProjects = [
   ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
-  ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1);flickAppear('childFlexHidden',0);disableDiv('cashProjectsB','auto')","It shall never be returned [+1 Memory]"],
+  ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1);flickAppear('reveal',0);disableDiv('cashProjectsB','auto')","It shall never be returned [+1 Memory]"],
   ["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
   ["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=50;shootEditRem-=50;cashAmount-=500","Because tools make the man [-50 Clicks & -$500]"],
   ["Watch a Final Cut tutorial","25 Total Videos Edited & $2k","videosEditedTotal>=25&&cashAmount>=2000","shootEdit-=50;shootEditRem-=50;cashAmount-=2000","Thirty hours later, you're a master [-50 Clicks & -$2k]"],
@@ -649,7 +649,7 @@ var subProjects = [
   ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
   ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
   ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
-  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('childFlexHidden',1);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Money Time]"],
+  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',1);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Money Time]"],
   ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
   ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
   ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
