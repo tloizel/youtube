@@ -11,8 +11,8 @@ var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 300; //clicks required to edit a video
-var shootEditRem = 300; //number of remaining clicks
+var shootEdit = 200; //clicks required to edit a video
+var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
@@ -408,6 +408,9 @@ function SubsFromUpload(){
     if(likeDislikeRatio >= 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
     }
+    if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
+      subscribers += videosUploaded * parseInt(likeDislikeRatio/10)/2;
+    }
     else {
       subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
     }
@@ -588,15 +591,15 @@ function disableButton(button,state){
 }
 
 //function to enable/disable divs
-function disableDiv(button,state){
-  document.getElementById(button).style.pointerEvents = state;
+function disableDiv(div,state){
+  document.getElementById(div).style.pointerEvents = state;
 }
 
 
 //project arrays
 var ideaProjects = [
-  ["Binge watch Youtube","10 Total Ideas Generated","ideasQtTotal>=10","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing [+1 Creativity]"],
-  ["Invite a mate over","30 Total Ideas Generated","ideasQtTotal>=30","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn [+1 Creativity]"],
+  ["Binge watch Youtube","5 Total Ideas Generated","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing [+1 Creativity]"],
+  ["Invite a mate over","20 Total Ideas Generated","ideasQtTotal>=20","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn [+1 Creativity]"],
   ["Watch the OGs of Youtube","60% LDR","likeDislikeRatio>=60","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Rhett and who?  [+2 Creativity]"],
   ["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=2000;ideaRangeMax(rangeIdea)","Music channels seem to be a thing [+2 Creativity & -$500]"],
   ["Creative block","Less than 20% LDR","likeDislikeRatio<=20","creativity+=0","Happens to the best of us [absolutely nothing]"],
@@ -609,11 +612,11 @@ var ideaProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
-  ["Borrow your sister's USB key","5 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=5","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
-  ["Watch an iMovie tutorial","10 Total Videos Edited","videosEditedTotal>=10","shootEdit-=25","Two hours later, you're a pro [-25 Clicks]"],
+  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25","Two hours later, you're a pro [-25 Clicks]"],
+  ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1);flickAppear('childFlexHidden',0);disableDiv('cashProjectsB','auto')","It shall never be returned [+1 Memory]"],
   ["Buy a gaming mouse","12 Total Videos Edited & $100","videosEditedTotal>=12&&cashAmount>=100","shootEdit-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
   ["Delete old footage","20 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=20","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
-  ["Laptop upgrade","$2k","cashAmount>=100","shootEdit-=50;cashAmount-=2000","Because tools make the man [-50 Clicks & -$2k]"],
+  ["Laptop upgrade","$2k","cashAmount>=2000","shootEdit-=50;cashAmount-=2000","Because tools make the man [-50 Clicks & -$2k]"],
   ["Watch a Final Cut tutorial","30 Total Videos Edited & $3k","videosEditedTotal>=30&&cashAmount>=3000","shootEdit-=50;cashAmount-=3000","Thirty hours later, you're a master [-50 Clicks & -$3k]"],
   ["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(1);cashAmount-=3000","It shall never be backed up [+1 Memory & -$4k]"],
   ["Get a 'professional' editor","$5k & 80% LDR & 100k Subscribers & 5M Views","cashAmount>=5000&&likeDislikeRatio>=80&&subscribers>=100000&&views>=5000000","autoEditor();expenses+=2000;cashAmount-=5000","Little cousin helps out [AutoEditor Level 1 & -$2k/min Salary]"],
@@ -628,17 +631,17 @@ var shootEditProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var uploadProjects = [
-["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while you're there [+1 Upload Speed]"],
-["Figure out how to use hotspot","25 Uploads & $200","videosUploaded>=25 && cashAmount>=200","upgradeUploadSpeed(2)","Parents weren't please with the phone bill [+2 Upload Speed]"],
-["Buy an ethernet cable","50 Uploads & $500","videosUploaded>=50 && cashAmount>=500","upgradeUploadSpeed(3)","Old school but efficient [+3 Upload Speed]"],
-["Convince parents that wifi isn't an FBI spying device","200 uploads & $1k","videosUploaded>=200 && cashAmount>=1000","upgradeUploadSpeed(4)","Or is it..? [+4 Upload Speed]"],
-["Get closer to the wifi","500 Uploads","videosUploaded>=500","upgradeUploadSpeed(5)","harder better faster stronger [+5 Upload Speed]"],
-["Ask Drew for Javascript lessons","70% LDR","likeDislikeRatio>=70","upgradeUploadSpeed(6)","You wonder if this will ever come in handy... [+6 Upload Speed]"],
-["Code your own AutoUpload program","2k Uploads & 5M Views & 500k Subscribers","views>=5000000 && videosUploaded>=2000 && subscribers>=500000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
-["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(7)","Worth it but you're paying boy [+7 Upload Speed]"],
-["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(8)","MUUUUUUUUUUUUUUUUUUUUUM [+8 Upload Speed]"],
-["Your building now has fibre-optic internet","500k Uploads","videosUploaded>=500000","upgradeUploadSpeed(10)","Can't get more efficient [+10 Upload Speed]"],
-["End of projects","","views<1","","Congratulations []"],
+  ["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while you're there [+100kB/s Upload Speed]"],
+  ["Figure out how to use hotspot","10 Uploads & $200","videosUploaded>=10 && cashAmount>=200","upgradeUploadSpeed(2)","Parents weren't please with the phone bill [+200kB/s Upload Speed]"],
+  ["Buy an ethernet cable","30 Uploads & $500","videosUploaded>=30 && cashAmount>=500","upgradeUploadSpeed(3)","Old school but efficient [+300kB/s Upload Speed]"],
+  ["Convince parents that wifi isn't an FBI spying device","200 uploads & $1k","videosUploaded>=200 && cashAmount>=1000","upgradeUploadSpeed(4)","Or is it..? [+400kB/s Upload Speed]"],
+  ["Get closer to the wifi","500 Uploads","videosUploaded>=500","upgradeUploadSpeed(5)","harder better faster stronger [+500kB/s Upload Speed]"],
+  ["Ask Drew for Javascript lessons","70% LDR","likeDislikeRatio>=70","upgradeUploadSpeed(6)","You wonder if this will ever come in handy... [+600kB/s Upload Speed]"],
+  ["Code your own AutoUpload program","2k Uploads & 5M Views & 500k Subscribers","views>=5000000 && videosUploaded>=2000 && subscribers>=500000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
+  ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(7)","Worth it but you're paying boy [+700kB/s Upload Speed]"],
+  ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(8)","MUUUUUUUUUUUUUUUUUUUUUM [+800kB/s Upload Speed]"],
+  ["Your building now has fibre-optic internet","500k Uploads","videosUploaded>=500000","upgradeUploadSpeed(10)","Can't get more efficient [+1000kB/s Upload Speed]"],
+  ["End of projects","","views<1","","Congratulations []"],
 ];
 var subProjects = [
   ["Reply to comments","50 Subscribers","subscribers>=50","views+=200","Love you guys [+200 Views]"],
@@ -646,7 +649,7 @@ var subProjects = [
   ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
   ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
   ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
-  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('childFlexHidden',0);disableButton('subAdButton',false);disableButton('addAdButton',false);disableDiv('cashProjectsB','auto')","Youtube money is gonna be rolling in booooy [Money Time]"],
+  ["Youtube Partner","10k Subscribers","subscribers>=10000","disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Money Time]"],
   ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
   ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
   ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
@@ -668,10 +671,10 @@ var subProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var cashProjects = [
-["Extra pocket money","1k Views","views>=1000","cashAmount+=20","Mum was feeling generous [+$20]"],
-["Sly fox","3k Views","views>=3000","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
-["Christmas","5k Views","views>=5000","cashAmount+=200","Grandma's annual cheque is always appreciated [+$200]"],
+["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
+["Christmas","7k Views","views>=7000","cashAmount+=200","Grandma's annual cheque is always appreciated [+$180]"],
 ["Steal from mum's purse","10k Views & less than 45% LDR","views>=10000 && likeDislikeRatio<=45","cashAmount+=500","Sacrifices for the better good [+$500]"],
+["Sly fox","10k Views","views>=10000","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
 ["Loan from friends","25k Views & 70% LDR","views>=25000 && likeDislikeRatio>=70","cashAmount+=2000","...and never pay them back  [+$2k]"],
 ["Greedy pig","50k Views","views>=50000","adLoadMax+=5","Getting kind of intrusive now [+4 Ad Amount]"],
 ["Evening shift waiting tables","500k Views","views>=500000","income+=500","Tables waiting evening shift [+$500/min]"],
