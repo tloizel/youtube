@@ -6,15 +6,15 @@ var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
-var ideasQt = 10; //amount of ideas ready to edit
+var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 100; //clicks required to edit a video
-var shootEditRem = 100; //number of remaining clicks
+var shootEdit = 200; //clicks required to edit a video
+var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 100; //TOTAL number of videos edited
+var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -30,7 +30,7 @@ var loadState = 0;//load state of progress bar
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 10000;
+var subscribers = 0;
 
 //CASH
 var adAmount = 0;
@@ -654,7 +654,7 @@ var subProjects = [
   ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
   ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
   ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
-  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',1);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Money Time]"],
+  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',1);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Ad Time]"],
   ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
   ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
   ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
