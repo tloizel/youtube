@@ -6,15 +6,15 @@ var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
-var ideasQt = 0; //amount of ideas ready to edit
+var ideasQt = 10; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 200; //clicks required to edit a video
-var shootEditRem = 200; //number of remaining clicks
+var shootEdit = 100; //clicks required to edit a video
+var shootEditRem = 100; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEditedTotal = 100; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -30,7 +30,7 @@ var loadState = 0;//load state of progress bar
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 0;
+var subscribers = 10000;
 
 //CASH
 var adAmount = 0;
@@ -212,7 +212,11 @@ function upgradeEditSpeed(number){
 
 //Shoot & Edit
 function clicksLeft(){
-  if(shootEditRem > 0 && ideasQt>0){
+  if(shootEditRem < 0){
+    shootEditRem = 0 ;
+    document.getElementById("editClicks").innerHTML = shootEditRem;
+   }
+  else if(shootEditRem > 0 && ideasQt>0){
     shootEditRem -= 1 ;
     document.getElementById("editClicks").innerHTML = shootEditRem;
    }
@@ -613,7 +617,7 @@ var ideaProjects = [
 ];
 var shootEditProjects = [
   ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
-  ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1);flickAppear('reveal',0);disableDiv('cashProjectsB','auto')","It shall never be returned [+1 Memory]"],
+  ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
   ["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
   ["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=50;shootEditRem-=50;cashAmount-=500","Because tools make the man [-50 Clicks & -$500]"],
   ["Watch a Final Cut tutorial","25 Total Videos Edited & $2k","videosEditedTotal>=25&&cashAmount>=2000","shootEdit-=50;shootEditRem-=50;cashAmount-=2000","Thirty hours later, you're a master [-50 Clicks & -$2k]"],
@@ -646,6 +650,7 @@ var uploadProjects = [
 var subProjects = [
   ["Reply to comments","50 Subscribers","subscribers>=50","views+=200","Love you guys [+200 Views]"],
   ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500","Don't make it a minute long tho [+500 Views]"],
+  ["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',0);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
   ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
   ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
   ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
