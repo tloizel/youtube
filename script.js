@@ -8,7 +8,7 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 60000; //speed of idea generation
+var ideaSpeed = 600; //speed of idea generation
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video
@@ -20,6 +20,7 @@ var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD
 var ideaQlArray = newArray();
+var ideaQlArrayView = newArray();
 var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
@@ -182,6 +183,22 @@ function ideasGen() {
   document.getElementById("ideasGen").innerHTML = ideasQt;
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
   document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
+  updatearrayQlView();
+}
+
+//limit idea array displayed
+function updatearrayQlView() {
+if (ideaQlArray.length<=10){
+  ideaQlArrayView = ideaQlArray;
+}
+else {
+  let length = ideaQlArray.length - 10;
+  let txt = " ... " + length + " more";
+  console.log(txt);
+  ideaQlArrayView = ideaQlArray.slice(0,11);
+  ideaQlArrayView.push(txt);
+}
+document.getElementById("arrayQlView").innerHTML = ideaQlArrayView;
 }
 
 //to de-group Qt into correct array
