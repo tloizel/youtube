@@ -7,7 +7,7 @@ var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
-var ideasQtTotal = 0; //amount of ideas since beginning
+var ideasQtTotal = 100; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
@@ -571,7 +571,8 @@ function callProject(array,title,desc,num) {
   var projectDesc = desc.id;
     if (eval(array[0][2]) == true && array.length>0) {
         eval(array[0][3]);
-        commentBox.unshift({comment:array[0][4],source:"callProject"});
+        var com = array[0][0].concat(" - ",array[0][4]);
+        commentBox.unshift({comment:com,source:"callProject"});
         commentArrayShift();
         array.shift();
         flickAppear("project",num);
