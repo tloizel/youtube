@@ -79,6 +79,7 @@ startIdeaTicker(); //start idea ticker
 disableButton("subAdButton",true);
 disableButton("addAdButton",true);
 disableDiv("cashProjectsB","none");
+disableButton("startTimer",true);
 
 
 //TIMERS
@@ -94,6 +95,8 @@ function startIdeaTicker(){
               //TEMP autoticker(1);
               ideasGen();
               },ideaSpeed);
+  disableButton("startTimer",true);
+  disableButton("stopTimer",false);
 }
 
 //start auto edit
@@ -127,6 +130,8 @@ window.setInterval(function(){
   //stop timers
 function stopTimers() {
   clearInterval(ideaTimer);
+  disableButton("startTimer",false);
+  disableButton("stopTimer",true);
 }
 
 
