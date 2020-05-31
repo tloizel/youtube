@@ -79,6 +79,27 @@ body {
     outline: 0;
   }
   
+  .container {
+    width: 10em;
+    height: 10em;
+  }
+  
+  #progressBar {
+    margin: 10px 10px 10px 10px;
+    height: 100%;
+    width: 100%;
+    background-color: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 85% 100%, 50% 75%, 15% 100%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  
+  #progressBarFull {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    box-shadow: 10px 10px 10px red;
+
+  }  
+
   .parentFlex {
     display: flex;
     flex-flow: row wrap;
@@ -148,7 +169,7 @@ body {
     background:green;
     overflow:hidden;
     box-shadow: -3px -3px 7px #ffffffa6, 3px 3px 5px rgba(94, 104, 121, 0.712);
-      position: relative;
+    position: relative;
   }
   
   .semi-circle{

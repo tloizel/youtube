@@ -8,7 +8,7 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 60000; //speed of idea generation
+var ideaSpeed = 10000; //speed of idea generation
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video
@@ -39,6 +39,16 @@ var cashAmount = 0;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
+
+let height = null;
+window.setInterval(function(){
+  if (height <= 0){height = 100} 
+    else {
+    height--;
+    var progressBarFull = document.getElementById("progressBarFull");
+    progressBarFull.style.height = height + "%";
+    }
+  },ideaSpeed/100);
 
 //COMMENTS
 var comments = [
