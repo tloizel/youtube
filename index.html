@@ -8,9 +8,12 @@
 
 </head>
 <body>
+  <div id="viewsBig">
+    <span id="views">0</span> Views
+  </div>
+  
 
 <div class = "parentFlex">
-  
     <!--TEMP
       <div class = "childFlex">
         <h3>Ticker</h3>
@@ -31,15 +34,24 @@
       <div class = "childFlex">
       <div class = "childFlexTop">
         <h2>1. Idea</h2>
-        <input type="button" 
-               id="startTimer"
-               onclick="startIdeaTicker()" 
-               value="Start thinking"/>
-        <input type="button" 
-               id="stopTimer"
-               onclick="stopIdeaTicker()" 
-               value="Stop thinking" />
-        <br><br>
+        <input  class = "button"
+                type="button" 
+                id="startTimer"
+                onclick="startIdeaTicker()" 
+                value="Start thinking"/>
+        <input  class = "button"
+                type="button" 
+                id="stopTimer"
+                onclick="stopIdeaTicker()" 
+                value="Stop thinking" />
+                
+        <div class="ideaGenCuecontainer">
+          <div id="ideaGenCueProgressBar">
+            <div id="ideaGenCueProgressBarFull">
+              </div>
+          </div>
+        </div>
+        <br>
         <em>Quality</em>
         <span id="ideaQl"><em>5</em></span>
         <input type="range"
@@ -67,12 +79,6 @@
         <p>TOTAL (QtT)<span id="ideasGenTotal" class="span">0</span> 
         </p> 
     <br>
-    <div class="container">
-      <div id="progressBar">
-        <div id="progressBarFull">
-          </div>
-      </div>
-    </div>
         </div>
       <div id="ideaProjectsB"
            class="project"
@@ -85,12 +91,14 @@
       <div class = "childFlex">
       <div class = "childFlexTop">
         <h2>2. Shoot & Edit</h2>
+      <div id="SECircleContainer">
       <div class="progress-holder unselectable"
            onclick="clicksLeft()">
       <div class="semi-circle"></div>
       <div class="left-block"></div>
       <div class="right-block"></div>
       <div class="mask"><span>0%</span></div>
+    </div>
     </div>
         <br>
         <span id="editClicks" class="span">10</span>
