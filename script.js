@@ -3,12 +3,14 @@ var ticker = 0;
 
 //IDEA
 var ideaTimer = null;
+var ideaGenCueTimer = null;
+let ideaGenCueHeight = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 10000; //speed of idea generation
+var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video
@@ -39,16 +41,6 @@ var cashAmount = 0;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
-
-let height = null;
-window.setInterval(function(){
-  if (height <= 0){height = 100} 
-    else {
-    height--;
-    var progressBarFull = document.getElementById("progressBarFull");
-    progressBarFull.style.height = height + "%";
-    }
-  },ideaSpeed/100);
 
 //COMMENTS
 var comments = [
@@ -92,7 +84,6 @@ disableButton("addAdButton",true);
 disableDiv("cashProjectsB","none");
 disableButton("startTimer",true);
 
-
 //TIMERS
   //Function for ticker
 function autoticker(number){
@@ -108,6 +99,31 @@ function startIdeaTicker(){
               },ideaSpeed);
   disableButton("startTimer",true);
   disableButton("stopTimer",false);
+  clearInterval(ideaGenCueTimer);
+  ideaGenCueTimer = setInterval(ideaGenCueFill,ideaSpeed/100);
+}
+
+//stop idea ticker
+ function stopIdeaTicker() {
+   clearInterval(ideaTimer);
+   disableButton("startTimer",false);
+   disableButton("stopTimer",true);
+   clearInterval(ideaGenCueTimer);
+   ideaGenCueHeight = 100;
+  }
+
+//Idea Generation symbol filling up (Timer & separate function)
+function ideaGenCue() {
+  ideaGenCueTimer = setInterval(ideaGenCueFill(),ideaSpeed/100);
+  }
+    
+function ideaGenCueFill() {
+  if (ideaGenCueHeight <= 0){ideaGenCueHeight = 100} 
+    else {
+    ideaGenCueHeight--;
+    var progressBarFull = document.getElementById("ideaGenCueProgressBarFull");
+    progressBarFull.style.height = ideaGenCueHeight + "%";
+  }
 }
 
 //start auto edit
@@ -130,6 +146,7 @@ window.setInterval(function(){
                    SubsRefresh();
                    viewsRefresh();
                    cashGen();
+                   numberWithCommas(views);
                    },1000);
 
 //refreshes cashAmount with income and expenses per min AND COMMENTS
@@ -138,14 +155,11 @@ window.setInterval(function(){
                    callComment();
                    },60000);
 
-  //stop timers
-function stopTimers() {
-  clearInterval(ideaTimer);
-  disableButton("startTimer",false);
-  disableButton("stopTimer",true);
+//converts views into string with commas
+function numberWithCommas(views) {
+  let viewsCommas = views.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  document.getElementById("views").innerHTML = viewsCommas;
 }
-
-
 
 //Function to manually add views
 function addition(number){

@@ -47,7 +47,14 @@ body {
     outline: 0;
   }
   
-  #ideaRange{
+  #viewsBig {
+    font-family: montserrat, sans-serif;
+    font-size: 60px;
+    width: 95%;
+    padding-left: 35px;
+  }
+
+  #ideaRange {
     -webkit-appearance: none;
     cursor: pointer;
     background: red;
@@ -79,25 +86,31 @@ body {
     outline: 0;
   }
   
-  .container {
-    width: 10em;
-    height: 10em;
+  .ideaGenCuecontainer {
+    width: 7em;
+    height: 7em;
+    margin: 0 auto;
+    margin-top: 1em;
   }
   
-  #progressBar {
-    margin: 10px 10px 10px 10px;
-    height: 100%;
-    width: 100%;
-    background-color: gold;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 85% 100%, 50% 75%, 15% 100%, 32% 57%, 2% 35%, 39% 35%);
-  }
-  
-  #progressBarFull {
+  #ideaGenCueProgressBar {
     height: 100%;
     width: 100%;
     background-color: red;
-    box-shadow: 10px 10px 10px red;
-
+    clip-path: circle(50% at 50% 50%);
+  }
+  
+  #ideaGenCueProgressBarFull {
+    height: 100%;
+    width: 100%;
+    background-color: gold;
+    background-image:
+      linear-gradient(45deg, black 25%, transparent 25%), 
+      linear-gradient(135deg, black 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, black 75%),
+      linear-gradient(135deg, transparent 75%, black 75%);
+    background-size:25px 25px; /* Must be a square */
+    background-position:0 0, 12.5px 0, 12.5px -12.5px, 0px 12.5px;
   }  
 
   .parentFlex {
@@ -158,7 +171,11 @@ body {
   
   /* SHOOT AND EDIT PROGRESS CIRCLE */
   
-  .progress-holder{
+  #SECircleContainer:active {
+    transform: translateY(2px);
+  }
+
+  .progress-holder {
     cursor: pointer;
     margin: auto;
     margin-top: 15px;
@@ -172,7 +189,7 @@ body {
     position: relative;
   }
   
-  .semi-circle{
+  .semi-circle {
       width: 100%;
       height: 100%;
       background: inherit;
@@ -182,7 +199,7 @@ body {
       left:0px;
   }
   
-  .left-block{
+  .left-block {
       width: 50%;
       height: 100%;
       position: absolute;
@@ -193,7 +210,7 @@ body {
       border-bottom-left-radius: 50%;
   }
   
-  .right-block{
+  .right-block {
       width: 50%;
       height: 100%;
       position: absolute;
@@ -205,7 +222,7 @@ body {
       transform-origin: left center;
   }
   
-  .mask{
+  .mask {
       width: 80%;
       height: 80%;
       position: absolute;
@@ -217,7 +234,7 @@ body {
     box-shadow: inset -3px -3px 5px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.671);
      }
   
-  .mask span{
+  .mask span {
       color: black;
       font-size: 20px;
       font-family: Arial;
