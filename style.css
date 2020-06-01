@@ -96,7 +96,7 @@ body {
   #ideaGenCueProgressBar {
     height: 100%;
     width: 100%;
-    background-color: red;
+    background-color: transparent;
     clip-path: circle(50% at 50% 50%);
   }
   

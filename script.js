@@ -121,8 +121,16 @@ function ideaGenCueFill() {
   if (ideaGenCueHeight <= 0){ideaGenCueHeight = 100} 
     else {
     ideaGenCueHeight--;
-    var progressBarFull = document.getElementById("ideaGenCueProgressBarFull");
+    let progressBarFull = document.getElementById("ideaGenCueProgressBarFull");
     progressBarFull.style.height = ideaGenCueHeight + "%";
+  }
+  let ideaGenCueProgressBar = document.getElementById("ideaGenCueProgressBar");
+  if (ideaGenCueHeight < 100 && ideaGenCueHeight >= 66){
+    ideaGenCueProgressBar.style.backgroundColor = "red";
+  } if (ideaGenCueHeight < 66 && ideaGenCueHeight >= 33){
+    ideaGenCueProgressBar.style.backgroundColor = "orange";
+  } if (ideaGenCueHeight < 33){
+    ideaGenCueProgressBar.style.backgroundColor = "green";
   }
 }
 
@@ -208,6 +216,7 @@ function ideasGen() {
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
   document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
   updatearrayQlView();
+  ideaGenCueHeight = 0;
 }
 
 //limit idea array displayed
