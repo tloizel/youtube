@@ -169,7 +169,7 @@ function numberWithCommas(views) {
   document.getElementById("views").innerHTML = viewsCommas;
 }
 
-//Function to manually add views
+//Function to manually add views NOT USED
 function addition(number){
   views = views + number;
   views = Math.floor(views);
@@ -215,19 +215,18 @@ function ideasGen() {
   document.getElementById("ideasGen").innerHTML = ideasQt;
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
   document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
-  updatearrayQlView();
-  ideaGenCueHeight = 0;
+  updateArrayQlView();
+  ideaGenCueHeight = 0;//for synchronisation issues
 }
 
 //limit idea array displayed
-function updatearrayQlView() {
+function updateArrayQlView() {
 if (ideaQlArray.length<=10){
   ideaQlArrayView = ideaQlArray;
 }
 else {
   let length = ideaQlArray.length - 10;
   let txt = " ... " + length + " more";
-  console.log(txt);
   ideaQlArrayView = ideaQlArray.slice(0,11);
   ideaQlArrayView.push(txt);
 }
@@ -402,7 +401,7 @@ function uploadVideo() {
      videosEdited--;
      document.getElementById("videosEdited").innerHTML = videosEdited;
      averageQlCalculation();//calculated average Ql at each upload
-     updatearrayQlView();//update array to view
+     updateArrayQlView();//update array to view
      LDR();//calculated new ratio at each upload
      SubsFromUpload();//calculated sub count at each upload
      viewsFromSubs();//calculated view count at each upload
