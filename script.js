@@ -108,8 +108,9 @@ function startIdeaTicker(){
    clearInterval(ideaTimer);
    disableButton("startTimer",false);
    disableButton("stopTimer",true);
-   clearInterval(ideaGenCueTimer);
+   ideaGenCue();
    ideaGenCueHeight = 100;
+   clearInterval(ideaGenCueTimer);
   }
 
 //Idea Generation symbol filling up (Timer & separate function)
@@ -164,10 +165,10 @@ window.setInterval(function(){
                    },60000);
 
 //converts views into string with commas
-function numberWithCommas(views) {
-  let viewsCommas = views.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  document.getElementById("views").innerHTML = viewsCommas;
-}
+//function numberWithCommas(views) {
+//  let viewsCommas = views.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+//  document.getElementById("views").innerHTML = viewsCommas;
+//}
 
 //Function to manually add views NOT USED
 function addition(number){
