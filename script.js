@@ -155,7 +155,7 @@ window.setInterval(function(){
                    SubsRefresh();
                    viewsRefresh();
                    cashGen();
-                   numberWithCommas(views);
+                   //numberWithCommas(views);
                    },1000);
 
 //refreshes cashAmount with income and expenses per min AND COMMENTS
