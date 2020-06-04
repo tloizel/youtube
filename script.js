@@ -85,7 +85,7 @@ disableDiv("cashProjectsB","none");
 disableButton("startTimer",true);
 
 //TIMERS
-  //Function for ticker
+  //Function for ticker NOT USED
 function autoticker(number){
   ticker = ticker + number
   document.getElementById("ticker").innerHTML = ticker;
@@ -108,9 +108,9 @@ function startIdeaTicker(){
    clearInterval(ideaTimer);
    disableButton("startTimer",false);
    disableButton("stopTimer",true);
+   clearInterval(ideaGenCueTimer);
    ideaGenCueHeight = 100;
    ideaGenCueFill();
-   clearInterval(ideaGenCueTimer);
   }
 
 //Idea Generation symbol filling up (Timer & separate function)
