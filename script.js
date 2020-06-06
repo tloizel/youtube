@@ -7,7 +7,7 @@ var ideaGenCueTimer = null;
 let ideaGenCueHeight = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
-var ideaQl =  0; //value of Ql on range
+var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
@@ -16,7 +16,7 @@ var ideaSpeed = 60000; //speed of idea generation
 var shootEdit = 200; //clicks required to edit a video
 var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEditedTotal = 5; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -37,7 +37,7 @@ var subscribers = 0;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 0;
+var cashAmount = 5;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
@@ -83,6 +83,8 @@ disableButton("subAdButton",true);
 disableButton("addAdButton",true);
 disableDiv("cashProjectsB","none");
 disableButton("startTimer",true);
+disableButton("myonoffswitch",true); //autoEdit switch disabled
+disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
 
 //TIMERS
   //Function for ticker NOT USED
@@ -137,9 +139,17 @@ function ideaGenCueFill() {
 
 //start auto edit
 function autoEdit(){
-var  editorTimer = setInterval(function(){
-                   for (var i = 0; i < editorSpeed; i++) {clicksLeft();}
-                   },1000);
+  const checkBox = document.getElementById("myonoffswitch");
+  var  editorTimer = setInterval(function(){
+      if (checkBox.checked == true && cashAmount > 0) {
+        for (var i = 0; i < editorSpeed; i++) {
+          clicksLeft();
+        }
+      }
+      else {
+        clearInterval(editorTimer); 
+      }
+  },1000);
 }
 
 //start auto upload
@@ -216,10 +226,10 @@ function ideasGen() {
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
   document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
   updateArrayQlView();
-  ideaGenCueHeight = 0;//for synchronisation issues
+  ideaGenCueHeight = 0; //for synchronisation issues
 }
 
-//limit idea array displayed
+//limits idea array displayed
 function updateArrayQlView() {
 if (ideaQlArray.length<=10){
   ideaQlArrayView = ideaQlArray;
@@ -227,7 +237,7 @@ if (ideaQlArray.length<=10){
 else {
   let length = ideaQlArray.length - 10;
   let txt = " ... " + length + " more";
-  ideaQlArrayView = ideaQlArray.slice(0,11);
+  ideaQlArrayView = ideaQlArray.slice(0,10);
   ideaQlArrayView.push(txt);
 }
 document.getElementById("arrayQlView").innerHTML = ideaQlArrayView;
@@ -485,7 +495,7 @@ function SubsFromUpload(){
 //subs from ticker
 function SubsRefresh(){
   var subInitial = subscribers;
-    if(likeDislikeRatio >= 50){
+    if (likeDislikeRatio >= 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
     }
     else {
@@ -506,7 +516,7 @@ function subDifferenceColor(v){
     var element = document.getElementById("subDifference");
     var clone = element.cloneNode(true);
     element.parentNode.replaceChild(clone, element);
-    if(v < 0){
+    if (v < 0){
       clone.innerHTML = vRound;
       clone.classList.remove("animatedGreen");
       clone.classList.add("animatedRed");
@@ -541,10 +551,11 @@ function cashGen(){
   
 // refreshes cash amount with income and expenses
 function cashRefresh() {
-  console.log("cashRefresh works");
-  cashAmount += income - expenses;
-  var cashAmountRound = cashAmount.toFixed(2);
-  document.getElementById("cashAmount").innerHTML = "$"+cashAmountRound;
+  const checkBox = document.getElementById("myonoffswitch");
+  if (cashAmount > 0 && checkBox.checked == true) {
+    cashAmount += income - expenses;
+    document.getElementById("cashAmount").innerHTML = "$" + cashAmount.toFixed(2);
+  }
 }
 
 //function for cicular progress bar
@@ -646,12 +657,12 @@ function flickAppear(class1,num) {
   clone.classList.add("animated");
 }
 
-//function to enable/disable buttons
+//function to enable/disable buttons : the button will not be clickable
 function disableButton(button,state){
   document.getElementById(button).disabled = state;
 }
 
-//function to enable/disable divs
+//function to enable/disable divs : the mouse pointer will not appear
 function disableDiv(div,state){
   document.getElementById(div).style.pointerEvents = state;
 }
@@ -673,7 +684,7 @@ var ideaProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
-  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
+  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","expenses+=1;flickAppear('onoffswitch',0);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto');flickAppear('reveal',1);disableDiv('cashProjectsB','auto');shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
 ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
 ["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
 ["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=50;shootEditRem-=50;cashAmount-=500","Because tools make the man [-50 Clicks & -$500]"],
