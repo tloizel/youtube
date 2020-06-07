@@ -42,6 +42,7 @@ var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
 var expensesComp = 0;
+var youtubePartner = 0;
 
 
 //COMMENTS
@@ -659,7 +660,7 @@ function disableButton(button,state){
   document.getElementById(button).disabled = state;
 }
 
-//function to enable/disable divs : the mouse pointer will not appear
+//function to enable/disable divs : the mouse pointer will not appear (chose "none" or 'auto')
 function disableDiv(div,state){
   document.getElementById(div).style.pointerEvents = state;
 }
@@ -715,13 +716,13 @@ var uploadProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var subProjects = [
-  ["Reply to comments","50 Subscribers","subscribers>=50","views+=200","Love you guys [+200 Views]"],
+["Reply to comments","50 Subscribers","subscribers>=50","views+=200","Love you guys [+200 Views]"],
 ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500","Don't make it a minute long tho [+500 Views]"],
 ["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',1);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
 ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
 ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
 ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
-["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',2);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Ad Time]"],
+["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',2);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
 ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
 ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
 ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
@@ -743,11 +744,11 @@ var subProjects = [
 ["End of projects","","views<1","","Congratulations []"],
 ];
 var cashProjects = [
-  ["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
+["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
 ["Christmas","7k Views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated [+$80]"],
 ["Steal from mum's purse","10k Views","views>=10000","cashAmount+=500","Sacrifices for the better good [+$500]"],
 ["Steal from dad's wallet","12k Views","views>=12000","cashAmount+=1000","Ready for a whoppin [+$1k]"],
-["Sly fox","40k Views & less than 4.5 Average Video Quality","views>=20000 && averageQl<=4.5","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
+["Sly fox","Be a Youtube Partner & less than 4.5 Average Video Quality","averageQl<=4.5 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
 ["Loan from friends","500k Views & 7 Average Video Quality","views>=500000 && averageQl>=7","cashAmount+=2000","...and never pay them back  [+$2k]"],
 ["Greedy pig","50k Views","views>=50000","adLoadMax+=5","Getting kind of intrusive now [+4 Ad Amount]"],
 ["Evening shift waiting tables","500k Views","views>=500000","income+=500","Tables waiting evening shift [+$500/min]"],
