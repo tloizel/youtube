@@ -19,7 +19,6 @@ var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
-var expensesComp = null;
 
 //UPLOAD
 var ideaQlArray = newArray();
@@ -42,6 +41,8 @@ var cashAmount = 0;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
+var expensesComp = 0;
+
 
 //COMMENTS
 var comments = [
@@ -544,7 +545,7 @@ function viewsRefresh(){
 
 //videos * adload = cash
 function cashGen(){
-  cashAmount += 0.01*videosUploaded*Math.log(views)*adAmount;
+  cashAmount += 0.01*videosUploaded*Math.log(views+1)*adAmount;
   document.getElementById("cashAmount").innerHTML = "$"+cashAmount.toFixed(2);
 }
   
