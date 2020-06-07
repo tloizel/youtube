@@ -19,6 +19,7 @@ var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 5; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
+var expensesComp = null;
 
 //UPLOAD
 var ideaQlArray = newArray();
@@ -37,7 +38,7 @@ var subscribers = 0;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 5;
+var cashAmount = 10;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
@@ -140,16 +141,15 @@ function ideaGenCueFill() {
 //start auto edit
 function autoEdit(){
   const checkBox = document.getElementById("myonoffswitch");
-  var  editorTimer = setInterval(function(){
       if (checkBox.checked == true && cashAmount > 0) {
+        expensesComp = 0;
         for (var i = 0; i < editorSpeed; i++) {
           clicksLeft();
         }
       }
       else {
-        clearInterval(editorTimer); 
+        expensesComp = expenses;
       }
-  },1000);
 }
 
 //start auto upload
@@ -165,6 +165,7 @@ window.setInterval(function(){
                    SubsRefresh();
                    viewsRefresh();
                    cashGen();
+                   autoEdit();
                    cashRefresh();
                    },1000);
 
@@ -551,11 +552,8 @@ function cashGen(){
   
 // refreshes cash amount with income and expenses
 function cashRefresh() {
-  const checkBox = document.getElementById("myonoffswitch");
-  if (cashAmount > 0 && checkBox.checked == true) {
-    cashAmount += income - expenses;
+    cashAmount += income - expenses + expensesComp; //expenses corresponds to AutoEdit
     document.getElementById("cashAmount").innerHTML = "$" + cashAmount.toFixed(2);
-  }
 }
 
 //function for cicular progress bar
@@ -684,7 +682,7 @@ var ideaProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
-  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","expenses+=1;flickAppear('onoffswitch',0);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto');flickAppear('reveal',1);disableDiv('cashProjectsB','auto');shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
+  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","expenses=1;flickAppear('onoffswitch',0);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto');flickAppear('reveal',1);disableDiv('cashProjectsB','auto');shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
 ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
 ["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
 ["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=50;shootEditRem-=50;cashAmount-=500","Because tools make the man [-50 Clicks & -$500]"],
