@@ -534,9 +534,8 @@ function viewsRefresh(){
 
 //videos * adload = cash
 function cashGen(){
-  cashAmount += 0.00001*videosUploaded*views*adAmount;
-  var cashAmountRound = cashAmount.toFixed(2);
-  document.getElementById("cashAmount").innerHTML = "$"+cashAmountRound;
+  cashAmount += 0.01*videosUploaded*Math.log(views)*adAmount;
+  document.getElementById("cashAmount").innerHTML = "$"+cashAmount.toFixed(2);
 }
   
 // refreshes cash amount with income and expenses
