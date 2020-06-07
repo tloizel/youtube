@@ -15,8 +15,8 @@ var ideaSpeed = 60000; //speed of idea generation
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video
 var shootEditRem = 200; //number of remaining clicks
-var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 5; //TOTAL number of videos edited
+var videosEdited = 1; //number of videos edited
+var videosEditedTotal = 1; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 var expensesComp = null;
@@ -313,7 +313,6 @@ function memoryBlockRefresh() {
 function drawMemory(x, y, w, h){
     var cns1 = document.getElementById("memoryCanvas");
     var ctx = cns1.getContext("2d");
-      //ctx.fillStyle = "black";
       ctx.beginPath();
       ctx.rect(x, y, w, h);
       ctx.stroke();
@@ -342,7 +341,7 @@ function memoryEmpty(){
 function drawSquare(x, y, w, h){
     var cns1 = document.getElementById("memoryCanvas");
     var ctx = cns1.getContext("2d");
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "red";
     ctx.fillRect(x,y,w,h);
 }
 
@@ -666,6 +665,7 @@ function disableDiv(div,state){
 }
 
 
+
 //project arrays
 var ideaProjects = [
   ["Binge watch Youtube","5 Total Ideas Generated","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing [+1 Creativity]"],
@@ -682,25 +682,25 @@ var ideaProjects = [
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
-  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","expenses=1;flickAppear('onoffswitch',0);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto');flickAppear('reveal',1);disableDiv('cashProjectsB','auto');shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
+  ["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
 ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
 ["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
 ["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=50;shootEditRem-=50;cashAmount-=500","Because tools make the man [-50 Clicks & -$500]"],
-["AutoEdit","-$1 per second","views>=0","autoEdit();expenses+=1","Thirty hours later, you're a master [-$1/s]"],
+["Hire an editor on Fiverr","-$1 per second","views>=0","expenses=1;flickAppear('onoffswitch',0);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto')","You'll pay him with exposure as well [AutoEditor Level 2 & -$1/s Salary]"],
 ["Watch a Final Cut tutorial","30 Total Videos Edited","videosEditedTotal>=30","shootEdit-=50;shootEditRem-=50;","Thirty hours later, you're a master [-50 Clicks]"],
 ["Delete old footage","50 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=50","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
 ["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(1);cashAmount-=3000","It shall never be backed up [+1 Memory & -$4k]"],
-["Get a 'professional' editor","$5k & 8 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=8&&subscribers>=100000&&views>=5000000","editorSpeed=2;expenses+=2000;cashAmount-=5000","Little cousin helps out [AutoEditor Level 1 & -$2k/min Salary]"],
+["Hire a 'professional' editor","$5k & 8 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=8&&subscribers>=100000&&views>=5000000","editorSpeed=2;expenses=10;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
 ["1 month iCloud storage trial","1000 Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=1000&&cashAmount>=1000","upgradeMemory(1);cashAmount-=1000","Forgot to unsubscribe one month later [+1 Memory & -$1k]"],
 ["Switch to Adobe Premiere","$5k","cashAmount>=5000","shootEdit-=50;shootEditRem-=50;cashAmount-=5000","Aaah now that's the sofware you need [-50 Clicks & -$5k]"],
 ["Convince parents that iCloud storage is useful","$7k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=7000","upgradeMemory(1);cashAmount-=7000","That was a battle worth fighting for [+1 Memory & -$7k]"],
-["Hire an editor on Fiverr","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","editorSpeed=3;expenses+=3000;cashAmount-=7000","You'll pay him with exposure as well [AutoEditor Level 2 & -$5k/min Salary]"],
+["Hire an experienced editor","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","editorSpeed=3;expenses=20;cashAmount-=7000","One of Casey's old editors [AutoEditor Level 3 & -$20/s Salary]"],
 ["Google Drive premium account","$10k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=10000","upgradeMemory(1);cashAmount-=10000","Data-driven [+1 Memory & -$10k]"],
-["Hire a professional editor","$10k & 9 Average Video Quality & 10M Subscribers & 500M Views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","editorSpeed=4;expenses+=5000;cashAmount-=10000","This is getting real [AutoEditor Level 3 & -$10k/min Salary]"],
+["Hire a badass editor","$10k & 9 Average Video Quality & 10M Subscribers & 500M Views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","editorSpeed=4;expenses=50;cashAmount-=10000","This is getting real [AutoEditor Level 4 & -$50/s Salary]"],
 ["Get a AWS server","$25k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=25000","upgradeMemory(1);cashAmount-=25000","Hopefully Jeff will see this game [+1 Memory & -$25k]"],
-["Hire Casey himself","$1M & 9.5 Average Video Quality & 50M Subscribers & 1B Views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","editorSpeed=5;expenses+=40000;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 4 & -$50k/min Salary]"],
+["Hire Casey himself","$1M & 9.5 Average Video Quality & 50M Subscribers & 1B Views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","editorSpeed=5;expenses=100;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 5 & -$100/s Salary]"],
 ["End of projects","","views<1","","Congratulations []"],
-];  
+  ];  
 var uploadProjects = [
   ["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while you're there [+100kB/s Upload Speed]"],
   ["Figure out how to use hotspot","10 Uploads & $100","videosUploaded>=10 && cashAmount>=100","upgradeUploadSpeed(2);cashAmount-=100","Parents weren't please with the phone bill [+200kB/s Upload Speed]"],
@@ -716,31 +716,31 @@ var uploadProjects = [
 ];
 var subProjects = [
   ["Reply to comments","50 Subscribers","subscribers>=50","views+=200","Love you guys [+200 Views]"],
-  ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500","Don't make it a minute long tho [+500 Views]"],
-  ["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',0);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
-  ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
-  ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
-  ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
-  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',1);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Ad Time]"],
-  ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
-  ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
-  ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
-  ["Shoutout from MysteryGuitarMan","200k Subscribers","subscribers>=200000","LDRF(1.1)","Will he ever take off his glasses? [LDRF = 1.1]"],
-  ["Master the art of thumbnails","300k Subscribers","subscribers>=300000","views+=100000","Bewbs in thumbnail seems to work... [+100k Views]"],
-  ["Comment sub4sub on every video","400k Subscribers","subscribers>=400000","views+=500000","Hustling hustling [+500k Views]"],
-  ["Shoutout from RayWilliamJohnson","1M Subscribers","subscribers>=1000000","LDRF(1.3)","Doing your mom =3 [LDRF = 1.3]"],
-  ["Shoutout from Logan Paul","1.5M Subscribers","subscribers>=1500000","LDRF(0.7)","Oh no... [Popularity = 0.7]"],
-  ["Accomplish every Youtube challenge","2.0M Subscribers","subscribers>=2000000","views+=1000000","Chubby bunny [+1M Views]"],
-  ["Shoutout from NigaHiga","6M Subscribers","subscribers>=6000000","LDRF(1.1)","Tee Hee! [LDRF = 1.1]"],
-  ["Hit the trending page","7M Subscribers","subscribers>=7000000","views+=3000000","Is that a good thing though?  [+3M Views]"],
-  ["Collab with Shane","15M Subscribers","subscribers>=15000000","views+=20000000","Mr Dawson himself?? [+20M Views]"],
-  ["Shoutout from PewdiePie","45M Subscribers","subscribers>=45000000","LDRF(1.4)","*Drop the mic* [LDRF = 1.4]"],
-  ["Go viral","60M Subscribers","subscribers>=60000000","views+=100000000","If only it was always that easy [+100M Views]"],
-  ["Participate in Youtube Rewind","100M Subscribers","subscribers>=100000000","LDRF(0.6)","They can't seem to get it right [Popularity = 0.6]"],
-  ["Shoutout from Casey","200M Subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* [LDRF = 1.5]"],
-  ["Figure out the algorithm","500M Subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret [+1B Views]"],
-  ["Overtake T-Series","1B Subscribers","subscribers>=1000000000","views+=10000000000","Thank you [+10B Views]"],
-  ["End of projects","","views<1","","Congratulations []"],
+["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500","Don't make it a minute long tho [+500 Views]"],
+["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',1);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
+["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
+["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
+["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
+["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',2);disableButton('subAdButton',false);disableButton('addAdButton',false)","Youtube money is gonna be rolling in booooy [Ad Time]"],
+["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
+["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
+["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
+["Shoutout from MysteryGuitarMan","200k Subscribers","subscribers>=200000","LDRF(1.1)","Will he ever take off his glasses? [LDRF = 1.1]"],
+["Master the art of thumbnails","300k Subscribers","subscribers>=300000","views+=100000","Bewbs in thumbnail seems to work... [+100k Views]"],
+["Comment sub4sub on every video","400k Subscribers","subscribers>=400000","views+=500000","Hustling hustling [+500k Views]"],
+["Shoutout from RayWilliamJohnson","1M Subscribers","subscribers>=1000000","LDRF(1.3)","Doing your mom =3 [LDRF = 1.3]"],
+["Shoutout from Logan Paul","1.5M Subscribers","subscribers>=1500000","LDRF(0.7)","Oh no... [Popularity = 0.7]"],
+["Accomplish every Youtube challenge","2.0M Subscribers","subscribers>=2000000","views+=1000000","Chubby bunny [+1M Views]"],
+["Shoutout from NigaHiga","6M Subscribers","subscribers>=6000000","LDRF(1.1)","Tee Hee! [LDRF = 1.1]"],
+["Hit the trending page","7M Subscribers","subscribers>=7000000","views+=3000000","Is that a good thing though?  [+3M Views]"],
+["Collab with Shane","15M Subscribers","subscribers>=15000000","views+=20000000","Mr Dawson himself?? [+20M Views]"],
+["Shoutout from PewdiePie","45M Subscribers","subscribers>=45000000","LDRF(1.4)","*Drop the mic* [LDRF = 1.4]"],
+["Go viral","60M Subscribers","subscribers>=60000000","views+=100000000","If only it was always that easy [+100M Views]"],
+["Participate in Youtube Rewind","100M Subscribers","subscribers>=100000000","LDRF(0.6)","They can't seem to get it right [Popularity = 0.6]"],
+["Shoutout from Casey","200M Subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* [LDRF = 1.5]"],
+["Figure out the algorithm","500M Subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret [+1B Views]"],
+["Overtake T-Series","1B Subscribers","subscribers>=1000000000","views+=10000000000","Thank you [+10B Views]"],
+["End of projects","","views<1","","Congratulations []"],
 ];
 var cashProjects = [
   ["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
