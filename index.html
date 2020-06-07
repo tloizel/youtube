@@ -85,15 +85,19 @@
       <div class = "childFlex">
       <div class = "childFlexTop">
         <h2>2. Shoot & Edit</h2>
-      <div id="SECircleContainer">
-      <div class="progress-holder unselectable"
-           onclick="clicksLeft()">
+<div class="reveal onoffswitch" id="onOffSwitchContainer">
+     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
+     <label class="onoffswitch-label" for="myonoffswitch"></label>
+</div>
+<div id="SECircleContainer">
+  <div class="progress-holder unselectable"
+       onclick="clicksLeft()">
       <div class="semi-circle"></div>
       <div class="left-block"></div>
       <div class="right-block"></div>
       <div class="mask"><span>0%</span></div>
-    </div>
-    </div>
+  </div>
+</div>
         <br>
         <span id="editClicks" class="span">200</span>
         <p>Videos edited
