@@ -16,7 +16,7 @@ var ideaSpeed = 60000; //speed of idea generation
 var shootEdit = 200; //clicks required to edit a video
 var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEditedTotal = 50; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -388,11 +388,17 @@ function upgradeMemoryCash(){
 
 //change upload speed
 function upgradeUploadSpeed(para){
-  uploadSpeed += para;
-  var uploadSpeedConversion = uploadSpeed*100;
+  uploadSpeed = para;
+  let uploadSpeedConversion = uploadSpeed*100;
   document.getElementById("uploadSpeed").innerHTML = uploadSpeedConversion+" kB/s";
 }
 
+//change upload speed
+function upgradeEditorSpeed(para){
+  editorSpeed = para;
+  let editorSpeedConversion = editorSpeed;
+  document.getElementById("editorSpeed").innerHTML = editorSpeedConversion+" clicks/sec";
+}
 
 
 //Upload video
@@ -691,15 +697,15 @@ var shootEditProjects = [
   ["Watch a Final Cut tutorial","30 Total Videos Edited","videosEditedTotal>=30","shootEdit-=50;shootEditRem-=50;","Thirty hours later, you're a master [-50 Clicks]"],
   ["Delete old footage","50 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=50","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
   ["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(1);cashAmount-=3000","It shall never be backed up [+1 Memory & -$4k]"],
-  ["Hire a 'professional' editor","$5k & 8 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=8&&subscribers>=100000&&views>=5000000","editorSpeed=2;expenses=10;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
+  ["Hire a 'professional' editor","$5k & 8 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=8&&subscribers>=100000&&views>=5000000","upgradeEditorSpeed(2);expenses+=9;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
   ["1 month iCloud storage trial","1000 Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=1000&&cashAmount>=1000","upgradeMemory(1);cashAmount-=1000","Forgot to unsubscribe one month later [+1 Memory & -$1k]"],
   ["Switch to Adobe Premiere","$5k","cashAmount>=5000","shootEdit-=50;shootEditRem-=50;cashAmount-=5000","Aaah now that's the sofware you need [-50 Clicks & -$5k]"],
   ["Convince parents that iCloud storage is useful","$7k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=7000","upgradeMemory(1);cashAmount-=7000","That was a battle worth fighting for [+1 Memory & -$7k]"],
-  ["Hire an experienced editor","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","editorSpeed=3;expenses=20;cashAmount-=7000","One of Casey's old editors [AutoEditor Level 3 & -$20/s Salary]"],
+  ["Hire an experienced editor","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","upgradeEditorSpeed(3);expenses+=10;cashAmount-=7000","One of Casey's old editors [AutoEditor Level 3 & -$20/s Salary]"],
   ["Google Drive premium account","$10k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=10000","upgradeMemory(1);cashAmount-=10000","Data-driven [+1 Memory & -$10k]"],
-  ["Hire a badass editor","$10k & 9 Average Video Quality & 10M Subscribers & 500M Views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","editorSpeed=4;expenses=50;cashAmount-=10000","This is getting real [AutoEditor Level 4 & -$50/s Salary]"],
+  ["Hire a badass editor","$10k & 9 Average Video Quality & 10M Subscribers & 500M Views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","upgradeEditorSpeed(4);expenses+=30;cashAmount-=10000","This is getting real [AutoEditor Level 4 & -$50/s Salary]"],
   ["Get a AWS server","$25k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=25000","upgradeMemory(1);cashAmount-=25000","Hopefully Jeff will see this game [+1 Memory & -$25k]"],
-  ["Hire Casey himself","$1M & 9.5 Average Video Quality & 50M Subscribers & 1B Views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","editorSpeed=5;expenses=100;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 5 & -$100/s Salary]"],
+  ["Hire Casey himself","$1M & 9.5 Average Video Quality & 50M Subscribers & 1B Views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(5);expenses+=50;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 5 & -$100/s Salary]"],
   ["End of projects","","views<1","","Congratulations []"],
   ];  
 var uploadProjects = [
