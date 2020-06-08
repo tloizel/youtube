@@ -709,16 +709,16 @@ var shootEditProjects = [
   ["End of projects","","views<1","","Congratulations []"],
   ];  
 var uploadProjects = [
-  ["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(1)","You read books while you're there [+100kB/s Upload Speed]"],
-  ["Figure out how to use hotspot","10 Uploads & $100","videosUploaded>=10 && cashAmount>=100","upgradeUploadSpeed(2);cashAmount-=100","Parents weren't please with the phone bill [+200kB/s Upload Speed]"],
-  ["Buy an ethernet cable","20 Uploads & $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(3);cashAmount-=500","Old school but efficient [+300kB/s Upload Speed]"],
-  ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(4);cashAmount-=1000","Or is it..? [+400kB/s Upload Speed]"],
-  ["Get closer to the wifi","500 Uploads","videosUploaded>=500","upgradeUploadSpeed(5)","harder better faster stronger [+500kB/s Upload Speed]"],
-  ["Ask Drew for Javascript lessons","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(6)","You wonder if this will ever come in handy... [+600kB/s Upload Speed]"],
+  ["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(2)","You read books while you're there [+100kB/s Upload Speed]"],
+  ["Figure out how to use hotspot","10 Uploads & $100","videosUploaded>=10 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill [+100kB/s Upload Speed & -$100]"],
+  ["Buy an ethernet cable","20 Uploads & $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient [+100kB/s Upload Speed & -$500]"],
+  ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(6);cashAmount-=1000","Or is it..? [+200kB/s Upload Speed & -$1000]"],
+  ["Get closer to the wifi","500 Uploads","videosUploaded>=500","upgradeUploadSpeed(8)","harder better faster stronger [+200kB/s Upload Speed]"],
+  ["Ask Drew for Javascript lessons","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+300kB/s Upload Speed]"],
   ["Code your own AutoUpload program","2k Uploads & 5M Views & 500k Subscribers","views>=5000000 && videosUploaded>=2000 && subscribers>=500000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
-  ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(7);cashAmount-=10000","Worth it but you're paying boy [+700kB/s Upload Speed]"],
-  ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(8)","MUUUUUUUUUUUUUUUUUUUUUM [+800kB/s Upload Speed & Upload off for X time]"],
-  ["Your building now has fibre-optic internet","500k Uploads","videosUploaded>=500000","upgradeUploadSpeed(10)","Can't get more efficient [+1000kB/s Upload Speed]"],
+  ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(14);cashAmount-=10000","Worth it but you're paying boy [+300kB/s Upload Speed & -$10000]"],
+  ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(18)","MUUUUUUUUUUUUUUUUUUUUUM [+400kB/s Upload Speed & Upload off for X time]"],
+  ["Your building now has fibre-optic internet","500k Uploads","videosUploaded>=500000","upgradeUploadSpeed(23)","Can't get more efficient [+500kB/s Upload Speed]"],
   ["End of projects","","views<1","","Congratulations []"],
 ];
 var subProjects = [
