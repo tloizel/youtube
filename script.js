@@ -16,7 +16,7 @@ var ideaSpeed = 60000; //speed of idea generation
 var shootEdit = 200; //clicks required to edit a video
 var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 50; //TOTAL number of videos edited
+var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
