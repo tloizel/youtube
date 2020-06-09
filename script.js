@@ -727,7 +727,7 @@ var subProjects = [
 ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho [+500 Views & Get back to thinking!]"],
 ["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',1);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
 ["Spam your videos all over social media","200 Subscribers","subscribers>=200","views+=1000;LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9 & 1000 views]"],
-["Apologize to your friends for the spam","400 Subscribers & Watery eyes","subscribers>=400","subscribers+=200;","Reminding never hurts [Popularity = 1 & +200 subscribers]"],
+["Apologize to your friends for the spam","400 Subscribers & Watery eyes","subscribers>=400","subscribers+=200;LDRF(1)","Reminding never hurts [Popularity = 1 & +200 subscribers]"],
 ["SMASH THAT LIKE BUTTON","1000 Subscribers","subscribers>=1000","views+=10000","Reminding never hurts [+10k Views]"],
 ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","subscribers=subscribers*2","What's up you beautiful bastards [Doubled your subscribers!]"],
 ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',2);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
