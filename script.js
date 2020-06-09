@@ -27,7 +27,7 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to change LDR directly
-var uploadSpeed = 100; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
@@ -480,7 +480,7 @@ function changeAdLoad(number){
 
 //Like Dislike ratio calculation
 function LDR() {
-  likeDislikeRatio = Math.floor((averageQl*10 - adAmount*10)*likeDislikeFactor); 
+  likeDislikeRatio = ((averageQl*10 - adAmount*10)*likeDislikeFactor).toFixed(); 
     if (likeDislikeRatio < 0){
      likeDislikeRatio = 0;
     } 
