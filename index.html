@@ -68,9 +68,9 @@
         <span id="upgradeCreativityCost"><em>Cost </em>: 12</span>
     -->
     
-        <p>Ideas generated : (Qt)<span id="ideasGen" class="span">0</span> 
+        <p>Ideas ready to edit <span id="ideasGen" class="span">0</span> 
         </p> 
-        <p>TOTAL (QtT)<span id="ideasGenTotal" class="span">0</span> 
+        <p>Total ideas generated <span id="ideasGenTotal" class="span">0</span> 
         </p> 
     <br>
         </div>
@@ -100,12 +100,9 @@
 </div>
         <br>
         <span id="editClicks" class="span">200</span>
-        <p>Videos edited
-        <span id="videosEdited" class="span">0</span></p>
-        <p>T Videos edited
-        <span id="videosEditedTotal" class="span">0</span></p>
-        <p>Editor Speed :
-          <span id="editorSpeed">1 clicks/sec</span></p>
+        <p>Videos ready to upload <span id="videosEdited" class="span">0</span></p>
+        <p>Total videos Edited <span id="videosEditedTotal" class="span">0</span></p>
+        <p>Editor Speed : <span id="editorSpeed">1 clicks/sec</span></p>
           
       <!--TEMP    
         <input class="button"
@@ -177,13 +174,13 @@
         
          <div id="myProgress">
          <div id="myBar"></div></div>
-         <p>Videos online : <span id="videos" class="span">0</span>
+         <p>Videos online <span id="videos" class="span">0</span>
          </p>
-         <p>array : <span id="arrayQl" class="span">0</span>
+         <!--TEMP<p>array : <span id="arrayQl" class="span">0</span>
+         </p> -->
+         <p>Video pipeline <span id="arrayQlView" class="span">0</span>
          </p>
-         <p>array short : <span id="arrayQlView" class="span">0</span>
-         </p>
-         <p>average Ql : <span id="averageQl" class="span">0</span>
+         <p>Average Video Quality <span id="averageQl" class="span">0</span>
          </p>
         
     <!--TEMP   
@@ -194,7 +191,8 @@
     --> 
       </div>
       <div   id="uploadProjectsB"
-             class="project"                    onclick="callProject(uploadProjects,uploadProjectsTitle,uploadProjectsDesc,2)">
+             class="project"                    
+             onclick="callProject(uploadProjects,uploadProjectsTitle,uploadProjectsDesc,2)">
          <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
          <span class="projectDesc" id="uploadProjectsDesc">5 Uploads</span>
         </div>

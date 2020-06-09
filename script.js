@@ -223,7 +223,7 @@ function ideasGen() {
   rangeIdea = parseInt(rangeIdea);
   var arrayAdd = newArray(ideaQl, rangeIdea);
   ideaQlArray = ideaQlArray.concat(arrayAdd);
-  document.getElementById("arrayQl").innerHTML = ideaQlArray;
+  //document.getElementById("arrayQl").innerHTML = ideaQlArray;
   ideasQt = ideasQt + rangeIdea;
   document.getElementById("ideasGen").innerHTML = ideasQt;
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
@@ -441,7 +441,7 @@ function averageQlCalculation(){
   averageQl = averageQlNum/videosUploaded;
   ideaQlArray.shift();
   document.getElementById("averageQl").innerHTML = averageQl.toFixed(2);
-  document.getElementById("arrayQl").innerHTML = ideaQlArray;
+  //document.getElementById("arrayQl").innerHTML = ideaQlArray;
 }
 
 //change ad load
@@ -710,12 +710,12 @@ var shootEditProjects = [
 ["End of projects","","views<1","","Congratulations []"],
   ];  
 var uploadProjects = [
-  ["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(2)","You read books while you're there [+100kB/s Upload Speed]"],
+["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(2);autoUpload();expenses+=10;","You read books while you're there [+100kB/s Upload Speed]"],
 ["Figure out how to use hotspot","15 Uploads & $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill [+100kB/s Upload Speed & -$100]"],
 ["Buy an ethernet cable","20 Uploads & $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient [+100kB/s Upload Speed & -$500]"],
 ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? [+300kB/s Upload Speed & -$1000]"],
 ["Ask Drew for Javascript lessons","100 Uploads","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+400kB/s Upload Speed]"],
-["Code your own AutoUpload program","150 Uploads & 2M Views & 20k Subscribers","videosUploaded>=150 && views>=2000000 && subscribers>=20000","autoUpload();expenses=+10;","Cheers Drew <3 [Activate Auto Upload & -$10/s]"],
+["Code your own AutoUpload program","150 Uploads & 2M Views & 20k Subscribers","videosUploaded>=150 && views>=2000000 && subscribers>=20000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
 ["Get closer to the wifi","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(16)","harder better faster stronger [+500kB/s Upload Speed]"],
 ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(24);cashAmount-=10000","Worth it but you're paying boy [+800kB/s Upload Speed & -$10000]"],
 ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM [+1000kB/s Upload Speed & Upload off for X time]"],
@@ -752,21 +752,21 @@ var subProjects = [
 ["End of projects","","views<1","","Congratulations []"],
 ];
 var cashProjects = [
-  ["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
-  ["Christmas","7k Views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated [+$80]"],
-  ["Steal from mum's purse","10k Views","views>=10000","cashAmount+=500","Sacrifices for the better good [+$500]"],
-  ["Steal from dad's wallet","15k Views","views>=12000","cashAmount+=500","Ready for a whoppin [+$500]"],
-  ["Sly fox","Be a Youtube Partner & less than 6 Average Video Quality","averageQl<=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
-  ["Loan from friends","500k Views & 7 Average Video Quality","views>=500000 && averageQl>=7","cashAmount+=2000","...and never pay them back  [+$2k]"],
-  ["Greedy pig","50k Views","views>=50000","adLoadMax+=5","Getting kind of intrusive now [+4 Ad Amount]"],
-  ["Evening shift waiting tables","500k Views","views>=500000","income+=500","Tables waiting evening shift [+$500/min]"],
-  ["Sign up to a 'get rich quick' course","1M Views","views>=1000000","cashAmount+=5000","That definitely cost you more than you earned [+$5k]"],
-  ["Eat instant noodles for a year","2.5M Views","views>=2500000","cashAmount+=10000","Saved some of that cash [+$10k]"],
-  ["Cash cow","50M Views","views>=50000000","adLoadMax+=5","At least make them skippable [+5 Ad Amount]"],
-  ["Launch a Patreon","100M Views","views>=100000000","income+=19500","Jack Conte 4 life [+$20k/min]"],
-  ["Product placement","500M Views","views>=500000000","cashAmount+=200000 && subscribers-=50000","You hate that app, but it's worth the dough right? [+$200k & -50k Subscribers]"],
-  ["Greed is good","700M Views","views>=700000000","adLoadMax+=5","You've made AdBlock a thing [+5 Ad Amount]"],
-  ["Sell overpriced ice-cream on the beach","1B Views","views>=1000000000","cashAmount+=500000","Supply and demand my friend [+$500k]"],
-  ["Sell you rare Pokemon cards","10B Views","views>=10000000000","cashAmount+=1000000","That wasn't easy... [+$1M]"],
-  ["End of projects","","views<1","","Congratulations []"],
+["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
+["Christmas","7k Views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated [+$80]"],
+["Steal from mum's purse","10k Views","views>=10000","cashAmount+=500","Sacrifices for the better good [+$500]"],
+["Steal from dad's wallet","15k Views","views>=15000","cashAmount+=500","Ready for a whoppin [+$500]"],
+["Sly fox","Be a Youtube Partner & less than 6 Average Video Quality","averageQl<=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
+["Loan from friends","500k Views & 7 Average Video Quality","views>=500000 && averageQl>=7","cashAmount+=2000","...and never pay them back  [+$2k]"],
+["Greedy pig","50k Views","views>=50000","adLoadMax+=5","Getting kind of intrusive now [+4 Ad Amount]"],
+["Evening shift waiting tables","500k Views","views>=500000","income+=500","Tables waiting evening shift [+$500/min]"],
+["Sign up to a 'get rich quick' course","1M Views","views>=1000000","cashAmount+=5000","That definitely cost you more than you earned [+$5k]"],
+["Eat instant noodles for a year","2.5M Views","views>=2500000","cashAmount+=10000","Saved some of that cash [+$10k]"],
+["Cash cow","50M Views","views>=50000000","adLoadMax+=5","At least make them skippable [+5 Ad Amount]"],
+["Launch a Patreon","100M Views","views>=100000000","income+=19500","Jack Conte 4 life [+$20k/min]"],
+["Product placement","500M Views","views>=500000000","cashAmount+=200000 && subscribers-=50000","You hate that app, but it's worth the dough right? [+$200k & -50k Subscribers]"],
+["Greed is good","700M Views","views>=700000000","adLoadMax+=5","You've made AdBlock a thing [+5 Ad Amount]"],
+["Sell overpriced ice-cream on the beach","1B Views","views>=1000000000","cashAmount+=500000","Supply and demand my friend [+$500k]"],
+["Sell you rare Pokemon cards","10B Views","views>=10000000000","cashAmount+=1000000","That wasn't easy... [+$1M]"],
+["End of projects","","views<1","","Congratulations []"],
 ];
