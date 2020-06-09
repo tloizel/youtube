@@ -10,11 +10,11 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 60000; //speed of idea generation
+var ideaSpeed = 5000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 200; //clicks required to edit a video
-var shootEditRem = 200; //number of remaining clicks
+var shootEdit = 10; //clicks required to edit a video
+var shootEditRem = 10; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
@@ -27,7 +27,7 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to change LDR directly
-var uploadSpeed = 1; //*100
+var uploadSpeed = 100; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
@@ -230,6 +230,7 @@ function ideasGen() {
   document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
   updateArrayQlView();
   ideaGenCueHeight = 0; //for synchronisation issues
+  averageQlCalculationProjected(); //calculate projected average
 }
 
 //limits idea array displayed
@@ -393,7 +394,7 @@ function upgradeUploadSpeed(para){
   document.getElementById("uploadSpeed").innerHTML = uploadSpeedConversion+" kB/s";
 }
 
-//change upload speed
+//change editor speed
 function upgradeEditorSpeed(para){
   editorSpeed = para;
   let editorSpeedConversion = editorSpeed;
@@ -424,6 +425,7 @@ function uploadVideo() {
      SubsFromUpload();//calculated sub count at each upload
      viewsFromSubs();//calculated view count at each upload
      memoryBlockRefresh();//refreshes the memory block canvas
+     averageQlCalculationProjected(); //calculate projected average
      document.getElementById("uploadB").disabled = false; 
      } 
    else {
@@ -436,12 +438,27 @@ function uploadVideo() {
 
 //calculate average video quality
 function averageQlCalculation(){
-  var nextQl = ideaQlArray[0];
-  averageQlNum = averageQlNum + nextQl;
+  let nextQl = ideaQlArray[0];
+  averageQlNum += nextQl;
   averageQl = averageQlNum/videosUploaded;
   ideaQlArray.shift();
   document.getElementById("averageQl").innerHTML = averageQl.toFixed(2);
   //document.getElementById("arrayQl").innerHTML = ideaQlArray;
+}
+
+//calculate projected average video quality
+function averageQlCalculationProjected(){
+  let sumOfArray = sumArray(ideaQlArray);
+  let projectedQlAverage = (averageQlNum + sumOfArray)/(ideaQlArray.length + videosUploaded);
+  document.getElementById("projectedAverage").innerHTML = projectedQlAverage.toFixed(2);
+}
+        
+// Getting sum of numbers from array
+function sumArray(array){
+let sum = array.reduce(function(a, b){
+    return a + b;
+}, 0);
+return sum;
 }
 
 //change ad load
