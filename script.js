@@ -33,7 +33,7 @@ var loadState = 0;//load state of progress bar
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 50;
+var subscribers = 0;
 
 //CASH
 var adAmount = 0;
@@ -157,7 +157,7 @@ function autoEdit(){
 //start auto upload
 function autoUpload(){
 var uploaderTimer = setInterval(function(){
-                   if (loadState == 0){
+                   if (loadState == 0 && cashAmount > 0){
                    uploadVideo();};
                    },1000/uploadSpeed);
 }
@@ -714,8 +714,8 @@ var uploadProjects = [
 ["Figure out how to use hotspot","15 Uploads & $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill [+100kB/s Upload Speed & -$100]"],
 ["Buy an ethernet cable","20 Uploads & $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient [+100kB/s Upload Speed & -$500]"],
 ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? [+300kB/s Upload Speed & -$1000]"],
-["Ask Drew for Javascript lessons","200 Uploads","videosUploaded>=200","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+400kB/s Upload Speed]"],
-["Code your own AutoUpload program","500 Uploads & 5M Views & 50k Subscribers","views>=5000000 && videosUploaded>=500 && subscribers>=50000","autoUpload();cashAmount-=5000","Cheers Drew <3 [Activate Auto Upload  & -$5000]"],
+["Ask Drew for Javascript lessons","100 Uploads","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+400kB/s Upload Speed]"],
+["Code your own AutoUpload program","150 Uploads & 2M Views & 20k Subscribers","videosUploaded>=150 && views>=2000000 && subscribers>=20000","autoUpload();expenses=+10;","Cheers Drew <3 [Activate Auto Upload & -$10/s]"],
 ["Get closer to the wifi","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(16)","harder better faster stronger [+500kB/s Upload Speed]"],
 ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(24);cashAmount-=10000","Worth it but you're paying boy [+800kB/s Upload Speed & -$10000]"],
 ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM [+1000kB/s Upload Speed & Upload off for X time]"],
@@ -723,32 +723,33 @@ var uploadProjects = [
 ["End of projects","","views<1","","Congratulations []"],
 ];
 var subProjects = [
-  ["Reply to comments","50 Subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys [+200 Views & Get back to thinking!]"],
-  ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho [+500 Views & Get back to thinking!]"],
-  ["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',1);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
-  ["Spam your videos all over social media","200 Subscribers","subscribers>=200","LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9]"],
-  ["SMASH THAT LIKE BUTTON","500 Subscribers","subscribers>=500","views+=10000","Reminding never hurts [+10k Views]"],
-  ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","LDRF(1)","What's up you beautiful bastards [LDRF = 1]"],
-  ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',2);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
-  ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
-  ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
-  ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
-  ["Shoutout from MysteryGuitarMan","200k Subscribers","subscribers>=200000","LDRF(1.1)","Will he ever take off his glasses? [LDRF = 1.1]"],
-  ["Master the art of thumbnails","300k Subscribers","subscribers>=300000","views+=100000","Bewbs in thumbnail seems to work... [+100k Views]"],
-  ["Comment sub4sub on every video","400k Subscribers","subscribers>=400000","views+=500000","Hustling hustling [+500k Views]"],
-  ["Shoutout from RayWilliamJohnson","1M Subscribers","subscribers>=1000000","LDRF(1.3)","Doing your mom =3 [LDRF = 1.3]"],
-  ["Shoutout from Logan Paul","1.5M Subscribers","subscribers>=1500000","LDRF(0.7)","Oh no... [Popularity = 0.7]"],
-  ["Accomplish every Youtube challenge","2.0M Subscribers","subscribers>=2000000","views+=1000000","Chubby bunny [+1M Views]"],
-  ["Shoutout from NigaHiga","6M Subscribers","subscribers>=6000000","LDRF(1.1)","Tee Hee! [LDRF = 1.1]"],
-  ["Hit the trending page","7M Subscribers","subscribers>=7000000","views+=3000000","Is that a good thing though?  [+3M Views]"],
-  ["Collab with Shane","15M Subscribers","subscribers>=15000000","views+=20000000","Mr Dawson himself?? [+20M Views]"],
-  ["Shoutout from PewdiePie","45M Subscribers","subscribers>=45000000","LDRF(1.4)","*Drop the mic* [LDRF = 1.4]"],
-  ["Go viral","60M Subscribers","subscribers>=60000000","views+=100000000","If only it was always that easy [+100M Views]"],
-  ["Participate in Youtube Rewind","100M Subscribers","subscribers>=100000000","LDRF(0.6)","They can't seem to get it right [Popularity = 0.6]"],
-  ["Shoutout from Casey","200M Subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* [LDRF = 1.5]"],
-  ["Figure out the algorithm","500M Subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret [+1B Views]"],
-  ["Overtake T-Series","1B Subscribers","subscribers>=1000000000","views+=10000000000","Thank you [+10B Views]"],
-  ["End of projects","","views<1","","Congratulations []"],
+["Reply to comments","50 Subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys [+200 Views & Get back to thinking!]"],
+["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho [+500 Views & Get back to thinking!]"],
+["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',1);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
+["Spam your videos all over social media","200 Subscribers","subscribers>=200","views+=1000;LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9 & 1000 views]"],
+["Apologize to your friends for the spam","400 Subscribers & Watery eyes","subscribers>=400","subscribers+=200;","Reminding never hurts [Popularity = 1 & +200 subscribers]"],
+["SMASH THAT LIKE BUTTON","1000 Subscribers","subscribers>=1000","views+=10000","Reminding never hurts [+10k Views]"],
+["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","subscribers=subscribers*2","What's up you beautiful bastards [Doubled your subscribers!]"],
+["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',2);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
+["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
+["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
+["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
+["Shoutout from MysteryGuitarMan","200k Subscribers","subscribers>=200000","LDRF(1.1)","Will he ever take off his glasses? [LDRF = 1.1]"],
+["Master the art of thumbnails","300k Subscribers","subscribers>=300000","views+=100000","Bewbs in thumbnail seems to work... [+100k Views]"],
+["Comment sub4sub on every video","400k Subscribers","subscribers>=400000","views+=500000","Hustling hustling [+500k Views]"],
+["Shoutout from RayWilliamJohnson","1M Subscribers","subscribers>=1000000","LDRF(1.3)","Doing your mom =3 [LDRF = 1.3]"],
+["Shoutout from Logan Paul","1.5M Subscribers","subscribers>=1500000","LDRF(0.7)","Oh no... [Popularity = 0.7]"],
+["Accomplish every Youtube challenge","2.0M Subscribers","subscribers>=2000000","views+=1000000","Chubby bunny [+1M Views]"],
+["Shoutout from NigaHiga","6M Subscribers","subscribers>=6000000","LDRF(1.1)","Tee Hee! [LDRF = 1.1]"],
+["Hit the trending page","7M Subscribers","subscribers>=7000000","views+=3000000","Is that a good thing though?  [+3M Views]"],
+["Collab with Shane","15M Subscribers","subscribers>=15000000","views+=20000000","Mr Dawson himself?? [+20M Views]"],
+["Shoutout from PewdiePie","45M Subscribers","subscribers>=45000000","LDRF(1.4)","*Drop the mic* [LDRF = 1.4]"],
+["Go viral","60M Subscribers","subscribers>=60000000","views+=100000000","If only it was always that easy [+100M Views]"],
+["Participate in Youtube Rewind","100M Subscribers","subscribers>=100000000","LDRF(0.6)","They can't seem to get it right [Popularity = 0.6]"],
+["Shoutout from Casey","200M Subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* [LDRF = 1.5]"],
+["Figure out the algorithm","500M Subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret [+1B Views]"],
+["Overtake T-Series","1B Subscribers","subscribers>=1000000000","views+=10000000000","Thank you [+10B Views]"],
+["End of projects","","views<1","","Congratulations []"],
 ];
 var cashProjects = [
   ["Extra pocket money","5k Views","views>=5000","cashAmount+=20","Mum was feeling generous [+$20]"],
