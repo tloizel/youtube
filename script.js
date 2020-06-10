@@ -157,7 +157,7 @@ function autoEdit(){
 //start auto upload
 function autoUpload(){
 var uploaderTimer = setInterval(function(){
-                   if (loadState == 0 && cashAmount > 0){
+                   if (loadState == 0){ //&& cashAmount > 0
                    uploadVideo();};
                    },1000/uploadSpeed);
 }
@@ -727,11 +727,11 @@ var shootEditProjects = [
 ["End of projects","","views<1","","Congratulations []"],
   ];  
 var uploadProjects = [
-["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(2);autoUpload();expenses+=10;","You read books while you're there [+100kB/s Upload Speed]"],
+["Upload videos from school library","5 Uploads","videosUploaded>=5","upgradeUploadSpeed(2)","You read books while you're there [+100kB/s Upload Speed]"],
 ["Figure out how to use hotspot","15 Uploads & $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill [+100kB/s Upload Speed & -$100]"],
 ["Buy an ethernet cable","20 Uploads & $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient [+100kB/s Upload Speed & -$500]"],
 ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? [+300kB/s Upload Speed & -$1000]"],
-["Fail statistics class","75 uploads","videosUploaded>=75","flickAppear('reveal',1)","But you can still calculate an average come on [But you can still calculate an average come on]"],
+["Fail statistics class","75 uploads","videosUploaded>=75","flickAppear('reveal',1)","But you can still calculate an average come on [Activate Projected Average]"],
 ["Ask Drew for Javascript lessons","100 Uploads","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+400kB/s Upload Speed]"],
 ["Code your own AutoUpload program","150 Uploads & 2M Views & 20k Subscribers","videosUploaded>=150 && views>=2000000 && subscribers>=20000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
 ["Get closer to the wifi","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(16)","harder better faster stronger [+500kB/s Upload Speed]"],
