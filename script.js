@@ -13,17 +13,17 @@ var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 60000; //speed of idea generation
 
 //SHOOT AND EDIT
-var shootEdit = 10; //clicks required to edit a video
-var shootEditRem = 10; //number of remaining clicks
+var shootEdit = 200; //clicks required to edit a video
+var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 1000; //TOTAL number of videos edited
+var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD
 var ideaQlArray = newArray();
 var ideaQlArrayView = newArray();
-var videosUploaded = 1000; //Videos online
+var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload
 var likeDislikeFactor = 1; //factor used to change LDR directly
@@ -33,11 +33,11 @@ var loadState = 0;//load state of progress bar
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 10000;
+var subscribers = 0;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 1000;
+var cashAmount = 0;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
