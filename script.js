@@ -519,7 +519,7 @@ function SubsFromUpload(){
 
 //subs from ticker
 function SubsRefresh(){
-  var subInitial = subscribers;
+  //var subInitial = subscribers;
     if (likeDislikeRatio >= 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
     }
@@ -569,7 +569,7 @@ function viewsRefresh(){
 
 //videos * adload = cash
 function cashGen(){
-  cashAmount += 0.01*videosUploaded*Math.log(views+1)*adAmount;
+  cashAmount += 0.01*videosUploaded*Math.log10(views+1)*adAmount;
   document.getElementById("cashAmount").innerHTML = "$"+cashAmount.toFixed(2);
 }
   
@@ -692,12 +692,12 @@ function disableDiv(div,state){
 
 //project arrays
 var ideaProjects = [
-  ["Binge watch Youtube","5 Total Ideas Generated","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing [+1 Creativity]"],
+["Binge watch Youtube","5 Total Ideas Generated","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing [+1 Creativity]"],
 ["Placeholder","5.3 Average Video Quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Placeholder [+1 Creativity]"],
 ["Invite a mate over","20 Total Ideas Generated","ideasQtTotal>=20","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn [+1 Creativity]"],
 ["Watch the OGs of Youtube","5.5 Average Video Quality","averageQl>=5.5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who?  [+1 Creativity]"],
-["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=2000;ideaRangeMax(rangeIdea)","Music channels seem to be a thing [+2 Creativity & -$500]"],
-["Creative block","Less than 2 Average Video Quality","averageQl<=2","creativity+=0","Happens to the best of us [absolutely nothing]"],
+["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=500;ideaRangeMax(rangeIdea)","Music channels seem to be a thing [+2 Creativity & -$500]"],
+["Creative block","Less than 3 Average Video Quality","averageQl<=3","creativity+=0","Happens to the best of us [absolutely nothing]"],
 ["Finish Netflix","500 Total Ideas Generated & 7 Average Video Quality","averageQl>=7 && ideasQtTotal>=500","ideaSpeed-=10000","Get that inspo [-10s Speed]"],
 ["Buy a kitten","2k Total Ideas Generated & 500k views & $1k","views>=500000 && ideasQtTotal=2000 && cashAmount >=1000","upgradeCreativity(2);ideaRangeMax(rangeIdea)","They're the real OGs of Youtube [+2 Creativity & -$1k]"],
 ["Buy a greenscreen","8 Average Video Quality & $2k","averageQl>=8 && ideasQtTotal>=2000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Your bedroom is now a creative cocoon [+3 Creativity]"],
@@ -733,7 +733,7 @@ var uploadProjects = [
 ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? [+300kB/s Upload Speed & -$1000]"],
 ["Fail statistics class","75 uploads","videosUploaded>=75","flickAppear('reveal',1)","But you can still calculate an average come on [Activate Projected Average]"],
 ["Ask Drew for Javascript lessons","100 Uploads","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+400kB/s Upload Speed]"],
-["Code your own AutoUpload program","150 Uploads & 2M Views & 20k Subscribers","videosUploaded>=150 && views>=2000000 && subscribers>=20000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
+["Code your own AutoUpload program","125 Uploads & 2M Views & 20k Subscribers","videosUploaded>=125 && views>=2000000 && subscribers>=20000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
 ["Get closer to the wifi","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(16)","harder better faster stronger [+500kB/s Upload Speed]"],
 ["Convince mum to upgrade internet plan","10k Uploads & $10k","videosUploaded>=10000 && cashAmount>=10000","upgradeUploadSpeed(24);cashAmount-=10000","Worth it but you're paying boy [+800kB/s Upload Speed & -$10000]"],
 ["Mum unplugged the wifi","50k Uploads & Get caught on your computer at 3am","videosUploaded>=50000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM [+1000kB/s Upload Speed & Upload off for X time]"],
