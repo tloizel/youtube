@@ -54,6 +54,65 @@ body {
     padding-left: 35px;
   }
 
+    /* IDEA BULB */
+    .bulbFrame {
+      position: relative;
+
+      text-align: center;
+      height: 9em;
+      margin-top: -2em;
+
+
+      cursor: pointer;
+      border: none;
+    }
+
+  #bulb {
+    position: absolute;
+    z-index: 2;
+    top: 18px;
+    left: 145px;
+    fill: #FFD700;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #glow {
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    background: #FFF35C;
+    border-radius: 50px;
+    box-shadow: 0 0 50px 10px #FFF35C;
+    top: 18px;
+    left: 145px;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #base {
+    position: absolute;
+    top: 117px;
+    left: 167px;
+    fill: #000000;
+    cursor: pointer;
+  }
+  
+   .turnUp{
+      animation-name: turnUp;
+      animation-duration: 60000ms;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+    }
+    
+    @keyframes turnUp {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+  /* IDEA END */
+
+
   #ideaRange {
     -webkit-appearance: none;
     cursor: pointer;

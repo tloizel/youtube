@@ -3,8 +3,6 @@ var ticker = 0;
 
 //IDEA
 var ideaTimer = null;
-var ideaGenCueTimer = null;
-let ideaGenCueHeight = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
@@ -81,6 +79,7 @@ var commentBox = [{comment:"",source:""},
 //PAGE LOAD FUNCTIONS
 memoryBlockRefresh();//refreshes the memory block canvas
 ideasGen(); //generate one idea to start off with
+BulbOn();
 startIdeaTicker(); //start idea ticker
 disableButton("subAdButton",true);
 disableButton("addAdButton",true);
@@ -101,11 +100,11 @@ function startIdeaTicker(){
   ideaTimer = setInterval(function(){
               //TEMP autoticker(1);
               ideasGen();
+              BulbOn();
               },ideaSpeed);
+              BulbOn();
   disableButton("startTimer",true);
   disableButton("stopTimer",false);
-  clearInterval(ideaGenCueTimer);
-  ideaGenCueTimer = setInterval(ideaGenCueFill,ideaSpeed/100);
 }
 
 //stop idea ticker
@@ -113,30 +112,32 @@ function startIdeaTicker(){
    clearInterval(ideaTimer);
    disableButton("startTimer",false);
    disableButton("stopTimer",true);
-   clearInterval(ideaGenCueTimer);
-   ideaGenCueHeight = 100;
-   ideaGenCueFill();
+   BulbOff();
   }
 
-//Idea Generation symbol filling up (Timer & separate function)
-function ideaGenCue() {
-  ideaGenCueTimer = setInterval(ideaGenCueFill(),ideaSpeed/100);
+//Light up the bulb
+function BulbOn() {
+  let toBeTurnedUp = ['bulb', 'glow'];
+  
+  for (const element of toBeTurnedUp) {
+  var elem = document.getElementById(element);
+  var clone = elem.cloneNode(true);
+  elem.parentNode.replaceChild(clone, elem);
+  clone.classList.remove("turnUp");
+  clone.classList.add("turnUp");
   }
-    
-function ideaGenCueFill() {
-  if (ideaGenCueHeight <= 0){ideaGenCueHeight = 100} 
-    else {
-    ideaGenCueHeight--;
-    let progressBarFull = document.getElementById("ideaGenCueProgressBarFull");
-    progressBarFull.style.height = ideaGenCueHeight + "%";
-  }
-  let ideaGenCueProgressBar = document.getElementById("ideaGenCueProgressBar");
-  if (ideaGenCueHeight < 100 && ideaGenCueHeight >= 66){
-    ideaGenCueProgressBar.style.backgroundColor = "red";
-  } if (ideaGenCueHeight < 66 && ideaGenCueHeight >= 33){
-    ideaGenCueProgressBar.style.backgroundColor = "orange";
-  } if (ideaGenCueHeight < 33){
-    ideaGenCueProgressBar.style.backgroundColor = "green";
+}
+
+//Turn off the bulb
+function BulbOff() {
+  let toBeTurnedUp = ['bulb', 'glow'];
+  
+  for (const element of toBeTurnedUp) {
+  var elem = document.getElementById(element);
+  var clone = elem.cloneNode(true);
+  elem.parentNode.replaceChild(clone, elem);
+  clone.classList.remove("turnUp");
+  clone.style.opacity = 0;
   }
 }
 
@@ -229,7 +230,6 @@ function ideasGen() {
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
   document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
   updateArrayQlView();
-  ideaGenCueHeight = 0; //for synchronisation issues
   averageQlCalculationProjected(); //calculate projected average
 }
 
