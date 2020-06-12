@@ -10,7 +10,7 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 60000; //speed of idea generation
+var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video
