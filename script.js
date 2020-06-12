@@ -16,7 +16,7 @@ var ideaSpeed = 60000; //speed of idea generation : the lower the number the fas
 var shootEdit = 200; //clicks required to edit a video
 var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEditedTotal = 100; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -282,18 +282,18 @@ function upgradeEditSpeed(number){
 function clicksLeft(){
   if(shootEditRem < 0){
     shootEditRem = 0 ;
-    document.getElementById("editClicks").innerHTML = shootEditRem;
+    //document.getElementById("editClicks").innerHTML = shootEditRem;
    }
   else if(shootEditRem > 0 && ideasQt>0){
     shootEditRem -= 1 ;
-    document.getElementById("editClicks").innerHTML = shootEditRem;
+    //document.getElementById("editClicks").innerHTML = shootEditRem;
    }
   else if(shootEditRem == 0 && ideasQt > 0 && videosEdited < computerMemory){
     shootEditRem = shootEdit;
-    document.getElementById("editClicks").innerHTML = shootEditRem; 
+    //document.getElementById("editClicks").innerHTML = shootEditRem; 
     videosEdited += 1;
     videosEditedTotal += 1;
-    document.getElementById("videosEdited").innerHTML = videosEdited;
+    //document.getElementById("videosEdited").innerHTML = videosEdited;
     document.getElementById("videosEditedTotal").innerHTML = videosEditedTotal;
     ideasQt = ideasQt - 1;
     document.getElementById("ideasGen").innerHTML = ideasQt;
@@ -418,7 +418,7 @@ function uploadVideo() {
      videosUploaded++;
      document.getElementById("videos").innerHTML = videosUploaded;
      videosEdited--;
-     document.getElementById("videosEdited").innerHTML = videosEdited;
+     //document.getElementById("videosEdited").innerHTML = videosEdited;
      averageQlCalculation();//calculated average Ql at each upload
      updateArrayQlView();//update array to view
      LDR();//calculated new ratio at each upload
@@ -581,7 +581,7 @@ function cashRefresh() {
 
 //function for cicular progress bar
 function setPercentage(v){
-  $('.mask span').html(v+'%');
+  $('.mask span').html(shootEditRem);
   var perct = v*3.6;
     if(v >= 50){
        $('.right-block').css('background','inherit'); 
