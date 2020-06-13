@@ -12,14 +12,24 @@ body {
   }
   
   .span {
-    font-family: roboto;
-    border: solid;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 15px;
+    color: red;
+    text-align: right;
+    float:right;
+
+    margin-right: 10%;
   }
   
+  .explanation { 
+    color: #424242;
+    text-align: left;
+    margin-left:10%;
+  }
+
+  .rainbow-text {
+    background-image: linear-gradient(to left, blue, green, gold, darkorange, red);   -webkit-background-clip: text;
+    color: transparent;
+  }
+
   .button {
     text-transform: uppercase;
     padding: 5px 10px 5px 10px;
@@ -57,13 +67,10 @@ body {
     /* IDEA BULB */
     .bulbFrame {
       position: relative;
-
       text-align: center;
       height: 9em;
       margin-top: -2em;
-
-
-      cursor: pointer;
+      cursor: default;
       border: none;
     }
 
@@ -74,7 +81,6 @@ body {
     left: 145px;
     fill: #FFD700;
     transition: all .5s ease-in-out;
-    cursor: pointer;
   }
   
   #glow {
@@ -87,7 +93,6 @@ body {
     top: 18px;
     left: 145px;
     transition: all .5s ease-in-out;
-    cursor: pointer;
   }
   
   #base {
@@ -95,7 +100,6 @@ body {
     top: 117px;
     left: 167px;
     fill: #000000;
-    cursor: pointer;
   }
   
    .turnUp{
@@ -289,8 +293,8 @@ body {
   
   .mask span {
       color: black;
+      font-family: montserrat, sans-serif;
       font-size: 20px;
-      font-family: Arial;
       position: absolute;
       width: 100%;
       text-align: center;
@@ -356,18 +360,20 @@ body {
     column-count: 11;
     height: 150px;
   }
-  */
+  
   #computerMemoryText {
-      text-transform: uppercase;
+      color: red;
       font-size: 14pt;
       text-align: left;
       margin-left: 20px;
       margin-bottom: -4px;
   }
+  */
   
   #memoryCanvas {
       width: 90%;
       height: 90px;
+      margin-top: -1em;
       text-align: center;
       border-radius: 10px;
       background-color: #DDE1E7;

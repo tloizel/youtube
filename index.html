@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Clicker</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 </head>
+
   <span id="views" class="viewsBig">0</span> views
 <div class = "parentFlex">
     <!--TEMP
@@ -28,7 +30,7 @@
     
       <div class = "childFlex">
       <div class = "childFlexTop">
-        <h2>1. Idea</h2>
+        <h2>Idea</h2>
         <div>
         <input  class = "button"
                 type="button" 
@@ -56,18 +58,18 @@
 
 
         <br>
-        <em>Quality</em>
-        <span id="ideaQl"><em>5</em></span>
+        Quality
+        <span id="ideaQl">5</span>
         <input type="range"
                id="ideaRange"
                min="1"
                max="6"
                value="1"
                onchange="ideaRangeMax(this.value)">
-        <em>Quantity</em>
-        <span id="idea"><em>1</em></span>
+        Quantity
+        <span id="idea">1</span>
     <br><br><br>
-        <span id="creativityLvl" class="span">Creativity Level : 1</span>
+        <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
         
     <!--TEMP
         <input class="button"
@@ -78,10 +80,10 @@
         <span id="upgradeCreativityCost"><em>Cost </em>: 12</span>
     -->
     
-        <p>Ideas ready to edit <span id="ideasGen" class="span">0</span> 
-        </p> 
-        <p>Total ideas generated <span id="ideasGenTotal" class="span">0</span> 
-        </p> 
+      <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span> 
+      </p> 
+      <p class="explanation">Ideas ready to edit<span id="ideasGen" class="span">0</span> 
+      </p>
     <br>
         </div>
       <div id="ideaProjectsB"
@@ -94,7 +96,7 @@
       
       <div class = "childFlex">
       <div class = "childFlexTop">
-        <h2>2. Shoot & Edit</h2>
+        <h2>Shoot & Edit</h2>
 <div class="reveal onoffswitch" id="onOffSwitchContainer">
      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
      <label class="onoffswitch-label" for="myonoffswitch"></label>
@@ -111,8 +113,8 @@
         <br>
         <!--TEMP  <span id="editClicks" class="span">200</span> -->
         <!--TEMP  <p>Videos ready to upload <span id="videosEdited" class="span">0</span></p> -->
-        <p>Total videos Edited <span id="videosEditedTotal" class="span">0</span></p>
-        <p>Editor Speed : <span id="editorSpeed">1 clicks/sec</span></p>
+        <p class="explanation">Videos edited<span id="videosEditedTotal" class="span">0</span></p>
+        <p class="explanation">Editor speed<span id="editorSpeed" class="span">1 clicks/sec</span></p>
           
       <!--TEMP    
         <input class="button"
@@ -127,7 +129,7 @@
                onclick="upgradeEditSpeed(1)">
        -->
     
-        <p id="computerMemoryText"><em>Computer Memory</em></p>
+        <p id="computerMemoryText" class="explanation">Computer memory</p>
         <canvas id="memoryCanvas"></canvas>
     
     <!--TEMP
@@ -160,13 +162,13 @@
      
       <div class = "childFlex">
       <div class = "childFlexTop">
-        <h2>3. Upload</h2>
+        <h2>Upload</h2>
         <input class="button"
                id="uploadB"
                type="button"
                value="Upload Video"
                onclick="uploadVideo()">
-         <p>Upload speed : <span id="uploadSpeed">100kB/s</span>
+         <p class="explanation">Upload speed<span id="uploadSpeed" class="span">100kB/s</span>
            
     <!--TEMP      
         <input class="button"
@@ -184,15 +186,15 @@
         
          <div id="myProgress">
          <div id="myBar"></div></div>
-         <p>Videos online <span id="videos" class="span">0</span>
+         <p class="explanation">Videos online<span id="videos" class="span">0</span>
          </p>
          <!--TEMP<p>array : <span id="arrayQl" class="span">0</span>
          </p> -->
-         <p>Video pipeline <span id="arrayQlView" class="span">0</span>
+         <p class="explanation">Pipeline<span id="arrayQlView" class="span">0</span>
          </p>
-         <p>Average video quality <span id="averageQl" class="span">0.00</span>
+         <p class="explanation">Average video quality<span id="averageQl" class="span">0.00</span>
          </p>
-         <p class="reveal">Projected average <span id="projectedAverage" class="span">0.00</span>
+         <p class="reveal">Projected average<span id="projectedAverage" class="span">0.00</span>
          </p>
         
     <!--TEMP   
@@ -212,14 +214,10 @@
       
       <div class = "childFlex">
       <div class = "childFlexTop">
-         <h2>4. Subscribers</h2>
-         <p>Like/Dislike Ratio :
-           <span id="likeDislikeRatio">0%<span></p>
-         <p>Popularity Factor :
-           <span id="likeDislikeFactor">1<span></p>
-         <p>Subscribers :
-           <span id="subscriberAmount" >0</span>
-           <span id="subDifference" class="subDifferenceClass">+0</span></p>
+         <h2>Subscribers</h2>
+         <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
+         <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
+         <p class="explanation">Subscribers<span id="subscriberAmount"  class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
          
         
     <!--TEMP       
@@ -241,13 +239,13 @@
       
       <div class = "childFlex reveal">
       <div class = "childFlexTop">
-        <h2>5. Ca$h</h2>
-        <p>Cash :
-        <span id="cashAmount" >$0.00<span></p>
+        <h2>Ca$h</h2>
+        <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
+        <p class="explanation">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
 
-          <div class = "reveal">
-        <p>Ad Load :
-        <span id="adLoad" >0<span></p>
+          <div class="reveal">
+        <p class="explanation">Ad Load
+        <span id="adLoad" class="span">0<span></p>
         <input class="button"
                id="subAdButton"
                type="button"
@@ -259,8 +257,9 @@
                value="+"
                onclick="changeAdLoad(1)">
           </div>
+    </div>
 
-     </div>
+
           <div id="cashProjectsB"
                class="project"
                onclick="callProject(cashProjects,cashProjectsTitle,cashProjectsDesc,4)">
@@ -271,7 +270,7 @@
      
      <div class = "childFlex">
      <div class = "childFlexTop">
-        <h2>6. Comments</h2>
+        <h2>Comments</h2>
        
     <!--TEMP   
         <input class="button"
@@ -329,7 +328,7 @@
          <span class="projectDesc" id="cashProjectsDesc">1k Views</span>
         </div>
        
-     </div> <!--end of child flex PROJECTS-->       
+     </div> end of child flex PROJECTS-->       
           
     </div> <!--end of parent flex-->
     

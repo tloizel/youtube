@@ -14,7 +14,7 @@ var ideaSpeed = 60000; //speed of idea generation : the lower the number the fas
 var shootEdit = 200; //clicks required to edit a video
 var shootEditRem = 200; //number of remaining clicks
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 100; //TOTAL number of videos edited
+var videosEditedTotal = 0; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
@@ -23,7 +23,7 @@ var ideaQlArray = newArray();
 var ideaQlArrayView = newArray();
 var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
-var averageQl = 0; //average video quality after upload
+var averageQl = 0; //average video quality after upload 0
 var likeDislikeFactor = 1; //factor used to change LDR directly
 var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
@@ -40,7 +40,7 @@ var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
 var expensesComp = 0;
-var youtubePartner = 0;
+var youtubePartner = 0; //0 for no 1 for yes
 
 
 //COMMENTS
@@ -197,7 +197,7 @@ function upgradeCrea(){
      creativity += 1;
      views -= upCost;
      document.getElementById("views").innerHTML = views;
-     document.getElementById("creativityLvl").innerHTML = "Creativity Level : " + creativity;
+     document.getElementById("creativityLvl").innerHTML = creativity;
    }
   var nextCost = Math.floor(10 * Math.pow(1.2,creativity));
   document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
@@ -206,7 +206,7 @@ function upgradeCrea(){
 //Upgrades creativity
 function upgradeCreativity(num){
   creativity += num;
-  document.getElementById("creativityLvl").innerHTML = "Creativity Level : " + creativity;
+  document.getElementById("creativityLvl").innerHTML = creativity;
 }
 
 //idea range
@@ -226,22 +226,22 @@ function ideasGen() {
   ideaQlArray = ideaQlArray.concat(arrayAdd);
   //document.getElementById("arrayQl").innerHTML = ideaQlArray;
   ideasQt = ideasQt + rangeIdea;
-  document.getElementById("ideasGen").innerHTML = ideasQt;
+  document.getElementById("ideasGen").innerHTML = numeral(ideasQt).format('0,0');
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
-  document.getElementById("ideasGenTotal").innerHTML = ideasQtTotal;
+  document.getElementById("ideasGenTotal").innerHTML = numeral(ideasQtTotal).format('0,0');
   updateArrayQlView();
   averageQlCalculationProjected(); //calculate projected average
 }
 
 //limits idea array displayed
 function updateArrayQlView() {
-if (ideaQlArray.length<=10){
+if (ideaQlArray.length<=9){
   ideaQlArrayView = ideaQlArray;
 }
 else {
-  let length = ideaQlArray.length - 10;
+  let length = ideaQlArray.length - 9;
   let txt = " ... " + length + " more";
-  ideaQlArrayView = ideaQlArray.slice(0,10);
+  ideaQlArrayView = ideaQlArray.slice(0,9);
   ideaQlArrayView.push(txt);
 }
 document.getElementById("arrayQlView").innerHTML = ideaQlArrayView;
@@ -294,7 +294,7 @@ function clicksLeft(){
     videosEdited += 1;
     videosEditedTotal += 1;
     //document.getElementById("videosEdited").innerHTML = videosEdited;
-    document.getElementById("videosEditedTotal").innerHTML = videosEditedTotal;
+    document.getElementById("videosEditedTotal").innerHTML = numeral(videosEditedTotal).format('0,0');
     ideasQt = ideasQt - 1;
     document.getElementById("ideasGen").innerHTML = ideasQt;
     }
@@ -373,13 +373,13 @@ function upgradeMemory(num){
   memoryBlockRefresh();
 }
 
-//NOT USED Upgrade MEMORY according to cashAmount
+//NOT USED Upgrade MEMORY according to cashAmount NOT USED
 function upgradeMemoryCash(){
   var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
     if(cashAmount >= upCost){
      computerMemory += 1;
      cashAmount -= upCost;
-     document.getElementById("cashAmount").innerHTML = "$" + cashAmount;
+     document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
      document.getElementById("computerMemory").innerHTML = computerMemory + "Gb";
    }
   var nextCost = Math.floor(10 * Math.pow(1.2,computerMemory));
@@ -416,7 +416,7 @@ function uploadVideo() {
      loadState = 0;
      elem.style.width = 0 + "%";
      videosUploaded++;
-     document.getElementById("videos").innerHTML = videosUploaded;
+     document.getElementById("videos").innerHTML = numeral(videosUploaded).format('0,0');
      videosEdited--;
      //document.getElementById("videosEdited").innerHTML = videosEdited;
      averageQlCalculation();//calculated average Ql at each upload
@@ -512,7 +512,7 @@ function SubsFromUpload(){
       subscribers = 0;
     }
   var subsRound = subscribers.toFixed();
-  document.getElementById("subscriberAmount").innerHTML = subsRound;
+  document.getElementById("subscriberAmount").innerHTML = numeral(subsRound).format('0,0');
   var subDiff = subscribers - subInitial;
   subDifferenceColor(subDiff);
 }
@@ -530,7 +530,7 @@ function SubsRefresh(){
       subscribers = 0;
     }
   var subsRound = subscribers.toFixed();
-  document.getElementById("subscriberAmount").innerHTML = subsRound;
+  document.getElementById("subscriberAmount").innerHTML = numeral(subsRound).format('0,0');
  //var subDiff = subscribers - subInitial;
  //subDifferenceColor(subDiff);
 }
@@ -557,26 +557,26 @@ function subDifferenceColor(v){
 function viewsFromSubs(){
   views += subscribers;
   views = Math.floor(views);
-  document.getElementById("views").innerHTML = views;
+  document.getElementById("views").innerHTML = numeral(views).format('0,0');
 }
 
 //views calculation
 function viewsRefresh(){
   views += 0.05*subscribers;
   var viewsRound = views.toFixed();
-  document.getElementById("views").innerHTML = viewsRound;
+  document.getElementById("views").innerHTML = numeral(viewsRound).format('0,0');
 }
 
 //videos * adload = cash
 function cashGen(){
   cashAmount += 0.01*videosUploaded*Math.log10(views+1)*adAmount;
-  document.getElementById("cashAmount").innerHTML = "$"+cashAmount.toFixed(2);
+  document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
 }
   
 // refreshes cash amount with income and expenses
 function cashRefresh() {
     cashAmount += income - expenses + expensesComp; //expenses corresponds to AutoEdit
-    document.getElementById("cashAmount").innerHTML = "$" + cashAmount.toFixed(2);
+    document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
 }
 
 //function for cicular progress bar
@@ -775,15 +775,15 @@ var cashProjects = [
 ["Christmas","7k Views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated [+$80]"],
 ["Steal from mum's purse","10k Views","views>=10000","cashAmount+=500","Sacrifices for the better good [+$500]"],
 ["Steal from dad's wallet","15k Views","views>=15000","cashAmount+=500","Ready for a whoppin [+$500]"],
-["Sly fox","Be a Youtube Partner & 6 Average Video Quality or more","averageQl<=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
+["Sly fox","Be a Youtube Partner & 6 Average Video Quality","averageQl>=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
 ["Loan from friends","500k Views & 6.5 Average Video Quality","views>=500000 && averageQl>=6.5","cashAmount+=2000","...and never pay them back  [+$2k]"],
 ["Greedy pig","1M Views","views>=1000000","adLoadMax+=3","Getting kind of intrusive now [+3 Ad Amount]"],
-["Evening shift waiting tables","2M Views","views>=2000000","income+=1","Tables waiting evening shift [+$1/s]"],
+["Sell merch","2M Views","views>=2000000","income+=1;document.getElementById('extraIncome').innerHTML = 'Sell merch (+$1/s)'","That's all you wear from now on [+$1/s]"],
 ["Sign up to a 'get rich quick' course","5M Views","views>=5000000","cashAmount+=5000","That definitely cost you more than you earned [+$5k]"],
 ["Eat instant noodles for a year","10M Views","views>=10000000","cashAmount+=10000","Saved some of that cash [+$10k]"],
 ["Cash cow","30M Views","views>=30000000","adLoadMax+=5","At least make them skippable [+5 Ad Amount]"],
-["Launch a Patreon","50M Views","views>=50000000","income+=15","Jack Conte 4 life [+$15/s]"],
-["Product placement","100M Views","views>=100000000","cashAmount+=200000 && subscribers-=50000","You hate that app, but it's worth the dough right? [+$200k & -50k Subscribers]"],
+["Launch a Patreon","50M Views","views>=50000000","income+=15;document.getElementById('extraIncome').innerHTML = 'Patreon (+$15/s)'","Jack Conte 4 life [+$15/s]"],
+["Product placement","100M Views","views>=100000000","cashAmount+=200000;subscribers-=50000","You hate that app, but it's worth the dough right? [+$200k & -50k Subscribers]"],
 ["Greed is good","500M Views","views>=500000000","adLoadMax+=5","You've made AdBlock a thing [+5 Ad Amount]"],
 ["Sell overpriced ice-cream on the beach","1B Views","views>=1000000000","cashAmount+=500000","Supply and demand my friend [+$500k]"],
 ["Sell you rare Pokemon cards","10B Views","views>=10000000000","cashAmount+=1000000","That wasn't easy... [+$1M]"],
