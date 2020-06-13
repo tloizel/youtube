@@ -23,7 +23,7 @@ var ideaQlArray = newArray();
 var ideaQlArrayView = newArray();
 var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
-var averageQl = 0; //average video quality after upload 0
+var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly
 var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
@@ -501,12 +501,15 @@ function SubsFromUpload(){
   var subInitial = subscribers;
     if(likeDislikeRatio >= 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
+      document.getElementById("likeDislikeRatio").style.color="green";
     }
-    if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
+    else if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10)/2;
+      document.getElementById("likeDislikeRatio").style.color="darkorange";
     }
-    else {
+    else{
       subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
+      document.getElementById("likeDislikeRatio").style.color="red";
     }
     if (subscribers < 0){
       subscribers = 0;

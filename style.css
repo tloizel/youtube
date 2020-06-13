@@ -410,6 +410,7 @@ body {
     position: relative;
     color:black;
     opacity:0;
+    margin-left: 5px;
   }
   
   .subDifferenceClass.animatedRed {
