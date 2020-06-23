@@ -1,5 +1,5 @@
 //GENERAL
-var ticker = 0;
+
 
 //IDEA
 var ideaTimer = null;
@@ -88,13 +88,6 @@ disableButton("startTimer",true);
 disableButton("myonoffswitch",true); //autoEdit switch disabled
 disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
 
-//TIMERS
-  //Function for ticker NOT USED
-function autoticker(number){
-  ticker = ticker + number
-  document.getElementById("ticker").innerHTML = ticker;
-}
-
 //start idea ticker
 function startIdeaTicker(){
   ideaTimer = setInterval(function(){
@@ -177,31 +170,6 @@ window.setInterval(function(){
                    callComment();
                    },60000);
 
-//converts views into string with commas
-//function numberWithCommas(views) {
-//  let viewsCommas = views.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-//  document.getElementById("views").innerHTML = viewsCommas;
-//}
-
-//Function to manually add views NOT USED
-function addition(number){
-  views = views + number;
-  views = Math.floor(views);
-  document.getElementById("views").innerHTML = views;
-}
-
-//Upgrade CREATIVITY according to views NOT USED
-function upgradeCrea(){
-  var upCost = Math.floor(10* Math.pow(1.2,creativity));
-    if(views >= upCost){
-     creativity += 1;
-     views -= upCost;
-     document.getElementById("views").innerHTML = views;
-     document.getElementById("creativityLvl").innerHTML = creativity;
-   }
-  var nextCost = Math.floor(10 * Math.pow(1.2,creativity));
-  document.getElementById('upgradeCreativityCost').innerHTML = "<em> Cost </em>: " + nextCost;
-}
 
 //Upgrades creativity
 function upgradeCreativity(num){
@@ -261,21 +229,6 @@ function changeIdeaSpeed(time) {
   ideaSpeed = time;
   let ideaSpeedConversion = ideaSpeed/1000;
   document.getElementById("ideaSpeed").innerHTML = "ideas/" + ideaSpeedConversion + "s";
-}
-
-//change editor speed NOT USED
-function upgradeEditSpeed(number){
-  if(number==1){
-    if (editorSpeed < 5){
-      editorSpeed++;
-    }
-  }
-  else {
-    if (editorSpeed > 1 ){
-      editorSpeed--; 
-    }
-  }
-  document.getElementById("editorSpeed").innerHTML = editorSpeed+" clicks/sec";
 }
 
 //Shoot & Edit
@@ -370,20 +323,6 @@ function memoryFill() {
 //Upgrades MEMORY by num & Refreshes Computer Memory canvas
 function upgradeMemory(num){
   computerMemory += num;
-  memoryBlockRefresh();
-}
-
-//NOT USED Upgrade MEMORY according to cashAmount NOT USED
-function upgradeMemoryCash(){
-  var upCost = Math.floor(10* Math.pow(1.2,computerMemory));
-    if(cashAmount >= upCost){
-     computerMemory += 1;
-     cashAmount -= upCost;
-     document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
-     document.getElementById("computerMemory").innerHTML = computerMemory + "Gb";
-   }
-  var nextCost = Math.floor(10 * Math.pow(1.2,computerMemory));
-  document.getElementById('upgradeMemoryCost').innerHTML = "<em> Cost </em>: " + "$" + nextCost;
   memoryBlockRefresh();
 }
 
