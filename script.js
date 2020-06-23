@@ -8,39 +8,39 @@ var rangeIdea = 1; //value of Qt on range
 var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 600; //speed of idea generation : the lower the number the faster ideas generate
 
 //SHOOT AND EDIT
-var shootEdit = 200; //clicks required to edit a video
-var shootEditRem = 200; //number of remaining clicks
+var shootEdit = 100; //clicks required to edit a video - 200
+var shootEditRem = 100; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEditedTotal = 1000; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD
 var ideaQlArray = newArray();
 var ideaQlArrayView = newArray();
-var videosUploaded = 0; //Videos online
+var videosUploaded = 100; //Videos online
 var averageQlNum = 0; //average Ql numerator
-var averageQl = 0; //average video quality after upload - 0
+var averageQl = 8; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly
-var uploadSpeed = 1; //*100
+var uploadSpeed = 100; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
-var views = 0;
+var views = 10000000;
 var likeDislikeRatio = 0;
-var subscribers = 0;
+var subscribers = 100000;
 
 //CASH
-var adAmount = 0;
+var adAmount = 1000;
 var cashAmount = 0;
 var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
 var expensesComp = 0;
-var youtubePartner = 0; //0 for no 1 for yes
+var youtubePartner = 1; //0 for no 1 for yes
 
 
 //COMMENTS
@@ -139,12 +139,14 @@ function autoEdit(){
   const checkBox = document.getElementById("myonoffswitch");
       if (checkBox.checked == true && cashAmount > 0) {
         expensesComp = 0;
+        document.getElementById("extraExpenses").innerHTML = "-$"+expenses+"/sec";
         for (var i = 0; i < editorSpeed; i++) {
           clicksLeft();
         }
       }
       else {
         expensesComp = expenses;
+        document.getElementById("extraExpenses").innerHTML = "None (yay)";
       }
 }
 
@@ -222,13 +224,6 @@ function newArray(value, len) {
        arr.push(value);
       }
   return arr;
-}
-
-//changes idea speed in set interval & updates "ideas/min"
-function changeIdeaSpeed(time) {
-  ideaSpeed = time;
-  let ideaSpeedConversion = ideaSpeed/1000;
-  document.getElementById("ideaSpeed").innerHTML = "ideas/" + ideaSpeedConversion + "s";
 }
 
 //Shoot & Edit
@@ -340,7 +335,6 @@ function upgradeEditorSpeed(para){
   document.getElementById("editorSpeed").innerHTML = editorSpeedConversion+" clicks/sec";
 }
 
-
 //Upload video
 function uploadVideo() {
    if (videosEdited > 0 && loadState == 0) {
@@ -402,16 +396,19 @@ return sum;
 
 //change ad load
 function changeAdLoad(number){
+
   if(number==1){
     if (adAmount < adLoadMax){
       adAmount++;
       LDR();
+      LDRColor();
     }
   }
   else {
     if (adAmount > 0){
       adAmount--; 
       LDR();
+      LDRColor();
     }
   }
   document.getElementById("adLoad").innerHTML = adAmount;
@@ -437,18 +434,16 @@ function LDRF(factor){
 
 //increase subscriber count
 function SubsFromUpload(){
+  LDRColor();
   var subInitial = subscribers;
     if(likeDislikeRatio >= 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
-      document.getElementById("likeDislikeRatio").style.color="green";
     }
     else if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
       subscribers += videosUploaded * parseInt(likeDislikeRatio/10)/2;
-      document.getElementById("likeDislikeRatio").style.color="darkorange";
     }
     else{
       subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
-      document.getElementById("likeDislikeRatio").style.color="red";
     }
     if (subscribers < 0){
       subscribers = 0;
@@ -457,6 +452,19 @@ function SubsFromUpload(){
   document.getElementById("subscriberAmount").innerHTML = numeral(subsRound).format('0,0');
   var subDiff = subscribers - subInitial;
   subDifferenceColor(subDiff);
+}
+
+//to ad color indication on LDR
+function LDRColor(){
+  if(likeDislikeRatio >= 50){
+    document.getElementById("likeDislikeRatio").style.color="green";
+  }
+  else if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
+    document.getElementById("likeDislikeRatio").style.color="darkorange";
+  }
+  else{
+    document.getElementById("likeDislikeRatio").style.color="red";
+}
 }
 
 //subs from ticker
@@ -649,17 +657,17 @@ var ideaProjects = [
 ["End of projects","","views<1","","Congratulations []"],
 ];
 var shootEditProjects = [
-["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=25","Two hours later, you're a pro [-25 Clicks]"],
+["Watch an iMovie tutorial","5 Total Videos Edited","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=24;clicksLeft()","Two hours later, you're a pro [-25 Clicks]"],
 ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
-["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=25;cashAmount-=100","For that precious click speed [-25 Clicks & -$100]"],
-["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=50;shootEditRem-=50;cashAmount-=500","Because tools make the man [-50 Clicks & -$500]"],
-["Hire an editor on Fiverr","-$1 per second","views>=0","expenses=1;flickAppear('reveal',0);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto')","You'll pay him with exposure as well [AutoEditor Level 1 & -$1/s Salary]"],
-["Watch a Final Cut tutorial","30 Total Videos Edited","videosEditedTotal>=30","shootEdit-=50;shootEditRem-=50;","Thirty hours later, you're a master [-50 Clicks]"],
+["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=24;cashAmount-=100;clicksLeft()","For that precious click speed [-25 Clicks & -$100]"],
+["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=25;shootEditRem-=24;cashAmount-=500;clicksLeft()","Because tools make the man [-25 Clicks & -$500]"],
+["Hire an editor on Fiverr","-$1 per second","views>=0","expenses=1;flickAppear('reveal',0);flickAppear('reveal',1);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto')","You'll pay him with exposure as well [AutoEditor Level 1 & -$1/s Salary]"],
+["Watch a Final Cut tutorial","30 Total Videos Edited","videosEditedTotal>=30","shootEdit-=50;shootEditRem-=49;clicksLeft()","Thirty hours later, you're a master [-50 Clicks]"],
 ["Delete old footage","50 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=50","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
 ["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up [+2 Memory & -$4k]"],
-["Hire a 'professional' editor","$5k & 7.5 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=7.5&&subscribers>=100000&&views>=5000000","upgradeEditorSpeed(2);expenses+=9;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
-["1 month iCloud storage trial","1000 Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=1000&&cashAmount>=1000","upgradeMemory(2);cashAmount-=1000","Forgot to unsubscribe one month later [+2 Memory & -$1k]"],
-["Switch to Adobe Premiere","$5k","cashAmount>=5000","shootEdit-=50;shootEditRem-=50;cashAmount-=5000","Aaah now that's the sofware you need [-50 Clicks & -$5k]"],
+["Hire a 'professional' editor","$5k & 6.5 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=6.5&&subscribers>=100000&&views>=5000000","upgradeEditorSpeed(2);expenses+=9;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
+["1 month iCloud storage trial","1k Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=1000&&cashAmount>=1000","upgradeMemory(2);cashAmount-=1000","Forgot to unsubscribe one month later [+2 Memory & -$1k]"],
+["Switch to Adobe Premiere","$5k","cashAmount>=5000","shootEdit-=50;shootEditRem-=49;cashAmount-=5000;clicksLeft()","Aaah now that's the sofware you need [-50 Clicks & -$5k]"],
 ["Convince parents that iCloud storage is useful","$7k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=7000","upgradeMemory(2);cashAmount-=7000","That was a battle worth fighting for [+2 Memory & -$7k]"],
 ["Hire an experienced editor","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","upgradeEditorSpeed(3);expenses+=10;cashAmount-=7000","One of Casey's old editors [AutoEditor Level 3 & -$20/s Salary]"],
 ["Google Drive premium account","$10k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=10000","upgradeMemory(2);cashAmount-=10000","Data-driven [+2 Memory & -$10k]"],
