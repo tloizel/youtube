@@ -5,33 +5,33 @@
 var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
-var ideaQl =  9; //value of Ql on range
+var ideaQl =  5; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 600; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
 
 //SHOOT AND EDIT
-var shootEdit = 2; //clicks required to edit a video - 200
-var shootEditRem = 2; //number of remaining clicks - 200
+var shootEdit = 200; //clicks required to edit a video - 200
+var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 1000; //TOTAL number of videos edited
-var computerMemory = 14; //max videos edited 
+var videosEditedTotal = 0; //TOTAL number of videos edited
+var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD
 var ideaQlArray = newArray();
 var ideaQlArrayView = newArray();
-var videosUploaded = 100; //Videos online
+var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
-var averageQl = 8; //average video quality after upload - 0
+var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly
-var uploadSpeed = 100; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
-var views = 10000000;
+var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 100000;
+var subscribers = 0;
 
 //CASH
 var adAmount = 0;
@@ -40,7 +40,7 @@ var adLoadMax = 1;
 var income = 0;
 var expenses = 0;
 var expensesComp = 0;
-var youtubePartner = 1; //0 for no 1 for yes
+var youtubePartner = 0; //0 for no 1 for yes
 
 
 //COMMENTS
