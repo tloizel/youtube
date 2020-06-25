@@ -78,7 +78,7 @@ body {
     position: absolute;
     z-index: 2;
     top: 18px;
-    left: 155px;
+    left: 145px;
     fill: #FFD700;
     transition: all .5s ease-in-out;
   }
@@ -91,14 +91,14 @@ body {
     border-radius: 50px;
     box-shadow: 0 0 50px 10px #FFF35C;
     top: 18px;
-    left: 155px;
+    left: 145px;
     transition: all .5s ease-in-out;
   }
   
   #base {
     position: absolute;
     top: 117px;
-    left: 177px;
+    left: 167px;
     fill: #000000;
   }
   
@@ -165,7 +165,7 @@ body {
   
   .childFlex {
     height: 31em;
-    width: 25em;
+    width: 24em;
     text-align: center;
     margin: 1em;
     margin-bottom: 5em;
@@ -173,7 +173,7 @@ body {
 
   .childFlexShort {
     height: 18em;
-    width: 25em;
+    width: 24em;
     text-align: center;
     margin: 1em;
     margin-bottom: 5em;
