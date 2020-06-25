@@ -1,6 +1,7 @@
 body {
     font-family: montserrat, sans-serif;
     background-color: #dde1e7;
+    zoom: 75%;
   }
   
   .unselectable {
@@ -15,14 +16,13 @@ body {
     color: red;
     text-align: right;
     float:right;
-
-    margin-right: 10%;
+    margin-right: 2em;
   }
   
   .explanation { 
     color: #424242;
     text-align: left;
-    margin-left:10%;
+    margin-left: 2em;
   }
 
   .rainbow-text {
@@ -61,7 +61,7 @@ body {
     font-family: montserrat, sans-serif;
     font-size: 5em;
     width: 95%;
-    padding-left: 35px;
+    padding-left: 1em;
   }
 
     /* IDEA BULB */
@@ -78,7 +78,7 @@ body {
     position: absolute;
     z-index: 2;
     top: 18px;
-    left: 145px;
+    left: 155px;
     fill: #FFD700;
     transition: all .5s ease-in-out;
   }
@@ -91,14 +91,14 @@ body {
     border-radius: 50px;
     box-shadow: 0 0 50px 10px #FFF35C;
     top: 18px;
-    left: 145px;
+    left: 155px;
     transition: all .5s ease-in-out;
   }
   
   #base {
     position: absolute;
     top: 117px;
-    left: 167px;
+    left: 177px;
     fill: #000000;
   }
   
@@ -133,7 +133,7 @@ body {
   #ideaRange::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: 8px solid #bcbcbc;
-    height: 25px;
+    height: 26px;
     width: 25px;
     border-radius: 510%;
     background: red;
@@ -149,54 +149,78 @@ body {
     outline: 0;
   }
   
-  .ideaGenCuecontainer {
-    width: 7em;
-    height: 7em;
-    margin: 0 auto;
-    margin-top: 1em;
-  }
-  
-  #ideaGenCueProgressBar {
-    height: 100%;
-    width: 100%;
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-  }
-  
-  #ideaGenCueProgressBarFull {
-    height: 100%;
-    width: 100%;
-    background-color: #dde1e7;
-    background-size: 25px 25px;
-  }  
+
+/* FLEXBOX START */
 
   .parentFlex {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-items: center;
-    justify-content: space-between;
-    border: 10px solid red;
+    justify-content: space-evenly;
+    /* border: 10px solid red; */
     border-radius: 25px;
     padding: 0.5em;
   }
   
   .childFlex {
-    height: 33em;
-    width: 24em;
+    height: 31em;
+    width: 25em;
     text-align: center;
     margin: 1em;
     margin-bottom: 5em;
   }
-  
+
+  .childFlexShort {
+    height: 18em;
+    width: 25em;
+    text-align: center;
+    margin: 1em;
+    margin-bottom: 5em;
+  }
+
+  .childFlexWide {
+    height: 18em;
+    width: 60%;
+    text-align: center;
+    margin: 1em;
+    margin-bottom: 5em;
+  }
+
   .childFlexTop {
-    height: 30em;
-    padding: 0.5em;
+    height: 28em;
+    padding: 1px 0.5em 0.5em;
     margin-bottom: 1em;
     border-radius: 25px;
     box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-    background-color: edc9c9;
+    background-color: #dde1e7;
   }
+
+  .childFlexTopShort {
+    height: 12em;
+    padding: 1px 0.5em 0.5em;
+    margin-bottom: 1em;
+    border-radius: 25px;
+    box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
+    background-color: #dde1e7;
+  }
+  
+  .childFlexTopWide {
+    height: 18em;
+    padding: 1px 0.5em 0.5em;
+    margin-bottom: 1em;
+    border-radius: 25px;
+    box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
+    background-color: #dde1e7;
+  }
+
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
+/* FLEXBOX END */
+
   
   .reveal {
     opacity: 0;
@@ -349,36 +373,16 @@ body {
     background-color: #ED462F; 
     box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
 }
-
-  /*
-  editClicks {
-    padding-top: 10px;
-    padding-right: 10px;
-    text-align: right;
-  }
-  shootEditcolumn {
-    column-count: 11;
-    height: 150px;
-  }
-  
-  #computerMemoryText {
-      color: red;
-      font-size: 14pt;
-      text-align: left;
-      margin-left: 20px;
-      margin-bottom: -4px;
-  }
-  */
   
   #memoryCanvas {
       width: 90%;
       height: 90px;
-      margin-top: -1em;
+      margin-top: 0;
+      margin-left: 5px;
       text-align: center;
-      border-radius: 10px;
+     /* border-radius: 10px; */
       background-color: #DDE1E7;
      /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
-      border: solid;
   }
   
   /* END OF SHOOT AND EDIT PROGRESS CIRCLE */

@@ -5,7 +5,7 @@
 var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
-var ideaQl =  5; //value of Ql on range
+var ideaQl =  9; //value of Ql on range
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 600; //speed of idea generation : the lower the number the faster ideas generate
@@ -15,7 +15,7 @@ var shootEdit = 2; //clicks required to edit a video - 200
 var shootEditRem = 2; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 1000; //TOTAL number of videos edited
-var computerMemory = 1; //max videos edited 
+var computerMemory = 14; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD

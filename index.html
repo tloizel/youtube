@@ -6,7 +6,6 @@
     <title>YouTube Clicker</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-
 </head>
 
   <span id="views" class="viewsBig">0</span> views
@@ -52,7 +51,7 @@
                onchange="ideaRangeMax(this.value)">
         Quantity
         <span id="idea">1</span>
-    <br><br><br>
+    <br><br>
         <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
       <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span> 
       </p> 
@@ -132,9 +131,44 @@
          <span class="projectDesc" id="uploadProjectsDesc">5 Uploads</span>
         </div>
       </div> <!--end of child flex UPLOAD-->
+
+      <div class = "childFlex reveal">
+        <div class = "childFlexTop">
+          <h2>Finance</h2>
+          <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
+          <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
+          <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
+            <div class="reveal">
+          <p class="explanation">Ad Load
+          <span id="adLoad" class="span">0<span></p>
+          <input class="button"
+                 id="subAdButton"
+                 type="button"
+                 value="-"
+                 onclick="changeAdLoad(0)">
+          <input class="button"
+                 id="addAdButton"
+                 type="button"
+                 value="+"
+                 onclick="changeAdLoad(1)">
+            </div>
+      </div>
+  
+  
+            <div id="cashProjectsB"
+                 class="project"
+                 onclick="callProject(cashProjects,cashProjectsTitle,cashProjectsDesc,4)">
+           <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
+           <span class="projectDesc" id="cashProjectsDesc">5k Views</span>
+         </div>
+       </div> <!--end of child flex CASH-->
+
+
+      <div class="break"></div> <!-- break -->
+
       
-      <div class = "childFlex">
-      <div class = "childFlexTop">
+      <div class = "childFlexShort">
+      <div class = "childFlexTopShort">
          <h2>Subscribers</h2>
          <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
          <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
@@ -150,52 +184,22 @@
         </div> 
        </div> <!--end of child SUBSCRIBERS-->
       
-      <div class = "childFlex reveal">
-      <div class = "childFlexTop">
-        <h2>Ca$h</h2>
-        <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
-        <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
-        <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
-          <div class="reveal">
-        <p class="explanation">Ad Load
-        <span id="adLoad" class="span">0<span></p>
-        <input class="button"
-               id="subAdButton"
-               type="button"
-               value="-"
-               onclick="changeAdLoad(0)">
-        <input class="button"
-               id="addAdButton"
-               type="button"
-               value="+"
-               onclick="changeAdLoad(1)">
-          </div>
-    </div>
-
-
-          <div id="cashProjectsB"
-               class="project"
-               onclick="callProject(cashProjects,cashProjectsTitle,cashProjectsDesc,4)">
-         <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
-         <span class="projectDesc" id="cashProjectsDesc">5k Views</span>
-       </div>
-     </div> <!--end of child flex CASH-->
      
-     <div class = "childFlex">
-     <div class = "childFlexTop">
+     <div class = "childFlexWide">
+     <div class = "childFlexTopWide">
         <h2>Comments</h2>
        
        <div class="comments">
-        <span>&nbsp;>&nbsp;</span><span id="comment1"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment2"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment3"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment4"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment5"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment6"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment7"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment8"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment9"></span><br>
-        <span>&nbsp;>&nbsp;</span><span class="oldComment" id="comment10"></span><br>
+        <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment9"></span><br>
+        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment10"></span><br>
        </div>
        </div>
      </div> <!--end of child flex COMMENTS--> 
