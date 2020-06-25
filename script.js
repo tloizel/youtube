@@ -11,8 +11,8 @@ var ideasQtTotal = 0; //amount of ideas since beginning
 var ideaSpeed = 600; //speed of idea generation : the lower the number the faster ideas generate
 
 //SHOOT AND EDIT
-var shootEdit = 100; //clicks required to edit a video - 200
-var shootEditRem = 100; //number of remaining clicks - 200
+var shootEdit = 2; //clicks required to edit a video - 200
+var shootEditRem = 2; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 1000; //TOTAL number of videos edited
 var computerMemory = 1; //max videos edited 
@@ -34,7 +34,7 @@ var likeDislikeRatio = 0;
 var subscribers = 100000;
 
 //CASH
-var adAmount = 1000;
+var adAmount = 0;
 var cashAmount = 0;
 var adLoadMax = 1;
 var income = 0;
@@ -139,7 +139,7 @@ function autoEdit(){
   const checkBox = document.getElementById("myonoffswitch");
       if (checkBox.checked == true && cashAmount > 0) {
         expensesComp = 0;
-        document.getElementById("extraExpenses").innerHTML = "-$"+expenses+"/sec";
+        document.getElementById("extraExpenses").innerHTML = "Editor (-$"+expenses+"/sec)";
         for (var i = 0; i < editorSpeed; i++) {
           clicksLeft();
         }
@@ -646,7 +646,7 @@ var ideaProjects = [
 ["Hangout with a three year old","5.3 Average Video Quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","That have crazy imagination [+1 Creativity]"],
 ["Invite a mate over","20 Total Ideas Generated","ideasQtTotal>=20","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn [+1 Creativity]"],
 ["Watch the OGs of Youtube","5.5 Average Video Quality","averageQl>=5.5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who?  [+1 Creativity]"],
-["Take guitar lessons","100k Views & 5k Subscribers & $500","views>=100000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=500;ideaRangeMax(rangeIdea)","Music channels seem to be a thing [+2 Creativity & -$500]"],
+["Take guitar lessons","100k Views & 5k Subscribers & $400","views>=100000 && subscribers>=5000 && cashAmount >=400","upgradeCreativity(2);cashAmount-=400;ideaRangeMax(rangeIdea)","Music channels seem to be a thing [+2 Creativity & -$400]"],
 ["Creative block","Less than 4 Average Video Quality","averageQl<=4","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Happens to the best of us [+3 Creativity]"],
 ["Finish Netflix","500 Total Ideas Generated & 7 Average Video Quality","averageQl>=7 && ideasQtTotal>=500","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Get that inspo [+2 Creativity]"],
 ["Buy a kitten","2k Total Ideas Generated & 500k views & $1k","views>=500000 && ideasQtTotal=2000 && cashAmount >=1000","upgradeCreativity(2);ideaRangeMax(rangeIdea)","They're the real OGs of Youtube [+2 Creativity & -$1k]"],
@@ -661,7 +661,7 @@ var shootEditProjects = [
 ["Borrow your sister's USB key","10 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned [+1 Memory]"],
 ["Buy a gaming mouse","15 Total Videos Edited & $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=24;cashAmount-=100;clicksLeft()","For that precious click speed [-25 Clicks & -$100]"],
 ["Laptop upgrade","20 Total Videos Edited & $500","videosEditedTotal>=20&&cashAmount>=500","shootEdit-=25;shootEditRem-=24;cashAmount-=500;clicksLeft()","Because tools make the man [-25 Clicks & -$500]"],
-["Hire an editor on Fiverr","-$1 per second","views>=0","expenses=1;flickAppear('reveal',0);flickAppear('reveal',1);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto')","You'll pay him with exposure as well [AutoEditor Level 1 & -$1/s Salary]"],
+["Hire an editor on Fiverr","-$1 per second","views>=0","expenses=1;flickAppear('reveal',0);flickAppear('reveal',5);flickAppear('reveal',1);disableButton('myonoffswitch',false);disableDiv('onOffSwitchContainer','auto')","You'll pay him with exposure as well [AutoEditor Level 1 & -$1/s Salary]"],
 ["Watch a Final Cut tutorial","30 Total Videos Edited","videosEditedTotal>=30","shootEdit-=50;shootEditRem-=49;clicksLeft()","Thirty hours later, you're a master [-50 Clicks]"],
 ["Delete old footage","50 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=50","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
 ["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up [+2 Memory & -$4k]"],
@@ -681,7 +681,7 @@ var uploadProjects = [
 ["Figure out how to use hotspot","15 Uploads & $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill [+100kB/s Upload Speed & -$100]"],
 ["Buy an ethernet cable","20 Uploads & $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient [+100kB/s Upload Speed & -$500]"],
 ["Convince parents that wifi isn't an FBI spying device","50 uploads & $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? [+300kB/s Upload Speed & -$1000]"],
-["Fail statistics class","75 uploads","videosUploaded>=75","flickAppear('reveal',1)","But you can still calculate an average come on [Activate Projected Average]"],
+["Fail statistics class","75 uploads","videosUploaded>=75","flickAppear('reveal',2)","But you can still calculate an average come on [Activate Projected Average]"],
 ["Ask Drew for Javascript lessons","100 Uploads","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... [+400kB/s Upload Speed]"],
 ["Code your own AutoUpload program","125 Uploads & 4M Views & 30k Subscribers","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 [Activate Auto Upload]"],
 ["Get closer to the wifi","7 Average Video Quality","averageQl>=7","upgradeUploadSpeed(16)","harder better faster stronger [+500kB/s Upload Speed]"],
@@ -693,18 +693,18 @@ var uploadProjects = [
 var subProjects = [
 ["Reply to comments","50 Subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys [+200 Views & Get back to thinking!]"],
 ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho [+500 Views & Get back to thinking!]"],
-["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',2);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
+["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',3);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
 ["Spam your videos all over social media","200 Subscribers","subscribers>=200","views+=1000;LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9 & 1000 views]"],
 ["Apologize to your friends for the spam","400 Subscribers & Watery eyes","subscribers>=400","subscribers+=200;LDRF(1)","Reminding never hurts [Popularity = 1 & +200 subscribers]"],
 ["SMASH THAT LIKE BUTTON","1000 Subscribers","subscribers>=1000","views+=10000","Reminding never hurts [+10k Views]"],
 ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","subscribers=subscribers*2","What's up you beautiful bastards [Doubled your subscribers!]"],
-["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',3);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
+["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',6);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
 ["Write you titles in ALL CAPS","15k Subscribers","subscribers>=15000","views+=50000","Those golden tips [+50k Views]"],
 ["Write an email to your fave Youtuber","20k Subscribers","subscribers>=20000","subscribers+=0","He never answered. What did you expect? [+Still your fave tho :'(]"],
 ["Shoutout from Keemstar","50k Subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews [Popularity = 0.8]"],
 ["Shoutout from MysteryGuitarMan","75k Subscribers","subscribers>=75000","LDRF(1.1)","Will he ever take off his glasses? [Popularity = 1.1]"],
 ["Master the art of thumbnails","100k Subscribers","subscribers>=100000","views+=100000","Bewbs in thumbnail seems to work... [+100k Views]"],
-["GIVEAWAY TIME","150k Subscribers","subscribers>=150000 && cashAmount>=10000","subscribers=subscribers*2;cashAmount+-=10000","What a coincidence, your best friend won! [Doubled your subscribers!]"],
+["GIVEAWAY TIME","150k Subscribers & $10k","subscribers>=150000 && cashAmount>=10000","subscribers=subscribers*2;cashAmount-=10000","What a coincidence, your best friend won! [Doubled your subscribers!]"],
 ["Comment sub4sub on every video","500k Subscribers","subscribers>=500000","views+=500000","Hustling hustling [+500k Views]"],
 ["Shoutout from RayWilliamJohnson","1M Subscribers","subscribers>=1000000","LDRF(1.3)","Doing your mom =3 [LDRF = 1.3]"],
 ["Shoutout from Logan Paul","1.5M Subscribers","subscribers>=1500000","LDRF(0.7)","Oh no... [Popularity = 0.7]"],
@@ -728,11 +728,11 @@ var cashProjects = [
 ["Sly fox","Be a Youtube Partner & 6 Average Video Quality","averageQl>=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... [+1 Ad Amount]"],
 ["Loan from friends","500k Views & 6.5 Average Video Quality","views>=500000 && averageQl>=6.5","cashAmount+=2000","...and never pay them back  [+$2k]"],
 ["Greedy pig","1M Views","views>=1000000","adLoadMax+=3","Getting kind of intrusive now [+3 Ad Amount]"],
-["Sell merch","2M Views","views>=2000000","income+=1;document.getElementById('extraIncome').innerHTML = 'Sell merch (+$1/s)'","That's all you wear from now on [+$1/s]"],
+["Sell merch","2M Views","views>=2000000","flickAppear('reveal',4);income+=1;document.getElementById('extraIncome').innerHTML = 'Sell merch (+$1/sec)'","That's all you wear from now on [+$1/s]"],
 ["Sign up to a 'get rich quick' course","5M Views","views>=5000000","cashAmount+=5000","That definitely cost you more than you earned [+$5k]"],
 ["Eat instant noodles for a year","10M Views","views>=10000000","cashAmount+=10000","Saved some of that cash [+$10k]"],
 ["Cash cow","30M Views","views>=30000000","adLoadMax+=5","At least make them skippable [+5 Ad Amount]"],
-["Launch a Patreon","50M Views","views>=50000000","income+=15;document.getElementById('extraIncome').innerHTML = 'Patreon (+$15/s)'","Jack Conte 4 life [+$15/s]"],
+["Launch a Patreon","50M Views","views>=50000000","income+=15;document.getElementById('extraIncome').innerHTML = 'Patreon (+$15/sec)'","Jack Conte 4 life [+$15/s]"],
 ["Product placement","100M Views","views>=100000000","cashAmount+=200000;subscribers-=50000","You hate that app, but it's worth the dough right? [+$200k & -50k Subscribers]"],
 ["Greed is good","500M Views","views>=500000000","adLoadMax+=5","You've made AdBlock a thing [+5 Ad Amount]"],
 ["Sell overpriced ice-cream on the beach","1B Views","views>=1000000000","cashAmount+=500000","Supply and demand my friend [+$500k]"],
