@@ -88,6 +88,7 @@ disableButton("startTimer",true);
 disableButton("myonoffswitch",true); //autoEdit switch disabled
 disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
 
+
 //start idea ticker
 function startIdeaTicker(){
   ideaTimer = setInterval(function(){
@@ -429,6 +430,7 @@ function LDR() {
 //Change LDRF
 function LDRF(factor){
   likeDislikeFactor = factor;
+  LDR();
   document.getElementById("likeDislikeFactor").innerHTML = likeDislikeFactor;
 }
 
@@ -665,15 +667,15 @@ var shootEditProjects = [
 ["Watch a Final Cut tutorial","30 Total Videos Edited","videosEditedTotal>=30","shootEdit-=50;shootEditRem-=49;clicksLeft()","Thirty hours later, you're a master [-50 Clicks]"],
 ["Delete old footage","50 Total Videos Edited & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=50","upgradeMemory(1)","You will live to regret that [+1 Memory]"],
 ["Buy absurd amount of external hard drives","$4k","cashAmount>=4000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up [+2 Memory & -$4k]"],
-["Hire a 'professional' editor","$5k & 6.5 Average Video Quality & 100k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=6.5&&subscribers>=100000&&views>=5000000","upgradeEditorSpeed(2);expenses+=9;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
-["1 month iCloud storage trial","1k Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=1000&&cashAmount>=1000","upgradeMemory(2);cashAmount-=1000","Forgot to unsubscribe one month later [+2 Memory & -$1k]"],
-["Switch to Adobe Premiere","$5k","cashAmount>=5000","shootEdit-=50;shootEditRem-=49;cashAmount-=5000;clicksLeft()","Aaah now that's the sofware you need [-50 Clicks & -$5k]"],
+["Hire a 'professional' editor","$5k & 6.5 Average Video Quality & 90k Subscribers & 5M Views","cashAmount>=5000&&averageQl>=6.5&&subscribers>=90000&&views>=5000000","upgradeEditorSpeed(5);expenses+=9;cashAmount-=5000","You met him in a bar... [AutoEditor Level 2 & -$10/s Salary]"],
+["1 month iCloud storage trial","500 Total Videos Edited & $1k & Full Memory","computerMemory==videosEdited&&videosEditedTotal>=500&&cashAmount>=1000","upgradeMemory(2);cashAmount-=1000","Forgot to unsubscribe one month later [+2 Memory & -$1k]"],
+["Switch to Adobe Premiere","$6k","cashAmount>=6000","shootEdit-=50;shootEditRem-=49;cashAmount-=6000;clicksLeft()","Aaah now that's the sofware you need [-50 Clicks & -$6k]"],
 ["Convince parents that iCloud storage is useful","$7k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=7000","upgradeMemory(2);cashAmount-=7000","That was a battle worth fighting for [+2 Memory & -$7k]"],
-["Hire an experienced editor","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","upgradeEditorSpeed(3);expenses+=10;cashAmount-=7000","One of Casey's old editors [AutoEditor Level 3 & -$20/s Salary]"],
+["Hire an experienced editor","$5k & 8.5 Average Video Quality & 1M Subscribers & 50M Views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","upgradeEditorSpeed(10);expenses+=10;cashAmount-=7000","One of Casey's old editors [AutoEditor Level 3 & -$20/s Salary]"],
 ["Google Drive premium account","$10k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=10000","upgradeMemory(2);cashAmount-=10000","Data-driven [+2 Memory & -$10k]"],
-["Hire a badass editor","$10k & 9 Average Video Quality & 10M Subscribers & 500M Views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","upgradeEditorSpeed(4);expenses+=30;cashAmount-=10000","This is getting real [AutoEditor Level 4 & -$50/s Salary]"],
+["Hire a badass editor","$10k & 9 Average Video Quality & 10M Subscribers & 500M Views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","upgradeEditorSpeed(20);expenses+=30;cashAmount-=10000","This is getting real [AutoEditor Level 4 & -$50/s Salary]"],
 ["Get a AWS server","$25k & Full Memory","computerMemory==videosEdited&&videosEditedTotal&&cashAmount>=25000","upgradeMemory(3);cashAmount-=25000","Hopefully Jeff will see this game [+3 Memory & -$25k]"],
-["Hire Casey himself","$1M & 9.5 Average Video Quality & 50M Subscribers & 1B Views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(5);expenses+=50;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 5 & -$100/s Salary]"],
+["Hire Casey himself","$1M & 9.5 Average Video Quality & 50M Subscribers & 1B Views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(49);expenses+=50;cashAmount-=1000000","Those vlogs teach you more than film school [AutoEditor Level 5 & -$100/s Salary]"],
 ["End of projects","","views<1","","Congratulations []"],
   ];  
 var uploadProjects = [
@@ -695,7 +697,7 @@ var subProjects = [
 ["Pimp your video intro","100 Subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho [+500 Views & Get back to thinking!]"],
 ["Break the piggy bank","150 subscribers","subscribers>=150","flickAppear('reveal',3);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak [Money Time]"],
 ["Spam your videos all over social media","200 Subscribers","subscribers>=200","views+=1000;LDRF(0.9)","All your friends unsubed, but it had to be done [Popularity = 0.9 & 1000 views]"],
-["Apologize to your friends for the spam","400 Subscribers & Watery eyes","subscribers>=400","subscribers+=200;LDRF(1)","Reminding never hurts [Popularity = 1 & +200 subscribers]"],
+["Apologize to your friends for the spam","500 Subscribers & Watery eyes","subscribers>=500","subscribers+=200;LDRF(1)","Reminding never hurts [Popularity = 1 & +200 subscribers]"],
 ["SMASH THAT LIKE BUTTON","1000 Subscribers","subscribers>=1000","views+=10000","Reminding never hurts [+10k Views]"],
 ["Shoutout from Philip DeFranco","3k Subscribers","subscribers>=3000","subscribers=subscribers*2","What's up you beautiful bastards [Doubled your subscribers!]"],
 ["Youtube Partner","10k Subscribers","subscribers>=10000","flickAppear('reveal',6);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy [Ad Time]"],
