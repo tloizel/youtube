@@ -1,6 +1,6 @@
 body {
     font-family: montserrat, sans-serif;
-    background-color: #dde1e7;
+    background-color: #e9ebf0;
     zoom: 75%;
   }
   
@@ -12,6 +12,18 @@ body {
      -user-select: none;
   }
   
+  .rangeDescription {
+    color: #424242;
+  }
+
+  #ideaQl{
+  color: red;
+  }
+
+  #idea {
+  color: red;
+  }
+
   .span {
     color: red;
     text-align: right;
@@ -128,6 +140,7 @@ body {
     opacity: 0.8;
     -webkit-transition: .2s;
     transition: opacity .2s;
+   
   }
   
   #ideaRange::-webkit-slider-thumb {
