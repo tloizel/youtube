@@ -37,6 +37,13 @@ body {
     margin-left: 2em;
   }
 
+  #arrayQlView {
+    color: black;
+    text-align: right;
+    float:right;
+    margin-right: 2em;
+  }
+
   .rainbow-text {
     background-image: linear-gradient(to left, blue, green, gold, darkorange, red);   -webkit-background-clip: text;
     color: transparent;
@@ -430,6 +437,12 @@ body {
   .red {
     color:red;
   }
+
+  .boldRed {
+    color: red;
+    font-style: bold;
+    font-size: larger;
+  }
   
   .green {
     color:green;
@@ -446,13 +459,13 @@ body {
   
   .subDifferenceClass.animatedRed {
     animation-name: animationRed;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-timing-function: ease-out;
   }
   
   .subDifferenceClass.animatedGreen {
     animation-name: animationGreen;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-timing-function: ease-out;
   }
   
@@ -501,6 +514,10 @@ body {
     box-shadow: 0px 3px #999;
     background-color: red;
     color: white;
+  }
+
+  .valid {
+    background-color: green;
   }
   
   .projectTitle {
