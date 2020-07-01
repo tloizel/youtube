@@ -5,17 +5,17 @@ var testTimer = null;
 var ideaTimer = null;
 var creativity = 1; //creativity level
 var rangeIdea = 1; //value of Qt on range
-var ideaQl =  6; //value of Ql on range
+var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit
 var ideasQtTotal = 0; //amount of ideas since beginning
-var ideaSpeed = 600; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
 
 //SHOOT AND EDIT
-var shootEdit = 2; //clicks required to edit a video - 200
-var shootEditRem = 2; //number of remaining clicks - 200
+var shootEdit = 200; //clicks required to edit a video - 200
+var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 4; //TOTAL number of videos edited
-var computerMemory = 3; //max videos edited 
+var videosEditedTotal = 0; //TOTAL number of videos edited
+var computerMemory = 1; //max videos edited 
 var editorSpeed = 1; //how many times to call the function
 
 //UPLOAD
@@ -24,7 +24,7 @@ var videosUploaded = 0; //Videos online
 var averageQlNum = 0; //average Ql numerator
 var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly
-var uploadSpeed = 100; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0;//load state of progress bar
 
 //SUBS
@@ -63,12 +63,12 @@ var comments = [
 {name: "was this filmed with a potato?", type: "negative"},
 {name: "why am I watching this", type: "negative"},
   ];
-var commentBox = [{comment:"",source:""},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
+var commentBox = [{comment:"Welcome to Youtube.",source:"story"},
+                  {comment:"This is a game of patience, optimisation and problem solving.",source:"story"},
+                  {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
+                  {comment:"Send us that code at youtubegame@gmail.com",source:"story"},
+                  {comment:"We'll know how well you did, best score wins.",source:"story"},
+                  {comment:"Good luck!",source:"story"},
                   {comment:"",source:""},
                   {comment:"",source:""},
                   {comment:"",source:""},
@@ -86,8 +86,15 @@ disableDiv("cashProjectsB","none");
 disableButton("startTimer",true);
 disableButton("myonoffswitch",true); //autoEdit switch disabled
 disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
-testProjectsTimer(); //is project clickable
+testProjectsTimer(); //is project clickable timer
+commentArrayShift(); //to show story comments
+setTimeout(helpBulbStory, 60100);
 
+//inital comment on first flash
+function helpBulbStory(){
+    commentBox.unshift({comment:"Your light bulb just flashed, you have generated a new idea!",source:"callProject"});
+    commentArrayShift();
+}
 
 //start idea ticker
 function startIdeaTicker(){
@@ -226,9 +233,19 @@ else {
   ideaQlArrayView = ideaQlArray.slice(0,9);
   ideaQlArrayView.push(txt);
 }
-document.getElementById("arrayQlView").innerHTML = ideaQlArrayView;
+pipeline();
 }
 
+//pipeline
+function pipeline(){
+  let pipelineColor = ideaQlArrayView.slice(0,videosEdited);
+  let pipelineBlack = ideaQlArrayView.slice(videosEdited,ideaQlArrayView.length);
+  if(pipelineBlack.length > 0 && pipelineColor.length > 0){
+    pipelineColor.push(" ");
+  }
+  document.getElementById("arrayQlViewColor").innerHTML = pipelineColor;
+  document.getElementById("arrayQlView").innerHTML = pipelineBlack;
+}
 
 //to de-group Qt into correct array
 function newArray(value, len) {
@@ -258,6 +275,7 @@ function clicksLeft(){
     document.getElementById("videosEditedTotal").innerHTML = numeral(videosEditedTotal).format('0,0');
     ideasQt = ideasQt - 1;
     document.getElementById("ideasGen").innerHTML = ideasQt;
+    pipeline();
     }
   var clicksPercentage = Math.round((1-shootEditRem/shootEdit)*100);
   setPercentage(clicksPercentage);
@@ -586,12 +604,19 @@ function commentArrayShift(){
 function commentStyle(commentSource,id){
   var element = document.getElementById(id);
   if(commentSource == "callComment"){
+    element.classList.remove("storyComment");
     element.classList.remove("projectCommentcolor");
     element.classList.add("callCommentcolor");
   }
   else if (commentSource == "callProject"){
+    element.classList.remove("storyComment");
     element.classList.remove("callCommentcolor");
     element.classList.add("projectCommentcolor");
+  }
+  else if (commentSource == "story"){
+      element.classList.remove("callCommentcolor");
+      element.classList.remove("projectCommentcolor");
+      element.classList.add("storyComment");
   }
 }
 

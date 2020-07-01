@@ -41,7 +41,19 @@ body {
     color: black;
     text-align: right;
     float:right;
-    margin-right: 2em;
+    margin-right: 0em;
+    border:none;
+  }
+  #arrayQlViewColor {
+    color: red;
+    text-align: right;
+    float:right;
+    margin-right: 0em;
+    border:none;
+  }
+  #pipeline{
+    border:none;
+    padding-right:2em;
   }
 
   .rainbow-text {
@@ -482,14 +494,6 @@ body {
   
   /* END OF SUB DIFF */
   
-  .callCommentcolor {
-    color:black;
-  }
-  
-  .projectCommentcolor {
-    color:purple;
-  }
-  
   .comments {
     margin: 10px;
     padding: 10px;
@@ -501,6 +505,20 @@ body {
   .oldComment {
     opacity: 0.5;
   }
+
+  .callCommentcolor {
+    color:black;
+  }
+  
+  .projectCommentcolor {
+    color:purple;
+  }
+
+  .storyComment {
+    color:green;
+    opacity:1;
+  }
+  
   
   .project {
     height: auto;
