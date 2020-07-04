@@ -57,7 +57,8 @@ body {
   }
 
   .rainbow-text {
-    background-image: linear-gradient(to left, blue, green, gold, darkorange, red);   -webkit-background-clip: text;
+    background-image: linear-gradient(to left, blue, green, gold, darkorange, red);  
+    -webkit-background-clip: text;
     color: transparent;
   }
 
