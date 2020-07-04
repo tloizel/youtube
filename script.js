@@ -92,7 +92,7 @@ setTimeout(helpBulbStory, 60100);
 
 //inital comment on first flash
 function helpBulbStory(){
-    commentBox.unshift({comment:"Your light bulb just flashed, you have generated a new idea!",source:"callProject"});
+    commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
     commentArrayShift();
 }
 
