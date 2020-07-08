@@ -41,15 +41,13 @@ var expenses = 0;
 var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
-//VISIBLE STATE
+//VISIBLE STATE ON LOAD - functions that change these var are located in loadAppearFunctions.js
 var visibleCash = false;
 var visibleAdAmount = false;
 var visibleAutoEdit = false;
 var visibleProjectedAverage = false;
 var visibleExpenses = false;
 var visibleIncome = false;
-
-
 
 //COMMENTS
 var comments = [
@@ -97,6 +95,8 @@ disableButton("myonoffswitch",true); //autoEdit switch disabled
 disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
 commentArrayShift(); //to show story comments
 setTimeout(helpBulbStory, 60100);
+loadVisibleDivs(); //if visible variables are true
+
 
 //inital comment on first flash
 function helpBulbStory(){
