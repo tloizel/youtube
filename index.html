@@ -15,16 +15,16 @@
       <div class = "childFlexTop">
         <h2>Idea</h2>
         <div>
-        <input  class = "button"
+        <input  class="button"
                 type="button" 
                 id="startTimer"
                 onclick="startIdeaTicker()" 
                 value="Start thinking"/>
-        <input  class = "button"
+        <input  class="button"
                 type="button" 
                 id="stopTimer"
                 onclick="stopIdeaTicker()" 
-                value="Stop thinking" />
+                value="Stop thinking"/>
         </div>        
                 <br><br>
 
@@ -172,6 +172,19 @@
       <div class = "childFlexShort">
       <div class = "childFlexTopShort">
          <h2>Analytics</h2>
+
+        <input class="button"
+                type="button"
+                id="saveButton"
+                onclick="save()" 
+                value="Save"/>
+        <input  class="button"
+                type="button"
+                id="saveButton"
+                onclick="load()" 
+                value="Load"/>
+
+
          <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
          <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
          <p class="explanation">Subscribers<span id="subscriberAmount"  class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
@@ -190,7 +203,8 @@
      <div class = "childFlexWide">
      <div class = "childFlexTopWide">
         <h2>Comments</h2>
-       
+
+        
        <div class="comments">
         <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
         <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>

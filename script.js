@@ -41,6 +41,15 @@ var expenses = 0;
 var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
+//VISIBLE STATE
+var visibleCash = false;
+var visibleAdAmount = false;
+var visibleAutoEdit = false;
+var visibleProjectedAverage = false;
+var visibleExpenses = false;
+var visibleIncome = false;
+
+
 
 //COMMENTS
 var comments = [
@@ -799,3 +808,69 @@ var cashProjects = [
   ["Sell you rare Pokemon cards","10B Views","views>=10000000000","cashAmount+=1000000","That wasn't easy... <span class='boldRed'>[+$1M]</span>"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>"],
 ];
+
+function save(){
+  var gameSave = {
+    creativity: creativity,
+    rangeIdea: rangeIdea,
+    ideaQl: ideaQl,
+    ideasQt: ideasQt,
+    ideasQtTotal: ideasQtTotal,
+    shootEdit: shootEdit,
+    shootEditRem: shootEditRem,
+    videosEdited: videosEdited,
+    videosEditedTotal: videosEditedTotal,
+    computerMemory: computerMemory,
+    editorSpeed: editorSpeed,
+    ideaQlArray: ideaQlArray,
+    videosUploaded: videosUploaded,
+    averageQlNum: averageQlNum,
+    averageQl: averageQl,
+    likeDislikeFactor: likeDislikeFactor,
+    uploadSpeed: uploadSpeed,
+    loadState: loadState,
+    views: views,
+    likeDislikeRatio: likeDislikeRatio,
+    subscribers: subscribers,
+    adAmount: adAmount,
+    cashAmount: cashAmount,
+    adLoadMax: adLoadMax,
+    income: income,
+    expenses: expenses,
+    expensesComp: expensesComp,
+    youtubePartner: youtubePartner,
+    ideaProjects: ideaProjects,
+    shootEditProjects: shootEditProjects,
+    uploadProjects: uploadProjects,
+    subProjects: subProjects,
+    cashProjects: cashProjects,
+    commentBox: commentBox,
+    visibleCash: visibleCash,
+    visibleAdAmount: visibleAdAmount,
+    visibleAutoEdit: visibleAutoEdit,
+    visibleProjectedAverage: visibleProjectedAverage,
+    visibleExpenses: visibleExpenses,
+    visibleIncome: visibleIncome
+  }
+  var gameSave1 = {
+    shootEditRem: shootEditRem,
+  }
+  localStorage.setItem("save",JSON.stringify(gameSave1));
+  console.log("saved");
+}  
+
+function load() {
+  var gameSave1 = JSON.parse(localStorage.getItem("save"));
+  console.log(gameSave1);
+  console.log("loaded");
+  
+  for (var element in gameSave1) {
+    //if (typeof gameSave[element] !== undefined) {
+     console.log(element);
+     console.log(gameSave1[element]);
+     console.log(gameSave1.element);
+     element = gameSave1[element];
+     console.log("success");
+    //}
+  }
+}
