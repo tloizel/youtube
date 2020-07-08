@@ -844,25 +844,14 @@ function save(){
     visibleExpenses: visibleExpenses,
     visibleIncome: visibleIncome
   }
-  var gameSave1 = {
-    shootEditRem: shootEditRem,
-  }
-  localStorage.setItem("save",JSON.stringify(gameSave1));
-  console.log("saved");
+  localStorage.setItem("save",JSON.stringify(gameSave));
 }  
 
 function load() {
-  var gameSave1 = JSON.parse(localStorage.getItem("save"));
-  console.log(gameSave1);
-  console.log("loaded");
-  
-  for (var element in gameSave1) {
-    //if (typeof gameSave[element] !== undefined) {
-     console.log(element);
-     console.log(gameSave1[element]);
-     console.log(gameSave1.element);
-     element = gameSave1[element];
-     console.log("success");
-    //}
+  var gameSave = JSON.parse(localStorage.getItem("save"));
+  for (var element in gameSave) {
+    if (typeof element !== undefined) {
+      window[element] = gameSave[element];
+    }
   }
 }
