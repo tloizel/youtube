@@ -1,5 +1,5 @@
 //GENERAL
-var testTimer = null;
+var testTimer = setInterval(testProjects,1000);
 
 //IDEA
 var ideaTimer = null;
@@ -95,13 +95,12 @@ disableDiv("cashProjectsB","none");
 disableButton("startTimer",true);
 disableButton("myonoffswitch",true); //autoEdit switch disabled
 disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
-testProjectsTimer(); //is project clickable timer
 commentArrayShift(); //to show story comments
 setTimeout(helpBulbStory, 60100);
 
 //inital comment on first flash
 function helpBulbStory(){
-    commentBox.unshift({comment:"Your light bulb just flashed, you have generated a new idea!",source:"callProject"});
+    commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
     commentArrayShift();
 }
 
@@ -187,13 +186,6 @@ window.setInterval(function(){
                    autoEdit();
                    cashRefresh();
                    },1000);
-
-//test projects
-function testProjectsTimer(){
-  testTimer = setInterval(function(){
-              testProjects();
-              },1000);
-            }
 
 //refreshes cashAmount with income and expenses per min AND COMMENTS
 window.setInterval(function(){
@@ -694,7 +686,7 @@ function flickAppear(class1,num) {
   element.parentNode.replaceChild(clone, element);
   clone.classList.remove("animated");
   clone.classList.add("animated");
-  setTimeout(testProjectsTimer, 1000);
+  setTimeout(testProjects, 1000);
 }
 
 //function to enable/disable buttons : the button will not be clickable

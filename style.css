@@ -57,7 +57,8 @@ body {
   }
 
   .rainbow-text {
-    background-image: linear-gradient(to left, blue, green, gold, darkorange, red);   -webkit-background-clip: text;
+    background-image: linear-gradient(to left, blue, green, gold, darkorange, red);  
+    -webkit-background-clip: text;
     color: transparent;
   }
 
@@ -118,9 +119,9 @@ body {
     position: absolute;
     width: 76px;
     height: 76px;
-    background: #FFF35C;
+    background: #fff130;
     border-radius: 50px;
-    box-shadow: 0 0 50px 10px #FFF35C;
+    box-shadow: 0 0 50px 10px #fff130;
     top: 18px;
     left: 145px;
     transition: all .5s ease-in-out;
@@ -142,7 +143,11 @@ body {
     }
     
     @keyframes turnUp {
-      0% {opacity: 0;}
+      0% {opacity: 0; fill: #f8fc00}
+      20% {fill: #fceb00;}
+      40% {fill: #fcce00;}
+      60% {fill: #fcc500;}
+      80% {fill: #fcb900;}
       98.6% {opacity: 1;}
       98.7% {opacity: 0;}
       98.8% {opacity: 1;}
@@ -239,7 +244,7 @@ body {
     margin-bottom: 1em;
     border-radius: 25px;
     box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-    background-color: #dde1e7;
+    background-color: #edeff2;
   }
 
   .childFlexTopShort {
@@ -248,7 +253,7 @@ body {
     margin-bottom: 1em;
     border-radius: 25px;
     box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-    background-color: #dde1e7;
+    background-color: #edeff2;
   }
   
   .childFlexTopWide {
@@ -257,7 +262,7 @@ body {
     margin-bottom: 1em;
     border-radius: 25px;
     box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-    background-color: #dde1e7;
+    background-color: #edeff2;
   }
 
   .break {
@@ -355,7 +360,7 @@ body {
       position: absolute;
       left: 10%;
       top: 10%;
-      background: #dde1e7;
+      background: #edeff2;
       border-radius: 50%;
       text-align: center;
     box-shadow: inset -3px -3px 5px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.671);
@@ -427,7 +432,7 @@ body {
       margin-left: 5px;
       text-align: center;
      /* border-radius: 10px; */
-      background-color: #DDE1E7;
+      background-color: #edeff2;
      /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
   }
   
