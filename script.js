@@ -114,6 +114,7 @@ disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
 commentArrayShift(); //to show story comments
 setTimeout(helpBulbStory, 60100);
 loadVisibleDivs(); //if visible variables are true
+console.log("This isn't what we meant by problem solving. Get out of here!")
 
 
 //inital comment on first flash
