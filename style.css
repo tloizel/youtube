@@ -1,7 +1,7 @@
 body {
     font-family: montserrat, sans-serif;
     background-color: #e9ebf0;
-    zoom: 75%;
+    zoom: 73%;
   }
   
   .unselectable {
@@ -590,4 +590,8 @@ body {
 
 .alignRight {
   text-align: right;
+}
+
+.settingsButton {
+background-color: #e9ebf0;
 }

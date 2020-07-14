@@ -867,8 +867,6 @@ function save(){
 }
 
 function projectRefresh(array,title,desc) {
-  console.log(title.id);
-  console.log(desc.id);
   document.getElementById(title.id).innerHTML = array[0][0];
   document.getElementById(desc.id).innerHTML = array[0][1];
 }
@@ -877,24 +875,20 @@ function load() {
   var gameSave = JSON.parse(localStorage.getItem("save"));
     for (var element in gameSave) {
       window[element] = gameSave[element].variable;
-      console.log("before typeof");
       let idx = gameSave[element].id;
       if (typeof idx !== "undefined") {
-        console.log("in id");
-        console.log(idx);
         document.getElementById(idx).innerHTML = gameSave[element].variable;
       } 
       let idf = gameSave[element].idf;
       if (typeof idf !== "undefined") {
-        console.log("in idf");
-        console.log(idf);
         eval(idf);
       }
     }
 }
 
 function deleteLocalStorage() {
-  if(confirm("Are you sure you want to delete your save?")){
+  if(confirm("Are you sure you want to start again from the beginning?")){
       localStorage.removeItem("save");
+      location.reload();
   }
 }
