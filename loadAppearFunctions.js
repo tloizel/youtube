@@ -11,6 +11,7 @@ function adAmountAppear() {
   visibleAdAmount = true;
 }
 
+//function concerns autoEdit switch and editor expenses
 function autoEditAppear() {
   flickAppear('reveal',0);
   flickAppear('reveal',5);
@@ -36,4 +37,4 @@ function loadVisibleDivs() {
   if(visibleAdAmount == true){adAmountAppear()};
   if(visibleProjectedAverage == true){projectedAverageAppear()};
   if(visibleIncome == true){incomeAppear()};
-}  
+}

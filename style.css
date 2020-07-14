@@ -578,3 +578,16 @@ body {
     100% {opacity: 1;
     color: white;}
   }
+
+.settingsButton {
+  border: none;
+  cursor: pointer;
+}
+
+.settingsButton:focus {
+  outline: 0;
+}
+
+.alignRight {
+  text-align: right;
+}

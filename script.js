@@ -51,36 +51,37 @@ var visibleIncome = false;
 
 //COMMENTS
 var comments = [
-{name: "love your content, subscribed!", type: "positive"},
-{name: "keep it up son! Love, Dad", type: "positive"},
-{name: "great vid, you deserve more views", type: "positive"},
-{name: "hahah that moment at 2min37 XD", type: "positive"},
-{name: "first", type: "positive"},
-{name: "I've been watching you from your humble beginnings, so glad you've come this far you deserve it", type: "positive"},
-{name: "thumbs up!", type: "positive"},
-{name: "beautiful editing", type: "positive"},
-{name: "best channel out there", type: "positive"},
-{name: "can you do a meet up? ", type: "positive"},
-{name: "i didn't understand this video...", type: "negative"},
-{name: "This is terrible, unsubbed", type: "negative"},
-{name: "why was this in my recommendations?", type: "negative"},
-{name: "I never subbed to this channel", type: "negative"},
-{name: "check out my channel Thomas Loizel on youtube", type: "negative"},
-{name: "you remind me of thumbsupmovies", type: "negative"},
-{name: "was this filmed with a potato?", type: "negative"},
-{name: "why am I watching this", type: "negative"},
-  ];
-var commentBox = [{comment:"Welcome to Youtube.",source:"story"},
-                  {comment:"This is a game of patience, optimisation and problem solving.",source:"story"},
-                  {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
-                  {comment:"Send us that code at youtubegame@gmail.com",source:"story"},
-                  {comment:"We'll know how well you did, best score wins.",source:"story"},
-                  {comment:"Good luck!",source:"story"},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
-                  ];
+  {name: "love your content, subscribed!", type: "positive"},
+  {name: "keep it up son! Love, Dad", type: "positive"},
+  {name: "great vid, you deserve more views", type: "positive"},
+  {name: "hahah that moment at 2min37 XD", type: "positive"},
+  {name: "first", type: "positive"},
+  {name: "I've been watching you from your humble beginnings, so glad you've come this far you deserve it", type: "positive"},
+  {name: "thumbs up!", type: "positive"},
+  {name: "beautiful editing", type: "positive"},
+  {name: "best channel out there", type: "positive"},
+  {name: "can you do a meet up? ", type: "positive"},
+  {name: "i didn't understand this video...", type: "negative"},
+  {name: "This is terrible, unsubbed", type: "negative"},
+  {name: "why was this in my recommendations?", type: "negative"},
+  {name: "I never subbed to this channel", type: "negative"},
+  {name: "check out my channel Thomas Loizel on youtube", type: "negative"},
+  {name: "you remind me of thumbsupmovies", type: "negative"},
+  {name: "was this filmed with a potato?", type: "negative"},
+  {name: "why am I watching this", type: "negative"},
+];
+var commentBox = [
+  {comment:"Welcome to Youtube.",source:"story"},
+  {comment:"This is a game of patience, optimisation and problem solving.",source:"story"},
+  {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
+  {comment:"Send us that code at youtubegame@gmail.com",source:"story"},
+  {comment:"We'll know how well you did, best score wins.",source:"story"},
+  {comment:"Good luck!",source:"story"},
+  {comment:"",source:""},
+  {comment:"",source:""},
+  {comment:"",source:""},
+  {comment:"",source:""},
+];
 
 //PAGE LOAD FUNCTIONS
 memoryBlockRefresh();//refreshes the memory block canvas
@@ -173,18 +174,18 @@ function autoEdit(){
 //start auto upload
 function autoUpload(){
 var uploaderTimer = setInterval(function(){
-                   if (loadState == 0){ //&& cashAmount > 0
-                   uploadVideo();};
-                   },1000/uploadSpeed);
+                  if (loadState == 0){ //&& cashAmount > 0
+                  uploadVideo();};
+                  },1000/uploadSpeed);
 }
 
   //start timer2 _ NOT A FUNCTION
 window.setInterval(function(){
-                   SubsRefresh();
-                   viewsRefresh();
-                   cashGen();
-                   autoEdit();
-                   cashRefresh();
+                  SubsRefresh();
+                  viewsRefresh();
+                  cashGen();
+                  autoEdit();
+                  cashRefresh();
                    },1000);
 
 //refreshes cashAmount with income and expenses per min AND COMMENTS
@@ -207,6 +208,7 @@ function ideaRangeMax(rangeValue) {
   document.getElementById("ideaRange").max = maxRangeValue;
   ideaQl = maxRangeValue - rangeValue;
   document.getElementById("ideaQl").innerHTML = ideaQl;
+  ideaRange.value = rangeIdea; //updates the slider thumb when loading save
 }
 
 //Adds up range value quantities in ideas generated and calculates Ql array
@@ -332,7 +334,7 @@ function drawSquare(x, y, w, h){
 function memoryFill() {
   var width = memoryCanvas.width;
   var height = memoryCanvas.height;
-  var numberSquares = videosEdited
+  var numberSquares = videosEdited;
    for (var j=0; j<3; j++){
      let squaresHeight = 10+50*j+30;
      if (numberSquares>0 && squaresHeight<height) {
@@ -363,8 +365,7 @@ function upgradeUploadSpeed(para){
 //change editor speed
 function upgradeEditorSpeed(para){
   editorSpeed = para;
-  let editorSpeedConversion = editorSpeed;
-  document.getElementById("editorSpeed").innerHTML = editorSpeedConversion+" clicks/sec";
+  document.getElementById("editorSpeed").innerHTML = editorSpeed+" clicks/sec";
 }
 
 //Upload video
@@ -566,7 +567,8 @@ function cashRefresh() {
 
 //function for cicular progress bar
 function setPercentage(v){
-  $('.mask span').html(shootEditRem);
+  document.getElementById("clicksLeft").innerHTML = shootEditRem;
+  //$('.mask span').html(shootEditRem);
   var perct = v*3.6;
     if(v >= 50){
        $('.right-block').css('background','inherit'); 
@@ -803,55 +805,79 @@ var cashProjects = [
 
 function save(){
   var gameSave = {
-    creativity: creativity,
-    rangeIdea: rangeIdea,
-    ideaQl: ideaQl,
-    ideasQt: ideasQt,
-    ideasQtTotal: ideasQtTotal,
-    shootEdit: shootEdit,
-    shootEditRem: shootEditRem,
-    videosEdited: videosEdited,
-    videosEditedTotal: videosEditedTotal,
-    computerMemory: computerMemory,
-    editorSpeed: editorSpeed,
-    ideaQlArray: ideaQlArray,
-    videosUploaded: videosUploaded,
-    averageQlNum: averageQlNum,
-    averageQl: averageQl,
-    likeDislikeFactor: likeDislikeFactor,
-    uploadSpeed: uploadSpeed,
-    loadState: loadState,
-    views: views,
-    likeDislikeRatio: likeDislikeRatio,
-    subscribers: subscribers,
-    adAmount: adAmount,
-    cashAmount: cashAmount,
-    adLoadMax: adLoadMax,
-    income: income,
-    expenses: expenses,
-    expensesComp: expensesComp,
-    youtubePartner: youtubePartner,
-    ideaProjects: ideaProjects,
-    shootEditProjects: shootEditProjects,
-    uploadProjects: uploadProjects,
-    subProjects: subProjects,
-    cashProjects: cashProjects,
-    commentBox: commentBox,
-    visibleCash: visibleCash,
-    visibleAdAmount: visibleAdAmount,
-    visibleAutoEdit: visibleAutoEdit,
-    visibleProjectedAverage: visibleProjectedAverage,
-    visibleExpenses: visibleExpenses,
-    visibleIncome: visibleIncome
-  }
+    creativity: {variable: creativity, id:"creativityLvl"},
+    rangeIdea: {variable: rangeIdea, idf:"ideaRangeMax(rangeIdea)"},
+    ideaQl: {variable: ideaQl, id:"ideaQl"},
+    ideasQt: {variable: ideasQt, id:"ideasGen"},
+    ideasQtTotal: {variable: ideasQtTotal, id:"ideasGenTotal"},
+    shootEdit: {variable: shootEdit},
+    shootEditRem: {variable: shootEditRem, id:"clicksLeft"},
+    videosEdited: {variable: videosEdited, idf: "memoryBlockRefresh()"},
+    videosEditedTotal: {variable: videosEditedTotal, id:"videosEditedTotal"},
+    computerMemory: {variable: computerMemory},
+    editorSpeed: {variable: editorSpeed, id:"editorSpeed"},
+    ideaQlArray: {variable: ideaQlArray, idf:"updateArrayQlView()"},
+    videosUploaded: {variable: videosUploaded, id:"videos"},
+    averageQlNum: {variable: averageQlNum, idf:"averageQlCalculation()"},
+    averageQl: {variable: averageQl, id:"averageQl"},
+    likeDislikeFactor: {variable: likeDislikeFactor, id:"likeDislikeRatio"},
+    uploadSpeed: {variable: uploadSpeed, id:"uploadSpeed"},
+    views: {variable: views, id:"views"},
+    likeDislikeRatio: {variable: likeDislikeRatio, id:"likeDislikeRatio"},
+    subscribers: {variable: subscribers, id:"subscriberAmount"},
+    adAmount: {variable: adAmount, id:"adLoad"},
+    cashAmount: {variable: cashAmount, id:"cashAmount"},
+    adLoadMax: {variable: adLoadMax, id:"adLoad"},
+    income: {variable: income, id:"extraIncome"},
+    expenses: {variable: expenses, id:"extraExpenses"},
+    expensesComp: {variable: expensesComp},
+    youtubePartner: {variable: youtubePartner},
+    ideaProjects: {variable: ideaProjects, idf:"projectRefresh(ideaProjects,ideaProjectsTitle,ideaProjectsDesc)"},
+    shootEditProjects: {variable: shootEditProjects, idf:"projectRefresh(shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc)"},
+    uploadProjects: {variable: uploadProjects, idf:"projectRefresh(uploadProjects,uploadProjectsTitle,uploadProjectsDesc)"},
+    subProjects: {variable: subProjects, idf:"projectRefresh(subProjects,subProjectsTitle,subProjectsDesc)"},
+    cashProjects: {variable: cashProjects, idf:"projectRefresh(cashProjects,cashProjectsTitle,cashProjectsDesc)"},
+    commentBox: {variable: commentBox, idf:"callComment()"},
+    visibleCash: {variable: visibleCash},
+    visibleAdAmount: {variable: visibleAdAmount},
+    visibleAutoEdit: {variable: visibleAutoEdit},
+    visibleProjectedAverage: {variable: visibleProjectedAverage},
+    visibleExpenses: {variable: visibleExpenses},
+    visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}
+  };
   localStorage.setItem("save",JSON.stringify(gameSave));
-}  
+  console.log(gameSave);
+}
+
+function projectRefresh(array,title,desc) {
+  console.log(title.id);
+  console.log(desc.id);
+  document.getElementById(title.id).innerHTML = array[0][0];
+  document.getElementById(desc.id).innerHTML = array[0][1];
+}
 
 function load() {
   var gameSave = JSON.parse(localStorage.getItem("save"));
-  for (var element in gameSave) {
-    if (typeof element !== undefined) {
-      window[element] = gameSave[element];
+    for (var element in gameSave) {
+      window[element] = gameSave[element].variable;
+      console.log("before typeof");
+      let idx = gameSave[element].id;
+      if (typeof idx !== "undefined") {
+        console.log("in id");
+        console.log(idx);
+        document.getElementById(idx).innerHTML = gameSave[element].variable;
+      } 
+      let idf = gameSave[element].idf;
+      if (typeof idf !== "undefined") {
+        console.log("in idf");
+        console.log(idf);
+        eval(idf);
+      }
     }
+}
+
+function deleteLocalStorage() {
+  if(confirm("Are you sure you want to delete your save?")){
+      localStorage.removeItem("save");
   }
 }
