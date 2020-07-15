@@ -88,7 +88,7 @@ var comments = [
   {name: "Impressed .. at how bad this is", type: "negative"},
   {name: "unsubscribing as i'm typing", type: "negative"},
   ];
-var commentBox = [{comment:"Welcome to Youtube.",source:"story"},
+var commentBox = [{comment:"Welcome to YouTube.",source:"story"},
                   {comment:"This is a game of patience, optimisation and problem solving.",source:"story"},
                   {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
                   {comment:"Send us that code at youtubegame@gmail.com",source:"story"},
@@ -97,7 +97,7 @@ var commentBox = [{comment:"Welcome to Youtube.",source:"story"},
                   {comment:"",source:""},
                   {comment:"",source:""},
                   {comment:"",source:""},
-                  {comment:"",source:""},
+                  //{comment:"",source:""},
                   ];
 
 //PAGE LOAD FUNCTIONS
@@ -614,7 +614,7 @@ function commentArrayShift(){
       commentStyle(commentBox[i].source,commentId);
       document.getElementById(commentId).innerHTML = commentBox[i].comment;
       i++;
-  } while(i < 10);
+  } while(i < 9);
   
   if (commentBox.length > 10){
       commentBox.pop();
@@ -835,11 +835,11 @@ function save(){
     editorSpeed: {variable: editorSpeed, id:"editorSpeed"},
     ideaQlArray: {variable: ideaQlArray, idf:"updateArrayQlView()"},
     videosUploaded: {variable: videosUploaded, id:"videos"},
-    averageQlNum: {variable: averageQlNum, idf:"averageQlCalculation()"},
-    averageQl: {variable: averageQl, id:"averageQl"},
+    averageQlNum: {variable: averageQlNum},
+    averageQl: {variable: averageQl, idf:"averageQlCalculation()"},
     likeDislikeFactor: {variable: likeDislikeFactor, id:"likeDislikeRatio"},
     uploadSpeed: {variable: uploadSpeed, id:"uploadSpeed"},
-    views: {variable: views, id:"views"},
+    views: {variable: views, idf:"viewsRefresh()"},
     likeDislikeRatio: {variable: likeDislikeRatio, id:"likeDislikeRatio"},
     subscribers: {variable: subscribers, id:"subscriberAmount"},
     adAmount: {variable: adAmount, id:"adLoad"},
