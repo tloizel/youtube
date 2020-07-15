@@ -759,7 +759,7 @@ var shootEditProjects = [
   ];  
 var uploadProjects = [
   ["Upload videos from school library","Upload 5 videos","videosUploaded>=5","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>"],
-  ["Figure out how to use hotspot","Upload 10 videos & Pay $100","videosUploaded>=10 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>"],
+  ["Figure out how to use hotspot","Upload 15 videos & Pay $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>"],
   ["Buy an ethernet cable","Upload 20 videos & Pay $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient <span class='boldRed'>[+100kB/s Upload Speed & -$500]</span>"],
   ["Convince parents that wifi isn't an FBI spying device","Upload 50 videos & Pay $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? <span class='boldRed'>[+300kB/s Upload Speed & -$1000]</span>"],
   ["Fail statistics class","Upload 75 videos","videosUploaded>=75","flickAppear('reveal',2)","But you can still calculate an average come on <span class='boldRed'>[Projected average based on videos ready to upload]</span>"],
@@ -775,11 +775,11 @@ var subProjects = [
   ["Reply to comments","Reach 50 subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys <span class='boldRed'>[+200 Views & Get back to thinking!]</span>"],
   ["Pimp your video intro","Reach 100 subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho <span class='boldRed'>[+500 Views & Get back to thinking!]</span>"],
   ["Break the piggy bank","Reach 150 subscribers","subscribers>=150","flickAppear('reveal',3);disableDiv('cashProjectsB','auto')","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>"],
-  ["SMASH THAT LIKE BUTTON","Reach 300 subscribers","subscribers>=300","views+=10000;stopIdeaTicker()","Reminding never hurts <span class='boldRed'>[+10k Views & Get back to thinking!]</span>"],
+  ["SMASH THAT LIKE BUTTON","Reach 300 subscribers","subscribers>=300","views+=10000","Reminding never hurts <span class='boldRed'>[+10k Views]</span>"],
   ["Shoutout from Philip DeFranco","Reach 1k subscribers","subscribers>=1000","subscribers=subscribers*2","What's up you beautiful bastards <span class='boldRed'>[Doubled your subscribers!]</span>"],
   ["Youtube Partner","Reach 5k subscribers","subscribers>=5000","flickAppear('reveal',6);disableButton('subAdButton',false);disableButton('addAdButton',false);youtubePartner=1","Youtube money is gonna be rolling in booooy <span class='boldRed'>[Ad Time]</span>"],
   ["Write your titles in ALL CAPS","Reach 15k subscribers","subscribers>=15000","views+=50000","Those golden tips <span class='boldRed'>[+50k Views & Get back to thinking!]</span>"],
-  ["Spam your videos all over social media","Reach 20k subscribers","subscribers>=20000","views+=1000;LDRF(0.9)","All your friends unsubed, but it had to be done <span class='boldRed'>[Popularity = 0.9 & 1000 views]</span>"],
+  ["Spam your videos all over social media","Reach 20k subscribers","subscribers>=20000","views+=1000;LDRF(0.9)","All your friends unsubbed, but it had to be done <span class='boldRed'>[Popularity = 0.9 & 1000 views]</span>"],
   ["Apologize to your community for the spam","Reach 25k subscribers","subscribers>=25000","subscribers+=200;LDRF(1)","Swallow your pride <span class='boldRed'>[Popularity = 1 & +200 subscribers]</span>"],
   ["Write an email to your fave Youtuber","Reach 40k subscribers","subscribers>=40000","subscribers+=0","He never answered. What did you expect? <span class='boldRed'>[+Still your fave tho :'(]</span>"],
   ["Shoutout from Keemstar","Reach 50k subscribers","subscribers>=50000","LDRF(0.8)","You got right into the neeeews <span class='boldRed'>[Popularity = 0.8]</span>"],
@@ -799,6 +799,7 @@ var subProjects = [
   ["Shoutout from Casey","Reach 200M subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
   ["Figure out the algorithm","Reach 500M subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret <span class='boldRed'>[+1B Views]</span>"],
   ["Overtake T-Series","Reach 1B subscribers","subscribers>=1000000000","views+=10000000000","Thank you <span class='boldRed'>[+10B Views]</span>"],
+  ["End of projects","S","views<1","","Congratulations <span class='boldRed'>[]</span>"],
 ];
 var cashProjects = [
   ["Extra pocket money","Reach 5k views","views>=5000","cashAmount+=20","Mum was feeling generous <span class='boldRed'>[+$20]</span>"],
