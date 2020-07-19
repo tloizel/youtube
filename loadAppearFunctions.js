@@ -55,4 +55,5 @@ function loadVisibleDivs() {
   if(visibleProjectedAverage == true){projectedAverageAppear()};
   if(visibleIncome == true){incomeAppear()};
   if(autoUploadActivated == true){autoUpload()};
+  memoryBlockRefresh();
 }
