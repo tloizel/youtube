@@ -100,7 +100,7 @@ var commentBox = [{comment:"Welcome to YouTube.",source:"story"},
                   //{comment:"",source:""},
                   ];
 
-                  console.log(ideaQlArray)
+
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
 function firstPageLoad(){
