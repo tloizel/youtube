@@ -735,7 +735,7 @@ var ideaProjects = [
   ["Figure out translating isn't plagiarism","Generate 10k ideas & Reach 50k subscribers","ideasQtTotal>=10000 && subscribers>=50000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+3 Creativity]</span>"],
   ["Start streaming video games","Reach 300k subscribers & Pay $5k","subscribers>=300000 && cashAmount>=5000","upgradeCreativity(3);cashAmount-=5000;ideaRangeMax(rangeIdea)","About to reach the Ender Dragon... <span class='boldRed'>[+3 Creativity & -$5k]</span>"],
   ["Start a daily vlog","Reach 5M views & 1M subscribers","views>=5000000 && subscribers>=1000000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+3 Creativity]</span>"],
-  ["End of projects","F","views<1","","Congratulations <span class='boldRed'>[]</span>"],
+  ["End of projects","K","views<1","","Congratulations <span class='boldRed'>[]</span>"],
 ];
 var shootEditProjects = [
   ["Watch an iMovie tutorial","Edit 5 videos","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=24;clicksLeft()","Two hours later, you're a pro <span class='boldRed'>[-25 Clicks]</span>"],
@@ -745,7 +745,7 @@ var shootEditProjects = [
   ["Hire an editor on Fiverr","Give your hand a break!","views>=0","expenses=1;autoEditAppear()","You'll pay him with exposure as well <span class='boldRed'>[AutoEditor Level 1 & -$1/s]</span>"],
   ["Delete old footage","Edit 30 videos","videosEditedTotal>=30","upgradeMemory(1)","You will live to regret that <span class='boldRed'>[+1 Memory]</span>"],
   ["Watch a Final Cut tutorial","Edit 50 videos","videosEditedTotal>=50","shootEdit-=50;shootEditRem-=49;clicksLeft()","Thirty hours later, you're a master <span class='boldRed'>[-50 Clicks]</span>"],
-  ["Buy absurd amount of external hard drives","Pay $4k","cashAmount>=4000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up <span class='boldRed'>[+2 Memory & -$4k]</span>"],
+  ["Buy absurd amount of external hard drives","Pay $3k","cashAmount>=3000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up <span class='boldRed'>[+2 Memory & -$3k]</span>"],
   ["Hire a 'professional' editor","Pay $5k & Reach 7 average video quality & 70k subscribers & 5M views","cashAmount>=5000&&averageQl>=7&&subscribers>=70000&&views>=5000000","upgradeEditorSpeed(5);expenses+=9;cashAmount-=5000","You met him in a bar... <span class='boldRed'>[AutoEditor Level 2 & -$10/s]</span>"],
   ["1 month iCloud storage trial","Edit 500 videos & Pay $1k","videosEditedTotal>=500&&cashAmount>=1000","upgradeMemory(2);cashAmount-=1000","Forgot to unsubscribe one month later <span class='boldRed'>[+2 Memory & -$1k]</span>"],
   ["Switch to Adobe Premiere","Pay $6k","cashAmount>=6000","shootEdit-=50;shootEditRem-=49;cashAmount-=6000;clicksLeft()","Aaah now that's the sofware you need <span class='boldRed'>[-50 Clicks & -$6k]</span>"],
@@ -755,7 +755,7 @@ var shootEditProjects = [
   ["Hire a badass editor","Pay $10k & Reach 9 average video quality & 10M subscribers & 500M views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","upgradeEditorSpeed(20);expenses+=30;cashAmount-=10000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$50/s]</span>"],
   ["Get a AWS server","Pay $25k","videosEditedTotal&&cashAmount>=25000","upgradeMemory(3);cashAmount-=25000","Hopefully Jeff will see this game <span class='boldRed'>[+3 Memory & -$25k]</span>"],
   ["Hire Casey himself","Reach $1M & Reach 9.5 average video quality & 50M subscribers & 1B views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(49);expenses+=50;cashAmount-=1000000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100/s]</span>"],
-  ["End of projects","I","views<1","","Congratulations <span class='boldRed'>[]</span>"],
+  ["End of projects","u","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];  
 var uploadProjects = [
   ["Upload videos from school library","Upload 5 videos","videosUploaded>=5","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>"],
@@ -764,12 +764,12 @@ var uploadProjects = [
   ["Convince parents that wifi isn't an FBI spying device","Upload 50 videos & Pay $1k","videosUploaded>=50 && cashAmount>=1000","upgradeUploadSpeed(7);cashAmount-=1000","Or is it..? <span class='boldRed'>[+300kB/s Upload Speed & -$1000]</span>"],
   ["Fail statistics class","Upload 75 videos","videosUploaded>=75","projectedAverageAppear()","But you can still calculate an average come on <span class='boldRed'>[Projected average based on videos ready to upload]</span>"],
   ["Ask Drew for Javascript lessons","Upload 100 videos","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... <span class='boldRed'>[+400kB/s Upload Speed]</span>"],
-  ["Code your own AutoUpload program","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>"],
+  ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>"],
   ["Get closer to the wifi","Upload 200 videos","videosUploaded>=200","upgradeUploadSpeed(16)","harder better faster stronger <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
   ["Convince mum to upgrade internet plan","Upload 1000 videos & Pay $10k","videosUploaded>=1000 && cashAmount>=10000","upgradeUploadSpeed(24);cashAmount-=10000","Worth it but you're paying boy <span class='boldRed'>[+800kB/s Upload Speed & -$10000]</span>"],
   ["Mum unplugged the wifi","Upload 5000 videos & Get caught on your laptop at 3am","videosUploaded>=5000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM <span class='boldRed'>[+1000kB/s Upload Speed & Upload off for X time]</span>"],
   ["Your building now has fibre-optic internet","Upload 20k videos","videosUploaded>=20000","upgradeUploadSpeed(54)","Can't get more efficient <span class='boldRed'>[+2000kB/s Upload Speed]</span>"],
-  ["End of projects","R","views<1","","Congratulations <span class='boldRed'>[]</span>"],
+  ["End of projects","d","views<1","","Congratulations <span class='boldRed'>[]</span>"],
 ];
 var subProjects = [
   ["Reply to comments","Reach 50 subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys <span class='boldRed'>[+200 Views & Get back to thinking!]</span>"],
@@ -799,7 +799,7 @@ var subProjects = [
   ["Shoutout from Casey","Reach 200M subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
   ["Figure out the algorithm","Reach 500M subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret <span class='boldRed'>[+1B Views]</span>"],
   ["Overtake T-Series","Reach 1B subscribers","subscribers>=1000000000","views+=10000000000","Thank you <span class='boldRed'>[+10B Views]</span>"],
-  ["End of projects","S","views<1","","Congratulations <span class='boldRed'>[]</span>"],
+  ["End of projects","o","views<1","","Congratulations <span class='boldRed'>[]</span>"],
 ];
 var cashProjects = [
   ["Extra pocket money","Reach 5k views","views>=5000","cashAmount+=20","Mum was feeling generous <span class='boldRed'>[+$20]</span>"],
@@ -818,7 +818,7 @@ var cashProjects = [
   ["Greed is good","Reach 500M views","views>=500000000","adLoadMax+=5","You've made AdBlock a thing <span class='boldRed'>[+5 Ad Amount]</span>"],
   ["Sell overpriced ice-cream on the beach","Reach 1B views","views>=1000000000","cashAmount+=500000","Supply and demand my friend <span class='boldRed'>[+$500k]</span>"],
   ["Sell you rare Pokemon cards","Reach 10B views","views>=10000000000","cashAmount+=1000000","That wasn't easy... <span class='boldRed'>[+$1M]</span>"],
-  ["End of projects","T","views<1","","Congratulations <span class='boldRed'>[]</span>"],
+  ["End of projects","s","views<1","","Congratulations <span class='boldRed'>[]</span>"],
 ];
 
 function save(){
