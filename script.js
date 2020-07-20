@@ -736,18 +736,18 @@ var ideaProjects = [
   ["Binge watch YouTube","Generate 5 ideas","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing <span class='boldRed'>[+1 Creativity]</span>"],
   ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>"],
   ["Invite a mate over","Generate 25 ideas","ideasQtTotal>=25","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn <span class='boldRed'>[+1 Creativity]</span>"],
-  ["Watch the OGs of YouTube","Generate 50 ideas","ideasQtTotal>=50","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who?  <span class='boldRed'>[+1 Creativity]</span>"],
+  ["Watch the OGs of YouTube","Generate 50 ideas","ideasQtTotal>=50","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who? <span class='boldRed'>[+1 Creativity]</span>"],
   ["Take guitar lessons","Reach 100k views & 5k subscribers & Pay $400","views>=100000 && subscribers>=5000 && cashAmount >=400","upgradeCreativity(2);cashAmount-=400;ideaRangeMax(rangeIdea)","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity & -$400]</span>"],
   ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+3 Creativity]</span>"],
-  ["Finish Netflix","Generate 500 ideas & Reach 7.5 average video quality","averageQl>=7.5 && ideasQtTotal>=500","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Get that inspo <span class='boldRed'>[+2 Creativity]</span>"],
-  ["Buy a kitten","Generate 2k ideas & Reach 500k views & Pay $5k","views>=500000 && ideasQtTotal=2000 && cashAmount >=5000","upgradeCreativity(2);ideaRangeMax(rangeIdea)","They're the real OGs of YouTube <span class='boldRed'>[+2 Creativity & -$1k]</span>"],
-  ["Buy a greenscreen","Reach 8 average video quality & Pay $8k","averageQl>=8 && ideasQtTotal>=8000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Your bedroom is now a creative cocoon <span class='boldRed'>[+3 Creativity]</span>"],
-  ["Figure out translating isn't plagiarism","Generate 10k ideas & Reach 50k subscribers","ideasQtTotal>=10000 && subscribers>=50000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+3 Creativity]</span>"],
-  ["Start streaming video games","Reach 300k subscribers & Pay $20k","subscribers>=300000 && cashAmount>=5000","upgradeCreativity(3);cashAmount-=5000;ideaRangeMax(rangeIdea)","About to reach the Ender Dragon... <span class='boldRed'>[+3 Creativity & -$5k]</span>"],
-  ["Start a daily vlog","Reach 5M views & 1M subscribers","views>=5000000 && subscribers>=1000000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+3 Creativity]</span>"],
+  ["Finish Netflix","Generate 300 ideas & Reach 7.5 average video quality","averageQl>=7.5 && ideasQtTotal>=300","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Get that inspo <span class='boldRed'>[+2 Creativity]</span>"],
+  ["Buy a kitten","Generate 2k ideas & Reach 500k views & Pay $5k","views>=500000 && ideasQtTotal=2000 && cashAmount >=5000","upgradeCreativity(2);ideaRangeMax(rangeIdea);cashAmount-=5000","They're the real OGs of YouTube <span class='boldRed'>[+2 Creativity & -$5k]</span>"],
+  ["Buy a greenscreen","Reach 8 average video quality & Pay $10k","averageQl>=8 && cashAmount >=10000","upgradeCreativity(3);ideaRangeMax(rangeIdea);cashAmount-=10000","Your bedroom is now a creative cocoon <span class='boldRed'>[+3 Creativity & -$10k]</span>"],
+  ["Figure out translating isn't plagiarism","Generate 5k ideas & Reach 400k subscribers","ideasQtTotal>=5000 && subscribers>=40000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+3 Creativity]</span>"],
+  ["Start streaming video games","Reach 1M subscribers & Pay $20k","subscribers>=1000000 && cashAmount>=20000","upgradeCreativity(3);ideaRangeMax(rangeIdea);cashAmount-=20000","About to reach the Ender Dragon... <span class='boldRed'>[+3 Creativity & -$20k]</span>"],
+  ["Start a daily vlog","Reach 10M subscribers & 10B views","subscribers>=10000000 && views>=1000000000","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+3 Creativity]</span>"],
   ["End of projects","K","views<1","","Congratulations <span class='boldRed'>[]</span>"],
-];
-var shootEditProjects = [
+  ];
+  var shootEditProjects = [
   ["Watch an iMovie tutorial","Edit 5 videos","videosEditedTotal>=5","shootEdit-=25;shootEditRem-=24;clicksLeft()","Two hours later, you're a pro <span class='boldRed'>[-25 Clicks]</span>"],
   ["Borrow your sister's USB key","Edit 10 videos","videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned <span class='boldRed'>[+1 Memory]</span>"],
   ["Buy a gaming mouse","Edit 15 videos & Pay $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=24;cashAmount-=100;clicksLeft()","For that precious click speed <span class='boldRed'>[-25 Clicks & -$100]</span>"],
@@ -756,18 +756,18 @@ var shootEditProjects = [
   ["Delete old footage","Edit 30 videos","videosEditedTotal>=30","upgradeMemory(1)","You will live to regret that <span class='boldRed'>[+1 Memory]</span>"],
   ["Watch a Final Cut tutorial","Edit 50 videos","videosEditedTotal>=50","shootEdit-=50;shootEditRem-=49;clicksLeft()","Thirty hours later, you're a master <span class='boldRed'>[-50 Clicks]</span>"],
   ["Buy absurd amount of external hard drives","Pay $3k","cashAmount>=3000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up <span class='boldRed'>[+2 Memory & -$3k]</span>"],
-  ["Hire a 'professional' editor","Pay $5k & Reach 7 average video quality & 70k subscribers & 5M views","cashAmount>=5000&&averageQl>=7&&subscribers>=70000&&views>=5000000","upgradeEditorSpeed(5);expenses+=24;cashAmount-=5000","You met him in a bar... <span class='boldRed'>[AutoEditor Level 2 & -$25/s]</span>"],
-  ["1 month iCloud storage trial","Edit 200 videos & Pay $5k","videosEditedTotal>=500&&cashAmount>=5000","upgradeMemory(2);cashAmount-=5000","Forgot to unsubscribe one month later <span class='boldRed'>[+2 Memory & -$5k]</span>"],
+  ["Hire a 'professional' editor","Pay $5k & Reach 7 average video quality & 70k subscribers & 5M views","cashAmount>=5000&&averageQl>=7&&subscribers>=70000&&views>=5000000","upgradeEditorSpeed(5);expenses+=24;cashAmount-=5000","You met him in a bar... <span class='boldRed'>[AutoEditor Level 2 & -$5k & -$25/s]</span>"],
+  ["1 month iCloud storage trial","Edit 200 videos & Pay $5k","videosEditedTotal>=200&&cashAmount>=5000","upgradeMemory(2);cashAmount-=5000","Forgot to unsubscribe one month later <span class='boldRed'>[+2 Memory & -$5k]</span>"],
   ["Switch to Adobe Premiere","Pay $6k","cashAmount>=6000","shootEdit-=50;shootEditRem-=49;cashAmount-=6000;clicksLeft()","Aaah now that's the sofware you need <span class='boldRed'>[-50 Clicks & -$6k]</span>"],
-  ["Convince parents that iCloud storage is useful","Pay $7k","videosEditedTotal&&cashAmount>=7000","upgradeMemory(2);cashAmount-=7000","That was a battle worth fighting for <span class='boldRed'>[+2 Memory & -$7k]</span>"],
-  ["Hire an experienced editor","Pay $5k & Reach 8.5 average video quality & 1M subscribers & 50M views","cashAmount>=5000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","upgradeEditorSpeed(10);expenses+=25;cashAmount-=7000","One of Casey's old editors <span class='boldRed'>[AutoEditor Level 3 & -$50/s]</span>"],
-  ["Google Drive premium account","Pay $10k","videosEditedTotal&&cashAmount>=10000","upgradeMemory(2);cashAmount-=10000","Data-driven <span class='boldRed'>[+2 Memory & -$10k]</span>"],
-  ["Hire a badass editor","Pay $10k & Reach 9 average video quality & 10M subscribers & 500M views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","upgradeEditorSpeed(20);expenses+=50;cashAmount-=10000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$100/s]</span>"],
-  ["Get a AWS server","Pay $25k","videosEditedTotal&&cashAmount>=25000","upgradeMemory(3);cashAmount-=25000","Hopefully Jeff will see this game <span class='boldRed'>[+3 Memory & -$25k]</span>"],
-  ["Hire Casey himself","Reach $1M & Reach 9.5 average video quality & 50M subscribers & 1B views","cashAmount>=1000000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(49);expenses+=100;cashAmount-=1000000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$200/s]</span>"],
+  ["Convince parents that iCloud storage is useful","Pay $7k","cashAmount>=7000","upgradeMemory(2);cashAmount-=7000","That was a battle worth fighting for <span class='boldRed'>[+2 Memory & -$7k]</span>"],
+  ["Hire an experienced editor","Pay $8k & Reach 8.5 average video quality & 1M subscribers & 50M views","cashAmount>=8000&&averageQl>=8.5&&subscribers>=1000000&&views>=50000000","upgradeEditorSpeed(10);expenses+=25;cashAmount-=8000","One of Casey's old editors <span class='boldRed'>[AutoEditor Level 3 & -$8k & -$50/s]</span>"],
+  ["Google Drive premium account","Pay $10k","cashAmount>=10000","upgradeMemory(2);cashAmount-=10000","Data-driven <span class='boldRed'>[+2 Memory & -$10k]</span>"],
+  ["Hire a badass editor","Pay $10k & Reach 9 average video quality & 10M subscribers & 500M views","cashAmount>=10000&&averageQl>=9&&subscribers>=10000000&&views>=500000000","upgradeEditorSpeed(20);expenses+=50;cashAmount-=10000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$10k & -$100/s]</span>"],
+  ["Get a AWS server","Pay $25k","cashAmount>=25000","upgradeMemory(3);cashAmount-=25000","Hopefully Jeff will see this game <span class='boldRed'>[+3 Memory & -$25k]</span>"],
+  ["Hire Casey himself","Pay $100k & Reach 9.5 average video quality & 50M subscribers & 1B views","cashAmount>=100000&&averageQl>=9.5&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(49);expenses+=100;cashAmount-=100000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100k & -$200/s]</span>"],
   ["End of projects","u","views<1","","Congratulations <span class='boldRed'>[]</span>"],
-  ];  
-var uploadProjects = [
+  ];
+  var uploadProjects = [
   ["Upload videos from school library","Upload 5 videos","videosUploaded>=5","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>"],
   ["Figure out how to use hotspot","Upload 15 videos & Pay $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>"],
   ["Buy an ethernet cable","Upload 20 videos & Pay $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient <span class='boldRed'>[+100kB/s Upload Speed & -$500]</span>"],
@@ -776,12 +776,12 @@ var uploadProjects = [
   ["Ask Drew for Javascript lessons","Upload 100 videos","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... <span class='boldRed'>[+400kB/s Upload Speed]</span>"],
   ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>"],
   ["Get closer to the wifi","Upload 500 videos","videosUploaded>=500","upgradeUploadSpeed(16)","harder better faster stronger <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
-  ["Convince mum to upgrade internet plan","Upload 1000 videos & Pay $10k","videosUploaded>=1000 && cashAmount>=10000","upgradeUploadSpeed(24);cashAmount-=10000","Worth it but you're paying boy <span class='boldRed'>[+800kB/s Upload Speed & -$10000]</span>"],
-  ["Mum unplugged the wifi","Upload 5000 videos & Get caught on your laptop at 3am","videosUploaded>=5000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM <span class='boldRed'>[+1000kB/s Upload Speed & Upload off for X time]</span>"],
-  ["Your building now has fibre-optic internet","Upload 20k videos","videosUploaded>=20000","upgradeUploadSpeed(54)","Can't get more efficient <span class='boldRed'>[+2000kB/s Upload Speed]</span>"],
+  ["Convince mum to upgrade premium internet plan","Upload 1k videos & Pay $50k","videosUploaded>=1000 && cashAmount>=50000","upgradeUploadSpeed(24);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+800kB/s Upload Speed & -$50000]</span>"],
+  ["Mum unplugged the wifi","Upload 2k videos & Get caught on your laptop at 3am","videosUploaded>=2000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM <span class='boldRed'>[+1000kB/s Upload Speed]</span>"],
+  ["Your building now has fibre-optic internet","Upload 6k videos","videosUploaded>=6000","upgradeUploadSpeed(54)","Can't get more efficient <span class='boldRed'>[+2000kB/s Upload Speed]</span>"],
   ["End of projects","d","views<1","","Congratulations <span class='boldRed'>[]</span>"],
-];
-var subProjects = [
+  ];
+  var subProjects = [
   ["Reply to comments","Reach 50 subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys <span class='boldRed'>[+200 Views & Get back to thinking!]</span>"],
   ["Pimp your video intro","Reach 100 subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho <span class='boldRed'>[+500 Views & Get back to thinking!]</span>"],
   ["Break the piggy bank","Reach 150 subscribers","subscribers>=150","cashAppear()","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>"],
@@ -801,35 +801,35 @@ var subProjects = [
   ["Shoutout from Logan Paul","Reach 1.5M subscribers","subscribers>=1500000","LDRF(0.7)","Oh no... <span class='boldRed'>[Popularity = 0.7]</span>"],
   ["Accomplish every YouTube challenge","Reach 2M subscribers","subscribers>=2000000","views+=1000000","Chubby bunny <span class='boldRed'>[+1M Views]</span>"],
   ["Shoutout from NigaHiga","Reach 6M subscribers","subscribers>=6000000","LDRF(1.1)","Tee Hee! <span class='boldRed'>[LDRF = 1.1]</span>"],
-  ["Hit the trending page","Reach 7M subscribers","subscribers>=7000000","views+=3000000","Is that a good thing though?  <span class='boldRed'>[+3M Views]</span>"],
-  ["Collab with Shane","Reach 15M subscribers","subscribers>=15000000","views+=20000000","Mr Dawson himself?? <span class='boldRed'>[+20M Views]</span>"],
-  ["Shoutout from PewdiePie","Reach 45M subscribers","subscribers>=45000000","LDRF(1.4)","*Drop the mic* <span class='boldRed'>[Popularity = 1.4]</span>"],
-  ["Go viral","Reach 60M subscribers","subscribers>=60000000","views+=100000000","If only it was always that easy <span class='boldRed'>[+100M Views]</span>"],
-  ["Participate in YouTube Rewind","Reach 100M subscribers","subscribers>=100000000","LDRF(0.6)","They can't seem to get it right <span class='boldRed'>[Popularity = 0.6]</span>"],
-  ["Shoutout from Casey","Reach 200M subscribers","subscribers>=200000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
-  ["Figure out the algorithm","Reach 500M subscribers","subscribers>=500000000","views+=1000000000","You've just figured out internet's biggest secret <span class='boldRed'>[+1B Views]</span>"],
-  ["Overtake T-Series","Reach 1B subscribers","subscribers>=1000000000","views+=10000000000","Thank you <span class='boldRed'>[+10B Views]</span>"],
+  ["Hit the trending page","Reach 7M subscribers","subscribers>=7000000","views+=3000000","Is that a good thing though? <span class='boldRed'>[+3M Views]</span>"],
+  ["Collab with Shane","Reach 10M subscribers","subscribers>=15000000","views+=20000000","Mr Dawson himself?? <span class='boldRed'>[+20M Views]</span>"],
+  ["Shoutout from PewDiePie","Reach 15M subscribers","subscribers>=45000000","LDRF(1.4)","*Drop the mic* <span class='boldRed'>[Popularity = 1.4]</span>"],
+  ["Go viral","Reach 20M subscribers","subscribers>=60000000","views+=100000000","If only it was always that easy <span class='boldRed'>[+100M Views]</span>"],
+  ["Participate in YouTube Rewind","Reach 25M subscribers","subscribers>=100000000","LDRF(0.6)","They can't seem to get it right <span class='boldRed'>[Popularity = 0.6]</span>"],
+  ["Shoutout from Casey","Reach 30M subscribers","subscribers>=30000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
+  ["Figure out the algorithm","Reach 50M subscribers","subscribers>=50000000","views+=500000000","You've just figured out internet's biggest secret <span class='boldRed'>[+500M Views]</span>"],
+  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","views+=1000000000","Thank you <span class='boldRed'>[+1B Views]</span>"],
   ["End of projects","o","views<1","","Congratulations <span class='boldRed'>[]</span>"],
-];
-var cashProjects = [
+  ];
+  var cashProjects = [
   ["Extra pocket money","Reach 5k views","views>=5000","cashAmount+=20","Mum was feeling generous <span class='boldRed'>[+$20]</span>"],
   ["Christmas","Reach 7k views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated <span class='boldRed'>[+$80]</span>"],
   ["Steal from mum's purse","Reach 10k views","views>=10000","cashAmount+=500","Sacrifices for the better good <span class='boldRed'>[+$500]</span>"],
   ["Steal from dad's wallet","Reach 15k views","views>=15000","cashAmount+=500","Ready for a whoppin <span class='boldRed'>[+$500]</span>"],
   ["Sly fox","Be a YouTube Partner & Reach 6 average video quality","averageQl>=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... <span class='boldRed'>[+1 Ad Amount]</span>"],
-  ["Loan from friends","Reach 6.5 average video quality & 500k views","views>=500000 && averageQl>=6.5","cashAmount+=2000","...and never pay them back  <span class='boldRed'>[+$2k]</span>"],
+  ["Loan from friends","Reach 6.5 average video quality & 500k views","views>=500000 && averageQl>=6.5","cashAmount+=2000","...and never pay them back <span class='boldRed'>[+$2k]</span>"],
   ["Greedy pig","Reach 1M views","views>=1000000","adLoadMax+=3","Getting kind of intrusive now <span class='boldRed'>[+3 Ad Amount]</span>"],
   ["Sell merch","Reach 2M views","views>=2000000","income+=1;incomeAppear();incomeUpdate()","That's all you wear from now on <span class='boldRed'>[+$1/s]</span>"],
-  ["Sign up to a 'get rich quick' course","Reach 5M views","views>=5000000","cashAmount+=5000","That definitely cost you more than you earned <span class='boldRed'>[+$5k]</span>"],
+  ["Sign up to a 'get rich quick' course","Reach 5M views","views>=5000000","cashAmount+=5000","Definitely wasn't worth your time <span class='boldRed'>[+$5k]</span>"],
   ["Eat instant noodles for a year","Reach 10M views","views>=10000000","cashAmount+=10000","Saved some of that cash <span class='boldRed'>[+$10k]</span>"],
   ["Cash cow","Reach 30M views","views>=30000000","adLoadMax+=5","At least make them skippable <span class='boldRed'>[+5 Ad Amount]</span>"],
   ["Launch a Patreon","Reach 50M views","views>=50000000","income+=15;document.getElementById('extraIncome').innerHTML = 'Patreon (+$15/sec)'","Jack Conte 4 life <span class='boldRed'>[+$15/s]</span>"],
   ["Product placement","Reach 100M views","views>=100000000","cashAmount+=200000;subscribers-=50000","You hate that app, but it's worth the dough right? <span class='boldRed'>[+$200k & -50k Subscribers]</span>"],
   ["Greed is good","Reach 500M views","views>=500000000","adLoadMax+=5","You've made AdBlock a thing <span class='boldRed'>[+5 Ad Amount]</span>"],
   ["Sell overpriced ice-cream on the beach","Reach 1B views","views>=1000000000","cashAmount+=500000","Supply and demand my friend <span class='boldRed'>[+$500k]</span>"],
-  ["Sell you rare Pokemon cards","Reach 10B views","views>=10000000000","cashAmount+=1000000","That wasn't easy... <span class='boldRed'>[+$1M]</span>"],
+  ["Sell you rare Pokemon cards","Reach 5B views","views>=5000000000","cashAmount+=1000000","That wasn't easy... <span class='boldRed'>[+$1M]</span>"],
   ["End of projects","s","views<1","","Congratulations <span class='boldRed'>[]</span>"],
-];
+  ];
 
 function save(){
   var gameSave = {
