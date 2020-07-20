@@ -582,17 +582,15 @@ color: red;
 .settingsButton {
 border: none;
 cursor: pointer;
+float: right;
+background-color: #e9ebf0;
 }
 
 .settingsButton:focus {
 outline: 0;
 }
 
-.alignRight {
-text-align: right;
+.alignCenter {
+float: right;
 margin-bottom: -1em;
-}
-
-.settingsButton {
-background-color: #e9ebf0;
 }
