@@ -35,7 +35,10 @@ function expensesUpdate(){
 }
 
 function incomeUpdate(){
+  if(income=1){
   document.getElementById("extraIncome").innerHTML = "Sell merch (+$"+income+"/sec)";
+  }
+  else {document.getElementById("extraIncome").innerHTML = "Patreon (+$"+income+"/sec)";}
 }
 
 function projectedAverageAppear() {
