@@ -899,7 +899,7 @@ function load() {
 }
 
 function deleteLocalStorage() {
-  if(confirm("Are you sure you want to start again from the beginning?")){
+  if(confirm("Are you sure you want to reset the game? Your channel will fall in YouTube limbo.")){
       localStorage.removeItem("save");
       location.reload();
   }
