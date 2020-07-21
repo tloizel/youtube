@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notYouTube</title>
@@ -12,231 +12,207 @@
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  </head>
 
-</head>
-  <div style="border:solid;">
+  <body>
+    <div style="border:solid;">
+      <p class="alignCenter">notYouTube</p>
+      <br><br>
+      <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
+      <span id="views" class="viewsBig">0</span>views 
+    </div>
 
-    <p class="alignCenter">notYouTube</p>
-    <br><br>
-    <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
-  
-    <span id="views" class="viewsBig">0</span> views
-    
-  </div>
-
-<div class = "parentFlex">
-    
+    <div class = "parentFlex">
       <div class = "childFlex">
-      <div class = "childFlexTop">
-        <h2>Idea</h2>
-        <div>
-        <input  class="button"
-                type="button" 
-                id="startTimer"
-                onclick="startIdeaTicker()" 
-                value="Start thinking"/>
-        <input  class="button"
-                type="button" 
-                id="stopTimer"
-                onclick="stopIdeaTicker()" 
-                value="Stop thinking"/>
-        </div>        
-                <br><br>
-                <div class="bulbFrame" id="bulbFrameDiv"> 
-                  <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
-                    <path d="M76,37.037 C76,59.939 55.6428571,75.427 55.6428571,93.5 L20.3571429,93.5 C20.3571429,75.427 0,59.9335 0,37.037 C0,13.1505 18.9891429,0 37.9782857,0 C56.9891429,0 76,13.167 76,37.037 L76,37.037 Z"></path>
-                  </svg>
-                  <div id="glow"></div>
-                  <svg width="32px" height="33px" viewBox="0 0 32 33" id="base">
-                    <path d="M29.3333333,0 L2.66666667,0 C1.19466667,0 0,1.232 0,2.75 C0,4.268 1.19466667,5.5 2.66666667,5.5 L29.3333333,5.5 C30.8053333,5.5 32,4.268 32,2.75 C32,1.232 30.8053333,0 29.3333333,0 L29.3333333,0 Z M29.3333333,11 L2.66666667,11 C1.19466667,11 0,12.232 0,13.75 C0,15.268 1.19466667,16.5 2.66666667,16.5 L29.3333333,16.5 C30.8053333,16.5 32,15.268 32,13.75 C32,12.232 30.8053333,11 29.3333333,11 L29.3333333,11 Z M30.6666667,22 L1.33333333,22 L9.072,31.1245 C10.0853333,32.3125 11.552,33 13.088,33 L18.9173333,33 C20.4533333,33 21.9146667,32.3125 22.928,31.1245 L30.6666667,22 L30.6666667,22 Z"></path>
-                  </svg>
-                </div>
-
-
-        <br>
-      <span class="rangeDescription">Quality</span>
-        <span id="ideaQl">5</span>
-        <input type="range"
-               id="ideaRange"
-               min="1"
-               max="6"
-               value="1"
-               onchange="ideaRangeMax(this.value)">
-      <span class="rangeDescription">Quantity</span>
-        <span id="idea">1</span>
-    <br><br>
-        <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
-      <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span> 
-      </p> 
-      <p class="explanation">Ideas ready to edit<span id="ideasGen" class="span">0</span> 
-      </p>
-    <br>
+        <div class = "childFlexTop">
+          <h2>Idea</h2>
+          <div>
+            <input  class="button"
+                    type="button" 
+                    id="startTimer"
+                    onclick="startIdeaTicker()" 
+                    value="Start thinking"/>
+            <input  class="button"
+                    type="button" 
+                    id="stopTimer"
+                    onclick="stopIdeaTicker()" 
+                    value="Stop thinking"/>
+          </div>        
+          <br><br>
+          <div class="bulbFrame" id="bulbFrameDiv"> 
+            <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
+              <path d="M76,37.037 C76,59.939 55.6428571,75.427 55.6428571,93.5 L20.3571429,93.5 C20.3571429,75.427 0,59.9335 0,37.037 C0,13.1505 18.9891429,0 37.9782857,0 C56.9891429,0 76,13.167 76,37.037 L76,37.037 Z"></path>
+            </svg>
+            <div id="glow"></div>
+            <svg width="32px" height="33px" viewBox="0 0 32 33" id="base">
+              <path d="M29.3333333,0 L2.66666667,0 C1.19466667,0 0,1.232 0,2.75 C0,4.268 1.19466667,5.5 2.66666667,5.5 L29.3333333,5.5 C30.8053333,5.5 32,4.268 32,2.75 C32,1.232 30.8053333,0 29.3333333,0 L29.3333333,0 Z M29.3333333,11 L2.66666667,11 C1.19466667,11 0,12.232 0,13.75 C0,15.268 1.19466667,16.5 2.66666667,16.5 L29.3333333,16.5 C30.8053333,16.5 32,15.268 32,13.75 C32,12.232 30.8053333,11 29.3333333,11 L29.3333333,11 Z M30.6666667,22 L1.33333333,22 L9.072,31.1245 C10.0853333,32.3125 11.552,33 13.088,33 L18.9173333,33 C20.4533333,33 21.9146667,32.3125 22.928,31.1245 L30.6666667,22 L30.6666667,22 Z"></path>
+            </svg>
+          </div>
+          <br>
+          <span class="rangeDescription">Quality</span>
+          <span id="ideaQl">5</span>
+          <input type="range"
+                  id="ideaRange"
+                  min="1"
+                  max="6"
+                  value="1"
+                  onchange="ideaRangeMax(this.value)">
+          <span class="rangeDescription">Quantity</span>
+          <span id="idea">1</span>
+          <br><br>
+          <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
+          <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span></p> 
+          <p class="explanation">Ideas ready to edit<span id="ideasGen" class="span">0</span></p>
+          <br>
         </div>
-      <div id="ideaProjectsB"
-           class="project"
-           onclick="callProject(ideaProjectsB,ideaProjects,ideaProjectsTitle,ideaProjectsDesc,0)">
-         <span class="projectTitle" id="ideaProjectsTitle">Binge watch YouTube</span><br>
-         <span class="projectDesc" id="ideaProjectsDesc">Generate 5 ideas</span>
+        <div  id="ideaProjectsB"
+              class="project"
+              onclick="callProject(ideaProjectsB,ideaProjects,ideaProjectsTitle,ideaProjectsDesc,0)">
+          <span class="projectTitle" id="ideaProjectsTitle">Binge watch YouTube</span><br>
+          <span class="projectDesc" id="ideaProjectsDesc">Generate 5 ideas</span>
         </div>
       </div> <!--end of child flex IDEA-->
-      
+          
       <div class = "childFlex">
-      <div class = "childFlexTop">
-        <h2>Edit</h2>
-<div class="reveal onoffswitch" id="onOffSwitchContainer">
-     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
-     <label class="onoffswitch-label" for="myonoffswitch"></label>
-</div>
-<div id="SECircleContainer">
-  <div class="progress-holder unselectable"
-       onclick="clicksLeft()">
-      <div class="semi-circle"></div>
-      <div class="left-block"></div>
-      <div class="right-block"></div>
-      <div class="mask"><span id="clicksLeft">200</span></div>
-  </div>
-</div>
-        <br>
-        <p class="explanation">Videos edited<span id="videosEditedTotal" class="span">0</span></p>
-        <p class="explanation reveal">Editor speed<span id="editorSpeed" class="span">1 click/sec</span></p>
-    
-        <p id="computerMemoryText" class="explanation">Computer memory</p>
-        <canvas id="memoryCanvas"></canvas>
-    
+        <div class = "childFlexTop">
+          <h2>Edit</h2>
+            <div class="reveal onoffswitch" id="onOffSwitchContainer">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
+              <label class="onoffswitch-label" for="myonoffswitch"></label>
+            </div>
+            <div id="SECircleContainer">
+              <div  class="progress-holder unselectable"
+                    onclick="clicksLeft()">
+                <div class="semi-circle"></div>
+                <div class="left-block"></div>
+                <div class="right-block"></div>
+                <div class="mask"><span id="clicksLeft">200</span></div>
+              </div>
+            </div>
+          <br>
+          <p class="explanation">Videos edited<span id="videosEditedTotal" class="span">0</span></p>
+          <p class="explanation reveal">Editor speed<span id="editorSpeed" class="span">1 click/sec</span></p>
+          <p id="computerMemoryText" class="explanation">Computer memory</p>
+          <canvas id="memoryCanvas"></canvas>
         </div>
-        <div   id="shootEditProjectsB"
-               class="project"
-     onclick="callProject(shootEditProjectsB,shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,1)">
-         <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
-         <span class="projectDesc" id="shootEditProjectsDesc">Edit 5 videos</span>
+        <div  id="shootEditProjectsB"
+              class="project"
+              onclick="callProject(shootEditProjectsB,shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,1)">
+              <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
+              <span class="projectDesc" id="shootEditProjectsDesc">Edit 5 videos</span>
         </div>
       </div> <!--end of child flex SHOOT AND EDT-->
-     
+        
       <div class = "childFlex">
-      <div class = "childFlexTop">
-        <h2>Upload</h2>
-        <p class="explanation">Videos ready to upload</p>
+        <div class = "childFlexTop">
+          <h2>Upload</h2>
+          <p class="explanation">Videos ready to upload</p>
           <div id="pipeline"><span id="arrayQlView">0</span><span id="arrayQlViewColor">0</span></div>
-        <br><br><br>
-        <input class="button"
-               id="uploadB"
-               type="button"
-               value="Upload Video"
-               onclick="uploadVideo()">
-        <br><br>
-         <p class="explanation">Upload speed<span id="uploadSpeed" class="span">100kB/s</span>
-             
-        </p>
-        
-         <div id="myProgress">
-         <div id="myBar"></div></div>
-         <p class="explanation">Videos online<span id="videos" class="span">0</span>
-         </p>
-         <p class="explanation">Average video quality<span id="averageQl" class="span">0.00</span>
-         </p>
-         <p class="explanation reveal">Projected average<span id="projectedAverage" class="span">0.00</span>
-         </p>
-        
-
-      </div>
-      <div   id="uploadProjectsB"
-             class="project"                    
-             onclick="callProject(uploadProjectsB,uploadProjects,uploadProjectsTitle,uploadProjectsDesc,2)">
-         <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
-         <span class="projectDesc" id="uploadProjectsDesc">Upload 5 videos</span>
+          <br><br><br>
+          <input  class="button"
+                  id="uploadB"
+                  type="button"
+                  value="Upload Video"
+                  onclick="uploadVideo()">
+          <br><br>
+          <p class="explanation">Upload speed<span id="uploadSpeed" class="span">100kB/s</span></p>
+            
+          <div id="myProgress">
+            <div id="myBar"></div>
+          </div>
+          <p class="explanation">Videos online<span id="videos" class="span">0</span></p>
+          <p class="explanation">Average video quality<span id="averageQl" class="span">0.00</span></p>
+          <p class="explanation reveal">Projected average<span id="projectedAverage" class="span">0.00</span></p>
+        </div>
+        <div  id="uploadProjectsB"
+              class="project"                    
+              onclick="callProject(uploadProjectsB,uploadProjects,uploadProjectsTitle,uploadProjectsDesc,2)">
+          <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
+          <span class="projectDesc" id="uploadProjectsDesc">Upload 5 videos</span>
         </div>
       </div> <!--end of child flex UPLOAD-->
 
+      <!--Start of child flex CASH-->
       <div class = "childFlex reveal">
         <div class = "childFlexTop">
           <h2>Piggy Bank</h2>
           <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
           <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
           <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
-            <div class="reveal">
-          <p class="explanation">Ad Load
-          <span id="adLoad" class="span">0<span></p>
-          <input class="button"
-                 id="subAdButton"
-                 type="button"
-                 value="-"
-                 onclick="changeAdLoad(0)">
-          <input class="button"
-                 id="addAdButton"
-                 type="button"
-                 value="+"
-                 onclick="changeAdLoad(1)">
-            </div>
-      </div>
-  
-  
-            <div id="cashProjectsB"
-                 class="project"
-                 onclick="callProject(cashProjectsB,cashProjects,cashProjectsTitle,cashProjectsDesc,3)">
-           <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
-           <span class="projectDesc" id="cashProjectsDesc">Reach 5k views</span>
-         </div>
-       </div> <!--end of child flex CASH-->
-
-
-      <div class="break"></div> <!-- break -->
-
-      
-      <div class = "childFlexShort">
-      <div class = "childFlexTopShort">
-         <h2>Analytics</h2>
-
-        <input class="button"
-                type="button"
-                id="saveButton"
-                onclick="save()" 
-                value="Save"/>
-        <input  class="button"
-                type="button"
-                id="saveButton"
-                onclick="load()" 
-                value="Load"/>
-
-
-         <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
-         <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
-         <p class="explanation">Subscribers<span id="subscriberAmount"  class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
-         
-         </p>
-       </div>
-          <div id="subProjectsB"
-               class="project"
-             onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,4)">
-         <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
-         <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
-        </div> 
-       </div> <!--end of child SUBSCRIBERS-->
-      
-     
-     <div class = "childFlexWide">
-     <div class = "childFlexTopWide">
-        <h2>Comments</h2>
-
+          <div class="reveal">
+            <p class="explanation">Ad Load<span id="adLoad" class="span">0<span></p>
+            <input  class="button"
+                    id="subAdButton"
+                    type="button"
+                    value="-"
+                    onclick="changeAdLoad(0)">
+            <input  class="button"
+                    id="addAdButton"
+                    type="button"
+                    value="+"
+                    onclick="changeAdLoad(1)">
+          </div>
+        </div>
         
-       <div class="comments">
-        <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
-        <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment9"></span><br>
-       </div>
-       </div>
-     </div> <!--end of child flex COMMENTS--> 
-     
-          
+        <div  id="cashProjectsB"
+              class="project"
+              onclick="callProject(cashProjectsB,cashProjects,cashProjectsTitle,cashProjectsDesc,3)">
+          <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
+          <span class="projectDesc" id="cashProjectsDesc">Reach 5k views</span>
+        </div>
+      </div> <!--end of child flex CASH-->
+
+      <div class="break"></div> <!-- break to force Analytics to wrap-->
+        
+      <div class = "childFlexShort">
+        <div class = "childFlexTopShort">
+          <h2>Analytics</h2>
+          <input  class="button"
+                  type="button"
+                  id="saveButton"
+                  onclick="save()" 
+                  value="Save"/>
+          <input  class="button"
+                  type="button"
+                  id="saveButton"
+                  onclick="load()" 
+                  value="Load"/>
+          <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
+          <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
+          <p class="explanation">Subscribers<span id="subscriberAmount" class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
+        </div>
+        <div  id="subProjectsB"
+              class="project"
+              onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,4)">
+          <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
+          <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
+        </div> 
+      </div> <!--end of child ANALYTICS-->
+
+      <!--Start of ANALYTICS-->
+      <div class = "childFlexWide">
+        <div class = "childFlexTopWide">
+          <h2>Comments</h2>
+          <div class="comments">
+            <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment9"></span><br>
+          </div>
+        </div>
+      </div> 
+      <!--end of ANALYTICS--> 
+        
+              
     </div> <!--end of parent flex-->
-    
+        
     <script src="loadAppearFunctions.js" type="text/javascript"></script>
     <script type="text/javascript" src="script.js"></script>
 
-</body>
+  </body>
 </html>

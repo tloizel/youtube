@@ -128,8 +128,8 @@ console.log("This isn't what we meant by problem solving. Get out of here!")
 
 //inital comment on first flash
 function helpBulbStory(){
-    commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
-    commentArrayShift();
+  commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
+  commentArrayShift();
 }
 
 //start idea ticker
@@ -147,14 +147,14 @@ function startIdeaTicker(){
 }
 
 //stop idea ticker
- function stopIdeaTicker() {
-   clearInterval(ideaTimer);
-   disableButton("startTimer",false);
-   disableDiv("startTimer","auto");
-   disableButton("stopTimer",true);
-   disableDiv("stopTimer","none");
-   BulbOff();
-  }
+function stopIdeaTicker() {
+  clearInterval(ideaTimer);
+  disableButton("startTimer",false);
+  disableDiv("startTimer","auto");
+  disableButton("stopTimer",true);
+  disableDiv("stopTimer","none");
+  BulbOff();
+}
 
 //Light up the bulb
 function BulbOn() {
@@ -185,17 +185,17 @@ function BulbOff() {
 //start auto edit
 function autoEdit(){
   const checkBox = document.getElementById("myonoffswitch");
-      if (checkBox.checked == true && cashAmount > 0) {
-        expensesComp = 0;
-        document.getElementById("extraExpenses").innerHTML = "Editor (-$"+expenses+"/sec)";
-        for (var i = 0; i < editorSpeed; i++) {
-          clicksLeft();
-        }
-      }
-      else {
-        expensesComp = expenses;
-        document.getElementById("extraExpenses").innerHTML = "None (yay)";
-      }
+  if (checkBox.checked == true && cashAmount > 0) {
+    expensesComp = 0;
+    document.getElementById("extraExpenses").innerHTML = "Editor (-$"+expenses+"/sec)";
+    for (var i = 0; i < editorSpeed; i++) {
+      clicksLeft();
+    }
+  }
+  else {
+    expensesComp = expenses;
+    document.getElementById("extraExpenses").innerHTML = "None (yay)";
+  }
 }
 
 //start auto upload
@@ -207,7 +207,7 @@ var uploaderTimer = setInterval(function(){
 autoUploadActivated = true;
 }
 
-  //start timer2 _ NOT A FUNCTION
+//start timer2 _ NOT A FUNCTION
 window.setInterval(function(){
                   SubsRefresh();
                   viewsRefresh();
@@ -220,7 +220,6 @@ window.setInterval(function(){
 window.setInterval(function(){
                    callComment();
                    },60000);
-
 
 //Upgrades creativity
 function upgradeCreativity(num){
@@ -255,16 +254,16 @@ function ideasGen() {
 
 //limits idea array displayed
 function updateArrayQlView() {
-if (ideaQlArray.length<=9){
-  ideaQlArrayView = ideaQlArray;
-}
-else {
-  let length = ideaQlArray.length - 9;
-  let txt = " ... " + length + " more";
-  ideaQlArrayView = ideaQlArray.slice(0,9);
-  ideaQlArrayView.push(txt);
-}
-pipeline();
+  if (ideaQlArray.length<=9){
+    ideaQlArrayView = ideaQlArray;
+  }
+  else {
+    let length = ideaQlArray.length - 9;
+    let txt = " ... " + length + " more";
+    ideaQlArrayView = ideaQlArray.slice(0,9);
+    ideaQlArrayView.push(txt);
+  }
+  pipeline();
 }
 
 //pipeline
@@ -292,11 +291,11 @@ function clicksLeft(){
   if(shootEditRem < 0){
     shootEditRem = 0 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
-   }
+  }
   else if(shootEditRem > 0 && ideasQt>0){
     shootEditRem -= 1 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
-   }
+  }
   else if(shootEditRem == 0 && ideasQt > 0 && videosEdited < computerMemory){
     shootEditRem = shootEdit;
     //document.getElementById("editClicks").innerHTML = shootEditRem; 
@@ -307,7 +306,7 @@ function clicksLeft(){
     ideasQt = ideasQt - 1;
     document.getElementById("ideasGen").innerHTML = ideasQt;
     pipeline();
-    }
+  }
   var clicksPercentage = Math.round((1-shootEditRem/shootEdit)*100);
   setPercentage(clicksPercentage);
   memoryBlockRefresh();
@@ -324,11 +323,11 @@ function memoryBlockRefresh() {
 
 //draws emptymemory squares
 function drawMemory(x, y, w, h){
-    var cns1 = document.getElementById("memoryCanvas");
-    var ctx = cns1.getContext("2d");
-      ctx.beginPath();
-      ctx.rect(x, y, w, h);
-      ctx.stroke();
+  var cns1 = document.getElementById("memoryCanvas");
+  var ctx = cns1.getContext("2d");
+  ctx.beginPath();
+  ctx.rect(x, y, w, h);
+  ctx.stroke();
 }
 
 //draws empty memory slots at start
@@ -336,26 +335,26 @@ function memoryEmpty(){
   var width = memoryCanvas.width;
   var height = memoryCanvas.height;
   var numberSquares = computerMemory;
-   for (var j=0; j<3; j++){
-     let squaresHeight = 10+50*j+30;
-     if (numberSquares>0 && squaresHeight<height) {
+  for (var j=0; j<3; j++){
+    let squaresHeight = 10+50*j+30;
+    if (numberSquares>0 && squaresHeight<height) {
       for ( var i=0; i < 20; i++) {
-      let squaresWidth = 10+40*i+30;
+        let squaresWidth = 10+40*i+30;
         if (numberSquares>0 && squaresWidth<width) {
-        drawMemory(10+40*i,10+50*j,30,30);
-        numberSquares -= 1;
+          drawMemory(10+40*i,10+50*j,30,30);
+          numberSquares -= 1;
         }
       }
-     }
-   }
+    }
+  }
 }
 
 //draws memory squares
 function drawSquare(x, y, w, h){
-    var cns1 = document.getElementById("memoryCanvas");
-    var ctx = cns1.getContext("2d");
-    ctx.fillStyle = "red";
-    ctx.fillRect(x,y,w,h);
+  var cns1 = document.getElementById("memoryCanvas");
+  var ctx = cns1.getContext("2d");
+  ctx.fillStyle = "red";
+  ctx.fillRect(x,y,w,h);
 }
 
 //draws memory squares in canvas
@@ -363,18 +362,18 @@ function memoryFill() {
   var width = memoryCanvas.width;
   var height = memoryCanvas.height;
   var numberSquares = videosEdited;
-   for (var j=0; j<3; j++){
-     let squaresHeight = 10+50*j+30;
-     if (numberSquares>0 && squaresHeight<height) {
+  for (var j=0; j<3; j++){
+    let squaresHeight = 10+50*j+30;
+    if (numberSquares>0 && squaresHeight<height) {
       for ( var i=0; i < 20; i++) {
-      let squaresWidth = 10+40*i+30;
+        let squaresWidth = 10+40*i+30;
         if (numberSquares>0 && squaresWidth<width) {
-        drawSquare(10+40*i,10+50*j,30,30);
-        numberSquares -= 1;
+          drawSquare(10+40*i,10+50*j,30,30);
+          numberSquares -= 1;
         }
       }
-     }
-   }
+    }
+  }
 }
 
 //Upgrades MEMORY by num & Refreshes Computer Memory canvas
@@ -398,38 +397,37 @@ function upgradeEditorSpeed(para){
 
 //Upload video
 function uploadVideo() {
-   if (videosEdited > 0 && loadState == 0) {
-     loadState = 1;
-     document.getElementById("uploadB").disabled = true; 
-     var elem = document.getElementById("myBar");
-     var width = 1;
-     var id = setInterval(frame, 1000/uploadSpeed);
- function frame() {
-   if (width >= 100) {
-     clearInterval(id);
-     loadState = 0;
-     elem.style.width = 0 + "%";
-     videosUploaded++;
-     document.getElementById("videos").innerHTML = numeral(videosUploaded).format('0,0');
-     videosEdited--;
-     //document.getElementById("videosEdited").innerHTML = videosEdited;
-     averageQlCalculation();//calculated average Ql at each upload
-     ideaQlArray.shift();//pulled out of averageQlCalculation for load funtion, placement here is important
-     updateArrayQlView();//update array to view
-     LDR();//calculated new ratio at each upload
-     SubsFromUpload();//calculated sub count at each upload
-     viewsFromSubs();//calculated view count at each upload
-     memoryBlockRefresh();//refreshes the memory block canvas
-     averageQlCalculationProjected(); //calculate projected average
-   
-     document.getElementById("uploadB").disabled = false; 
-     } 
-   else {
-     width++;
-     elem.style.width = width + "%";
-     }
-   }
- }
+  if (videosEdited > 0 && loadState == 0) {
+    loadState = 1;
+    document.getElementById("uploadB").disabled = true; 
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 1000/uploadSpeed);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        loadState = 0;
+        elem.style.width = 0 + "%";
+        videosUploaded++;
+        document.getElementById("videos").innerHTML = numeral(videosUploaded).format('0,0');
+        videosEdited--;
+        //document.getElementById("videosEdited").innerHTML = videosEdited;
+        averageQlCalculation();//calculated average Ql at each upload
+        ideaQlArray.shift();//pulled out of averageQlCalculation for load funtion, placement here is important
+        updateArrayQlView();//update array to view
+        LDR();//calculated new ratio at each upload
+        SubsFromUpload();//calculated sub count at each upload
+        viewsFromSubs();//calculated view count at each upload
+        memoryBlockRefresh();//refreshes the memory block canvas
+        averageQlCalculationProjected(); //calculate projected average
+        document.getElementById("uploadB").disabled = false; 
+      } 
+      else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
 }
 
 //calculate average video quality
@@ -450,15 +448,14 @@ function averageQlCalculationProjected(){
         
 // Getting sum of numbers from array
 function sumArray(array){
-let sum = array.reduce(function(a, b){
-    return a + b;
-}, 0);
-return sum;
+  let sum = array.reduce(function(a, b){
+      return a + b;
+  }, 0);
+  return sum;
 }
 
 //change ad load
 function changeAdLoad(number){
-
   if(number==1){
     if (adAmount < adLoadMax){
       adAmount++;
@@ -500,18 +497,18 @@ function LDRF(factor){
 function SubsFromUpload(){
   LDRColor();
   var subInitial = subscribers;
-    if(likeDislikeRatio >= 50){
-      subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
-    }
-    else if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
-      subscribers += videosUploaded * parseInt(likeDislikeRatio/10)/2;
-    }
-    else{
-      subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
-    }
-    if (subscribers < 0){
-      subscribers = 0;
-    }
+  if(likeDislikeRatio >= 50){
+    subscribers += videosUploaded * parseInt(likeDislikeRatio/10);
+  }
+  else if(likeDislikeRatio >= 30 && likeDislikeRatio < 50){
+    subscribers += videosUploaded * parseInt(likeDislikeRatio/10)/2;
+  }
+  else{
+    subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
+  }
+  if (subscribers < 0){
+    subscribers = 0;
+  }
   var subsRound = subscribers.toFixed();
   document.getElementById("subscriberAmount").innerHTML = numeral(subsRound).format('0,0');
   var subDiff = subscribers - subInitial;
@@ -528,43 +525,43 @@ function LDRColor(){
   }
   else{
     document.getElementById("likeDislikeRatio").style.color="red";
-}
+  }
 }
 
 //subs from ticker
 function SubsRefresh(){
   //var subInitial = subscribers;
-    if (likeDislikeRatio >= 50){
-      subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
-    }
-    else {
-      subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10)*0.1;
-    }
-    if (subscribers < 0){
-      subscribers = 0;
-    }
+  if (likeDislikeRatio >= 50){
+    subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
+  }
+  else {
+    subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10)*0.1;
+  }
+  if (subscribers < 0){
+    subscribers = 0;
+  }
   var subsRound = subscribers.toFixed();
   document.getElementById("subscriberAmount").innerHTML = numeral(subsRound).format('0,0');
- //var subDiff = subscribers - subInitial;
- //subDifferenceColor(subDiff);
+  //var subDiff = subscribers - subInitial;
+  //subDifferenceColor(subDiff);
 }
 
 //subs difference formatting
 function subDifferenceColor(v){
-    var vRound = v.toFixed();
-    var element = document.getElementById("subDifference");
-    var clone = element.cloneNode(true);
-    element.parentNode.replaceChild(clone, element);
-    if (v < 0){
-      clone.innerHTML = vRound;
-      clone.classList.remove("animatedGreen");
-      clone.classList.add("animatedRed");
-    }
-    else{
-      clone.innerHTML = "+"+vRound;
-      clone.classList.remove("animatedRed");
-      clone.classList.add("animatedGreen");
-    }
+  var vRound = v.toFixed();
+  var element = document.getElementById("subDifference");
+  var clone = element.cloneNode(true);
+  element.parentNode.replaceChild(clone, element);
+  if (v < 0){
+    clone.innerHTML = vRound;
+    clone.classList.remove("animatedGreen");
+    clone.classList.add("animatedRed");
+  }
+  else{
+    clone.innerHTML = "+"+vRound;
+    clone.classList.remove("animatedRed");
+    clone.classList.add("animatedGreen");
+  }
 }
 
 //Views from subs
@@ -589,8 +586,8 @@ function cashGen(){
   
 // refreshes cash amount with income and expenses
 function cashRefresh() {
-    cashAmount += income - expenses + expensesComp; //expenses corresponds to AutoEdit
-    document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
+  cashAmount += income - expenses + expensesComp; //expenses corresponds to AutoEdit
+  document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
 }
 
 //function for cicular progress bar
@@ -598,21 +595,21 @@ function setPercentage(v){
   document.getElementById("clicksLeft").innerHTML = shootEditRem;
   //$('.mask span').html(shootEditRem);
   var perct = v*3.6;
-    if(v >= 50){
-       $('.right-block').css('background','inherit'); 
-       perct = perct - 180;
-    }
-    else{
-       $('.right-block').css('background','#ccc'); 
-    }
-  $('.right-block').css('transform','rotate('+perct+'deg)'); 
+  if(v >= 50){
+      $('.right-block').css('background','inherit'); 
+      perct = perct - 180;
+  }
+  else{
+      $('.right-block').css('background','#ccc'); 
+  }
+$('.right-block').css('transform','rotate('+perct+'deg)'); 
 }
 
 //call comments
 function callComment(){
   if(videosUploaded>0){
-  commentBox.unshift({comment:commentType(),source:"callComment"});
-  commentArrayShift();
+    commentBox.unshift({comment:commentType(),source:"callComment"});
+    commentArrayShift();
   }
 }
   
@@ -681,16 +678,16 @@ function callProject(element,array,title,desc,num) {
   var elementId = element.id;
   var projectTitle = title.id;
   var projectDesc = desc.id;
-    if (eval(array[0][2]) == true && array.length>0) {
-        eval(array[0][3]);
-        var com = array[0][0].concat(" - ",array[0][4]);
-        commentBox.unshift({comment:com,source:"callProject"});
-        commentArrayShift();
-        array.shift();
-        document.getElementById(elementId).className = "project";//to make next project immediately red
-        flickAppear("project",num);
-        document.getElementById(projectTitle).innerHTML = array[0][0];
-        document.getElementById(projectDesc).innerHTML = array[0][1];
+  if (eval(array[0][2]) == true && array.length>0) {
+      eval(array[0][3]);
+      var com = array[0][0].concat(" - ",array[0][4]);
+      commentBox.unshift({comment:com,source:"callProject"});
+      commentArrayShift();
+      array.shift();
+      document.getElementById(elementId).className = "project";//to make next project immediately red
+      flickAppear("project",num);
+      document.getElementById(projectTitle).innerHTML = array[0][0];
+      document.getElementById(projectDesc).innerHTML = array[0][1];
   }
 }
 
@@ -698,15 +695,15 @@ function callProject(element,array,title,desc,num) {
 function testProjects(){
   var projectArrays = [ideaProjects, shootEditProjects, uploadProjects, subProjects, cashProjects];
   var projectIds = ["ideaProjectsB", "shootEditProjectsB", "uploadProjectsB", "subProjectsB", "cashProjectsB"]
-    for (var i = 0; i < 5; i++) {
-      let project = projectArrays[i];
-      let id = projectIds[i]
-      if(eval(project[0][2]) == true && project.length>0){
+  for (var i = 0; i < 5; i++) {
+    let project = projectArrays[i];
+    let id = projectIds[i]
+    if(eval(project[0][2]) == true && project.length>0){
       document.getElementById(id).className = "project valid";
-      }
-      else {document.getElementById(id).className = "project"};
     }
+    else {document.getElementById(id).className = "project"};
   }
+}
 
 //flickering effect on appearing objects
 function flickAppear(class1,num) {
@@ -885,22 +882,22 @@ function projectRefresh(array,title,desc) {
 
 function load() {
   var gameSave = JSON.parse(localStorage.getItem("save"));
-    for (var element in gameSave) {
-      window[element] = gameSave[element].variable;
-      let idx = gameSave[element].id;
-      if (typeof idx !== "undefined") {
-        document.getElementById(idx).innerHTML = gameSave[element].variable;
-      } 
-      let idf = gameSave[element].idf;
-      if (typeof idf !== "undefined") {
-        eval(idf);
-      }
+  for (var element in gameSave) {
+    window[element] = gameSave[element].variable;
+    let idx = gameSave[element].id;
+    if (typeof idx !== "undefined") {
+      document.getElementById(idx).innerHTML = gameSave[element].variable;
+    } 
+    let idf = gameSave[element].idf;
+    if (typeof idf !== "undefined") {
+      eval(idf);
     }
+  }
 }
 
 function deleteLocalStorage() {
   if(confirm("Are you sure you want to reset the game? Your channel will fall in YouTube limbo.")){
-      localStorage.removeItem("save");
-      location.reload();
+    localStorage.removeItem("save");
+    location.reload();
   }
 }

@@ -5,11 +5,11 @@ body {
 }
 
 .unselectable {
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
-   -user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -user-select: none;
 }
 
 .rangeDescription {
@@ -17,11 +17,11 @@ body {
 }
 
 #ideaQl{
-color: red;
+  color: red;
 }
 
 #idea {
-color: red;
+  color: red;
 }
 
 .span {
@@ -96,15 +96,15 @@ color: red;
   padding-left: 1em;
 }
 
-  /* IDEA BULB */
-  .bulbFrame {
-    position: relative;
-    text-align: center;
-    height: 9em;
-    margin-top: -2em;
-    cursor: default;
-    border: none;
-  }
+/* IDEA BULB */
+.bulbFrame {
+  position: relative;
+  text-align: center;
+  height: 9em;
+  margin-top: -2em;
+  cursor: default;
+  border: none;
+}
 
 #bulb {
   position: absolute;
@@ -134,36 +134,36 @@ color: red;
   fill: #000000;
 }
 
- .turnUp{
-    animation-name: turnUp;
-    animation-duration: 60000ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0.09,0.88,0.67,0.37);
-  }
+.turnUp{
+  animation-name: turnUp;
+  animation-duration: 60000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.09,0.88,0.67,0.37);
+}
   
-  @keyframes turnUp {
-    0% {opacity: 0; fill: #f8fc00}
-    20% {fill: #fceb00;}
-    40% {fill: #fcce00;}
-    60% {fill: #fcc500;}
-    80% {fill: #fcb900;}
-    98.6% {opacity: 1;}
-    98.7% {opacity: 0;}
-    98.8% {opacity: 1;}
-    98.9% {opacity: 0;}
-    99% {opacity: 1;}
-    99.1% {opacity: 0;}
-    99.2% {opacity: 1;}
-    99.2% {opacity: 0;}
-    99.3% {opacity: 1;}
-    99.4% {opacity: 0;}
-    99.5% {opacity: 1;}
-    99.6% {opacity: 0;}
-    99.7% {opacity: 1;}
-    99.9% {opacity: 0;}
-    100% {opacity: 1;}
-  }
+@keyframes turnUp {
+  0% {opacity: 0; fill: #f8fc00}
+  20% {fill: #fceb00;}
+  40% {fill: #fcce00;}
+  60% {fill: #fcc500;}
+  80% {fill: #fcb900;}
+  98.6% {opacity: 1;}
+  98.7% {opacity: 0;}
+  98.8% {opacity: 1;}
+  98.9% {opacity: 0;}
+  99% {opacity: 1;}
+  99.1% {opacity: 0;}
+  99.2% {opacity: 1;}
+  99.2% {opacity: 0;}
+  99.3% {opacity: 1;}
+  99.4% {opacity: 0;}
+  99.5% {opacity: 1;}
+  99.6% {opacity: 0;}
+  99.7% {opacity: 1;}
+  99.9% {opacity: 0;}
+  100% {opacity: 1;}
+}
 /* IDEA END */
 
 
@@ -178,7 +178,6 @@ color: red;
   opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
- 
 }
 
 #ideaRange::-webkit-slider-thumb {
@@ -199,7 +198,6 @@ color: red;
 #ideaRange:focus {
   outline: 0;
 }
-
 
 /* FLEXBOX START */
 
@@ -271,7 +269,6 @@ color: red;
 }
 
 /* FLEXBOX END */
-
 
 .reveal {
   opacity: 0;
@@ -426,14 +423,14 @@ color: red;
 }
 
 #memoryCanvas {
-    width: 90%;
-    height: 90px;
-    margin-top: 0;
-    margin-left: 5px;
-    text-align: center;
-   /* border-radius: 10px; */
-    background-color: #edeff2;
-   /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
+  width: 90%;
+  height: 90px;
+  margin-top: 0;
+  margin-left: 5px;
+  text-align: center;
+  /* border-radius: 10px; */
+  background-color: #edeff2;
+  /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
 }
 
 /* END OF SHOOT AND EDIT PROGRESS CIRCLE */
@@ -580,17 +577,17 @@ color: red;
 }
 
 .settingsButton {
-border: none;
-cursor: pointer;
-float: right;
-background-color: #e9ebf0;
+  border: none;
+  cursor: pointer;
+  float: right;
+  background-color: #e9ebf0;
 }
 
 .settingsButton:focus {
-outline: 0;
+  outline: 0;
 }
 
 .alignCenter {
-float: right;
-margin-bottom: -1em;
+  float: right;
+  margin-bottom: -1em;
 }

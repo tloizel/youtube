@@ -23,14 +23,14 @@ function autoEditAppear() {
 
 function expensesUpdate(){
   const checkBox = document.getElementById("myonoffswitch");
-      if (checkBox.checked == true && cashAmount > 0) {
-        expensesComp = 0;
-        document.getElementById("extraExpenses").innerHTML = "Editor (-$"+expenses+"/sec)";
-      }
-      else {
-        expensesComp = expenses;
-        document.getElementById("extraExpenses").innerHTML = "None (yay)";
-      }
+  if (checkBox.checked == true && cashAmount > 0) {
+    expensesComp = 0;
+    document.getElementById("extraExpenses").innerHTML = "Editor (-$"+expenses+"/sec)";
+  }
+  else {
+    expensesComp = expenses;
+    document.getElementById("extraExpenses").innerHTML = "None (yay)";
+  }
   document.getElementById("editorSpeed").innerHTML = editorSpeed+" clicks/sec";
 }
 
