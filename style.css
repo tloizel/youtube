@@ -4,6 +4,21 @@ body {
   zoom: 73%;
 }
 
+.header {
+  height: 15%;
+  justify-content: space-between;
+}
+
+.notYoutube {
+  font-size: 1vw;
+  margin-bottom: 1em;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .unselectable {
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
@@ -222,7 +237,7 @@ body {
 
 .childFlexShort {
   height: 18em;
-  width: 24em;
+  width: calc(40% - 2em);
   text-align: center;
   margin: 1em;
   margin-bottom: 5em;
@@ -230,7 +245,7 @@ body {
 
 .childFlexWide {
   height: 18em;
-  width: 60%;
+  width: calc(60% - 2em);
   text-align: center;
   margin: 1em;
   margin-bottom: 5em;
@@ -274,7 +289,7 @@ body {
   opacity: 0;
 }
 
-.reveal.animated{
+.reveal.animated {
   animation-name: revealElement;
   animation-duration: 1000ms;
   animation-iteration-count: 1;
@@ -319,49 +334,49 @@ body {
 }
 
 .semi-circle {
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    border-radius: 50%;
-    position:absolute;
-    top:0px;
-    left:0px;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  position:absolute;
+  top:0px;
+  left:0px;
 }
 
 .left-block {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background: #ccc;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #ccc;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
 
 .right-block {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    background: #ccc;
-    border-top-right-radius:50%;
-    border-bottom-right-radius:50%;
-    transform-origin: left center;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  background: #ccc;
+  border-top-right-radius:50%;
+  border-bottom-right-radius:50%;
+  transform-origin: left center;
 }
 
 .mask {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    left: 10%;
-    top: 10%;
-    background: #edeff2;
-    border-radius: 50%;
-    text-align: center;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  background: #edeff2;
+  border-radius: 50%;
+  text-align: center;
   box-shadow: inset -3px -3px 5px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.671);
-   }
+}
 
 .mask span {
     color: black;
@@ -585,9 +600,4 @@ body {
 
 .settingsButton:focus {
   outline: 0;
-}
-
-.alignCenter {
-  float: right;
-  margin-bottom: -1em;
 }

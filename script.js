@@ -104,7 +104,7 @@ var commentBox = [{comment:"Welcome to YouTube.",source:"story"},
 
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
-function firstPageLoad(){
+function firstPageLoad() {
   if(ideasQtTotal = 1){
     ideasGen(); //generate one idea to start off with
     disableButton("subAdButton",true);
@@ -127,13 +127,13 @@ console.log("This isn't what we meant by problem solving. Get out of here!")
 
 
 //inital comment on first flash
-function helpBulbStory(){
+function helpBulbStory() {
   commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
   commentArrayShift();
 }
 
 //start idea ticker
-function startIdeaTicker(){
+function startIdeaTicker() {
   ideaTimer = setInterval(function(){
               //TEMP autoticker(1);
               ideasGen();
@@ -183,7 +183,7 @@ function BulbOff() {
 }
 
 //start auto edit
-function autoEdit(){
+function autoEdit() {
   const checkBox = document.getElementById("myonoffswitch");
   if (checkBox.checked == true && cashAmount > 0) {
     expensesComp = 0;
@@ -199,8 +199,8 @@ function autoEdit(){
 }
 
 //start auto upload
-function autoUpload(){
-var uploaderTimer = setInterval(function(){
+function autoUpload() {
+var uploaderTimer = setInterval(function() {
                   if (loadState == 0){ //&& cashAmount > 0
                   uploadVideo();};
                   },1000/uploadSpeed);
@@ -208,7 +208,7 @@ autoUploadActivated = true;
 }
 
 //start timer2 _ NOT A FUNCTION
-window.setInterval(function(){
+window.setInterval(function() {
                   SubsRefresh();
                   viewsRefresh();
                   cashGen();
@@ -217,12 +217,12 @@ window.setInterval(function(){
                    },1000);
 
 //refreshes cashAmount with income and expenses per min AND COMMENTS
-window.setInterval(function(){
+window.setInterval(function() {
                    callComment();
                    },60000);
 
 //Upgrades creativity
-function upgradeCreativity(num){
+function upgradeCreativity(num) {
   creativity += num;
   document.getElementById("creativityLvl").innerHTML = creativity;
 }
@@ -267,7 +267,7 @@ function updateArrayQlView() {
 }
 
 //pipeline
-function pipeline(){
+function pipeline() {
   let pipelineColor = ideaQlArrayView.slice(0,videosEdited);
   let pipelineBlack = ideaQlArrayView.slice(videosEdited,ideaQlArrayView.length);
   if(pipelineBlack.length > 0 && pipelineColor.length > 0){
@@ -287,7 +287,7 @@ function newArray(value, len) {
 }
 
 //Shoot & Edit
-function clicksLeft(){
+function clicksLeft() {
   if(shootEditRem < 0){
     shootEditRem = 0 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
@@ -322,7 +322,7 @@ function memoryBlockRefresh() {
 }
 
 //draws emptymemory squares
-function drawMemory(x, y, w, h){
+function drawMemory(x, y, w, h) {
   var cns1 = document.getElementById("memoryCanvas");
   var ctx = cns1.getContext("2d");
   ctx.beginPath();
@@ -331,7 +331,7 @@ function drawMemory(x, y, w, h){
 }
 
 //draws empty memory slots at start
-function memoryEmpty(){
+function memoryEmpty() {
   var width = memoryCanvas.width;
   var height = memoryCanvas.height;
   var numberSquares = computerMemory;
@@ -350,7 +350,7 @@ function memoryEmpty(){
 }
 
 //draws memory squares
-function drawSquare(x, y, w, h){
+function drawSquare(x, y, w, h) {
   var cns1 = document.getElementById("memoryCanvas");
   var ctx = cns1.getContext("2d");
   ctx.fillStyle = "red";
@@ -377,20 +377,20 @@ function memoryFill() {
 }
 
 //Upgrades MEMORY by num & Refreshes Computer Memory canvas
-function upgradeMemory(num){
+function upgradeMemory(num) {
   computerMemory += num;
   memoryBlockRefresh();
 }
 
 //change upload speed
-function upgradeUploadSpeed(para){
+function upgradeUploadSpeed(para) {
   uploadSpeed = para;
   let uploadSpeedConversion = uploadSpeed*100;
   document.getElementById("uploadSpeed").innerHTML = uploadSpeedConversion+" kB/s";
 }
 
 //change editor speed
-function upgradeEditorSpeed(para){
+function upgradeEditorSpeed(para) {
   editorSpeed = para;
   document.getElementById("editorSpeed").innerHTML = editorSpeed+" clicks/sec";
 }
@@ -431,7 +431,7 @@ function uploadVideo() {
 }
 
 //calculate average video quality
-function averageQlCalculation(){
+function averageQlCalculation() {
   let nextQl = ideaQlArray[0];
   averageQlNum += nextQl;
   averageQl = averageQlNum/videosUploaded;
@@ -440,7 +440,7 @@ function averageQlCalculation(){
 }
 
 //calculate projected average video quality
-function averageQlCalculationProjected(){
+function averageQlCalculationProjected() {
   let sumOfArray = sumArray(ideaQlArray);
   let projectedQlAverage = (averageQlNum + sumOfArray)/(ideaQlArray.length + videosUploaded);
   document.getElementById("projectedAverage").innerHTML = projectedQlAverage.toFixed(2);
@@ -455,7 +455,7 @@ function sumArray(array){
 }
 
 //change ad load
-function changeAdLoad(number){
+function changeAdLoad(number) {
   if(number==1){
     if (adAmount < adLoadMax){
       adAmount++;
@@ -486,7 +486,7 @@ function LDR() {
 }
 
 //Change LDRF
-function LDRF(factor){
+function LDRF(factor) {
   likeDislikeFactor = factor;
   LDR();
   LDRColor();
@@ -494,7 +494,7 @@ function LDRF(factor){
 }
 
 //increase subscriber count
-function SubsFromUpload(){
+function SubsFromUpload() {
   LDRColor();
   var subInitial = subscribers;
   if(likeDislikeRatio >= 50){
@@ -516,7 +516,7 @@ function SubsFromUpload(){
 }
 
 //to ad color indication on LDR
-function LDRColor(){
+function LDRColor() {
   if(likeDislikeRatio >= 50){
     document.getElementById("likeDislikeRatio").style.color="green";
   }
@@ -529,7 +529,7 @@ function LDRColor(){
 }
 
 //subs from ticker
-function SubsRefresh(){
+function SubsRefresh() {
   //var subInitial = subscribers;
   if (likeDislikeRatio >= 50){
     subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
@@ -547,7 +547,7 @@ function SubsRefresh(){
 }
 
 //subs difference formatting
-function subDifferenceColor(v){
+function subDifferenceColor(v) {
   var vRound = v.toFixed();
   var element = document.getElementById("subDifference");
   var clone = element.cloneNode(true);
@@ -565,21 +565,21 @@ function subDifferenceColor(v){
 }
 
 //Views from subs
-function viewsFromSubs(){
+function viewsFromSubs() {
   views += subscribers;
   views = Math.floor(views);
   document.getElementById("views").innerHTML = numeral(views).format('0,0');
 }
 
 //views calculation
-function viewsRefresh(){
+function viewsRefresh() {
   views += 0.05*subscribers;
   var viewsRound = views.toFixed();
   document.getElementById("views").innerHTML = numeral(viewsRound).format('0,0');
 }
 
 //videos * adload = cash
-function cashGen(){
+function cashGen() {
   cashAmount += 0.01*videosUploaded*Math.log10(views+1)*adAmount;
   document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
 }
@@ -590,23 +590,23 @@ function cashRefresh() {
   document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
 }
 
-//function for cicular progress bar
-function setPercentage(v){
+//function for circular progress bar
+function setPercentage(v) {
   document.getElementById("clicksLeft").innerHTML = shootEditRem;
   //$('.mask span').html(shootEditRem);
   var perct = v*3.6;
-  if(v >= 50){
+  if(v >= 50) {
       $('.right-block').css('background','inherit'); 
       perct = perct - 180;
   }
   else{
       $('.right-block').css('background','#ccc'); 
   }
-$('.right-block').css('transform','rotate('+perct+'deg)'); 
+  $('.right-block').css('transform','rotate('+perct+'deg)'); 
 }
 
 //call comments
-function callComment(){
+function callComment() {
   if(videosUploaded>0){
     commentBox.unshift({comment:commentType(),source:"callComment"});
     commentArrayShift();
@@ -614,7 +614,7 @@ function callComment(){
 }
   
 //décaler comments
-function commentArrayShift(){
+function commentArrayShift() {
   var i = 0;
   do {
      var commentId = "comment" + (i+1);
@@ -629,7 +629,7 @@ function commentArrayShift(){
 }
 
 //comment css style
-function commentStyle(commentSource,id){
+function commentStyle(commentSource,id) {
   var element = document.getElementById(id);
   if(commentSource == "callComment"){
     element.classList.remove("storyComment");
@@ -692,7 +692,7 @@ function callProject(element,array,title,desc,num) {
 }
 
 //test project conditions
-function testProjects(){
+function testProjects() {
   var projectArrays = [ideaProjects, shootEditProjects, uploadProjects, subProjects, cashProjects];
   var projectIds = ["ideaProjectsB", "shootEditProjectsB", "uploadProjectsB", "subProjectsB", "cashProjectsB"]
   for (var i = 0; i < 5; i++) {
@@ -717,12 +717,12 @@ function flickAppear(class1,num) {
 }
 
 //function to enable/disable buttons : the button will not be clickable
-function disableButton(button,state){
+function disableButton(button,state) {
   document.getElementById(button).disabled = state;
 }
 
 //function to enable/disable divs : the mouse pointer will not appear (chose "none" or 'auto')
-function disableDiv(div,state){
+function disableDiv(div,state) {
   document.getElementById(div).style.pointerEvents = state;
 }
 
