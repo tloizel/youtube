@@ -35,7 +35,7 @@ function expensesUpdate(){
 }
 
 function incomeUpdate(){
-  if(income=1){
+  if(income==1){
   document.getElementById("extraIncome").innerHTML = "Sell merch (+$"+income+"/sec)";
   }
   else if (income>1){
