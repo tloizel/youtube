@@ -844,7 +844,7 @@ function save(){
     ideaQlArray: {variable: ideaQlArray, idf:"updateArrayQlView()"},
     videosUploaded: {variable: videosUploaded, id:"videos"},
     averageQlNum: {variable: averageQlNum},
-    averageQl: {variable: averageQl, idf:"averageQlCalculation()"},
+    averageQl: {variable: averageQl, idf:"document.getElementById('averageQl').innerHTML = averageQl.toFixed(2)"},
     likeDislikeFactor: {variable: likeDislikeFactor, id:"likeDislikeRatio"},
     uploadSpeed: {variable: uploadSpeed, idf:"upgradeUploadSpeed(uploadSpeed)"},
     views: {variable: views, idf:"viewsRefresh()"},
