@@ -1,6 +1,6 @@
 body {
   font-family: Rubik, sans-serif;
-  background-color: #e9ebf0;
+  background-color: #f5f6fa;
   zoom: 73%;
 }
 
@@ -595,7 +595,7 @@ body {
   border: none;
   cursor: pointer;
   float: right;
-  background-color: #e9ebf0;
+  background-color: #f5f6fa;
 }
 
 .settingsButton:focus {
