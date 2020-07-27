@@ -896,7 +896,7 @@ function load() {
 }
 
 function deleteLocalStorage() {
-  if(confirm("Are you sure you want to reset the game? Your channel will fall in YouTube limbo.")){
+  if(confirm("Are you sure you want to reset the game? Your channel will be lost in YouTube limbo.")){
     localStorage.removeItem("save");
     location.reload();
   }
