@@ -92,7 +92,7 @@ var comments = [
 var commentBox = [{comment:"Welcome to notYouTube.",source:"story"},
                   {comment:"This is a game of patience, optimisation and problem solving.",source:"story"},
                   {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
-                  {comment:"Comment that code on our LinkedIn post or by send it to iwon@notyoutube.dev",source:"story"},
+                  {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev",source:"story"},
                   {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new mouse.",source:"story"},
                   {comment:"Good luck!",source:"story"},
                   {comment:"",source:""},
