@@ -1,13 +1,16 @@
+fitty("#uploadProjectsTitle");
+
+
 //GENERAL
 var testTimer = setInterval(testProjects,1000);
 
 //IDEA
 var ideaTimer = null;
-var creativity = 1; //creativity level
-var rangeIdea = 1; //value of Qt on range
+var creativity = 1; //creativity level - 1
+var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
-var ideasQt = 0; //amount of ideas ready to edit
-var ideasQtTotal = 0; //amount of ideas since beginning
+var ideasQt = 0; //amount of ideas ready to edit - 0
+var ideasQtTotal = 0; //amount of ideas since beginning - 0
 var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
 
 //SHOOT AND EDIT
@@ -15,8 +18,8 @@ var shootEdit = 200; //clicks required to edit a video - 200
 var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited
 var videosEditedTotal = 0; //TOTAL number of videos edited
-var computerMemory = 1; //max videos edited 
-var editorSpeed = 1; //how many times to call the function
+var computerMemory = 1; //max videos edited - 1
+var editorSpeed = 1; //how many times to call the function - 1
 
 //UPLOAD
 var ideaQlArray = newArray();
@@ -35,7 +38,7 @@ var subscribers = 0;
 //CASH
 var adAmount = 0;
 var cashAmount = 0;
-var adLoadMax = 1;
+var adLoadMax = 1; //- 1
 var income = 0;
 var expenses = 0;
 var expensesComp = 0;
@@ -43,12 +46,12 @@ var youtubePartner = 0; //0 for no 1 for yes
 var autoUploadActivated = false; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visibleCash = true;
-var visibleAdAmount = true;
-var visibleAutoEdit = true;
-var visibleProjectedAverage = true;
-var visibleExpenses = true;
-var visibleIncome = true;
+var visibleCash = false;
+var visibleAdAmount = false;
+var visibleAutoEdit = false;
+var visibleProjectedAverage = false;
+var visibleExpenses = false;
+var visibleIncome = false;
 
 //COMMENTS
 var comments = [
@@ -725,8 +728,6 @@ function disableButton(button,state) {
 function disableDiv(div,state) {
   document.getElementById(div).style.pointerEvents = state;
 }
-
-
 
 //project arrays
 var ideaProjects = [
