@@ -1,21 +1,38 @@
 body {
   font-family: Rubik, sans-serif;
   background-color: #e9ebf0;
+  margin: 0; /* to remove default page margins */
+  zoom: 98%; /* to remove mysterious tiny scroll at the bottom */
 }
 
 .header {
-  height: 5%;
+  height: 4%;
   justify-content: space-between;
 }
 
 .notYoutube {
   font-size: 1vw;
-  margin-bottom: 1em;
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-grow {
+  flex-grow: 2;
+}
+
+.small-right-margin {
+  margin-right: 1em;
+}
+
+.small-top-margin {
+  margin-top: 1em;
 }
 
 .unselectable {
@@ -68,6 +85,8 @@ body {
 #pipeline{
   border: none;
   padding-right: 2em;
+  float: left;
+  margin-left: 32px;
 }
 
 .rainbow-text {
@@ -115,9 +134,9 @@ body {
   position: relative;
   text-align: center;
   height: 9em;
-  margin-top: -2em;
   cursor: default;
   border: none;
+  zoom: 0.7;
 }
 
 #bulb {
@@ -180,12 +199,15 @@ body {
 }
 /* IDEA END */
 
+.ideaRangeDiv {
+  justify-content: space-around;
+}
 
 #ideaRange {
   -webkit-appearance: none;
   cursor: pointer;
   background: red;
-  width: 50%;
+  width: 90%;
   height: 5px;
   border-radius: 15px;
   box-shadow: 0px 1px #999;
@@ -197,7 +219,7 @@ body {
 #ideaRange::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 8px solid #bcbcbc;
-  height: 26px;
+  height: 25px;
   width: 25px;
   border-radius: 510%;
   background: red;
@@ -215,24 +237,14 @@ body {
 
 /* FLEXBOX START */
 
-.parentHeightTop {
-  height: 10%;
-}
-
-.parentHeightBottom {
-  height: 10%;
-}
-
 .parentFlex {
   justify-content: space-between;
-  border: 1px solid red;
-  border-radius: 25px;
 }
 
 .childFlex {
   width: calc(25% - 2em);
   text-align: center;
-  margin: 0em 1em 0em 1em;
+  margin: 1% 1em 0em 1em;
 }
 
 .childFlexTop {
@@ -268,6 +280,7 @@ body {
 }
 
 .childFlexTopWide {
+  height: 30vh;
   padding: 0.5em 1em;
   border-radius: 25px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
@@ -311,6 +324,10 @@ body {
 
 /* SHOOT AND EDIT PROGRESS CIRCLE */
 
+#SECircleContainer {
+  width: 50%;
+}
+
 #SECircleContainer:active {
   transform: translateY(2px);
 }
@@ -318,7 +335,6 @@ body {
 .progress-holder {
   cursor: pointer;
   margin: auto;
-  margin-top: 15px;
   position:relative;
   width:100px;
   height:100px;
@@ -389,6 +405,7 @@ body {
   display: inline-block;
   position: relative;
   width: 55px;
+  height: 20px;
   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 
@@ -508,7 +525,7 @@ body {
 /* END OF SUB DIFF */
 
 .comments {
-  height: 100%;
+  height: 20vh;
   margin-left: 10px;
   text-align: left;
   font-size: 16px;
@@ -597,4 +614,9 @@ body {
 
 .settingsButton:focus {
   outline: 0;
+}
+
+/* empty div to center autoEdit circle button with flexbox */
+.empty {
+  width: 25%;
 }

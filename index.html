@@ -17,13 +17,13 @@
   <body>
     <div class="header flex-row">
       <div><span id="views" class="viewsBig">0</span>views</div>
-      <div>
+      <div class="small-right-margin">
         <div class="notYoutube">notYouTube</div>
         <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
       </div>
     </div>
     <!--Start of parentFlex 1-->
-    <div class = "flex-row parentFlex parentHeightTop">
+    <div class = "flex-row parentFlex">
       <!--Start of COMMENTS-->
       <div class = "childFlexWide">
         <div class = "childFlexTopWide">
@@ -43,8 +43,8 @@
       </div> 
       <!--End of COMMENTS--> 
       <!--Start of ANALYTICS-->
-      <div class = "childFlexShort">
-        <div class = "childFlexTopShort">
+      <div class="childFlexShort">
+        <div class="childFlexTopShort">
           <h2>Analytics</h2>
           <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
           <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
@@ -60,7 +60,7 @@
     </div> <!--End of parent flex 1-->
 
     <!--Start of parentFlex 2-->
-    <div class="flex-row parentFlex parentHeightBottom">
+    <div class="flex-row parentFlex">
       <div class="childFlex">
         <div class="childFlexTop">
           <h2>Idea</h2>
@@ -76,7 +76,7 @@
                     onclick="stopIdeaTicker()" 
                     value="Stop thinking"/>
           </div>        
-          <br><br>
+          <br>
           <div class="bulbFrame" id="bulbFrameDiv"> 
             <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
               <path d="M76,37.037 C76,59.939 55.6428571,75.427 55.6428571,93.5 L20.3571429,93.5 C20.3571429,75.427 0,59.9335 0,37.037 C0,13.1505 18.9891429,0 37.9782857,0 C56.9891429,0 76,13.167 76,37.037 L76,37.037 Z"></path>
@@ -87,17 +87,24 @@
             </svg>
           </div>
           <br>
-          <span class="rangeDescription">Quality</span>
-          <span id="ideaQl">5</span>
-          <input type="range"
-                  id="ideaRange"
-                  min="1"
-                  max="6"
-                  value="1"
-                  onchange="ideaRangeMax(this.value)">
-          <span class="rangeDescription">Quantity</span>
-          <span id="idea">1</span>
-          <br><br>
+          <div class="flex-row ideaRangeDiv">
+            <div>
+              <span class="rangeDescription">Quality</span>
+              <div><span id="ideaQl">5</span></div>
+            </div>
+            <div class="flex-grow">
+              <input type="range"
+                      id="ideaRange"
+                      min="1"
+                      max="6"
+                      value="1"
+                      onchange="ideaRangeMax(this.value)">
+            </div>
+            <div class="small-right-margin">
+              <span class="rangeDescription">Quantity</span>
+              <div><span id="idea">1</span></div>
+            </div>
+          </div>
           <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
           <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span></p> 
           <p class="explanation">Ideas ready to edit<span id="ideasGen" class="span">0</span></p>
@@ -114,20 +121,22 @@
       <div class = "childFlex">
         <div class = "childFlexTop">
           <h2>Edit</h2>
-            <div class="reveal onoffswitch" id="onOffSwitchContainer">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
-              <label class="onoffswitch-label" for="myonoffswitch"></label>
-            </div>
-            <div id="SECircleContainer">
-              <div  class="progress-holder unselectable"
-                    onclick="clicksLeft()">
-                <div class="semi-circle"></div>
-                <div class="left-block"></div>
-                <div class="right-block"></div>
-                <div class="mask"><span id="clicksLeft">200</span></div>
+            <div class="flex-row align-center">
+              <div class="empty"></div>
+              <div id="SECircleContainer">
+                <div  class="progress-holder unselectable"
+                      onclick="clicksLeft()">
+                  <div class="semi-circle"></div>
+                  <div class="left-block"></div>
+                  <div class="right-block"></div>
+                  <div class="mask"><span id="clicksLeft">200</span></div>
+                </div>
+              </div>
+              <div class="reveal onoffswitch" id="onOffSwitchContainer">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
+                <label class="onoffswitch-label" for="myonoffswitch"></label>
               </div>
             </div>
-          <br>
           <p class="explanation">Videos edited<span id="videosEditedTotal" class="span">0</span></p>
           <p class="explanation reveal">Editor speed<span id="editorSpeed" class="span">1 click/sec</span></p>
           <p id="computerMemoryText" class="explanation">Computer memory</p>
@@ -146,8 +155,8 @@
           <h2>Upload</h2>
           <p class="explanation">Videos ready to upload</p>
           <div id="pipeline"><span id="arrayQlView">0</span><span id="arrayQlViewColor">0</span></div>
-          <br><br><br>
-          <input  class="button"
+          <br>
+          <input  class="button small-top-margin"
                   id="uploadB"
                   type="button"
                   value="Upload Video"
