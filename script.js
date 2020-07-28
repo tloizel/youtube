@@ -43,7 +43,7 @@ var youtubePartner = 0; //0 for no 1 for yes
 var autoUploadActivated = false; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visibleCash = false;
+var visibleCash = true;
 var visibleAdAmount = false;
 var visibleAutoEdit = false;
 var visibleProjectedAverage = false;

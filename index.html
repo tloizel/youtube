@@ -22,10 +22,47 @@
         <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
       </div>
     </div>
+    <!--Start of parentFlex 1-->
+    <div class = "flex-row parentFlex parentHeightTop">
+      <!--Start of COMMENTS-->
+      <div class = "childFlexWide">
+        <div class = "childFlexTopWide">
+          <h2>Comments</h2>
+          <div class="comments">
+            <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
+            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment9"></span><br>
+          </div>
+        </div>
+      </div> 
+      <!--End of COMMENTS--> 
+      <!--Start of ANALYTICS-->
+      <div class = "childFlexShort">
+        <div class = "childFlexTopShort">
+          <h2>Analytics</h2>
+          <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
+          <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
+          <p class="explanation">Subscribers<span id="subscriberAmount" class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
+        </div>
+        <div  id="subProjectsB"
+              class="project"
+              onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,4)">
+          <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
+          <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
+        </div> 
+      </div> <!--End of child ANALYTICS-->
+    </div> <!--End of parent flex 1-->
 
-    <div class = "parentFlex">
-      <div class = "childFlex">
-        <div class = "childFlexTop">
+    <!--Start of parentFlex 2-->
+    <div class="flex-row parentFlex parentHeightBottom">
+      <div class="childFlex">
+        <div class="childFlexTop">
           <h2>Idea</h2>
           <div>
             <input  class="button"
@@ -137,6 +174,16 @@
       <div class = "childFlex reveal">
         <div class = "childFlexTop">
           <h2>Piggy Bank</h2>
+          <input  class="button"
+                  type="button"
+                  id="saveButton"
+                  onclick="save()" 
+                  value="Save"/>
+          <input  class="button"
+                  type="button"
+                  id="saveButton"
+                  onclick="load()" 
+                  value="Load"/>
           <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
           <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
           <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
@@ -162,55 +209,10 @@
           <span class="projectDesc" id="cashProjectsDesc">Reach 5k views</span>
         </div>
       </div> <!--end of child flex CASH-->
+    </div> <!--End of parent flex 2-->
 
-      <div class="break"></div> <!-- break to force Analytics to wrap-->
-        
-      <div class = "childFlexShort">
-        <div class = "childFlexTopShort">
-          <h2>Analytics</h2>
-          <input  class="button"
-                  type="button"
-                  id="saveButton"
-                  onclick="save()" 
-                  value="Save"/>
-          <input  class="button"
-                  type="button"
-                  id="saveButton"
-                  onclick="load()" 
-                  value="Load"/>
-          <p class="explanation">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
-          <p class="explanation">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
-          <p class="explanation">Subscribers<span id="subscriberAmount" class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
-        </div>
-        <div  id="subProjectsB"
-              class="project"
-              onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,4)">
-          <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
-          <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
-        </div> 
-      </div> <!--end of child ANALYTICS-->
-
-      <!--Start of ANALYTICS-->
-      <div class = "childFlexWide">
-        <div class = "childFlexTopWide">
-          <h2>Comments</h2>
-          <div class="comments">
-            <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment9"></span><br>
-          </div>
-        </div>
-      </div> 
-      <!--end of ANALYTICS--> 
-        
-              
-    </div> <!--end of parent flex-->
+      <div class="break"></div> <!-- break to force Analytics to wrap-->            
+    
         
     <script src="loadAppearFunctions.js" type="text/javascript"></script>
     <script type="text/javascript" src="script.js"></script>

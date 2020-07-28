@@ -1,11 +1,10 @@
 body {
   font-family: Rubik, sans-serif;
   background-color: #e9ebf0;
-  zoom: 73%;
 }
 
 .header {
-  height: 15%;
+  height: 5%;
   justify-content: space-between;
 }
 
@@ -42,7 +41,7 @@ body {
 .span {
   color: red;
   text-align: right;
-  float:right;
+  float: right;
   margin-right: 2em;
 }
 
@@ -55,20 +54,20 @@ body {
 #arrayQlView {
   color: black;
   text-align: right;
-  float:right;
+  float: right;
   margin-right: 0em;
-  border:none;
+  border: none;
 }
 #arrayQlViewColor {
   color: red;
   text-align: right;
-  float:right;
+  float: right;
   margin-right: 0em;
-  border:none;
+  border: none;
 }
 #pipeline{
-  border:none;
-  padding-right:2em;
+  border: none;
+  padding-right: 2em;
 }
 
 .rainbow-text {
@@ -106,9 +105,9 @@ body {
 
 .viewsBig {
   font-family: Rubik, sans-serif;
-  font-size: 5em;
+  font-size: 3vw;
   width: 95%;
-  padding-left: 1em;
+  padding-left: 2vw;
 }
 
 /* IDEA BULB */
@@ -216,52 +215,43 @@ body {
 
 /* FLEXBOX START */
 
+.parentHeightTop {
+  height: 10%;
+}
+
+.parentHeightBottom {
+  height: 10%;
+}
+
 .parentFlex {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-items: center;
-  justify-content: space-evenly;
-  /* border: 10px solid red; */
+  justify-content: space-between;
+  border: 1px solid red;
   border-radius: 25px;
-  padding: 0.5em;
 }
 
 .childFlex {
-  height: 31em;
-  width: 24em;
+  width: calc(25% - 2em);
   text-align: center;
-  margin: 1em;
-  margin-bottom: 5em;
-}
-
-.childFlexShort {
-  height: 18em;
-  width: calc(40% - 2em);
-  text-align: center;
-  margin: 1em;
-  margin-bottom: 5em;
-}
-
-.childFlexWide {
-  height: 18em;
-  width: calc(60% - 2em);
-  text-align: center;
-  margin: 1em;
-  margin-bottom: 5em;
+  margin: 0em 1em 0em 1em;
 }
 
 .childFlexTop {
-  height: 28em;
+  height: 75%;
   padding: 1px 0.5em 0.5em;
   margin-bottom: 1em;
   border-radius: 25px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
+}
+
+/* Analytics container */
+.childFlexShort {
+  width: calc(25% - 2em);
+  text-align: center;
+  margin-right: 1em;
 }
 
 .childFlexTopShort {
-  height: 12em;
   padding: 1px 0.5em 0.5em;
   margin-bottom: 1em;
   border-radius: 25px;
@@ -269,10 +259,16 @@ body {
   background-color: #edeff2;
 }
 
+/* Comments container */
+.childFlexWide {
+  width: calc(75% - 2em);
+  align-items: stretch;
+  text-align: center;
+  margin-left: 1em;
+}
+
 .childFlexTopWide {
-  height: 18em;
-  padding: 1px 0.5em 0.5em;
-  margin-bottom: 1em;
+  padding: 0.5em 1em;
   border-radius: 25px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
@@ -379,14 +375,14 @@ body {
 }
 
 .mask span {
-    color: black;
-    font-family: Rubik, sans-serif;
-    font-size: 20px;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: calc(50% - 11px);
-    left: calc(1px);
+  color: black;
+  font-family: Rubik, sans-serif;
+  font-size: 20px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: calc(50% - 11px);
+  left: calc(1px);
 }
 
 .onoffswitch {
@@ -512,9 +508,10 @@ body {
 /* END OF SUB DIFF */
 
 .comments {
-  margin: 10px;
-  padding: 10px;
-  text-align:left;
+  height: 100%;
+  margin-left: 10px;
+  text-align: left;
+  font-size: 16px;
   /*border-radius: 10px;
   box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);*/
 }
@@ -557,11 +554,11 @@ body {
 
 .projectTitle {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 100%;
 }
 
 .projectDesc {
-  font-size: 16px;
+  font-size: 80%;
 }
 
 .project.animated{
