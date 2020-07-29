@@ -1,22 +1,52 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  min-height: 100%;
   font-family: Rubik, sans-serif;
   background-color: #f5f6fa;
-  zoom: 73%;
+  margin: 0; /* to remove default page margins */
+  /* zoom: 100%; to remove mysterious tiny scroll at the bottom */
+  overflow-y: hidden; /* to remove scroll */
+}
+
+h2 {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
 }
 
 .header {
-  height: 15%;
+  height: 4%;
   justify-content: space-between;
 }
 
 .notYoutube {
   font-size: 1vw;
-  margin-bottom: 1em;
+  margin-top: 0.5vh;
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-grow {
+  flex-grow: 2;
+}
+
+.small-right-margin {
+  margin-right: 1em;
+}
+
+.small-top-margin {
+  margin-top: 1em;
 }
 
 .unselectable {
@@ -42,11 +72,11 @@ body {
 .span {
   color: red;
   text-align: right;
-  float:right;
+  float: right;
   margin-right: 2em;
 }
 
-.explanation { 
+.explanation {
   color: #424242;
   text-align: left;
   margin-left: 2em;
@@ -55,24 +85,26 @@ body {
 #arrayQlView {
   color: black;
   text-align: right;
-  float:right;
+  float: right;
   margin-right: 0em;
-  border:none;
+  border: none;
 }
 #arrayQlViewColor {
   color: red;
   text-align: right;
-  float:right;
+  float: right;
   margin-right: 0em;
-  border:none;
+  border: none;
 }
 #pipeline{
-  border:none;
-  padding-right:2em;
+  border: none;
+  padding-right: 2em;
+  float: left;
+  margin-left: 32px;
 }
 
 .rainbow-text {
-  background-image: linear-gradient(to left, blue, green, gold, darkorange, red);  
+  background-image: linear-gradient(to left, blue, green, gold, darkorange, red);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -106,9 +138,9 @@ body {
 
 .viewsBig {
   font-family: Rubik, sans-serif;
-  font-size: 5em;
+  font-size: 3vw;
   width: 95%;
-  padding-left: 1em;
+  padding-left: 2vw;
 }
 
 /* IDEA BULB */
@@ -116,9 +148,9 @@ body {
   position: relative;
   text-align: center;
   height: 9em;
-  margin-top: -2em;
   cursor: default;
-  border: none;
+  border: 0;
+  transform: scale(0.7,0.7)
 }
 
 #bulb {
@@ -156,7 +188,7 @@ body {
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.09,0.88,0.67,0.37);
 }
-  
+
 @keyframes turnUp {
   0% {opacity: 0; fill: #f8fc00}
   20% {fill: #fceb00;}
@@ -181,12 +213,15 @@ body {
 }
 /* IDEA END */
 
+.ideaRangeDiv {
+  justify-content: space-around;
+}
 
 #ideaRange {
   -webkit-appearance: none;
   cursor: pointer;
   background: red;
-  width: 50%;
+  width: 90%;
   height: 5px;
   border-radius: 15px;
   box-shadow: 0px 1px #999;
@@ -198,12 +233,12 @@ body {
 #ideaRange::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 8px solid #bcbcbc;
-  height: 26px;
+  height: 25px;
   width: 25px;
   border-radius: 510%;
   background: red;
   cursor: pointer;
-  box-shadow: 0px 1px #999;  
+  box-shadow: 0px 1px #999;
 }
 
 #ideaRange:hover {
@@ -217,65 +252,56 @@ body {
 /* FLEXBOX START */
 
 .parentFlex {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-items: center;
-  justify-content: space-evenly;
-  /* border: 10px solid red; */
-  border-radius: 25px;
-  padding: 0.5em;
+  justify-content: space-between;
 }
 
 .childFlex {
-  height: 31em;
-  width: 24em;
+  width: calc(25% - 2em);
   text-align: center;
-  margin: 1em;
-  margin-bottom: 5em;
-}
-
-.childFlexShort {
-  height: 18em;
-  width: calc(40% - 2em);
-  text-align: center;
-  margin: 1em;
-  margin-bottom: 5em;
-}
-
-.childFlexWide {
-  height: 18em;
-  width: calc(60% - 2em);
-  text-align: center;
-  margin: 1em;
-  margin-bottom: 5em;
+  margin: 1% 1em 0em 1em;
 }
 
 .childFlexTop {
-  height: 28em;
+  height: 75%;
   padding: 1px 0.5em 0.5em;
   margin-bottom: 1em;
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
+}
+
+/* Analytics container */
+.childFlexShort {
+  width: calc(25% - 2em);
+  height: 30vh;
+  text-align: center;
+  margin-right: 1em;
 }
 
 .childFlexTopShort {
-  height: 12em;
+  height: 19vh;
   padding: 1px 0.5em 0.5em;
-  margin-bottom: 1em;
-  border-radius: 25px;
+  margin-bottom: 2.5vh;
+  border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
 }
 
+/* Comments container */
+.childFlexWide {
+  width: calc(75% - 2em);
+  align-items: stretch;
+  text-align: center;
+  margin-left: 1em;
+}
+
 .childFlexTopWide {
-  height: 18em;
-  padding: 1px 0.5em 0.5em;
-  margin-bottom: 1em;
-  border-radius: 25px;
+  height: 30vh;
+  padding: 0.5em 1em;
+  border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
+  overflow-y: hidden;
 }
 
 .break {
@@ -315,6 +341,10 @@ body {
 
 /* SHOOT AND EDIT PROGRESS CIRCLE */
 
+#SECircleContainer {
+  width: 50%;
+}
+
 #SECircleContainer:active {
   transform: translateY(2px);
 }
@@ -322,13 +352,12 @@ body {
 .progress-holder {
   cursor: pointer;
   margin: auto;
-  margin-top: 15px;
-  position:relative;
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  background:green;
-  overflow:hidden;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: green;
+  overflow: hidden;
   box-shadow: -3px -3px 7px #ffffffa6, 3px 3px 5px rgba(94, 104, 121, 0.712);
   position: relative;
 }
@@ -339,8 +368,8 @@ body {
   background: inherit;
   border-radius: 50%;
   position:absolute;
-  top:0px;
-  left:0px;
+  top: 0px;
+  left: 0px;
 }
 
 .left-block {
@@ -361,8 +390,8 @@ body {
   top: 0px;
   left: 50%;
   background: #ccc;
-  border-top-right-radius:50%;
-  border-bottom-right-radius:50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
   transform-origin: left center;
 }
 
@@ -379,20 +408,21 @@ body {
 }
 
 .mask span {
-    color: black;
-    font-family: Rubik, sans-serif;
-    font-size: 20px;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: calc(50% - 11px);
-    left: calc(1px);
+  color: black;
+  font-family: Rubik, sans-serif;
+  font-size: 20px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: calc(50% - 11px);
+  left: calc(1px);
 }
 
 .onoffswitch {
   display: inline-block;
   position: relative;
   width: 55px;
+  height: 20px;
   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 
@@ -432,8 +462,8 @@ body {
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-  right: 0px; 
-  background-color: #ED462F; 
+  right: 0px;
+  background-color: #ED462F;
   box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -470,7 +500,7 @@ body {
 .boldRed {
   color: red;
   font-style: bold;
-  font-size: larger;
+  /*font-size: larger;*/
 }
 
 .green {
@@ -512,9 +542,11 @@ body {
 /* END OF SUB DIFF */
 
 .comments {
-  margin: 10px;
-  padding: 10px;
-  text-align:left;
+  height: 20vh;
+  margin-left: 10px;
+  text-align: left;
+  font-size: 16px;
+  overflow-y: auto;
   /*border-radius: 10px;
   box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);*/
 }
@@ -536,15 +568,13 @@ body {
   opacity:1;
 }
 
-
 .project {
-  height: auto;
-  width: 100%;
-  padding: 5% 0em 5% 0em;
+  height: 10%;
+  padding: 5% 3% 3% 3%;
   text-align: center;
   border-width: 2px;
   transition-duration: 50ms;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   box-shadow: 0px 3px #999;
   background-color: red;
@@ -557,11 +587,11 @@ body {
 
 .projectTitle {
   font-weight: bold;
-  font-size: 20px;
+  white-space: normal !important; /* to make the text wrap */
 }
 
 .projectDesc {
-  font-size: 16px;
+  white-space: normal !important; /* to make the text wrap */
 }
 
 .project.animated{
@@ -591,13 +621,25 @@ body {
   color: white;}
 }
 
+#subProjectsB {
+  height: 6vh;
+}
+
 .settingsButton {
   border: none;
   cursor: pointer;
   float: right;
   background-color: #f5f6fa;
+  padding: 0; /* to remove default padding */
+  margin-top: .3em;
+  margin-bottom: .3em;
 }
 
 .settingsButton:focus {
   outline: 0;
+}
+
+/* empty div to center autoEdit circle button with flexbox */
+.empty {
+  width: 25%;
 }
