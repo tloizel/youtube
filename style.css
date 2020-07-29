@@ -7,6 +7,7 @@ html {
 body {
   min-height: 100%;
   font-family: Rubik, sans-serif;
+<<<<<<< HEAD
   background-color: #e9ebf0;
   margin: 0; /* to remove default page margins */
   /* zoom: 100%; to remove mysterious tiny scroll at the bottom */
@@ -16,6 +17,10 @@ body {
 h2 {
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
+=======
+  background-color: #f5f6fa;
+  zoom: 73%;
+>>>>>>> master
 }
 
 .header {
@@ -629,10 +634,14 @@ h2 {
   border: none;
   cursor: pointer;
   float: right;
+<<<<<<< HEAD
   background-color: #e9ebf0;
   padding: 0; /* to remove default padding */
   margin-top: .3em;
   margin-bottom: .3em;
+=======
+  background-color: #f5f6fa;
+>>>>>>> master
 }
 
 .settingsButton:focus {
