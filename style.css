@@ -1,8 +1,21 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  min-height: 100%;
   font-family: Rubik, sans-serif;
   background-color: #e9ebf0;
   margin: 0; /* to remove default page margins */
-  zoom: 98%; /* to remove mysterious tiny scroll at the bottom */
+  /* zoom: 100%; to remove mysterious tiny scroll at the bottom */
+  overflow-y: hidden; /* to remove scroll */
+}
+
+h2 {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
 }
 
 .header {
@@ -12,6 +25,7 @@ body {
 
 .notYoutube {
   font-size: 1vw;
+  margin-top: 0.5vh;
 }
 
 .flex-row {
@@ -62,7 +76,7 @@ body {
   margin-right: 2em;
 }
 
-.explanation { 
+.explanation {
   color: #424242;
   text-align: left;
   margin-left: 2em;
@@ -90,7 +104,7 @@ body {
 }
 
 .rainbow-text {
-  background-image: linear-gradient(to left, blue, green, gold, darkorange, red);  
+  background-image: linear-gradient(to left, blue, green, gold, darkorange, red);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -135,8 +149,8 @@ body {
   text-align: center;
   height: 9em;
   cursor: default;
-  border: none;
-  zoom: 0.7;
+  border: 0;
+  transform: scale(0.7,0.7)
 }
 
 #bulb {
@@ -174,7 +188,7 @@ body {
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.09,0.88,0.67,0.37);
 }
-  
+
 @keyframes turnUp {
   0% {opacity: 0; fill: #f8fc00}
   20% {fill: #fceb00;}
@@ -224,7 +238,7 @@ body {
   border-radius: 510%;
   background: red;
   cursor: pointer;
-  box-shadow: 0px 1px #999;  
+  box-shadow: 0px 1px #999;
 }
 
 #ideaRange:hover {
@@ -251,7 +265,7 @@ body {
   height: 75%;
   padding: 1px 0.5em 0.5em;
   margin-bottom: 1em;
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
 }
@@ -259,14 +273,16 @@ body {
 /* Analytics container */
 .childFlexShort {
   width: calc(25% - 2em);
+  height: 30vh;
   text-align: center;
   margin-right: 1em;
 }
 
 .childFlexTopShort {
+  height: 19vh;
   padding: 1px 0.5em 0.5em;
-  margin-bottom: 1em;
-  border-radius: 25px;
+  margin-bottom: 2.5vh;
+  border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
 }
@@ -282,9 +298,10 @@ body {
 .childFlexTopWide {
   height: 30vh;
   padding: 0.5em 1em;
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
+  overflow-y: hidden;
 }
 
 .break {
@@ -335,12 +352,12 @@ body {
 .progress-holder {
   cursor: pointer;
   margin: auto;
-  position:relative;
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  background:green;
-  overflow:hidden;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: green;
+  overflow: hidden;
   box-shadow: -3px -3px 7px #ffffffa6, 3px 3px 5px rgba(94, 104, 121, 0.712);
   position: relative;
 }
@@ -351,8 +368,8 @@ body {
   background: inherit;
   border-radius: 50%;
   position:absolute;
-  top:0px;
-  left:0px;
+  top: 0px;
+  left: 0px;
 }
 
 .left-block {
@@ -373,8 +390,8 @@ body {
   top: 0px;
   left: 50%;
   background: #ccc;
-  border-top-right-radius:50%;
-  border-bottom-right-radius:50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
   transform-origin: left center;
 }
 
@@ -445,8 +462,8 @@ body {
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-  right: 0px; 
-  background-color: #ED462F; 
+  right: 0px;
+  background-color: #ED462F;
   box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -529,6 +546,7 @@ body {
   margin-left: 10px;
   text-align: left;
   font-size: 16px;
+  overflow-y: auto;
   /*border-radius: 10px;
   box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);*/
 }
@@ -550,15 +568,13 @@ body {
   opacity:1;
 }
 
-
 .project {
-  height: auto;
-  width: 100%;
-  padding: 5% 0em 5% 0em;
+  height: 10%;
+  padding: 5% 3% 3% 3%;
   text-align: center;
   border-width: 2px;
   transition-duration: 50ms;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   box-shadow: 0px 3px #999;
   background-color: red;
@@ -571,11 +587,11 @@ body {
 
 .projectTitle {
   font-weight: bold;
-  font-size: 100%;
+  white-space: normal !important; /* to make the text wrap */
 }
 
 .projectDesc {
-  font-size: 80%;
+  white-space: normal !important; /* to make the text wrap */
 }
 
 .project.animated{
@@ -605,11 +621,18 @@ body {
   color: white;}
 }
 
+#subProjectsB {
+  height: 6vh;
+}
+
 .settingsButton {
   border: none;
   cursor: pointer;
   float: right;
   background-color: #e9ebf0;
+  padding: 0; /* to remove default padding */
+  margin-top: .3em;
+  margin-bottom: .3em;
 }
 
 .settingsButton:focus {

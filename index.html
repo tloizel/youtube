@@ -52,7 +52,7 @@
         </div>
         <div  id="subProjectsB"
               class="project"
-              onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,0)">
+              onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,0);refreshFitty()">
           <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
           <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
         </div> 
@@ -76,7 +76,6 @@
                     onclick="stopIdeaTicker()" 
                     value="Stop thinking"/>
           </div>        
-          <br>
           <div class="bulbFrame" id="bulbFrameDiv"> 
             <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
               <path d="M76,37.037 C76,59.939 55.6428571,75.427 55.6428571,93.5 L20.3571429,93.5 C20.3571429,75.427 0,59.9335 0,37.037 C0,13.1505 18.9891429,0 37.9782857,0 C56.9891429,0 76,13.167 76,37.037 L76,37.037 Z"></path>
@@ -86,7 +85,6 @@
               <path d="M29.3333333,0 L2.66666667,0 C1.19466667,0 0,1.232 0,2.75 C0,4.268 1.19466667,5.5 2.66666667,5.5 L29.3333333,5.5 C30.8053333,5.5 32,4.268 32,2.75 C32,1.232 30.8053333,0 29.3333333,0 L29.3333333,0 Z M29.3333333,11 L2.66666667,11 C1.19466667,11 0,12.232 0,13.75 C0,15.268 1.19466667,16.5 2.66666667,16.5 L29.3333333,16.5 C30.8053333,16.5 32,15.268 32,13.75 C32,12.232 30.8053333,11 29.3333333,11 L29.3333333,11 Z M30.6666667,22 L1.33333333,22 L9.072,31.1245 C10.0853333,32.3125 11.552,33 13.088,33 L18.9173333,33 C20.4533333,33 21.9146667,32.3125 22.928,31.1245 L30.6666667,22 L30.6666667,22 Z"></path>
             </svg>
           </div>
-          <br>
           <div class="flex-row ideaRangeDiv">
             <div>
               <span class="rangeDescription">Quality</span>
@@ -112,7 +110,7 @@
         </div>
         <div  id="ideaProjectsB"
               class="project"
-              onclick="callProject(ideaProjectsB,ideaProjects,ideaProjectsTitle,ideaProjectsDesc,1)">
+              onclick="callProject(ideaProjectsB,ideaProjects,ideaProjectsTitle,ideaProjectsDesc,1);refreshFitty()">
           <span class="projectTitle" id="ideaProjectsTitle">Binge watch YouTube</span><br>
           <span class="projectDesc" id="ideaProjectsDesc">Generate 5 ideas</span>
         </div>
@@ -144,7 +142,7 @@
         </div>
         <div  id="shootEditProjectsB"
               class="project"
-              onclick="callProject(shootEditProjectsB,shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,2)">
+              onclick="callProject(shootEditProjectsB,shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,2);refreshFitty()">
               <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
               <span class="projectDesc" id="shootEditProjectsDesc">Edit 5 videos</span>
         </div>
@@ -173,7 +171,7 @@
         </div>
         <div  id="uploadProjectsB"
               class="project"                    
-              onclick="callProject(uploadProjectsB,uploadProjects,uploadProjectsTitle,uploadProjectsDesc,3)">
+              onclick="callProject(uploadProjectsB,uploadProjects,uploadProjectsTitle,uploadProjectsDesc,3);refreshFitty()">
           <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
           <span class="projectDesc" id="uploadProjectsDesc">Upload 5 videos</span>
         </div>
@@ -213,16 +211,15 @@
         
         <div  id="cashProjectsB"
               class="project"
-              onclick="callProject(cashProjectsB,cashProjects,cashProjectsTitle,cashProjectsDesc,4)">
+              onclick="callProject(cashProjectsB,cashProjects,cashProjectsTitle,cashProjectsDesc,4);refreshFitty()">
           <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
           <span class="projectDesc" id="cashProjectsDesc">Reach 5k views</span>
         </div>
       </div> <!--end of child flex CASH-->
-    </div> <!--End of parent flex 2-->
-
-      <div class="break"></div> <!-- break to force Analytics to wrap-->            
+    </div> <!--End of parent flex 2-->      
     
     <script src="fitty.min.js"></script>
+    <script src="fittyProjects.js" type="text/javascript"></script>
     <script src="loadAppearFunctions.js" type="text/javascript"></script>
     <script type="text/javascript" src="script.js"></script>
 

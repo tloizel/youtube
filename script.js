@@ -1,6 +1,3 @@
-fitty("#uploadProjectsTitle");
-
-
 //GENERAL
 var testTimer = setInterval(testProjects,1000);
 
@@ -16,19 +13,19 @@ var ideaSpeed = 60000; //speed of idea generation : the lower the number the fas
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video - 200
 var shootEditRem = 200; //number of remaining clicks - 200
-var videosEdited = 0; //number of videos edited
-var videosEditedTotal = 0; //TOTAL number of videos edited
+var videosEdited = 0; //number of videos edited - 0
+var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
 var editorSpeed = 1; //how many times to call the function - 1
 
 //UPLOAD
 var ideaQlArray = newArray();
-var videosUploaded = 0; //Videos online
-var averageQlNum = 0; //average Ql numerator
+var videosUploaded = 0; //Videos online - 0
+var averageQlNum = 0; //average Ql numerator - 0
 var averageQl = 0; //average video quality after upload - 0
-var likeDislikeFactor = 1; //factor used to change LDR directly
+var likeDislikeFactor = 1; //factor used to change LDR directly - 1
 var uploadSpeed = 1; //*100
-var loadState = 0;//load state of progress bar
+var loadState = 0; //load state of progress bar
 
 //SUBS
 var views = 0;
@@ -78,7 +75,7 @@ var comments = [
   {name: "why was this in my recommendations?", type: "negative"},
   {name: "I never subbed to this channel", type: "negative"},
   {name: "was supposed to be funny", type: "negative"},
-  {name: "you remind me of thumbsupmovies", type: "negative"},
+  {name: "you remind me of ThumbsUpMovies", type: "positive"},
   {name: "was this filmed with a potato?", type: "negative"},
   {name: "why am I watching this", type: "negative"},
   {name: "unsubbed", type: "negative"},
@@ -117,6 +114,7 @@ function firstPageLoad() {
     disableButton("myonoffswitch",true); //autoEdit switch disabled
     disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
     setTimeout(helpBulbStory, 60100);
+    refreshFitty();
   }
 }
 
@@ -681,7 +679,7 @@ function callProject(element,array,title,desc,num) {
   var elementId = element.id;
   var projectTitle = title.id;
   var projectDesc = desc.id;
-  if (eval(array[0][2]) == true && array.length>0) {
+  if (eval(array[0][2]) == true && array.length > 0) {
       eval(array[0][3]);
       var com = array[0][0].concat(" - ",array[0][4]);
       commentBox.unshift({comment:com,source:"callProject"});
