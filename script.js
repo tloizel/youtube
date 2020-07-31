@@ -1,5 +1,5 @@
 //GENERAL
-var testTimer = setInterval(testProjects,1000);
+var testTimer = setInterval(testProjects,500);
 
 //IDEA
 var ideaTimer = null;
@@ -100,10 +100,10 @@ var commentBox = [{comment:"Welcome to notYouTube.",source:"story"},
                   {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
                   {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev",source:"story"},
                   {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new mouse.",source:"story"},
-                  {comment:"Good luck!",source:"story"},
+                  {comment:"Good luck on your road to 100M subscribers!",source:"story"},
                   {comment:"",source:""},
                   {comment:"",source:""},
-                  {comment:"",source:""},
+                  //{comment:"",source:""},
                   //{comment:"",source:""},
                   ];
 
@@ -131,6 +131,7 @@ commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem solving. Get out of here!")
 refreshFitty();
+load();//REMOVE FOR TESTING
 
 
 //inital comment on first flash
@@ -226,6 +227,7 @@ window.setInterval(function() {
 //refreshes cashAmount with income and expenses per min AND COMMENTS
 window.setInterval(function() {
                    callComment();
+                   save();//REMOVE FOR TESTING
                    },60000);
 
 //Upgrades creativity
@@ -628,9 +630,9 @@ function commentArrayShift() {
       commentStyle(commentBox[i].source,commentId);
       document.getElementById(commentId).innerHTML = commentBox[i].comment;
       i++;
-  } while(i < 9);
+  } while(i < 8);
   
-  if (commentBox.length > 10){
+  if (commentBox.length > 8){
       commentBox.pop();
   }
 }
@@ -720,7 +722,7 @@ function flickAppear(class1,num) {
   element.parentNode.replaceChild(clone, element);
   clone.classList.remove("animated");
   clone.classList.add("animated");
-  testTimer = setInterval(testProjects,1000);
+  testTimer = setInterval(testProjects,500);
 }
 
 //function to enable/disable buttons : the button will not be clickable
@@ -768,7 +770,7 @@ var ideaProjects = [
   ["Get a AWS server","Pay $50k","cashAmount>=50000","upgradeMemory(3);cashAmount-=50000","Hopefully Jeff will see this game <span class='boldRed'>[+3 Memory & -$50k]</span>"],
   ["Hire Casey himself","Pay $100k & Reach 9.5 average video quality & 8M subscribers & 2B views","cashAmount>=100000&&averageQl>=9.5&&subscribers>=8000000&&views>=1000000000","upgradeEditorSpeed(49);expenses+=100;cashAmount-=100000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100k & -$250/s]</span>"],
   ["End of projects","d","views<1","","Congratulations <span class='boldRed'>[]</span>"],
-  ]; 
+  ];
   var uploadProjects = [
   ["Upload videos from school library","Upload 3 videos","videosUploaded>=3","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>"],
   ["Figure out how to use hotspot","Upload 15 videos & Pay $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>"],
@@ -777,7 +779,7 @@ var ideaProjects = [
   ["Fail statistics class","Upload 75 videos","videosUploaded>=75","projectedAverageAppear()","But you can still calculate an average come on <span class='boldRed'>[Projected average based on videos ready to upload]</span>"],
   ["Ask Drew for Javascript lessons","Upload 100 videos","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... <span class='boldRed'>[+400kB/s Upload Speed]</span>"],
   ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>"],
-  ["Drill a hole in the wall for better wifi","Upload 350 videos & Less than 3.5 average video quality","videosUploaded>=350 && averageQl<=3.5","upgradeUploadSpeed(16)","harder better faster stronger <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
+  ["Drill a hole in the wall for better wifi","Upload 350 videos & Less than 6 average video quality","videosUploaded>=350 && averageQl<=6","upgradeUploadSpeed(16)","harder better faster stronger <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
   ["Convince mum to upgrade premium internet plan","Upload 800 videos & Pay $50k","videosUploaded>=800 && cashAmount>=50000","upgradeUploadSpeed(24);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+800kB/s Upload Speed & -$50000]</span>"],
   ["Mum unplugged the wifi","Upload 1k videos & Get caught on your laptop at 3am","videosUploaded>=1000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM <span class='boldRed'>[+1000kB/s Upload Speed]</span>"],
   ["Your building now has fibre-optic internet","Upload 1.2k videos","videosUploaded>=1200","upgradeUploadSpeed(54)","Can't get more efficient <span class='boldRed'>[+2000kB/s Upload Speed]</span>"],
@@ -810,7 +812,7 @@ var ideaProjects = [
   ["Participate in YouTube Rewind","Reach 5M subscribers","subscribers>=5000000","LDRF(0.6)","They can't seem to get it right <span class='boldRed'>[Popularity = 0.6]</span>"],
   ["Shoutout from Casey","Reach 6M subscribers","subscribers>=6000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
   ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","subscribers+=75000000","You've just figured out internet's biggest secret <span class='boldRed'>[+75M Subscribers]</span>"],
-  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","views+=1000000000","Thank you <span class='boldRed'>[+1B Views]</span>"],
+  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","views+=1000000000","Thank you <span class='boldRed'>[Thank you for being a beta tester, leave us your feedback to help us improve the game! All ideas are more than welcome :) Don't forget to share with us the secret code to prove you're a finisher and we'll get in touch for a small surprise]</span>"],
   ["End of projects","K","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];
   var cashProjects = [

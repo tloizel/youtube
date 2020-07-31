@@ -26,6 +26,14 @@
   </head>
 
   <body>
+
+<div id="mobile">
+  <p>You'll need a laptop for this mate. And excellent clicking abilities.</p>
+  <img src="click.png" alt="click" style="width:2em">
+</div>
+
+<div id="desktop">
+
     <div class="header flex-row">
       <div><span id="views" class="viewsBig">0</span> views</div>
       <div class="small-right-margin">
@@ -48,7 +56,6 @@
             <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
             <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
             <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment9"></span><br>
           </div>
         </div>
       </div> 
@@ -80,12 +87,12 @@
                     type="button" 
                     id="startTimer"
                     onclick="startIdeaTicker()" 
-                    value="Start thinking"/>
+                    value="Think"/>
             <input  class="button"
                     type="button" 
                     id="stopTimer"
                     onclick="stopIdeaTicker()" 
-                    value="Stop thinking"/>
+                    value="Sleep"/>
           </div>        
           <div class="bulbFrame" id="bulbFrameDiv"> 
             <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
@@ -192,7 +199,7 @@
       <div class = "childFlex reveal">
         <div class = "childFlexTop">
           <h2>Piggy Bank</h2>
-          <input  class="button"
+          <!-- <input  class="button"
                   type="button"
                   id="saveButton"
                   onclick="save()" 
@@ -201,7 +208,7 @@
                   type="button"
                   id="saveButton"
                   onclick="load()" 
-                  value="Load"/>
+                value="Load"/> //ADD FOR TESTING -->
           <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
           <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
           <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
@@ -233,6 +240,8 @@
     <script src="fittyProjects.js" type="text/javascript"></script>
     <script src="loadAppearFunctions.js" type="text/javascript"></script>
     <script type="text/javascript" src="script.js"></script>
+
+  </div>
 
   </body>
 </html>

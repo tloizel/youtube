@@ -9,8 +9,25 @@ body {
   font-family: Rubik, sans-serif;
   background-color: #f5f6fa;
   margin: 0; /* to remove default page margins */
-  /* zoom: 100%; to remove mysterious tiny scroll at the bottom */
+  zoom: 95%; /* for that extra space, let's test with betas and see if issues */
   overflow-y: hidden; /* to remove scroll */
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  #desktop{
+      display:none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #mobile{
+      display:none;
+  }
+}
+
+#mobile {
+  text-align: center;
+  margin-top:10em;
 }
 
 h2 {
@@ -145,9 +162,10 @@ h2 {
 
 /* IDEA BULB */
 .bulbFrame {
+  border:solid red;
   position: relative;
   text-align: center;
-  height: 9em;
+  height: 7.5em;
   cursor: default;
   border: 0;
   transform: scale(0.7,0.7)
@@ -156,8 +174,8 @@ h2 {
 #bulb {
   position: absolute;
   z-index: 2;
-  top: 18px;
-  left: 145px;
+  top: 0px;
+  left: 35%;
   fill: #FFD700;
   transition: all .5s ease-in-out;
 }
@@ -169,15 +187,16 @@ h2 {
   background: #fff130;
   border-radius: 50px;
   box-shadow: 0 0 50px 10px #fff130;
-  top: 18px;
-  left: 145px;
+  top: 0px;
+  left: 35%;
   transition: all .5s ease-in-out;
 }
 
 #base {
   position: absolute;
-  top: 117px;
-  left: 167px;
+  width: 76px;
+  top: 99px;
+  left: 35%;
   fill: #000000;
 }
 
@@ -279,12 +298,13 @@ h2 {
 }
 
 .childFlexTopShort {
-  height: 19vh;
-  padding: 1px 0.5em 0.5em;
-  margin-bottom: 2.5vh;
+  height: 19.5vh;
+  padding: 0.2em 0.5em 0.2em;
+  margin-bottom: 2vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
+  overflow-y: auto;
 }
 
 /* Comments container */
@@ -297,7 +317,7 @@ h2 {
 
 .childFlexTopWide {
   height: 30vh;
-  padding: 0.5em 1em;
+  padding: 0.2em 1em 0.5em;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
@@ -474,7 +494,7 @@ h2 {
   margin-left: 5px;
   text-align: center;
   /* border-radius: 10px; */
-  background-color: #edeff2;
+  background-color: transparent;
   /* box-shadow: inset 5px 5px 7px #c4aeb0, inset -5px -5px 7px #DDE1E7;*/
 }
 
