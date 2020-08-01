@@ -878,7 +878,7 @@ function save(){
     visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}
   };
   localStorage.setItem("save",JSON.stringify(gameSave));
-  console.log(gameSave);
+  //console.log(gameSave); //ADD FOR TESTING
 }
 
 function projectRefresh(array,title,desc) {
