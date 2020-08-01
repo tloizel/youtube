@@ -111,7 +111,7 @@ var commentBox = [{comment:"Welcome to notYouTube.",source:"story"},
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
 function firstPageLoad() {
-  if(ideasQtTotal = 1){
+  if(ideasQtTotal == 0){
     ideasGen(); //generate one idea to start off with
     disableButton("subAdButton",true);
     disableButton("addAdButton",true);
@@ -252,7 +252,6 @@ function ideasGen() {
   rangeIdea = parseInt(rangeIdea);
   var arrayAdd = newArray(ideaQl, rangeIdea);
   ideaQlArray = ideaQlArray.concat(arrayAdd);
-  //document.getElementById("arrayQl").innerHTML = ideaQlArray;
   ideasQt = ideasQt + rangeIdea;
   document.getElementById("ideasGen").innerHTML = numeral(ideasQt).format('0,0');
   ideasQtTotal = parseInt(rangeIdea) + ideasQtTotal;
