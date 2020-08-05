@@ -16,7 +16,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
-var editorSpeed = 1; //how many times to call the function - 1
+var editorSpeed = 5; //how many times to call the function - 1
 
 //UPLOAD
 var ideaQlArray = newArray();
@@ -714,7 +714,7 @@ function setPercentage(v) {
 
 //call comments
 function callComment() {
-  if(videosUploaded>0){
+  if(videosUploaded>0 && subscribers<100000000){
     commentBox.unshift({comment:commentType(),source:"callComment"});
     commentArrayShift();
   }

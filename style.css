@@ -221,7 +221,7 @@ h2 {
   20% {fill: #fceb00;}
   40% {fill: #fcce00;}
   60% {fill: #fcc500;}
-  80% {fill: #fcb900;}
+  80% {fill: #ffae00;}
   98.6% {opacity: 1;}
   98.7% {opacity: 0;}
   98.8% {opacity: 1;}
@@ -236,7 +236,7 @@ h2 {
   99.6% {opacity: 0;}
   99.7% {opacity: 1;}
   99.9% {opacity: 0;}
-  100% {opacity: 1;}
+  100% {opacity: 1;fill: #ff9100;}
 }
 /* IDEA END */
 
