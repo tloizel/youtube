@@ -16,7 +16,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
-var editorSpeed = 5; //how many times to call the function - 1
+var editorSpeed = 4; //how many times to call the function - 1
 
 //UPLOAD
 var ideaQlArray = newArray();
@@ -132,11 +132,11 @@ var ideaProjects = [
   ["Delete old footage","Edit 30 videos","videosEditedTotal>=30","upgradeMemory(1)","You will live to regret that <span class='boldRed'>[+1 Memory]</span>"],
   ["Watch a Final Cut tutorial","Edit 50 videos","videosEditedTotal>=50","shootEdit-=50;shootEditRem-=49;clicksLeft()","Thirty hours later, you're a master <span class='boldRed'>[-50 Clicks]</span>"],
   ["Buy absurd amount of external hard drives","Pay $3k","cashAmount>=3000","upgradeMemory(2);cashAmount-=3000","It shall never be backed up <span class='boldRed'>[+2 Memory & -$3k]</span>"],
-  ["Hire a 'professional' editor","Pay $10k & Reach 7 average video quality & 45k subscribers & 5M views","cashAmount>=10000&&averageQl>=7&&subscribers>=45000&&views>=5000000","upgradeEditorSpeed(5);expenses+=24;cashAmount-=10000","You met him in a bar... <span class='boldRed'>[AutoEditor Level 2 & -$10k & -$25/s]</span>"],
+  ["Hire a 'professional' editor","Pay $10k & Reach 7 average video quality & 45k subscribers & 5M views","cashAmount>=10000&&averageQl>=7&&subscribers>=45000&&views>=5000000","upgradeEditorSpeed(6);expenses+=24;cashAmount-=10000","You met him in a bar... <span class='boldRed'>[AutoEditor Level 2 & -$10k & -$25/s]</span>"],
   ["1 month iCloud storage trial","Edit 200 videos & Pay $5k","videosEditedTotal>=200&&cashAmount>=5000","upgradeMemory(2);cashAmount-=5000","Forgot to unsubscribe one month later <span class='boldRed'>[+2 Memory & -$5k]</span>"],
   ["Switch to Adobe Premiere","Pay $12k","cashAmount>=12000","shootEdit-=50;shootEditRem-=49;cashAmount-=12000;clicksLeft()","Aaah now that's the sofware you need <span class='boldRed'>[-50 Clicks & -$12k]</span>"],
   ["Convince parents that iCloud storage is useful","Pay $15k","cashAmount>=15000","upgradeMemory(2);cashAmount-=15000","That was a battle worth fighting for <span class='boldRed'>[+2 Memory & -$15k]</span>"],
-  ["Hire an experienced editor","Pay $30k & Reach 8.5 average video quality & 700k subscribers & 90M views","cashAmount>=30000&&averageQl>=8.5&&subscribers>=700000&&views>=90000000","upgradeEditorSpeed(10);expenses+=45;cashAmount-=30000","One of Casey's old editors <span class='boldRed'>[AutoEditor Level 3 & -$30k & -$70/s]</span>"],
+  ["Hire an experienced editor","Pay $30k & Reach 8.5 average video quality & 700k subscribers & 90M views","cashAmount>=30000&&averageQl>=8.5&&subscribers>=700000&&views>=90000000","upgradeEditorSpeed(12);expenses+=45;cashAmount-=30000","One of Casey's old editors <span class='boldRed'>[AutoEditor Level 3 & -$30k & -$70/s]</span>"],
   ["Google Drive premium account","Pay $40k","cashAmount>=40000","upgradeMemory(2);cashAmount-=40000","Data-driven <span class='boldRed'>[+2 Memory & -$40k]</span>"],
   ["Hire a badass editor","Pay $50k & Reach 9 average video quality & 2M subscribers & 500M views","cashAmount>=50000&&averageQl>=9&&subscribers>=2000000&&views>=500000000","upgradeEditorSpeed(20);expenses+=100;cashAmount-=50000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$50k & -$170/s]</span>"],
   ["Get a AWS server","Pay $60k","cashAmount>=60000","upgradeMemory(3);cashAmount-=60000","Hopefully Jeff will see this game <span class='boldRed'>[+3 Memory & -$60k]</span>"],
@@ -147,13 +147,13 @@ var ideaProjects = [
   ["Upload videos from school library","Upload 3 videos","videosUploaded>=3","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>"],
   ["Figure out how to use hotspot","Upload 15 videos & Pay $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>"],
   ["Buy an ethernet cable","Upload 20 videos & Pay $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient <span class='boldRed'>[+100kB/s Upload Speed & -$500]</span>"],
-  ["Convince parents wifi isn't an NSA spying device","Upload 50 videos & Pay $2k","videosUploaded>=50 && cashAmount>=2000","upgradeUploadSpeed(7);cashAmount-=2000","Or is it..? <span class='boldRed'>[+300kB/s Upload Speed & -$2k]</span>"],
+  ["Convince parents WiFi isn't an NSA spying device","Upload 50 videos & Pay $2k","videosUploaded>=50 && cashAmount>=2000","upgradeUploadSpeed(7);cashAmount-=2000","Or is it..? <span class='boldRed'>[+300kB/s Upload Speed & -$2k]</span>"],
   ["Fail statistics class","Upload 75 videos","videosUploaded>=75","projectedAverageAppear()","But you can still calculate an average come on <span class='boldRed'>[Projected average based on videos ready to upload]</span>"],
   ["Ask Drew for Javascript lessons","Upload 100 videos","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... <span class='boldRed'>[+400kB/s Upload Speed]</span>"],
   ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>"],
-  ["Drill a hole in the wall for better wifi","Upload 175 videos & Less than 6.5 average video quality","videosUploaded>=175 && averageQl<=6.5","upgradeUploadSpeed(16)","Grounded for a month :( <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
+  ["Drill a hole in the wall for better WiFi","Upload 175 videos & Less than 6.5 average video quality","videosUploaded>=175 && averageQl<=6.5","upgradeUploadSpeed(16)","Grounded for a month :( <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
   ["Convince mum to upgrade premium internet plan","Upload 700 videos & Pay $50k","videosUploaded>=700 && cashAmount>=50000","upgradeUploadSpeed(24);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+800kB/s Upload Speed & -$50000]</span>"],
-  ["Mum unplugged the wifi","Upload 1k videos & Get caught on your laptop at 3am","videosUploaded>=1000","upgradeUploadSpeed(34)","MUUUUUUUUUUUUUUUUUUUUUM <span class='boldRed'>[+1000kB/s Upload Speed]</span>"],
+  ["Dad kindly installs a WiFi repeater","Upload 1k videos & Get caught on your laptop at 3am","videosUploaded>=1000","upgradeUploadSpeed(34)","Love u dad <span class='boldRed'>[+1000kB/s Upload Speed]</span>"],
   ["Your building now has fibre-optic internet","Upload 1.2k videos","videosUploaded>=1200","upgradeUploadSpeed(54)","Can't get more efficient <span class='boldRed'>[+2000kB/s Upload Speed]</span>"],
   ["End of projects","o","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];
@@ -184,7 +184,7 @@ var ideaProjects = [
   ["Participate in YouTube Rewind","Reach 5M subscribers","subscribers>=5000000","LDRF(0.6)","They can't seem to get it right <span class='boldRed'>[Popularity = 0.6]</span>"],
   ["Shoutout from Casey","Reach 6M subscribers","subscribers>=6000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
   ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","subscribers+=80000000","You've just figured out internet's biggest secret <span class='boldRed'>[+80M Subscribers]</span>"],
-  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","views+=1000000000","Thank you <span class='boldRed'>[Thank you for being a beta tester, leave us your feedback to help us improve the game! All ideas are more than welcome :) Don't forget to share with us the secret code to prove you're a finisher and we'll get in touch for a small surprise]</span>"],
+  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","confirm('Kudos')","Thank you <span class='boldRed'>[Thank you for being a beta tester, leave us your feedback to help us improve the game! All ideas are more than welcome :) Don't forget to comment the secret code <em>Kudos</em> on LinkedIn to prove you're a finisher and we'll get in touch for a small surprise]</span>"],
   ["End of projects","K","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];
   var cashProjects = [
@@ -847,7 +847,7 @@ function save(){
     videosEdited: {variable: videosEdited, idf: "memoryBlockRefresh()"},
     videosEditedTotal: {variable: videosEditedTotal, id:"videosEditedTotal"},
     computerMemory: {variable: computerMemory},
-    editorSpeed: {variable: editorSpeed, id:"editorSpeed"},
+    editorSpeed: {variable: editorSpeed, idf:"upgradeEditorSpeed(editorSpeed)"},
     ideaQlArray: {variable: ideaQlArray, idf:"updateArrayQlView()"},
     videosUploaded: {variable: videosUploaded, id:"videos"},
     averageQlNum: {variable: averageQlNum},
