@@ -27,7 +27,7 @@ body {
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 801px) {
   #mobile{
       display:none;
   }
