@@ -15,233 +15,241 @@
       gtag('js', new Date());
       gtag('config', 'UA-173995219-1');
     </script>
-
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P6ZPSHH');</script>
+    <!-- End Google Tag Manager -->
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
   </head>
-
+  
   <body>
-
-<div id="mobile">
-  <p>You'll need a laptop for this. <br>And excellent clicking abilities.</p>
-  <img src="click.png" alt="click" style="width:2em">
-</div>
-
-<div id="desktop">
-
-    <div class="header flex-row">
-      <div><span id="views" class="viewsBig">0</span> views</div>
-      <div class="small-right-margin">
-        <div class="notYoutube">notYouTube</div>
-        <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
-      </div>
+    <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6ZPSHH"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div id="mobile">
+      <p>You'll need a laptop for this. <br>And excellent clicking abilities.</p>
+      <img src="click.png" alt="click" style="width:2em">
     </div>
-    <!--Start of parentFlex 1-->
-    <div class = "flex-row parentFlex">
-      <!--Start of COMMENTS-->
-      <div class = "childFlexWide">
-        <div class = "childFlexTopWide">
-          <h2>Comments</h2>
-          <div class="comments">
-            <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
-            <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
-          </div>
-        </div>
-      </div> 
-      <!--End of COMMENTS--> 
-      <!--Start of ANALYTICS-->
-      <div class="childFlexShort">
-        <div class="childFlexTopShort">
-          <h2>Analytics</h2>
-          <p class="explanation tightP">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
-          <p class="explanation tightP">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
-          <p class="explanation tightP">Subscribers<span id="subscriberAmount" class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
-        </div>
-        <div  id="subProjectsB"
-              class="project"
-              onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,0);refreshFitty()">
-          <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
-          <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
-        </div> 
-      </div> <!--End of child ANALYTICS-->
-    </div> <!--End of parent flex 1-->
 
-    <!--Start of parentFlex 2-->
-    <div class="flex-row parentFlex">
-      <div class="childFlex">
-        <div class="childFlexTop">
-          <h2>Idea</h2>
-          <div>
-            <input  class="button"
-                    type="button" 
-                    id="startTimer"
-                    onclick="startIdeaTicker()" 
-                    value="Think"/>
-            <input  class="button"
-                    type="button" 
-                    id="stopTimer"
-                    onclick="stopIdeaTicker()" 
-                    value="Sleep"/>
-          </div>        
-          <div class="bulbFrame" id="bulbFrameDiv"> 
-            <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
-              <path d="M76,37.037 C76,59.939 55.6428571,75.427 55.6428571,93.5 L20.3571429,93.5 C20.3571429,75.427 0,59.9335 0,37.037 C0,13.1505 18.9891429,0 37.9782857,0 C56.9891429,0 76,13.167 76,37.037 L76,37.037 Z"></path>
-            </svg>
-            <div id="glow"></div>
-            <svg width="32px" height="33px" viewBox="0 0 32 33" id="base">
-              <path d="M29.3333333,0 L2.66666667,0 C1.19466667,0 0,1.232 0,2.75 C0,4.268 1.19466667,5.5 2.66666667,5.5 L29.3333333,5.5 C30.8053333,5.5 32,4.268 32,2.75 C32,1.232 30.8053333,0 29.3333333,0 L29.3333333,0 Z M29.3333333,11 L2.66666667,11 C1.19466667,11 0,12.232 0,13.75 C0,15.268 1.19466667,16.5 2.66666667,16.5 L29.3333333,16.5 C30.8053333,16.5 32,15.268 32,13.75 C32,12.232 30.8053333,11 29.3333333,11 L29.3333333,11 Z M30.6666667,22 L1.33333333,22 L9.072,31.1245 C10.0853333,32.3125 11.552,33 13.088,33 L18.9173333,33 C20.4533333,33 21.9146667,32.3125 22.928,31.1245 L30.6666667,22 L30.6666667,22 Z"></path>
-            </svg>
-          </div>
-          <div class="flex-row ideaRangeDiv">
-            <div>
-              <span class="rangeDescription">Quality</span>
-              <div><span id="ideaQl">5</span></div>
-            </div>
-            <div class="flex-grow">
-              <input type="range"
-                      id="ideaRange"
-                      min="1"
-                      max="6"
-                      value="1"
-                      onchange="ideaRangeMax(this.value)">
-            </div>
-            <div>
-              <span class="rangeDescription">Quantity</span>
-              <div><span id="idea">1</span></div>
+    <div id="desktop">
+      <div class="header flex-row">
+        <div><span id="views" class="viewsBig">0</span> views</div>
+        <div class="small-right-margin">
+          <div class="notYoutube">notYouTube</div>
+          <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <!--Start of parentFlex 1-->
+      <div class = "flex-row parentFlex">
+        <!--Start of COMMENTS-->
+        <div class = "childFlexWide">
+          <div class = "childFlexTopWide">
+            <h2>Comments</h2>
+            <div class="comments">
+              <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment4"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment5"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment6"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment7"></span><br>
+              <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment8"></span><br>
             </div>
           </div>
-          <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
-          <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span></p> 
-          <p class="explanation">Ideas ready to edit<span id="ideasGen" class="span">0</span></p>
-          <br>
-        </div>
-        <div  id="ideaProjectsB"
-              class="project"
-              onclick="callProject(ideaProjectsB,ideaProjects,ideaProjectsTitle,ideaProjectsDesc,1);refreshFitty()">
-          <span class="projectTitle" id="ideaProjectsTitle">Binge watch YouTube</span><br>
-          <span class="projectDesc" id="ideaProjectsDesc">Generate 5 ideas</span>
-        </div>
-      </div> <!--end of child flex IDEA-->
-          
-      <div class = "childFlex">
-        <div class = "childFlexTop">
-          <h2>Edit</h2>
-            <div class="flex-row align-center">
-              <div class="empty"></div>
-              <div id="SECircleContainer">
-                <div  class="progress-holder unselectable"
-                      onclick="clicksLeft()">
-                  <div class="semi-circle"></div>
-                  <div class="left-block"></div>
-                  <div class="right-block"></div>
-                  <div class="mask"><span id="clicksLeft">200</span></div>
+        </div> 
+        <!--End of COMMENTS--> 
+        <!--Start of ANALYTICS-->
+        <div class="childFlexShort">
+          <div class="childFlexTopShort">
+            <h2>Analytics</h2>
+            <p class="explanation tightP">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
+            <p class="explanation tightP">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
+            <p class="explanation tightP">Subscribers<span id="subscriberAmount" class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
+          </div>
+          <div  id="subProjectsB"
+                class="project"
+                onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,0);refreshFitty()">
+            <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
+            <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers</span>
+          </div> 
+        </div> <!--End of child ANALYTICS-->
+      </div> <!--End of parent flex 1-->
+
+      <!--Start of parentFlex 2-->
+      <div class="flex-row parentFlex">
+        <div class="childFlex">
+          <div class="childFlexTop">
+            <h2>Idea</h2>
+            <div>
+              <input  class="button"
+                      type="button" 
+                      id="startTimer"
+                      onclick="startIdeaTicker()" 
+                      value="Think"/>
+              <input  class="button"
+                      type="button" 
+                      id="stopTimer"
+                      onclick="stopIdeaTicker()" 
+                      value="Sleep"/>
+            </div>        
+            <div class="bulbFrame" id="bulbFrameDiv"> 
+              <svg width="76px" height="94px" viewBox="0 0 76 94" id="bulb" onclick="void(0);">
+                <path d="M76,37.037 C76,59.939 55.6428571,75.427 55.6428571,93.5 L20.3571429,93.5 C20.3571429,75.427 0,59.9335 0,37.037 C0,13.1505 18.9891429,0 37.9782857,0 C56.9891429,0 76,13.167 76,37.037 L76,37.037 Z"></path>
+              </svg>
+              <div id="glow"></div>
+              <svg width="32px" height="33px" viewBox="0 0 32 33" id="base">
+                <path d="M29.3333333,0 L2.66666667,0 C1.19466667,0 0,1.232 0,2.75 C0,4.268 1.19466667,5.5 2.66666667,5.5 L29.3333333,5.5 C30.8053333,5.5 32,4.268 32,2.75 C32,1.232 30.8053333,0 29.3333333,0 L29.3333333,0 Z M29.3333333,11 L2.66666667,11 C1.19466667,11 0,12.232 0,13.75 C0,15.268 1.19466667,16.5 2.66666667,16.5 L29.3333333,16.5 C30.8053333,16.5 32,15.268 32,13.75 C32,12.232 30.8053333,11 29.3333333,11 L29.3333333,11 Z M30.6666667,22 L1.33333333,22 L9.072,31.1245 C10.0853333,32.3125 11.552,33 13.088,33 L18.9173333,33 C20.4533333,33 21.9146667,32.3125 22.928,31.1245 L30.6666667,22 L30.6666667,22 Z"></path>
+              </svg>
+            </div>
+            <div class="flex-row ideaRangeDiv">
+              <div>
+                <span class="rangeDescription">Quality</span>
+                <div><span id="ideaQl">5</span></div>
+              </div>
+              <div class="flex-grow">
+                <input type="range"
+                        id="ideaRange"
+                        min="1"
+                        max="6"
+                        value="1"
+                        onchange="ideaRangeMax(this.value)">
+              </div>
+              <div>
+                <span class="rangeDescription">Quantity</span>
+                <div><span id="idea">1</span></div>
+              </div>
+            </div>
+            <p class="rainbow-text explanation">Creativity Level<span id="creativityLvl" class="span">1</span></p>
+            <p class="explanation">Ideas generated<span id="ideasGenTotal" class="span">0</span></p> 
+            <p class="explanation">Ideas ready to edit<span id="ideasGen" class="span">0</span></p>
+            <br>
+          </div>
+          <div  id="ideaProjectsB"
+                class="project"
+                onclick="callProject(ideaProjectsB,ideaProjects,ideaProjectsTitle,ideaProjectsDesc,1);refreshFitty()">
+            <span class="projectTitle" id="ideaProjectsTitle">Binge watch YouTube</span><br>
+            <span class="projectDesc" id="ideaProjectsDesc">Generate 5 ideas</span>
+          </div>
+        </div> <!--end of child flex IDEA-->
+
+        <div class = "childFlex">
+          <div class = "childFlexTop">
+            <h2>Edit</h2>
+              <div class="flex-row align-center">
+                <div class="empty"></div>
+                <div id="SECircleContainer">
+                  <div  class="progress-holder unselectable"
+                        onclick="clicksLeft()">
+                    <div class="semi-circle"></div>
+                    <div class="left-block"></div>
+                    <div class="right-block"></div>
+                    <div class="mask"><span id="clicksLeft">200</span></div>
+                  </div>
+                </div>
+                <div class="reveal onoffswitch" id="onOffSwitchContainer">
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
+                  <label class="onoffswitch-label" for="myonoffswitch"></label>
                 </div>
               </div>
-              <div class="reveal onoffswitch" id="onOffSwitchContainer">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick="autoEdit()" tabindex="0" unchecked >
-                <label class="onoffswitch-label" for="myonoffswitch"></label>
-              </div>
+            <p class="explanation">Videos edited<span id="videosEditedTotal" class="span">0</span></p>
+            <p class="explanation reveal">Editor speed<span id="editorSpeed" class="span">4 clicks/sec</span></p>
+            <p id="computerMemoryText" class="explanation">Computer memory</p>
+            <canvas id="memoryCanvas"></canvas>
+          </div>
+          <div  id="shootEditProjectsB"
+                class="project"
+                onclick="callProject(shootEditProjectsB,shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,2);refreshFitty()">
+                <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
+                <span class="projectDesc" id="shootEditProjectsDesc">Edit 3 videos</span>
+          </div>
+        </div> <!--end of child flex SHOOT AND EDT-->
+
+        <div class = "childFlex">
+          <div class = "childFlexTop">
+            <h2>Upload</h2>
+            <p class="explanation">Videos ready to upload</p>
+            <div id="pipeline"><span id="arrayQlView">0</span><span id="arrayQlViewColor">0</span></div>
+            <br>
+            <input  class="button small-top-margin"
+                    id="uploadB"
+                    type="button"
+                    value="Upload Video"
+                    onclick="uploadVideo()">
+            <br>
+            <p class="explanation">Upload speed<span id="uploadSpeed" class="span">100kB/s</span></p>
+
+            <div id="myProgress">
+              <div id="myBar"></div>
             </div>
-          <p class="explanation">Videos edited<span id="videosEditedTotal" class="span">0</span></p>
-          <p class="explanation reveal">Editor speed<span id="editorSpeed" class="span">4 clicks/sec</span></p>
-          <p id="computerMemoryText" class="explanation">Computer memory</p>
-          <canvas id="memoryCanvas"></canvas>
-        </div>
-        <div  id="shootEditProjectsB"
-              class="project"
-              onclick="callProject(shootEditProjectsB,shootEditProjects,shootEditProjectsTitle,shootEditProjectsDesc,2);refreshFitty()">
-              <span class="projectTitle" id="shootEditProjectsTitle">Watch an iMovie tutorial</span><br>
-              <span class="projectDesc" id="shootEditProjectsDesc">Edit 3 videos</span>
-        </div>
-      </div> <!--end of child flex SHOOT AND EDT-->
-        
-      <div class = "childFlex">
-        <div class = "childFlexTop">
-          <h2>Upload</h2>
-          <p class="explanation">Videos ready to upload</p>
-          <div id="pipeline"><span id="arrayQlView">0</span><span id="arrayQlViewColor">0</span></div>
-          <br>
-          <input  class="button small-top-margin"
-                  id="uploadB"
-                  type="button"
-                  value="Upload Video"
-                  onclick="uploadVideo()">
-          <br>
-          <p class="explanation">Upload speed<span id="uploadSpeed" class="span">100kB/s</span></p>
-            
-          <div id="myProgress">
-            <div id="myBar"></div>
+            <p class="explanation">Videos online<span id="videos" class="span">0</span></p>
+            <p class="explanation">Average video quality<span id="averageQl" class="span">0.00</span></p>
+            <p class="explanation reveal">Projected average<span id="projectedAverage" class="span">0.00</span></p>
           </div>
-          <p class="explanation">Videos online<span id="videos" class="span">0</span></p>
-          <p class="explanation">Average video quality<span id="averageQl" class="span">0.00</span></p>
-          <p class="explanation reveal">Projected average<span id="projectedAverage" class="span">0.00</span></p>
-        </div>
-        <div  id="uploadProjectsB"
-              class="project"                    
-              onclick="callProject(uploadProjectsB,uploadProjects,uploadProjectsTitle,uploadProjectsDesc,3);refreshFitty()">
-          <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
-          <span class="projectDesc" id="uploadProjectsDesc">Upload 3 videos</span>
-        </div>
-      </div> <!--end of child flex UPLOAD-->
+          <div  id="uploadProjectsB"
+                class="project"                    
+                onclick="callProject(uploadProjectsB,uploadProjects,uploadProjectsTitle,uploadProjectsDesc,3);refreshFitty()">
+            <span class="projectTitle" id="uploadProjectsTitle">Upload videos from school library</span><br>
+            <span class="projectDesc" id="uploadProjectsDesc">Upload 3 videos</span>
+          </div>
+        </div> <!--end of child flex UPLOAD-->
 
-      <!--Start of child flex CASH-->
-      <div class = "childFlex reveal">
-        <div class = "childFlexTop">
-          <h2>Piggy Bank</h2>
-          <!-- <input  class="button"
-                  type="button"
-                  id="saveButton"
-                  onclick="save()" 
-                  value="Save"/>
-          <input  class="button"
-                  type="button"
-                  id="saveButton"
-                  onclick="load()" 
-                value="Load"/> //ADD FOR TESTING -->
-          <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
-          <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
-          <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
-          <div class="reveal">
-            <p class="explanation">Ad Load<span id="adLoad" class="span">0<span></p>
-            <input  class="button"
-                    id="subAdButton"
+        <!--Start of child flex CASH-->
+        <div class = "childFlex reveal">
+          <div class = "childFlexTop">
+            <h2>Piggy Bank</h2>
+            <!-- <input  class="button"
                     type="button"
-                    value="-"
-                    onclick="changeAdLoad(0)">
+                    id="saveButton"
+                    onclick="save()" 
+                    value="Save"/>
             <input  class="button"
-                    id="addAdButton"
                     type="button"
-                    value="+"
-                    onclick="changeAdLoad(1)">
+                    id="saveButton"
+                    onclick="load()" 
+                  value="Load"/> //ADD FOR TESTING -->
+            <p class="explanation">Cash<span id="cashAmount" class="span">$0.00<span></p>
+            <p class="explanation reveal">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
+            <p class="explanation reveal">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
+            <div class="reveal">
+              <p class="explanation">Ad Load<span id="adLoad" class="span">0<span></p>
+              <input  class="button"
+                      id="subAdButton"
+                      type="button"
+                      value="-"
+                      onclick="changeAdLoad(0)">
+              <input  class="button"
+                      id="addAdButton"
+                      type="button"
+                      value="+"
+                      onclick="changeAdLoad(1)">
+            </div>
           </div>
-        </div>
-        
-        <div  id="cashProjectsB"
-              class="project"
-              onclick="callProject(cashProjectsB,cashProjects,cashProjectsTitle,cashProjectsDesc,4);refreshFitty()">
-          <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
-          <span class="projectDesc" id="cashProjectsDesc">Reach 5k views</span>
-        </div>
-      </div> <!--end of child flex CASH-->
-    </div> <!--End of parent flex 2-->      
+
+          <div  id="cashProjectsB"
+                class="project"
+                onclick="callProject(cashProjectsB,cashProjects,cashProjectsTitle,cashProjectsDesc,4);refreshFitty()">
+            <span class="projectTitle" id="cashProjectsTitle">Extra pocket money</span><br>
+            <span class="projectDesc" id="cashProjectsDesc">Reach 5k views</span>
+          </div>
+        </div> <!--end of child flex CASH-->
+      </div> <!--End of parent flex 2-->      
     
-    <script src="fitty.min.js"></script>
-    <script src="fittyProjects.js" type="text/javascript"></script>
-    <script src="loadAppearFunctions.js" type="text/javascript"></script>
-    <script type="text/javascript" src="script.js"></script>
-
-  </div>
-
+      <script src="fitty.min.js"></script>
+      <script src="fittyProjects.js" type="text/javascript"></script>
+      <script src="loadAppearFunctions.js" type="text/javascript"></script>
+      <script type="text/javascript" src="script.js"></script>
+    </div>
   </body>
 </html>
