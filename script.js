@@ -226,6 +226,8 @@ var ideaProjects = [
   ["End of projects","s","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];
 
+load();//REMOVE FOR TESTING
+
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
 function firstPageLoad() {
@@ -249,8 +251,6 @@ commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem solving. Get out of here!")
 refreshFitty();
-load();//REMOVE FOR TESTING
-
 
 //inital comment on first flash
 function helpBulbStory() {
