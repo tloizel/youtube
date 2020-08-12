@@ -924,6 +924,7 @@ function load() {
 function deleteLocalStorage() {
   if(confirm("Are you sure you want to reset the game? Your channel will be lost in YouTube limbo.")){
     localStorage.removeItem("save");
+    ga("send", "event", "Delete Save", "Click");
     location.reload();
   }
 }
