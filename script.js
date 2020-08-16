@@ -26,6 +26,7 @@ var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly - 1
 var uploadSpeed = 1; //*100
 var loadState = 0; //load state of progress bar
+var autoUploadActivated = false; //0 for no 1 for yes
 
 //SUBS
 var views = 0;
@@ -40,7 +41,6 @@ var income = 0;
 var expenses = 0;
 var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
-var autoUploadActivated = false; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
 var visibleCash = false;
@@ -212,7 +212,7 @@ var ideaProjects = [
   ["Fail statistics class","Upload 75 videos","videosUploaded>=75","projectedAverageAppear()","But you can still calculate an average come on <span class='boldRed'>[Projected average based on videos ready to upload]</span>"],
   ["Ask Drew for Javascript lessons","Upload 100 videos","videosUploaded>=100","upgradeUploadSpeed(11)","You wonder if this will ever come in handy... <span class='boldRed'>[+400kB/s Upload Speed]</span>"],
   ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>"],
-  ["Drill a hole in the wall for better WiFi","Upload 175 videos & Less than 6.5 average video quality","videosUploaded>=175 && averageQl<=6.5","upgradeUploadSpeed(16)","Grounded for a month :( <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
+  ["Drill a hole in wall for better WiFi","Upload 175 videos & Less than 6.5 average video quality","videosUploaded>=175 && averageQl<=6.5","upgradeUploadSpeed(16)","Grounded for a month :( <span class='boldRed'>[+500kB/s Upload Speed]</span>"],
   ["Convince mum to upgrade premium internet plan","Upload 700 videos & Pay $50k","videosUploaded>=700 && cashAmount>=50000","upgradeUploadSpeed(24);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+800kB/s Upload Speed & -$50000]</span>"],
   ["Dad kindly installs a WiFi repeater","Upload 1k videos","videosUploaded>=1000","upgradeUploadSpeed(34)","Love u dad <span class='boldRed'>[+1000kB/s Upload Speed]</span>"],
   ["Your building now has fibre-optic internet","Upload 1.2k videos","videosUploaded>=1200","upgradeUploadSpeed(54)","Can't get more efficient <span class='boldRed'>[+2000kB/s Upload Speed]</span>"],

@@ -36,7 +36,7 @@ function expensesUpdate(){
 
 function incomeUpdate(){
   if(income==1){
-  document.getElementById("extraIncome").innerHTML = "Sell merch (+$"+income+"/sec)";
+  document.getElementById("extraIncome").innerHTML = "Merch (+$"+income+"/sec)";
   }
   else if (income>1){
   document.getElementById("extraIncome").innerHTML = "Patreon (+$"+income+"/sec)";
