@@ -384,11 +384,15 @@ window.setInterval(function() {
                   cashRefresh();
                    },1000);
 
-//refreshes cashAmount with income and expenses per min AND COMMENTS
+//calls comments every minute
 window.setInterval(function() {
-                   callComment();
-                   save();//REMOVE FOR TESTING
-                   },60000);
+                  callComment();
+                  },60000);
+
+//saves every 10s
+window.setInterval(function() {
+                  save();//REMOVE FOR TESTING
+                  },10000);                   
 
 //Upgrades creativity
 function upgradeCreativity(num) {
@@ -974,7 +978,6 @@ function deleteLocalStorage() {
 //document listener
 document.addEventListener('visibilitychange', function() {
   if(document.hidden) {
-    save();
     stopIdeaTicker();
     alert("You fell asleep!\n\nPlease leave notYouTube as a separate window, not as an inactive tab.");
     location.reload();
