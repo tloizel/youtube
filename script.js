@@ -245,7 +245,7 @@ var ideaProjects = [
   ["Participate in YouTube Rewind","Reach 5M subscribers","subscribers>=5000000","LDRF(0.6)","They can't seem to get it right <span class='boldRed'>[Popularity = 0.6]</span>"],
   ["Shoutout from Casey","Reach 6M subscribers","subscribers>=6000000","LDRF(1.5)","*Faints* <span class='boldRed'>[Popularity = 1.5]</span>"],
   ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","subscribers+=80000000","You've just figured out internet's biggest secret <span class='boldRed'>[+80M Subscribers]</span>"],
-  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","confirm('Kudos')","Thank you <span class='boldRed'>[Thank you for being a beta tester, leave us your feedback to help us improve the game! All ideas are more than welcome :) Don't forget to comment the secret code <em>Kudos</em> on LinkedIn to prove you're a finisher and we'll get in touch for a small surprise]</span>"],
+  ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","confirm('Kudos')","Thank you <span class='boldRed'>[Thank you for being a beta tester, leave us your feedback to help us improve the game! All ideas are more than welcome :) <br><br>Don't forget to comment the secret code <em>Kudos</em> on LinkedIn as proof you're a finisher and we'll get in touch for a small surprise.<br>]</span>"],
   ["End of projects","K","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];
   var cashProjects = [
