@@ -291,7 +291,7 @@ BulbOn();
 startIdeaTicker(); //start idea ticker
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
-//console.log("This isn't what we meant by problem solving. Get out of here!") //prevents tab listener
+console.log("This isn't what we meant by problem solving. Get out of here!");
 refreshFitty();
 
 //inital comment on first flash
@@ -980,7 +980,7 @@ document.addEventListener('visibilitychange', function() {
   if(document.hidden && window.innerWidth>800) {
     stopIdeaTicker();
     alert("You fell asleep!\n\nPlease leave notYouTube as a separate window, not as an inactive tab.");
-    location.reload();
+    //location.reload();
   }
 });
 
