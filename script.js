@@ -977,7 +977,7 @@ function deleteLocalStorage() {
 
 //document listener
 document.addEventListener('visibilitychange', function() {
-  if(document.hidden) {
+  if(document.hidden && window.innerWidth>800) {
     stopIdeaTicker();
     alert("You fell asleep!\n\nPlease leave notYouTube as a separate window, not as an inactive tab.");
     location.reload();
