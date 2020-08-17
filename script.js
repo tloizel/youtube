@@ -291,7 +291,7 @@ BulbOn();
 startIdeaTicker(); //start idea ticker
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
-console.log("This isn't what we meant by problem solving. Get out of here!")
+//console.log("This isn't what we meant by problem solving. Get out of here!") //prevents tab listener
 refreshFitty();
 
 //inital comment on first flash
