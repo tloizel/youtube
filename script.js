@@ -288,8 +288,8 @@ function firstPageLoad() {
 
 //PAGE LOAD FUNCTIONS
 memoryBlockRefresh();//refreshes the memory block canvas
-BulbOn();
-startIdeaTicker(); //start idea ticker
+//BulbOn();
+stopIdeaTicker(); //sleep
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem solving. Get out of here!");
@@ -305,7 +305,7 @@ function helpBulbStory() {
 function emptyArray() {
   emptyArrayTimer = setInterval(function(){
     var ideaLength = ideaQlArray.length;
-              if(ideasQtTotal >= 30 && ideaLength > 0){
+              if(ideasQtTotal >= 30 && ideaLength > 5){
                   if(confirm("This is a one time offer.\n\nDo you wish to delete your videos ready to upload?")){
                     ideaQlArray.splice(0,ideaLength);
                     videosEditedTotal -= videosEdited;
