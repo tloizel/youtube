@@ -282,6 +282,7 @@ function firstPageLoad() {
     disableButton("myonoffswitch",true); //autoEdit switch disabled
     disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
     setTimeout(helpBulbStory, 60100);
+    emptyArray();
   }
 }
 
@@ -298,6 +299,29 @@ refreshFitty();
 function helpBulbStory() {
   commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
   commentArrayShift();
+}
+
+//empty array help
+function emptyArray() {
+  emptyArrayTimer = setInterval(function(){
+    var ideaLength = ideaQlArray.length;
+              if(ideasQtTotal >= 30 && ideaLength > 0){
+                  if(confirm("This is a one time offer.\n\nDo you wish to delete your videos ready to upload?")){
+                    ideaQlArray.splice(0,ideaLength);
+                    videosEditedTotal -= videosEdited;
+                    videosEdited=0;
+                    updateArrayQlView();
+                    memoryBlockRefresh();
+                    ideasQtTotal -= ideaLength;
+                    ideasQt = 0;
+                    document.getElementById("ideasGenTotal").innerHTML = numeral(ideasQtTotal).format('0,0');
+                    document.getElementById("ideasGen").innerHTML = numeral(ideasQt).format('0,0');;
+                  }
+                clearInterval(emptyArrayTimer);
+                save();
+                location.reload();
+              }
+              },5000);
 }
 
 //start idea ticker
