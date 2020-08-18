@@ -981,7 +981,7 @@ document.addEventListener('visibilitychange', function() {
     stopIdeaTicker();
     document.getElementById("myonoffswitch").checked=false;
   }
-  else { 
+  else if (window.innerWidth>800) { 
     alert("You fell asleep!\n\nPlease leave notYouTube as a separate window, not as an inactive tab.");
     location.reload();
   }
