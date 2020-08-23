@@ -43,12 +43,12 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visibleCash = true;
-var visibleAdAmount = true;
+var visibleCash = false;
+var visibleAdAmount = false;
 var visibleAutoEdit = false;
 var visibleProjectedAverage = false;
-var visibleExpenses = true;
-var visibleIncome = true;
+var visibleExpenses = false;
+var visibleIncome = false;
 
 //COMMENTS
 var comments = [
