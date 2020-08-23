@@ -91,7 +91,7 @@ var comments = [
 {name: "I once was blind, now I see!", type: "positive"},
 {name: "When will the next episode be out?", type: "positive"},
 {name: "You know what, i might just start making videos myself!", type: "positive"},
-{name: "who care's about being first anyways", type: "positive"},
+{name: "who cares about being first anyways", type: "positive"},
 {name: "Are you planning on opening a secondary channel?", type: "positive"},
 {name: "You new mic makes your voice so soothing, ASMR-like", type: "positive"},
 {name: "More content please, i've already watched all your videos twice!", type: "positive"},
@@ -156,14 +156,14 @@ var comments = [
 {name: "I can barely hear your voice with my speakers all the way up :/", type: "negative"},
   ];
   
-var commentBox = [{comment:"Welcome to notYouTube.",source:"story"},
-                  {comment:"This is a game of patience, optimisation and problem solving.",source:"story"},
-                  {comment:"Once you have unlocked all the projects, a secret code will be revealed.",source:"story"},
-                  {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev",source:"story"},
-                  {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new computer mouse.",source:"story"},
-                  {comment:"Good luck on your road to 100M subscribers!",source:"story"},
-                  {comment:"",source:""},
-                  {comment:"",source:""},
+var commentBox = [{comment:"👋", source:"story"},
+                  {comment:"Welcome to notYouTube.", source:"story"},
+                  {comment:"This is a game of patience, optimisation and problem solving.", source:"story"},
+                  {comment:"Once you have unlocked all the projects, a secret code will be revealed.", source:"story"},
+                  {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
+                  {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new computer mouse.", source:"story"},
+                  {comment:"The road to 100M subscribers will be paved with obstacles!", source:"story"},
+                  {comment:"Good luck, have fun!", source:"story"},
                   //{comment:"",source:""},
                   //{comment:"",source:""},
                   ];
@@ -581,7 +581,7 @@ function upgradeMemory(num) {
 //change upload speed
 function upgradeUploadSpeed(para) {
   uploadSpeed = para;
-  let uploadSpeedConversion = uploadSpeed*100;
+  let uploadSpeedConversion = uploadSpeed * 100;
   document.getElementById("uploadSpeed").innerHTML = uploadSpeedConversion+" kB/s";
 }
 
@@ -595,7 +595,9 @@ function upgradeEditorSpeed(para) {
 function uploadVideo() {
   if (videosEdited > 0 && loadState == 0) {
     loadState = 1;
-    document.getElementById("uploadB").disabled = true; 
+    document.getElementById("uploadB").disabled = true;
+    disableButton("uploadB",true);
+    disableDiv("uploadB","none");
     var elem = document.getElementById("myBar");
     var width = 1;
     var id = setInterval(frame, 1000/uploadSpeed);
@@ -1001,12 +1003,12 @@ function deleteLocalStorage() {
 
 //document listener
 document.addEventListener('visibilitychange', function() {
-  if(document.hidden && window.innerWidth>800) {
+  if(document.hidden && window.innerWidth > 800) {
     stopIdeaTicker();
-    document.getElementById("myonoffswitch").checked=false;
+    document.getElementById("myonoffswitch").checked = false;
   }
-  else if (window.innerWidth>800) { 
-    alert("You fell asleep!\n\nPlease leave notYouTube as a separate window, not as an inactive tab.");
+  else if (window.innerWidth > 800) { 
+    alert("💤 You fell asleep! 💤\n\nThe game will pause as an inactive tab.\n\nIf you want to let notYouTube run in the background, leave it as an active separate window.");
     location.reload();
   }
 });

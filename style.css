@@ -9,8 +9,8 @@ body {
   font-family: Rubik, sans-serif;
   background-color: #f5f6fa;
   margin: 0; /* to remove default page margins */
-  zoom: 96%; /* for that extra space, let's test with betas and see if issues */
-  overflow-y: hidden; /* to remove scroll */
+  zoom: 100%; /* for that extra space, let's test with betas and see if issues */
+  /* overflow-y: hidden;  to remove scroll */
 }
 
 .tightP {
@@ -19,23 +19,23 @@ body {
   margin-block-end: 0.6em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  }
+}
 
 @media screen and (max-width: 800px) {
-  #desktop{
-      display:none;
+  #desktop {
+      display: none;
   }
 }
 
 @media screen and (min-width: 801px) {
-  #mobile{
-      display:none;
+  #mobile {
+      display: none;
   }
 }
 
 #mobile {
   text-align: center;
-  margin-top:10em;
+  margin-top: 10em;
 }
 
 h2 {
@@ -48,9 +48,30 @@ h2 {
   justify-content: space-between;
 }
 
+.viewsBig {
+  font-family: Rubik, sans-serif;
+  font-size: 6vh;
+  width: 95%;
+  padding-left: 2vw;
+}
+
 .notYoutube {
-  font-size: 1vw;
+  font-size: 2vh;
   margin-top: 0.5vh;
+}
+
+.settingsButton {
+  border: none;
+  cursor: pointer;
+  float: right;
+  background-color: #f5f6fa;
+  padding: 0; /* to remove default padding */
+  margin-top: .3em;
+  margin-bottom: .3em;
+}
+
+.settingsButton:focus {
+  outline: 0;
 }
 
 .flex-row {
@@ -121,7 +142,7 @@ h2 {
   margin-right: 0em;
   border: none;
 }
-#pipeline{
+#pipeline {
   border: none;
   padding-right: 2em;
   float: left;
@@ -159,13 +180,6 @@ h2 {
 
 .button:focus {
   outline: 0;
-}
-
-.viewsBig {
-  font-family: Rubik, sans-serif;
-  font-size: 3vw;
-  width: 95%;
-  padding-left: 2vw;
 }
 
 /* IDEA BULB */
@@ -208,7 +222,7 @@ h2 {
   fill: #000000;
 }
 
-.turnUp{
+.turnUp {
   animation-name: turnUp;
   animation-duration: 60000ms;
   animation-iteration-count: 1;
@@ -291,7 +305,7 @@ h2 {
 .childFlexTop {
   height: 75%;
   padding: 1px 0.5em 0.5em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
@@ -306,9 +320,9 @@ h2 {
 }
 
 .childFlexTopShort {
-  height: 19vh;
+  height: 20vh;
   padding: 0.2em 0.5em 0.2em;
-  margin-bottom: 2vh;
+  margin-bottom: 1.5vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
@@ -651,20 +665,6 @@ h2 {
 
 #subProjectsB {
   height: 6vh;
-}
-
-.settingsButton {
-  border: none;
-  cursor: pointer;
-  float: right;
-  background-color: #f5f6fa;
-  padding: 0; /* to remove default padding */
-  margin-top: .3em;
-  margin-bottom: .3em;
-}
-
-.settingsButton:focus {
-  outline: 0;
 }
 
 /* empty div to center autoEdit circle button with flexbox */
