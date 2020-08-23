@@ -43,12 +43,12 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visibleCash = false;
-var visibleAdAmount = false;
+var visibleCash = true;
+var visibleAdAmount = true;
 var visibleAutoEdit = false;
 var visibleProjectedAverage = false;
-var visibleExpenses = false;
-var visibleIncome = false;
+var visibleExpenses = true;
+var visibleIncome = true;
 
 //COMMENTS
 var comments = [
@@ -618,7 +618,9 @@ function uploadVideo() {
         viewsFromSubs();//calculated view count at each upload
         memoryBlockRefresh();//refreshes the memory block canvas
         averageQlCalculationProjected(); //calculate projected average
-        document.getElementById("uploadB").disabled = false; 
+        document.getElementById("uploadB").disabled = false;
+        disableButton("uploadB",false);
+        disableDiv("uploadB","auto");
       } 
       else {
         width++;

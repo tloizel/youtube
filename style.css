@@ -184,6 +184,15 @@ h2 {
   outline: 0;
 }
 
+/* ad amount buttons + & - */
+.largeButton {
+  height: 30px;
+  width: 40%;
+  font-size: 20px;
+  vertical-align: middle;
+  padding: 0px;
+}
+
 /* IDEA BULB */
 .bulbFrame {
   border:solid red;
@@ -524,13 +533,12 @@ h2 {
 
 /* END OF SHOOT AND EDIT PROGRESS CIRCLE */
 
-/*Upload bar*/
+/* Upload bar */
 #myProgress {
-  width: 80%;
   background-color: lightgrey;
   box-shadow: inset -3px -3px 4px #ffffffb0, inset 3px 3px 4px rgba(94, 104, 121, 0.692);
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 #myBar {
