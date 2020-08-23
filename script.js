@@ -1003,11 +1003,11 @@ function deleteLocalStorage() {
 
 //document listener
 document.addEventListener('visibilitychange', function() {
-  if(document.hidden && window.innerWidth > 800) {
+  if(document.hidden && window.innerWidth > 1120) {
     stopIdeaTicker();
     document.getElementById("myonoffswitch").checked = false;
   }
-  else if (window.innerWidth > 800) { 
+  else if (window.innerWidth > 1120) { 
     alert("💤 You fell asleep! 💤\n\nThe game will pause as an inactive tab.\n\nIf you want to let notYouTube run in the background, leave it as an active separate window.");
     location.reload();
   }
