@@ -9,8 +9,6 @@ body {
   font-family: Rubik, sans-serif;
   background-color: #f5f6fa;
   margin: 0; /* to remove default page margins */
-  zoom: 100%; /* for that extra space, let's test with betas and see if issues */
-  /* overflow-y: hidden;  to remove scroll */
 }
 
 .tightP {
