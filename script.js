@@ -1,5 +1,6 @@
 //GENERAL
 var testTimer = setInterval(testProjects,500);
+var emptyArrayUsed = false;
 
 //IDEA
 var ideaTimer = null;
@@ -273,7 +274,7 @@ load();//REMOVE FOR TESTING
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
 function firstPageLoad() {
-  if(ideasQtTotal == 0){
+  if(ideasQtTotal == 0 && emptyArrayUsed == false){
     ideasGen(); //generate one idea to start off with
     disableButton("subAdButton",true);
     disableButton("addAdButton",true);
@@ -282,7 +283,6 @@ function firstPageLoad() {
     disableButton("myonoffswitch",true); //autoEdit switch disabled
     disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
     //setTimeout(helpBulbStory, 60100);
-    emptyArray();
   }
 }
 
@@ -294,6 +294,7 @@ commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem solving. Get out of here!");
 refreshFitty();
+if(emptyArrayUsed == false){emptyArray()};
 
 //inital comment on first flash
 function helpBulbStory() {
@@ -305,7 +306,7 @@ function helpBulbStory() {
 function emptyArray() {
   emptyArrayTimer = setInterval(function(){
     var ideaLength = ideaQlArray.length;
-              if(ideasQtTotal >= 30 && ideaLength > 5){
+              if(ideasQtTotal >= 30 && ideaLength > 5 && emptyArrayUsed == false){
                   if(confirm("This is a one time offer.\n\nDo you wish to delete your videos ready to upload?")){
                     ideaQlArray.splice(0,ideaLength);
                     videosEditedTotal -= videosEdited;
@@ -318,6 +319,7 @@ function emptyArray() {
                     document.getElementById("ideasGen").innerHTML = numeral(ideasQt).format('0,0');;
                   }
                 clearInterval(emptyArrayTimer);
+                emptyArrayUsed = true;
                 save();
                 location.reload();
               }
@@ -926,6 +928,7 @@ function disableDiv(div,state) {
 
 function save(){
   var gameSave = {
+    emptyArrayUsed: {variable: emptyArrayUsed},
     creativity: {variable: creativity, id:"creativityLvl"},
     rangeIdea: {variable: rangeIdea, idf:"ideaRangeMax(rangeIdea)"},
     ideaQl: {variable: ideaQl, id:"ideaQl"},
