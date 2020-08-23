@@ -95,6 +95,10 @@ h2 {
   margin-top: 1em;
 }
 
+.small-bottom-margin {
+  margin-bottom: 1em;
+}
+
 .unselectable {
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
@@ -584,7 +588,7 @@ h2 {
 /* END OF SUB DIFF */
 
 .comments {
-  height: 20vh;
+  height: 23vh;
   margin-left: 10px;
   text-align: left;
   font-size: 16px;
@@ -664,7 +668,7 @@ h2 {
 }
 
 #subProjectsB {
-  height: 6vh;
+  height: 20%;
 }
 
 /* empty div to center autoEdit circle button with flexbox */
