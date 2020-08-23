@@ -309,7 +309,7 @@ function emptyArray() {
                   if(confirm("This is a one time offer.\n\nDo you wish to delete your videos ready to upload?")){
                     ideaQlArray.splice(0,ideaLength);
                     videosEditedTotal -= videosEdited;
-                    videosEdited=0;
+                    videosEdited = 0;
                     updateArrayQlView();
                     memoryBlockRefresh();
                     ideasQtTotal -= ideaLength;
@@ -327,12 +327,11 @@ function emptyArray() {
 //start idea ticker
 function startIdeaTicker() {
   ideaTimer = setInterval(function(){
-              //TEMP autoticker(1);
-              if(ideasQtTotal == 1){helpBulbStory()};
-              ideasGen();
-              BulbOn();
-              },ideaSpeed);
-              BulbOn();
+    if(ideasQtTotal == 1){helpBulbStory()};
+    ideasGen();
+    BulbOn();
+  },ideaSpeed);
+  BulbOn();
   disableButton("startTimer",true);
   disableDiv("startTimer","none");
   disableButton("stopTimer",false);
@@ -352,26 +351,24 @@ function stopIdeaTicker() {
 //Light up the bulb
 function BulbOn() {
   let toBeTurnedUp = ['bulb', 'glow'];
-  
   for (const element of toBeTurnedUp) {
-  var elem = document.getElementById(element);
-  var clone = elem.cloneNode(true);
-  elem.parentNode.replaceChild(clone, elem);
-  clone.classList.remove("turnUp");
-  clone.classList.add("turnUp");
+    var elem = document.getElementById(element);
+    var clone = elem.cloneNode(true);
+    elem.parentNode.replaceChild(clone, elem);
+    clone.classList.remove("turnUp");
+    clone.classList.add("turnUp");
   }
 }
 
 //Turn off the bulb
 function BulbOff() {
   let toBeTurnedUp = ['bulb', 'glow'];
-  
   for (const element of toBeTurnedUp) {
-  var elem = document.getElementById(element);
-  var clone = elem.cloneNode(true);
-  elem.parentNode.replaceChild(clone, elem);
-  clone.classList.remove("turnUp");
-  clone.style.opacity = 0;
+    var elem = document.getElementById(element);
+    var clone = elem.cloneNode(true);
+    elem.parentNode.replaceChild(clone, elem);
+    clone.classList.remove("turnUp");
+    clone.style.opacity = 0;
   }
 }
 
@@ -393,31 +390,31 @@ function autoEdit() {
 
 //start auto upload
 function autoUpload() {
-var uploaderTimer = setInterval(function() {
-                  if (loadState == 0){ //&& cashAmount > 0
-                  uploadVideo();};
-                  },1000/uploadSpeed);
-autoUploadActivated = true;
+  var uploaderTimer = setInterval(function() {
+    if (loadState == 0){ //&& cashAmount > 0
+    uploadVideo();};
+    },1000/uploadSpeed);
+  autoUploadActivated = true;
 }
 
 //start timer2 _ NOT A FUNCTION
 window.setInterval(function() {
-                  SubsRefresh();
-                  viewsRefresh();
-                  cashGen();
-                  autoEdit();
-                  cashRefresh();
-                   },1000);
+  SubsRefresh();
+  viewsRefresh();
+  cashGen();
+  autoEdit();
+  cashRefresh();
+},1000);
 
 //calls comments every minute
 window.setInterval(function() {
-                  callComment();
-                  },60000);
+  callComment();
+},60000);
 
 //saves every 10s
 window.setInterval(function() {
-                  save();//REMOVE FOR TESTING
-                  },10000);                   
+  save();//REMOVE FOR TESTING
+},10000);                   
 
 //Upgrades creativity
 function upgradeCreativity(num) {
