@@ -297,7 +297,7 @@ refreshFitty();
 
 //inital comment on first flash
 function helpBulbStory() {
-  commentBox.unshift({comment:"Your light bulb just flashed, you have generated one or several new ideas! The light bulb will flash once every minute, as long as you keep thinking.",source:"callProject"});
+  commentBox.unshift({comment:"Your light bulb just flashed after 1 minute of thinking, you've generated one or several new ideas!",source:"callProject"});
   commentArrayShift();
 }
 
