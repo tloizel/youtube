@@ -281,7 +281,7 @@ function firstPageLoad() {
     disableButton("startTimer",true);
     disableButton("myonoffswitch",true); //autoEdit switch disabled
     disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
-    setTimeout(helpBulbStory, 60100);
+    //setTimeout(helpBulbStory, 60100);
     emptyArray();
   }
 }
@@ -328,6 +328,7 @@ function emptyArray() {
 function startIdeaTicker() {
   ideaTimer = setInterval(function(){
               //TEMP autoticker(1);
+              if(ideasQtTotal == 1){helpBulbStory()};
               ideasGen();
               BulbOn();
               },ideaSpeed);
