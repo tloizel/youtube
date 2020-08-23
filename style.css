@@ -21,13 +21,13 @@ body {
   margin-inline-end: 0px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1120px) {
   #desktop {
       display: none;
   }
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 1121px) {
   #mobile {
       display: none;
   }
