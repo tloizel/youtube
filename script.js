@@ -332,7 +332,7 @@ function startIdeaTicker() {
               ideasGen();
               BulbOn();
               },ideaSpeed);
-              BulbOn();
+  BulbOn();
   disableButton("startTimer",true);
   disableDiv("startTimer","none");
   disableButton("stopTimer",false);

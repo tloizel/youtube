@@ -121,34 +121,32 @@ h2 {
   color: red;
   text-align: right;
   float: right;
-  margin-right: 2em;
+  margin-right: 1.5em;
 }
 
 .explanation {
   color: #424242;
   text-align: left;
-  margin-left: 2em;
+  margin-left: 1.5em;
 }
 
 #arrayQlView {
   color: black;
-  text-align: right;
-  float: right;
+  text-align: left;
+  float: left;
   margin-right: 0em;
-  border: none;
 }
+
 #arrayQlViewColor {
   color: red;
-  text-align: right;
-  float: right;
+  text-align: left;
+  float: left;
   margin-right: 0em;
-  border: none;
 }
 #pipeline {
-  border: none;
-  padding-right: 2em;
+  padding-right: 1.5em;
   float: left;
-  margin-left: 32px;
+  margin-left: 1.5em;
 }
 
 .rainbow-text {
@@ -267,6 +265,8 @@ h2 {
 
 .ideaRangeDiv {
   justify-content: space-around;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 }
 
 #ideaRange {
@@ -315,7 +315,7 @@ h2 {
 
 .childFlexTop {
   height: 75%;
-  padding: 1px 0.5em 0.5em;
+  padding: 0.1em 0.5em 0.6em;
   margin-bottom: 1.5vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
@@ -325,19 +325,16 @@ h2 {
 /* Analytics container */
 .childFlexShort {
   width: calc(25% - 2em);
-  height: 30vh;
   text-align: center;
   margin-right: 1em;
 }
 
 .childFlexTopShort {
-  height: 20vh;
-  padding: 0.2em 0.5em 0.2em;
+  padding: 0.2em 0.5em 0.1em;
   margin-bottom: 1.5vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
-  overflow-y: auto;
 }
 
 /* Comments container */
@@ -349,12 +346,10 @@ h2 {
 }
 
 .childFlexTopWide {
-  height: 30vh;
-  padding: 0.2em 1em 0.5em;
+  padding: 0.2em 0.5em 1em;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
   background-color: #edeff2;
-  overflow-y: hidden;
 }
 
 .break {
@@ -537,8 +532,8 @@ h2 {
 #myProgress {
   background-color: lightgrey;
   box-shadow: inset -3px -3px 4px #ffffffb0, inset 3px 3px 4px rgba(94, 104, 121, 0.692);
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 }
 
 #myBar {
@@ -596,7 +591,6 @@ h2 {
 /* END OF SUB DIFF */
 
 .comments {
-  height: 23vh;
   margin-left: 10px;
   text-align: left;
   font-size: 16px;
@@ -677,6 +671,7 @@ h2 {
 
 #subProjectsB {
   height: 20%;
+  padding: 4.5% 3% 3% 3%;
 }
 
 /* empty div to center autoEdit circle button with flexbox */
