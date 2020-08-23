@@ -595,7 +595,6 @@ function upgradeEditorSpeed(para) {
 function uploadVideo() {
   if (videosEdited > 0 && loadState == 0) {
     loadState = 1;
-    document.getElementById("uploadB").disabled = true;
     disableButton("uploadB",true);
     disableDiv("uploadB","none");
     var elem = document.getElementById("myBar");
@@ -618,7 +617,6 @@ function uploadVideo() {
         viewsFromSubs();//calculated view count at each upload
         memoryBlockRefresh();//refreshes the memory block canvas
         averageQlCalculationProjected(); //calculate projected average
-        document.getElementById("uploadB").disabled = false;
         disableButton("uploadB",false);
         disableDiv("uploadB","auto");
       } 
