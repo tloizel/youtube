@@ -528,9 +528,11 @@ h2 {
 
 /*Upload bar*/
 #myProgress {
-  width: 100%;
+  width: 80%;
   background-color: lightgrey;
   box-shadow: inset -3px -3px 4px #ffffffb0, inset 3px 3px 4px rgba(94, 104, 121, 0.692);
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #myBar {
