@@ -159,7 +159,7 @@ var comments = [
   
 var commentBox = [{comment:"👋", source:"story"},
                   {comment:"Welcome to notYouTube.", source:"story"},
-                  {comment:"This is a game of patience, optimisation and problem solving.", source:"story"},
+                  {comment:"This is a game of patience, optimisation and problem-solving.", source:"story"},
                   {comment:"Once you have unlocked all the projects, a secret code will be revealed.", source:"story"},
                   {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
                   {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new computer mouse.", source:"story"},
@@ -292,7 +292,7 @@ memoryBlockRefresh();//refreshes the memory block canvas
 stopIdeaTicker(); //sleep
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
-console.log("This isn't what we meant by problem solving. Get out of here!");
+console.log("This isn't what we meant by problem-solving. Get out of here!");
 refreshFitty();
 if(emptyArrayUsed == false){emptyArray()};
 
