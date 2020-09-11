@@ -326,18 +326,40 @@ function emptyArray() {
               },5000);
 }
 
+var energy = 100;
+var energyMax = 100;
+var batchEnergyCost = 25;
+function energyUpdate() {
+  energy -= batchEnergyCost;
+  document.getElementById("energy").innerHTML = energy;
+
+}
+
 //start idea ticker
 function startIdeaTicker() {
-  ideaTimer = setInterval(function(){
-    if(ideasQtTotal == 1){helpBulbStory()};
-    ideasGen();
+  if(energy >= batchEnergyCost) { //initial energy check when pressing THINK
     BulbOn();
-  },ideaSpeed);
-  BulbOn();
-  disableButton("startTimer",true);
-  disableDiv("startTimer","none");
-  disableButton("stopTimer",false);
-  disableDiv("stopTimer","auto");
+    ideaTimer = setInterval(function(){
+      if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment
+      if(energy >= batchEnergyCost) { //energy check inside loop
+        ideasGen();
+        BulbOn();
+        energyUpdate();
+      }
+      else {
+        stopIdeaTicker();
+        console.log("No more energy"); //PLACEHOLDER FOR PROPER MESSAGE
+      }
+    },ideaSpeed);
+    disableButton("startTimer",true);
+    disableDiv("startTimer","none");
+    disableButton("stopTimer",false);
+    disableDiv("stopTimer","auto");
+  } 
+  else {
+    console.log("You're too tired to think!") //PLACEHOLDER FOR PROPER MESSAGE
+    stopIdeaTicker();
+  }
 }
 
 //stop idea ticker
@@ -1028,4 +1050,3 @@ document.addEventListener('visibilitychange', function() {
     location.reload();
   }
 });
-
