@@ -482,6 +482,21 @@ function newArray(value, len) {
   return arr;
 }
 
+SECircleContainer.addEventListener("mousedown", pressingDownEdit);
+SECircleContainer.addEventListener("mouseup", pressingUpEdit);
+SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
+let editInterval = null;
+
+function pressingDownEdit(event) {
+  if (event.type == "mousedown") {
+    editInterval = setInterval(clicksLeft,30);
+  }
+}
+
+function pressingUpEdit() {
+  clearInterval(editInterval);
+}
+
 //Shoot & Edit
 function clicksLeft() {
   if(shootEditRem < 0){
@@ -896,7 +911,7 @@ function testProjects() {
   for (var i = 0; i < 5; i++) {
     let project = projectArrays[i];
     let id = projectIds[i]
-    if(eval(project[0][2]) == true && project.length>0){
+    if(eval(project[0][2]) == true && project.length > 0){
       document.getElementById(id).className = "project valid";
     }
     else {document.getElementById(id).className = "project"};
