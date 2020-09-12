@@ -623,14 +623,15 @@ h2 {
   border-width: 2px;
   transition-duration: 50ms;
   border-radius: 20px;
-  cursor: pointer;
+  cursor: default;
   box-shadow: 0px 3px #999;
-  background-color: red;
+  background-color: rgb(189, 94, 94);
   color: white;
 }
 
 .valid {
   background-color: green;
+  cursor: pointer;
 }
 
 .projectTitle {
