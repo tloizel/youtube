@@ -1,6 +1,7 @@
 //GENERAL
 var testTimer = setInterval(testProjects,500);
 var emptyArrayUsed = false;
+var sleepModalReminder = true; //true - activate sleep alert
 
 //IDEA
 var ideaTimer = null;
@@ -9,7 +10,10 @@ var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
 var ideasQtTotal = 0; //amount of ideas since beginning - 0
-var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 5000; //speed of idea generation : the lower the number the faster ideas generate
+var energy = 100;
+var energyMax = 100;
+var batchEnergyCost = 25;
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video - 200
@@ -306,60 +310,53 @@ function helpBulbStory() {
 function emptyArray() {
   emptyArrayTimer = setInterval(function(){
     var ideaLength = ideaQlArray.length;
-              if(ideasQtTotal >= 30 && ideaLength > 5 && emptyArrayUsed == false){
-                  if(confirm("This is a one time offer.\n\nDo you wish to delete your videos ready to upload?")){
-                    ideaQlArray.splice(0,ideaLength);
-                    videosEditedTotal -= videosEdited;
-                    videosEdited = 0;
-                    updateArrayQlView();
-                    memoryBlockRefresh();
-                    ideasQtTotal -= ideaLength;
-                    ideasQt = 0;
-                    document.getElementById("ideasGenTotal").innerHTML = numeral(ideasQtTotal).format('0,0');
-                    document.getElementById("ideasGen").innerHTML = numeral(ideasQt).format('0,0');;
-                  }
-                clearInterval(emptyArrayTimer);
-                emptyArrayUsed = true;
-                save();
-                location.reload();
-              }
-              },5000);
+      if(ideasQtTotal >= 30 && ideaLength > 5 && emptyArrayUsed == false){
+      emptyArrayModal.style.display = "block";
+  }
+},5000);
 }
 
-var energy = 100;
-var energyMax = 100;
-var batchEnergyCost = 25;
 function energyUpdate() {
   energy -= batchEnergyCost;
   document.getElementById("energy").innerHTML = energy;
-
 }
 
 //start idea ticker
 function startIdeaTicker() {
-  if(energy >= batchEnergyCost) { //initial energy check when pressing THINK
-    BulbOn();
+  if(energy >= batchEnergyCost) {
+    BulbOn(); //initial energy check when pressing THINK
+    thinking();
+  }
+  else {
+    thinking(); //you can still click on think with insufficient energy
+  };
     ideaTimer = setInterval(function(){
       if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment
-      if(energy >= batchEnergyCost) { //energy check inside loop
+      if(energy >= batchEnergyCost*2) { //energy check inside loop
         ideasGen();
         BulbOn();
         energyUpdate();
+        thinking();
       }
-      else {
-        stopIdeaTicker();
+      else if(energy < batchEnergyCost*2 && energy >= batchEnergyCost) { //energy check inside loop
+        ideasGen();
+        energyUpdate();
+        thinking();
+      }
+      if(energy < batchEnergyCost){
+        clearInterval(ideaTimer);
+        BulbOff();
         console.log("No more energy"); //PLACEHOLDER FOR PROPER MESSAGE
       }
     },ideaSpeed);
-    disableButton("startTimer",true);
-    disableDiv("startTimer","none");
-    disableButton("stopTimer",false);
-    disableDiv("stopTimer","auto");
-  } 
-  else {
-    console.log("You're too tired to think!") //PLACEHOLDER FOR PROPER MESSAGE
-    stopIdeaTicker();
-  }
+}
+
+//think button activated
+function thinking(){
+  disableButton("startTimer",true);
+  disableDiv("startTimer","none");
+  disableButton("stopTimer",false);
+  disableDiv("stopTimer","auto");  
 }
 
 //stop idea ticker
@@ -965,6 +962,7 @@ function disableDiv(div,state) {
 
 function save(){
   var gameSave = {
+    sleepModalReminder: {variable: sleepModalReminder},
     emptyArrayUsed: {variable: emptyArrayUsed},
     creativity: {variable: creativity, id:"creativityLvl"},
     rangeIdea: {variable: rangeIdea, idf:"ideaRangeMax(rangeIdea)"},
@@ -1032,21 +1030,76 @@ function load() {
 }
 
 function deleteLocalStorage() {
-  if(confirm("Are you sure you want to reset the game? Your channel will be lost in YouTube limbo.")){
-    localStorage.removeItem("save");
-    ga("send", "event", "Delete Save", "Click");
-    location.reload();
-  }
+  var restartModal = document.getElementById("restartModal");
+  restartModal.style.display = "block";
+    // Get the <span> element that closes the modal
+    var closeModal = document.getElementById("closeRestartModal");
+    // When the user clicks on <span> (x), close the modal
+    closeModal.onclick = function() {
+      restartModal.style.display = "none";
+    }
 }
 
 //document listener
 document.addEventListener('visibilitychange', function() {
-  if(document.hidden && window.innerWidth > 1120) {
+  if(document.hidden && window.innerWidth > 1120 && sleepModalReminder == true) {
     stopIdeaTicker();
     document.getElementById("myonoffswitch").checked = false;
   }
-  else if (window.innerWidth > 1120) { 
-    alert("💤 You fell asleep! 💤\n\nThe game will pause as an inactive tab.\n\nIf you want to let notYouTube run in the background, leave it as an active separate window.");
-    location.reload();
+  else if (window.innerWidth > 1120 && sleepModalReminder == true) { 
+    sleepingModal.style.display = "block";
   }
 });
+
+//sleep modal option1
+function sleepModalReminderTrue(){
+  sleepModalReminder = true;
+  save();
+  location.reload();
+}
+
+//sleep modal option2
+function sleepModalReminderFalse(){
+  sleepModalReminder = false;
+  save();
+  location.reload();
+}
+
+//emptyarray modal option1
+function emptyArrayModalFalse() {
+  clearInterval(emptyArrayTimer);
+  emptyArrayUsed = true;
+  save();
+  location.reload();
+}
+
+//emptyarray modal option2
+function emptyArrayModalTrue() {
+  var ideaLength = ideaQlArray.length;
+  ideaQlArray.splice(0,ideaLength);
+  videosEditedTotal -= videosEdited;
+  videosEdited = 0;
+  updateArrayQlView();
+  memoryBlockRefresh();
+  ideasQtTotal -= ideaLength;
+  ideasQt = 0;
+  document.getElementById("ideasGenTotal").innerHTML = numeral(ideasQtTotal).format('0,0');
+  document.getElementById("ideasGen").innerHTML = numeral(ideasQt).format('0,0');
+  clearInterval(emptyArrayTimer);
+  emptyArrayUsed = true;
+  save();
+  location.reload();
+}
+
+//restart modal option1
+function restartModalFalse(){
+  var restartModal = document.getElementById("restartModal");
+  restartModal.style.display = "none";
+}
+
+//restart modal option2
+function restartModalTrue(){
+  localStorage.removeItem("save");
+  ga("send", "event", "Delete Save", "Click");
+  location.reload();
+}
