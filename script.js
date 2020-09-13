@@ -10,10 +10,12 @@ var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
 var ideasQtTotal = 0; //amount of ideas since beginning - 0
-var ideaSpeed = 5000; //speed of idea generation : the lower the number the faster ideas generate
-var energy = 100;
-var energyMax = 100;
-var batchEnergyCost = 25;
+var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
+var energy = 100; //current energy amount
+var energyMax = 100; //max energy amount
+var batchEnergyCost = 25; //cost of each batch of ideas
+var energyRegenRate = 1; //amount of energy gained (per second)
+var energyRegenTimer = null;
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video - 200
@@ -29,7 +31,7 @@ var videosUploaded = 0; //Videos online - 0
 var averageQlNum = 0; //average Ql numerator - 0
 var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly - 1
-var uploadSpeed = 1; //*100
+var uploadSpeed = 100; //*100
 var loadState = 0; //load state of progress bar
 var autoUploadActivated = false; //0 for no 1 for yes
 
@@ -57,109 +59,109 @@ var visibleIncome = false;
 
 //COMMENTS
 var comments = [
-{name: "love your content, subscribed!", type: "positive"},
-{name: "keep it up son! Love, Dad", type: "positive"},
-{name: "great vid, you deserve more views", type: "positive"},
-{name: "hahah that moment at 2min37", type: "positive"},
-{name: "first", type: "positive"},
-{name: "I've been watching you from your humble beginnings, so glad you've come this far you deserve it", type: "positive"},
-{name: "thumbs up!", type: "positive"},
-{name: "beautiful editing", type: "positive"},
-{name: "best channel out there", type: "positive"},
-{name: "can you do a meet up? ", type: "positive"},
-{name: "Great vid as usual", type: "positive"},
-{name: "subbed", type: "positive"},
-{name: "So creative! ", type: "positive"},
-{name: "I've been subscribed since the beginning, please reply <3", type: "positive"},
-{name: "One of the best creators out there", type: "positive"},
-{name: "I laughed throughout the entire video", type: "positive"},
-{name: "That ending was so beautiful :')", type: "positive"},
-{name: "check out my channel Thomas Loizel on YouTube", type: "positive"},
-{name: "Can I please get a shoutout?", type: "positive"},
-{name: "I approve this message", type: "positive"},
-{name: "I'm an aspiring rapper, and my new mixtape is out now!! Please check out my channel", type: "positive"},
-{name: "U know this rocks when people come back 2 years later!", type: "positive"},
-{name: "I'm on a marathon, watching all the videos from this channel", type: "positive"},
-{name: "favourited, liked, subscribed", type: "positive"},
-{name: "superb editing", type: "positive"},
-{name: "LOVE THIS", type: "positive"},
-{name: "I remove adblock for this channel only", type: "positive"},
-{name: "I would buy anything you sell right now", type: "positive"},
-{name: "This is too good", type: "positive"},
-{name: "Best channel by far", type: "positive"},
-{name: "you remind me of ThumbsUpMovies", type: "positive"},
-{name: "Don't ever quit youtube", type: "positive"},
-{name: "this is high quality content", type: "positive"},
-{name: "editing is on point", type: "positive"},
-{name: "hahaha toooo fuunnnyyy", type: "positive"},
-{name: "Who's still watching this in 2030?", type: "positive"},
-{name: "I once was blind, now I see!", type: "positive"},
-{name: "When will the next episode be out?", type: "positive"},
-{name: "You know what, i might just start making videos myself!", type: "positive"},
-{name: "who cares about being first anyways", type: "positive"},
-{name: "Are you planning on opening a secondary channel?", type: "positive"},
-{name: "You new mic makes your voice so soothing, ASMR-like", type: "positive"},
-{name: "More content please, i've already watched all your videos twice!", type: "positive"},
-{name: "I would be so cool if you created a gaming channel", type: "positive"},
-{name: "All your vids go in my favorites", type: "positive"},
-{name: "Instalike", type: "positive"},
-{name: "~(˘▾˘~) great videooo (~˘▾˘)~", type: "positive"},
-{name: "┏(･o･)┛i'm such a fan┗ (･o･) ┓", type: "positive"},
-{name: "(∫˘▽˘)∫ subbed", type: "positive"},
-{name: "<3 <3 <3 <3 <3 <3", type: "positive"},
-{name: "Never gonna give you up, never gonna let you doooown", type: "positive"},
-{name: "Your hair reminds me of Shane Dawson's", type: "positive"},
-{name: "Where did you get the same hoodies as Ray William Johnson?", type: "positive"},
-{name: "What do you think of the new iphone?", type: "positive"},
-{name: "I wish you would do a collab with NigaHiga", type: "positive"},
-{name: "Is it true you're roomates with Kassem G?", type: "positive"},
-{name: "I wanna grow up to be just like you", type: "positive"},
-{name: "mom doesnt no im watching ur vids until like midnite, theyre too good", type: "positive"},
-{name: "i didn't understand this video...", type: "negative"},
-{name: "This is terrible, unsubbed", type: "negative"},
-{name: "why was this in my recommendations?", type: "negative"},
-{name: "I never subbed to this channel", type: "negative"},
-{name: "was supposed to be funny", type: "negative"},
-{name: "was this filmed with a potato?", type: "negative"},
-{name: "why am I watching this", type: "negative"},
-{name: "unsubbed", type: "negative"},
-{name: "so glad this is over", type: "negative"},
-{name: "Painful to watch", type: "negative"},
-{name: "The cringe was real", type: "negative"},
-{name: "We've seen this kind of content so many times already", type: "negative"},
-{name: "This doesn't deserve more than 7 views", type: "negative"},
-{name: "this is sad to watch", type: "negative"},
-{name: "Worst creator on this platform", type: "negative"},
-{name: "Impressed .. at how bad this is", type: "negative"},
-{name: "unsubscribing as i'm typing", type: "negative"},
-{name: "how do u install Minecraft???", type: "negative"},
-{name: "I had to watch this my eyes closed", type: "negative"},
-{name: "this is where awkwardness was born...", type: "negative"},
-{name: "all your videos are the same", type: "negative"},
-{name: "who is your editor? Please fire him", type: "negative"},
-{name: "This is terrible editing", type: "negative"},
-{name: "Why is this in my recommendations", type: "negative"},
-{name: "Please quit youtube", type: "negative"},
-{name: "sub 4 sub?", type: "negative"},
-{name: "second", type: "negative"},
-{name: "no i was first", type: "negative"},
-{name: "This one time at bandcamp...check out my channel for more!!!", type: "negative"},
-{name: "Top 5 Rappers : 1.Eminem, 2.Slim Shady, 3. Stan, 4. B Rabbit, 5. Marshall", type: "negative"},
-{name: "I miss the old youtube", type: "negative"},
-{name: "I miss the old kanye", type: "negative"},
-{name: "Your intro is waaaay too long dude", type: "negative"},
-{name: "Stop telling me to 'smash that like button', so annoying", type: "negative"},
-{name: "Can we report a channel for low effort?", type: "negative"},
-{name: "Are you like 5 years old?", type: "negative"},
-{name: "You should be playing outside rather than making vids", type: "negative"},
-{name: "Sometimes i wonder if everyone should be allowed on the internet", type: "negative"},
-{name: "I wish i could unsub twice", type: "negative"},
-{name: "I liked so i could dislike even harder afterwards", type: "negative"},
-{name: "How can you still be using Windows Movie Maker in 2020?", type: "negative"},
-{name: "Even my dog edits videos better than this", type: "negative"},
-{name: "i can tell your palms were sweaty, knees were weak and arms were heavy when you shot this video", type: "negative"},
-{name: "I can barely hear your voice with my speakers all the way up :/", type: "negative"},
-  ];
+  {name: "love your content, subscribed!", type: "positive"},
+  {name: "keep it up son! Love, Dad", type: "positive"},
+  {name: "great vid, you deserve more views", type: "positive"},
+  {name: "hahah that moment at 2min37", type: "positive"},
+  {name: "first", type: "positive"},
+  {name: "I've been watching you from your humble beginnings, so glad you've come this far you deserve it", type: "positive"},
+  {name: "thumbs up!", type: "positive"},
+  {name: "beautiful editing", type: "positive"},
+  {name: "best channel out there", type: "positive"},
+  {name: "can you do a meet up? ", type: "positive"},
+  {name: "Great vid as usual", type: "positive"},
+  {name: "subbed", type: "positive"},
+  {name: "So creative! ", type: "positive"},
+  {name: "I've been subscribed since the beginning, please reply <3", type: "positive"},
+  {name: "One of the best creators out there", type: "positive"},
+  {name: "I laughed throughout the entire video", type: "positive"},
+  {name: "That ending was so beautiful :')", type: "positive"},
+  {name: "check out my channel Thomas Loizel on YouTube", type: "positive"},
+  {name: "Can I please get a shoutout?", type: "positive"},
+  {name: "I approve this message", type: "positive"},
+  {name: "I'm an aspiring rapper, and my new mixtape is out now!! Please check out my channel", type: "positive"},
+  {name: "U know this rocks when people come back 2 years later!", type: "positive"},
+  {name: "I'm on a marathon, watching all the videos from this channel", type: "positive"},
+  {name: "favourited, liked, subscribed", type: "positive"},
+  {name: "superb editing", type: "positive"},
+  {name: "LOVE THIS", type: "positive"},
+  {name: "I remove adblock for this channel only", type: "positive"},
+  {name: "I would buy anything you sell right now", type: "positive"},
+  {name: "This is too good", type: "positive"},
+  {name: "Best channel by far", type: "positive"},
+  {name: "you remind me of ThumbsUpMovies", type: "positive"},
+  {name: "Don't ever quit youtube", type: "positive"},
+  {name: "this is high quality content", type: "positive"},
+  {name: "editing is on point", type: "positive"},
+  {name: "hahaha toooo fuunnnyyy", type: "positive"},
+  {name: "Who's still watching this in 2030?", type: "positive"},
+  {name: "I once was blind, now I see!", type: "positive"},
+  {name: "When will the next episode be out?", type: "positive"},
+  {name: "You know what, i might just start making videos myself!", type: "positive"},
+  {name: "who cares about being first anyways", type: "positive"},
+  {name: "Are you planning on opening a secondary channel?", type: "positive"},
+  {name: "You new mic makes your voice so soothing, ASMR-like", type: "positive"},
+  {name: "More content please, i've already watched all your videos twice!", type: "positive"},
+  {name: "I would be so cool if you created a gaming channel", type: "positive"},
+  {name: "All your vids go in my favorites", type: "positive"},
+  {name: "Instalike", type: "positive"},
+  {name: "~(˘▾˘~) great videooo (~˘▾˘)~", type: "positive"},
+  {name: "┏(･o･)┛i'm such a fan┗ (･o･) ┓", type: "positive"},
+  {name: "(∫˘▽˘)∫ subbed", type: "positive"},
+  {name: "<3 <3 <3 <3 <3 <3", type: "positive"},
+  {name: "Never gonna give you up, never gonna let you doooown", type: "positive"},
+  {name: "Your hair reminds me of Shane Dawson's", type: "positive"},
+  {name: "Where did you get the same hoodies as Ray William Johnson?", type: "positive"},
+  {name: "What do you think of the new iphone?", type: "positive"},
+  {name: "I wish you would do a collab with NigaHiga", type: "positive"},
+  {name: "Is it true you're roomates with Kassem G?", type: "positive"},
+  {name: "I wanna grow up to be just like you", type: "positive"},
+  {name: "mom doesnt no im watching ur vids until like midnite, theyre too good", type: "positive"},
+  {name: "i didn't understand this video...", type: "negative"},
+  {name: "This is terrible, unsubbed", type: "negative"},
+  {name: "why was this in my recommendations?", type: "negative"},
+  {name: "I never subbed to this channel", type: "negative"},
+  {name: "was supposed to be funny", type: "negative"},
+  {name: "was this filmed with a potato?", type: "negative"},
+  {name: "why am I watching this", type: "negative"},
+  {name: "unsubbed", type: "negative"},
+  {name: "so glad this is over", type: "negative"},
+  {name: "Painful to watch", type: "negative"},
+  {name: "The cringe was real", type: "negative"},
+  {name: "We've seen this kind of content so many times already", type: "negative"},
+  {name: "This doesn't deserve more than 7 views", type: "negative"},
+  {name: "this is sad to watch", type: "negative"},
+  {name: "Worst creator on this platform", type: "negative"},
+  {name: "Impressed .. at how bad this is", type: "negative"},
+  {name: "unsubscribing as i'm typing", type: "negative"},
+  {name: "how do u install Minecraft???", type: "negative"},
+  {name: "I had to watch this my eyes closed", type: "negative"},
+  {name: "this is where awkwardness was born...", type: "negative"},
+  {name: "all your videos are the same", type: "negative"},
+  {name: "who is your editor? Please fire him", type: "negative"},
+  {name: "This is terrible editing", type: "negative"},
+  {name: "Why is this in my recommendations", type: "negative"},
+  {name: "Please quit youtube", type: "negative"},
+  {name: "sub 4 sub?", type: "negative"},
+  {name: "second", type: "negative"},
+  {name: "no i was first", type: "negative"},
+  {name: "This one time at bandcamp...check out my channel for more!!!", type: "negative"},
+  {name: "Top 5 Rappers : 1.Eminem, 2.Slim Shady, 3. Stan, 4. B Rabbit, 5. Marshall", type: "negative"},
+  {name: "I miss the old youtube", type: "negative"},
+  {name: "I miss the old kanye", type: "negative"},
+  {name: "Your intro is waaaay too long dude", type: "negative"},
+  {name: "Stop telling me to 'smash that like button', so annoying", type: "negative"},
+  {name: "Can we report a channel for low effort?", type: "negative"},
+  {name: "Are you like 5 years old?", type: "negative"},
+  {name: "You should be playing outside rather than making vids", type: "negative"},
+  {name: "Sometimes i wonder if everyone should be allowed on the internet", type: "negative"},
+  {name: "I wish i could unsub twice", type: "negative"},
+  {name: "I liked so i could dislike even harder afterwards", type: "negative"},
+  {name: "How can you still be using Windows Movie Maker in 2020?", type: "negative"},
+  {name: "Even my dog edits videos better than this", type: "negative"},
+  {name: "i can tell your palms were sweaty, knees were weak and arms were heavy when you shot this video", type: "negative"},
+  {name: "I can barely hear your voice with my speakers all the way up :/", type: "negative"},
+    ];
   
 var commentBox = [{comment:"👋", source:"story"},
                   {comment:"Welcome to notYouTube.", source:"story"},
@@ -273,7 +275,7 @@ var ideaProjects = [
   ["End of projects","s","views<1","","Congratulations <span class='boldRed'>[]</span>"],
   ];
 
-load();//REMOVE FOR TESTING
+load(); //REMOVE FOR TESTING
 
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
@@ -294,6 +296,7 @@ function firstPageLoad() {
 memoryBlockRefresh();//refreshes the memory block canvas
 //BulbOn();
 stopIdeaTicker(); //sleep
+clearInterval(energyRegenTimer);
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem-solving. Get out of here!");
@@ -312,13 +315,25 @@ function emptyArray() {
     var ideaLength = ideaQlArray.length;
       if(ideasQtTotal >= 30 && ideaLength > 5 && emptyArrayUsed == false){
       emptyArrayModal.style.display = "block";
-  }
-},5000);
+    }
+  },5000);
 }
 
 function energyUpdate() {
   energy -= batchEnergyCost;
   document.getElementById("energy").innerHTML = energy;
+}
+
+function energyRegen() {
+    if (energy >= energyMax) {
+      energy = 100;
+      return
+    }
+    else if (energy < energyMax) {
+      energy += energyRegenRate;
+    }
+    document.getElementById("energy").innerHTML = energy;
+    subDifferenceColor(1,"energyRefreshNum");
 }
 
 //start idea ticker
@@ -330,7 +345,7 @@ function startIdeaTicker() {
   else {
     thinking(); //you can still click on think with insufficient energy
   };
-    ideaTimer = setInterval(function(){
+    ideaTimer = setInterval(function() {
       if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment
       if(energy >= batchEnergyCost*2) { //energy check inside loop
         ideasGen();
@@ -343,30 +358,33 @@ function startIdeaTicker() {
         energyUpdate();
         thinking();
       }
-      if(energy < batchEnergyCost){
+      if(energy < batchEnergyCost) {
         clearInterval(ideaTimer);
         BulbOff();
         console.log("No more energy"); //PLACEHOLDER FOR PROPER MESSAGE
       }
     },ideaSpeed);
+    clearInterval(energyRegenTimer);
 }
 
 //think button activated
-function thinking(){
+function thinking() { //activates Think button without generating ideas (Ideagen)
   disableButton("startTimer",true);
   disableDiv("startTimer","none");
   disableButton("stopTimer",false);
   disableDiv("stopTimer","auto");  
 }
 
-//stop idea ticker
+//stop idea ticker : SLEEP
 function stopIdeaTicker() {
   clearInterval(ideaTimer);
+  clearInterval(energyRegenTimer);
   disableButton("startTimer",false);
   disableDiv("startTimer","auto");
   disableButton("stopTimer",true);
   disableDiv("stopTimer","none");
   BulbOff();
+  energyRegenTimer = setInterval(energyRegen,1000);
 }
 
 //Light up the bulb
@@ -434,7 +452,7 @@ window.setInterval(function() {
 
 //saves every 10s
 window.setInterval(function() {
-  save();//REMOVE FOR TESTING
+  save(); //REMOVE FOR TESTING
 },10000);                   
 
 //Upgrades creativity
@@ -507,9 +525,9 @@ SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
 let editInterval = null;
 
 function pressingDownEdit(event) {
-  if (event.type == "mousedown") {
-    editInterval = setInterval(clicksLeft,30);
-  }
+    if (event.type == "mousedown") {
+      editInterval = setInterval(clicksLeft,30);
+    }
 }
 
 function pressingUpEdit() {
@@ -518,15 +536,16 @@ function pressingUpEdit() {
 
 //Shoot & Edit
 function clicksLeft() {
-  if(shootEditRem < 0){
+  if(shootEditRem < 0) {
     shootEditRem = 0 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
   }
-  else if(shootEditRem > 0 && ideasQt>0){
+  else if(shootEditRem > 0 && ideasQt > 0) {
     shootEditRem -= 1 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
   }
-  else if(shootEditRem == 0 && ideasQt > 0 && videosEdited < computerMemory){
+  else if(shootEditRem == 0 && ideasQt > 0 && videosEdited < computerMemory) {
+    clearInterval(editInterval); //to stop mousedown editing at every new edited video
     shootEditRem = shootEdit;
     //document.getElementById("editClicks").innerHTML = shootEditRem; 
     videosEdited += 1;
@@ -744,7 +763,7 @@ function SubsFromUpload() {
   var subsRound = subscribers.toFixed();
   document.getElementById("subscriberAmount").innerHTML = numeral(subsRound).format('0,0');
   var subDiff = subscribers - subInitial;
-  subDifferenceColor(subDiff);
+  subDifferenceColor(subDiff,"subDifference");
 }
 
 //to ad color indication on LDR
@@ -779,9 +798,9 @@ function SubsRefresh() {
 }
 
 //subs difference formatting
-function subDifferenceColor(v) {
+function subDifferenceColor(v, ele) { //v is a number for green or red animation, ele is a string the chosen element
   var vRound = v.toFixed();
-  var element = document.getElementById("subDifference");
+  var element = document.getElementById(ele);
   var clone = element.cloneNode(true);
   element.parentNode.replaceChild(clone, element);
   if (v < 0){
@@ -789,7 +808,7 @@ function subDifferenceColor(v) {
     clone.classList.remove("animatedGreen");
     clone.classList.add("animatedRed");
   }
-  else{
+  else {
     clone.innerHTML = "+"+vRound;
     clone.classList.remove("animatedRed");
     clone.classList.add("animatedGreen");
