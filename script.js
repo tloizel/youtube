@@ -326,14 +326,13 @@ function energyUpdate() {
 
 function energyRegen() {
     if (energy >= energyMax) {
-      energy = 100;
-      return
+      energy = energyMax;
     }
     else if (energy < energyMax) {
       energy += energyRegenRate;
+      subDifferenceColor(1,"energyRefreshNum");
     }
     document.getElementById("energy").innerHTML = energy;
-    subDifferenceColor(1,"energyRefreshNum");
 }
 
 //start idea ticker
