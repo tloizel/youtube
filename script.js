@@ -10,7 +10,7 @@ var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
 var ideasQtTotal = 0; //amount of ideas since beginning - 0
-var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 5000; //speed of idea generation : the lower the number the faster ideas generate
 var energy = 100; //current energy amount
 var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
@@ -322,18 +322,18 @@ function emptyArray() {
 function energyUpdate() {
   energy -= batchEnergyCost;
   document.getElementById("energy").innerHTML = energy;
+  subDifferenceColor(-batchEnergyCost,"energyRefreshNum");
 }
 
 function energyRegen() {
     if (energy >= energyMax) {
       energy = 100;
-      return
     }
     else if (energy < energyMax) {
       energy += energyRegenRate;
+      subDifferenceColor(energyRegenRate,"energyRefreshNum");
     }
     document.getElementById("energy").innerHTML = energy;
-    subDifferenceColor(1,"energyRefreshNum");
 }
 
 //start idea ticker
