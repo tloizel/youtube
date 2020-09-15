@@ -256,7 +256,7 @@
         </div> <!--end of child flex CASH-->
       </div> <!--End of parent flex 2-->      
 
-      <!-- SLEEP MODAL -->     
+            <!-- SLEEP MODAL -->     
       <!-- The Modal -->
       <div id="sleepingModal" class="modal">
         <!-- Modal content -->
@@ -271,6 +271,23 @@
           <div class="modal-footer">
             <button class="button" id="sleepBut1" onclick="sleepModalReminderTrue()">Remind me later</button>
             <button class="button" id="sleepBut2" onclick="sleepModalReminderFalse()">Got it, don't remind me again it's annoying</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSERT NAME MODAL -->     
+      <!-- The Modal -->
+      <div id="channelModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Enter channel name</h2>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="channelInput" name="channelname" required minlength="2" maxlength="10" onkeypress="CheckSpace(event)"> 
+          </div>
+          <div class="modal-footer">
+            <button class="button" id="channelBut1" onclick="insertName()">Let's start</button>
           </div>
         </div>
       </div>

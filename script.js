@@ -2,6 +2,7 @@
 var testTimer = setInterval(testProjects,500);
 var emptyArrayUsed = false;
 var sleepModalReminder = true; //true - activate sleep alert
+var channel = "unknown";//channel name
 
 //IDEA
 var ideaTimer = null;
@@ -164,7 +165,7 @@ var comments = [
     ];
   
 var commentBox = [{comment:"👋", source:"story"},
-                  {comment:"Welcome to notYouTube.", source:"story"},
+                  {comment:"Welcome to notYouTube", source:"story"},
                   {comment:"This is a game of patience, optimisation and problem-solving.", source:"story"},
                   {comment:"Once you have unlocked all the projects, a secret code will be revealed.", source:"story"},
                   {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
@@ -288,7 +289,7 @@ function firstPageLoad() {
     disableButton("startTimer",true);
     disableButton("myonoffswitch",true); //autoEdit switch disabled
     disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
-    //setTimeout(helpBulbStory, 60100);
+    displayInsertName(); //insert channel name
   }
 }
 
@@ -783,10 +784,10 @@ function LDRColor() {
 function SubsRefresh() {
   //var subInitial = subscribers;
   if (likeDislikeRatio >= 50){
-    subscribers += videosUploaded * parseInt(likeDislikeRatio/10)*0.01;
+    subscribers += videosUploaded * likeDislikeRatio * Math.exp(likeDislikeRatio*0.02) * 0.0005;
   }
   else {
-    subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10)*0.1;
+    subscribers -= videosUploaded * likeDislikeRatio * Math.exp((50-likeDislikeRatio)*0.02) * 0.0005;
   }
   if (subscribers < 0){
     subscribers = 0;
@@ -1121,4 +1122,29 @@ function restartModalTrue(){
   localStorage.removeItem("save");
   ga("send", "event", "Delete Save", "Click");
   location.reload();
+}
+
+//display insert name modal
+function displayInsertName(){
+  var channelName = document.getElementById("channelModal");
+  channelName.style.display = "block";
+}
+
+//record name
+function insertName(){
+  channel = document.getElementById("channelInput").value;
+  commentBox[1].comment = "Welcome to notYouTube " + channel;
+  document.getElementById("comment2").innerHTML = commentBox[1].comment;
+  var channelName = document.getElementById("channelModal");
+  channelName.style.display = "none";
+}
+
+//prevent spaces in channel ame
+function CheckSpace(event)
+{
+   if(event.which ==32)
+   {
+      event.preventDefault();
+      return false;
+   }
 }
