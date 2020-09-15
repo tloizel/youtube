@@ -439,7 +439,7 @@ function autoUpload() {
 
 //start timer2 _ NOT A FUNCTION
 window.setInterval(function() {
-  SubsRefresh();
+  subsRefresh();
   viewsRefresh();
   cashGen();
   autoEdit();
@@ -781,7 +781,7 @@ function LDRColor() {
 }
 
 //subs from ticker
-function SubsRefresh() {
+function subsRefresh() {
   //var subInitial = subscribers;
   if (likeDislikeRatio >= 50){
     subscribers += videosUploaded * likeDislikeRatio * Math.exp(likeDislikeRatio*0.02) * 0.0005;
@@ -1004,7 +1004,7 @@ function save(){
     views: {variable: views, idf:"viewsRefresh()"},
     adAmount: {variable: adAmount, id:"adLoad"},
     likeDislikeRatio: {variable: likeDislikeRatio, idf:"LDR()"},
-    subscribers: {variable: subscribers, idf:"SubsRefresh()"},
+    subscribers: {variable: subscribers, idf:"subsRefresh()"},
     cashAmount: {variable: cashAmount, idf:"cashRefresh()"},
     adLoadMax: {variable: adLoadMax},
     expensesComp: {variable: expensesComp},
