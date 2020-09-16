@@ -59,6 +59,7 @@
         <div class="small-right-margin">
           <div class="notYoutube">notYouTube</div>
           <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
+          <button class="settingsButton" onclick=scoreModalOpen()><i class="fa fa-2x fa-trophy" aria-hidden="true"></i></button>
         </div>
       </div>
       <!--Start of parentFlex 1-->
@@ -284,7 +285,7 @@
             <h2>Enter channel name</h2>
           </div>
           <div class="modal-body">
-            <input type="text" id="channelInput" name="channelname" required minlength="2" maxlength="10" onkeypress="CheckSpace(event)"> 
+            <input type="text" id="channelInput" name="channelname" required minlength="0" maxlength="12" onkeypress="CheckSpace(event)"> 
           </div>
           <div class="modal-footer">
             <button class="button" id="channelBut1" onclick="insertName()">Let's start</button>
@@ -330,6 +331,24 @@
           </div>
         </div>
       </div>
+
+      <!-- SCORE MODAL -->     
+      <!-- The Modal -->
+      <div id="scoreModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class=close id="closeScoreModal">&times;</span> 
+          <div class="modal-header">
+            <h2>Scoreboard</h2>
+          </div>
+          <div class="modal-body">
+            <p>Insert table here</p>
+          </div>
+          <div class="modal-footer">
+            <button class="button" id="restartBut1" onclick="scoreModalClose()">OK</button>
+          </div>
+        </div>
+      </div>      
     
       <script src="fitty.min.js"></script>
       <script src="fittyProjects.js" type="text/javascript"></script>

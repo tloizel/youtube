@@ -2,7 +2,8 @@
 var testTimer = setInterval(testProjects,500);
 var emptyArrayUsed = false;
 var sleepModalReminder = true; //true - activate sleep alert
-var channel = "unknown";//channel name
+var channel = "unknown"; //channel name
+var score = 0; //game score
 
 //IDEA
 var ideaTimer = null;
@@ -449,6 +450,7 @@ window.setInterval(function() {
 //calls comments every minute
 window.setInterval(function() {
   callComment();
+  calculateScore();
 },60000);
 
 //saves every 10s
@@ -982,6 +984,7 @@ function disableDiv(div,state) {
 
 function save(){
   var gameSave = {
+    score: {variable: score},
     sleepModalReminder: {variable: sleepModalReminder},
     emptyArrayUsed: {variable: emptyArrayUsed},
     creativity: {variable: creativity, id:"creativityLvl"},
@@ -1133,7 +1136,7 @@ function displayInsertName(){
 //record name
 function insertName(){
   channel = document.getElementById("channelInput").value;
-  commentBox[1].comment = "Welcome to notYouTube " + channel;
+  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:red'>" + channel + "</span>";
   document.getElementById("comment2").innerHTML = commentBox[1].comment;
   var channelName = document.getElementById("channelModal");
   channelName.style.display = "none";
@@ -1148,3 +1151,25 @@ function CheckSpace(event)
       return false;
    }
 }
+
+//game score
+function calculateScore(){
+  score+=1;
+}
+
+//open scoreboard
+function scoreModalOpen(){
+  var scoreboard = document.getElementById("scoreModal");
+  scoreboard.style.display = "block";
+    var closeModal = document.getElementById("closeScoreModal");
+    closeModal.onclick = function() {
+    scoreboard.style.display = "none";
+    }
+}
+
+//close scoreboard
+function scoreModalClose(){
+  var scorebard = document.getElementById("scoreModal");
+  scorebard.style.display = "none";
+}
+

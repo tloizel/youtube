@@ -66,6 +66,7 @@ h2 {
   padding: 0; /* to remove default padding */
   margin-top: .3em;
   margin-bottom: .3em;
+  margin-left: .3em;
 }
 
 .settingsButton:focus {
