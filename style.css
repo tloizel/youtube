@@ -635,6 +635,10 @@ h2 {
   cursor: pointer;
 }
 
+.negativeProject {
+  background-color: blue;
+}
+
 .projectTitle {
   font-weight: bold;
   white-space: normal !important; /* to make the text wrap */
