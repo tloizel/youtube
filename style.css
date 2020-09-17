@@ -36,6 +36,13 @@ body {
   margin-top: 10em;
 }
 
+h1 {
+  font-size: 2vh;
+  margin-top: 0.5vh;
+  margin-bottom: 0vh;
+  font-weight: normal;
+}
+
 h2 {
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
@@ -51,11 +58,6 @@ h2 {
   font-size: 6vh;
   width: 95%;
   padding-left: 2vw;
-}
-
-.notYoutube {
-  font-size: 2vh;
-  margin-top: 0.5vh;
 }
 
 .settingsButton {
