@@ -52,6 +52,9 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
+var visibleEditBlock = false;
+var visibleUploadBlock = false;
+var visibleAnalyticsBlock = false;
 var visibleCash = false;
 var visibleAdAmount = false;
 var visibleAutoEdit = false;
@@ -179,6 +182,7 @@ var commentBox = [{comment:"👋", source:"story"},
 
 //project arrays
 var ideaProjects = [
+  ["Start thinking","Generate 1 idea","ideasQtTotal>=1","editAppear()","You can now edit videos <span class='boldRed'>[Edit appear]</span>","0","0"],
   ["Binge watch YouTube","Generate 5 ideas","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Invite a mate over","Generate 25 ideas","ideasQtTotal>=25","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn <span class='boldRed'>[+1 Creativity]</span>","0","0"],
@@ -194,6 +198,7 @@ var ideaProjects = [
   ["End of projects","u","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
   var shootEditProjects = [
+  ["Start Editing","Edit 1 video","videosEditedTotal>=1","uploadAppear()","You can now upload videos <span class='boldRed'>[Upload appear]</span>","0","0"],
   ["Watch an iMovie tutorial","Edit 3 videos","videosEditedTotal>=3","shootEdit-=25;shootEditRem-=24;clicksLeft()","Two hours later, you're a pro <span class='boldRed'>[-25 Clicks]</span>","0","0"],
   ["Borrow your sister's USB key","Edit 10 videos","videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned <span class='boldRed'>[+1 Memory]</span>","0","0"],
   ["Buy a gaming mouse","Edit 15 videos & Pay $100","videosEditedTotal>=15&&cashAmount>=100","shootEdit-=25;shootEditRem-=24;cashAmount-=100;clicksLeft()","For that precious click speed <span class='boldRed'>[-25 Clicks & -$100]</span>","0","0"],
@@ -214,6 +219,7 @@ var ideaProjects = [
   ["End of projects","d","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
   var uploadProjects = [
+  ["Start uploading","Upload 1 video","videosUploaded>=1","analyticsAppear()","Now get more subs! 100M ain't that hard <span class='boldRed'>[Analytics appear]</span>","0","0"],
   ["Upload videos from school library","Upload 3 videos","videosUploaded>=3","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>","0","0"],
   ["Figure out how to use hotspot","Upload 15 videos & Pay $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>","0","0"],
   ["Buy an ethernet cable","Upload 20 videos & Pay $500","videosUploaded>=20 && cashAmount>=500","upgradeUploadSpeed(4);cashAmount-=500","Old school but efficient <span class='boldRed'>[+100kB/s Upload Speed & -$500]</span>","0","0"],
@@ -290,6 +296,10 @@ function firstPageLoad() {
     disableButton("startTimer",true);
     disableButton("myonoffswitch",true); //autoEdit switch disabled
     disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
+    disableDiv("childFlexEdit","none");
+    disableDiv("uploadB","none");
+    disableDiv("subAdButton","none");
+    disableDiv("addAdButton","none");
     displayInsertName(); //insert channel name
   }
 }
@@ -298,7 +308,7 @@ function firstPageLoad() {
 memoryBlockRefresh();//refreshes the memory block canvas
 //BulbOn();
 stopIdeaTicker(); //sleep
-clearInterval(energyRegenTimer);
+clearInterval(energyRegenTimer); // IS THIS LINE NECESSARY?
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem-solving. Get out of here!");
@@ -528,6 +538,7 @@ function newArray(value, len) {
   return arr;
 }
 
+//click hold for edit
 SECircleContainer.addEventListener("mousedown", pressingDownEdit);
 SECircleContainer.addEventListener("mouseup", pressingUpEdit);
 SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
@@ -983,6 +994,14 @@ function flickAppear(class1,num) {
   testTimer = setInterval(testProjects,500);
 }
 
+//flickering effect on appearing objects THAT APPEAR ONCE (eg blocks)
+function flickAppearOnce(class1,num) {
+  clearInterval(testTimer);
+  var element = document.getElementsByClassName(class1)[num];
+  element.classList.add("animated");
+  testTimer = setInterval(testProjects,500);
+}
+
 //function to enable/disable buttons : the button will not be clickable
 function disableButton(button,state) {
   document.getElementById(button).disabled = state;
@@ -1034,6 +1053,9 @@ function save(){
     subProjects: {variable: subProjects, idf:"projectRefresh(subProjects,subProjectsTitle,subProjectsDesc)"},
     cashProjects: {variable: cashProjects, idf:"projectRefresh(cashProjects,cashProjectsTitle,cashProjectsDesc)"},
     commentBox: {variable: commentBox, idf:"callComment()"},
+    visibleEditBlock: {variable: visibleEditBlock},
+    visibleUploadBlock: {variable: visibleUploadBlock},
+    visibleAnalyticsBlock: {variable: visibleAnalyticsBlock},
     visibleCash: {variable: visibleCash},
     visibleAdAmount: {variable: visibleAdAmount},
     visibleAutoEdit: {variable: visibleAutoEdit},
