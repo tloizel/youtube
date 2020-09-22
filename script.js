@@ -183,8 +183,8 @@ var ideaProjects = [
   ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Invite a mate over","Generate 25 ideas","ideasQtTotal>=25","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Watch the OGs of YouTube","Generate 50 ideas","ideasQtTotal>=50","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who? <span class='boldRed'>[+1 Creativity]</span>","0","0"],
-  ["Take guitar lessons","Reach 500k views & 5k subscribers & Pay $500","views>=500000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=500;ideaRangeMax(rangeIdea)","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity & -$500]</span>","0","0"],
-  ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+3 Creativity]</span>","0","0"],
+  ["Take guitar lessons","Reach 500k views & 5k subscribers & Pay $500","views>=500000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=500;ideaRangeMax(rangeIdea);creativeBlock()","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity & -$500]</span>","0","0"],
+  ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(10);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+10 Creativity]</span>","negativeProject","Your creativity just plummeted, reach the next project to get your imagination back to normal!"],
   ["Finish Netflix","Generate 300 ideas & Reach 7.5 average video quality","averageQl>=7.5 && ideasQtTotal>=300","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Get that inspo <span class='boldRed'>[+2 Creativity]</span>","0","0"],
   ["Buy a kitten","Generate 500 ideas & Reach 250M views & Pay $15k","views>=250000000 && ideasQtTotal>=500 && cashAmount >=15000","upgradeCreativity(3);ideaRangeMax(rangeIdea);cashAmount-=15000","They're the real OGs of YouTube <span class='boldRed'>[+3 Creativity & -$15k]</span>","0","0"],
   ["Buy a greenscreen","Reach 9.25 average video quality & Pay $30k","averageQl>=9.25 && cashAmount >=30000","upgradeCreativity(3);ideaRangeMax(rangeIdea);cashAmount-=30000","Your bedroom is now a creative cocoon <span class='boldRed'>[+3 Creativity & -$30k]</span>","0","0"],
@@ -229,7 +229,7 @@ var ideaProjects = [
   ];
   var subProjects = [
   ["Reply to comments","Reach 50 subscribers","subscribers>=50","views+=200;stopIdeaTicker()","Love you guys <span class='boldRed'>[+200 Views & Get back to thinking!]</span>","0","0"],
-  ["Pimp your video intro","Reach 100 subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho <span class='boldRed'>[+500 Views & Get back to thinking!]</span>","negativeProject","This is a test"],
+  ["Pimp your video intro","Reach 100 subscribers","subscribers>=100","views+=500;stopIdeaTicker()","Don't make it a minute long tho <span class='boldRed'>[+500 Views & Get back to thinking!]</span>","0","0"],
   ["Break the piggy bank","Reach 150 subscribers","subscribers>=150","cashAppear()","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>","0","0"],
   ["SMASH THAT LIKE BUTTON","Reach 300 subscribers","subscribers>=300","views+=5000","Reminding never hurts <span class='boldRed'>[+5k Views]</span>","0","0"],
   ["Shoutout from Philip DeFranco","Reach 1k subscribers","subscribers>=1000","subscribers=subscribers*2","What's up you beautiful bastards <span class='boldRed'>[Doubled your subscribers!]</span>","0","0"],
@@ -277,7 +277,7 @@ var ideaProjects = [
   ["End of projects","s","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
 
-load(); //REMOVE FOR TESTING
+  load(); //REMOVE FOR TESTING
 
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
@@ -473,6 +473,12 @@ function ideaRangeMax(rangeValue) {
   ideaQl = maxRangeValue - rangeValue;
   document.getElementById("ideaQl").innerHTML = ideaQl;
   ideaRange.value = rangeIdea; //updates the slider thumb when loading save
+}
+
+//Creative block project
+function creativeBlock(){
+  upgradeCreativity(-7);
+  ideaRangeMax(1);
 }
 
 //Adds up range value quantities in ideas generated and calculates Ql array
