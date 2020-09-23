@@ -993,7 +993,6 @@ function flickAppear(class1,num) {
   clone.classList.add("animated");
   testTimer = setInterval(testProjects,500);
 }
-
 //flickering effect on appearing objects THAT APPEAR ONCE (eg blocks)
 function flickAppearOnce(class1,num) {
   clearInterval(testTimer);
