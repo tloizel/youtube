@@ -61,7 +61,7 @@
         <div class="small-right-margin">
           <h1>notYouTube</h1>
           <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
-          <button class="settingsButton" onclick=scoreModalOpen()><i class="fa fa-2x fa-trophy" aria-hidden="true"></i></button>
+          <button class="settingsButton" onclick=scoreModalOpen();allScores()><i class="fa fa-2x fa-trophy" aria-hidden="true"></i></button>
         </div>
       </div>
       <!--Start of parentFlex 1-->
@@ -341,10 +341,68 @@
         <div class="modal-content">
           <span class=close id="closeScoreModal">&times;</span> 
           <div class="modal-header">
-            <h2>Scoreboard</h2>
+            <h2>Top 10 channels</h2>
           </div>
           <div class="modal-body">
-            <p>Insert table here</p>
+            <span>Your score:</span><span id="showScore">0</span>
+            <table id=scoreboard style="width:100%">
+              <tr>
+                <th>Name</th>
+                <th>Prestige</th> 
+                <th>Score (in minutes)</th>
+              </tr>
+              <tr>
+                <td id="tdChannel1"></td>
+                <td id="tdPrestige1"></td> 
+                <td id="tdScore1"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel2"></td>
+                <td id="tdPrestige2"></td> 
+                <td id="tdScore2"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel3"></td>
+                <td id="tdPrestige3"></td> 
+                <td id="tdScore3"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel4"></td>
+                <td id="tdPrestige4"></td> 
+                <td id="tdScore4"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel5"></td>
+                <td id="tdPrestige5"></td> 
+                <td id="tdScore5"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel6"></td>
+                <td id="tdPrestige6"></td> 
+                <td id="tdScore6"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel7"></td>
+                <td id="tdPrestige7"></td> 
+                <td id="tdScore7"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel8"></td>
+                <td id="tdPrestige8"></td> 
+                <td id="tdScore8"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel9"></td>
+                <td id="tdPrestige9"></td> 
+                <td id="tdScore9"></td>
+              </tr>
+              <tr>
+                <td id="tdChannel10"></td>
+                <td id="tdPrestige10"></td> 
+                <td id="tdScore10"></td>
+              </tr>
+            
+            </table>
           </div>
           <div class="modal-footer">
             <button class="button" id="restartBut1" onclick="scoreModalClose()">OK</button>

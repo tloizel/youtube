@@ -1212,3 +1212,21 @@ function scoreModalClose(){
   scorebard.style.display = "none";
 }
 
+//RETRIEVE ALL SCORE FROM BACK
+async function allScores(){
+  const response = await fetch('https://notyoutube-back.herokuapp.com/retrieveScore');
+  const data = await response.text();
+  const obj = JSON.parse(data);
+  updateTable(obj);
+}
+function updateTable(object){
+  for (var i = 0; i < 10; i++) {
+  let channelID = "tdChannel"+(i+1);
+  let prestigeID = "tdPrestige"+(i+1);
+  let scoreID = "tdScore"+(i+1);
+  document.getElementById(channelID).innerHTML = object[i].channel;
+  document.getElementById(prestigeID).innerHTML = object[i].prestige;
+  document.getElementById(scoreID).innerHTML = object[i].score;
+  }
+  document.getElementById("showScore").innerHTML = score;
+}
