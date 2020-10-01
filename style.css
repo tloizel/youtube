@@ -750,3 +750,9 @@ h2 {
   cursor: pointer;
 }
 
+#scoreboard{
+  width: 100%;
+}
+.tableData{
+  text-align: center;
+}
