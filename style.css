@@ -615,7 +615,7 @@ h2 {
 }
 
 .storyComment {
-  color:blue;
+  color:red;
   opacity:1;
 }
 
@@ -638,7 +638,7 @@ h2 {
 }
 
 .negativeProject {
-  background-color: blue;
+  background-color: red;
 }
 
 .projectTitle {
