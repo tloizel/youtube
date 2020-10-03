@@ -75,6 +75,17 @@ h2 {
   outline: 0;
 }
 
+#prestige {
+  border: none;
+  cursor: default;
+  float: right;
+  background-color: #f5f6fa;
+  padding: 0; /* to remove default padding */
+  margin-top: .3em;
+  margin-right: .2em;
+  margin-left: .3em;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;

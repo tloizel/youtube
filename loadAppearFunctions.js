@@ -1,31 +1,46 @@
 //functions for block appears
+function prestigeAppear(){
+  document.getElementById("prestige").innerHTML = "P" + prestige;
+  flickAppear('reveal',0);
+  visiblePrestige = true;
+}
+
+function analyticsAppear(){
+  flickAppear('reveal',1);
+  visibleAnalyticsBlock = true;
+}
 function editAppear(){
-  flickAppearOnce('reveal',1);
+  flickAppearOnce('reveal',2);
   memoryBlockRefresh();
   disableDiv("childFlexEdit",'auto');
   visibleEditBlock = true;
 }
 function uploadAppear(){
-  flickAppear('reveal',4);
+  flickAppear('reveal',5);
   disableDiv("uploadB",'auto');
   visibleUploadBlock = true;
 }
-function analyticsAppear(){
-  flickAppear('reveal',0);
-  visibleAnalyticsBlock = true;
+
+function projectedAverageAppear() {
+  flickAppear('reveal',6);
+  visibleProjectedAverage = true;
 }
 
-
 function cashAppear() {
-  flickAppear('reveal',6);
+  flickAppear('reveal',7);
   disableDiv('cashProjectsB','auto');
   disableDiv("subAdButton",'auto');
   disableDiv("addAdButton",'auto');
   visibleCash = true;
 }
 
+function incomeAppear() {
+  flickAppear('reveal',8);
+  visibleIncome = true;
+}
+
 function adAmountAppear() {
-  flickAppear('reveal',9);
+  flickAppear('reveal',10);
   disableButton('subAdButton',false);
   disableButton('addAdButton',false);
   visibleAdAmount = true;
@@ -33,9 +48,9 @@ function adAmountAppear() {
 
 //function concerns autoEdit switch and editor expenses
 function autoEditAppear() {
-  flickAppear('reveal',2);//autoedit
-  flickAppear('reveal',8);//expenses
   flickAppear('reveal',3);//autoedit
+  flickAppear('reveal',9);//expenses
+  flickAppear('reveal',4);//autoedit
   disableButton('myonoffswitch',false);
   disableDiv('onOffSwitchContainer','auto');
   visibleAutoEdit = true;
@@ -63,17 +78,8 @@ function incomeUpdate(){
   }
 }
 
-function projectedAverageAppear() {
-  flickAppear('reveal',5);
-  visibleProjectedAverage = true;
-}
-
-function incomeAppear() {
-  flickAppear('reveal',7);
-  visibleIncome = true;
-}
-
 function loadVisibleDivs() {
+  if(visiblePrestige == true){prestigeAppear()};
   if(visibleEditBlock == true){editAppear()};
   if(visibleUploadBlock == true){uploadAppear()};
   if(visibleAnalyticsBlock == true){analyticsAppear()};

@@ -4,6 +4,7 @@ var emptyArrayUsed = false;
 var sleepModalReminder = true; //true - activate sleep alert
 var channel = "unknown"; //channel name
 var score = 0; //game score
+var prestige = 0;//prestige
 
 //IDEA
 var ideaTimer = null;
@@ -52,6 +53,7 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
+var visiblePrestige = false;
 var visibleEditBlock = false;
 var visibleUploadBlock = false;
 var visibleAnalyticsBlock = false;
@@ -1015,7 +1017,9 @@ function disableDiv(div,state) {
 
 function save(){
   var gameSave = {
+    channel: {variable: channel},
     score: {variable: score},
+    prestige: {variable: prestige},
     sleepModalReminder: {variable: sleepModalReminder},
     emptyArrayUsed: {variable: emptyArrayUsed},
     creativity: {variable: creativity, id:"creativityLvl"},
@@ -1052,6 +1056,7 @@ function save(){
     subProjects: {variable: subProjects, idf:"projectRefresh(subProjects,subProjectsTitle,subProjectsDesc)"},
     cashProjects: {variable: cashProjects, idf:"projectRefresh(cashProjects,cashProjectsTitle,cashProjectsDesc)"},
     commentBox: {variable: commentBox, idf:"callComment()"},
+    visiblePrestige: {variable: visiblePrestige},
     visibleEditBlock: {variable: visibleEditBlock},
     visibleUploadBlock: {variable: visibleUploadBlock},
     visibleAnalyticsBlock: {variable: visibleAnalyticsBlock},
@@ -1060,7 +1065,7 @@ function save(){
     visibleAutoEdit: {variable: visibleAutoEdit},
     visibleProjectedAverage: {variable: visibleProjectedAverage},
     visibleExpenses: {variable: visibleExpenses},
-    visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}
+    visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}//this must be last
   };
   localStorage.setItem("save",JSON.stringify(gameSave));
   //console.log(gameSave); //ADD FOR TESTING
@@ -1175,7 +1180,7 @@ function insertName(){
   else {
     channel = "user301";
   }
-  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:red'>" + channel + "</span>";
+  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:green'>" + channel + "</span>";
   document.getElementById("comment2").innerHTML = commentBox[1].comment;
   var channelName = document.getElementById("channelModal");
   channelName.style.display = "none";
@@ -1230,3 +1235,18 @@ function updateTable(object){
   }
   document.getElementById("showScore").innerHTML = score;
 }
+
+//SEND SCORE TO BACK
+async function sendScore(){
+  const data = {channel, prestige, score};
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+        },
+    body: JSON.stringify(data)
+    };
+  const response = await fetch('https://notyoutube-back.herokuapp.com/newScore', options);
+  const json = await response.json();
+  console.log(json);
+};
