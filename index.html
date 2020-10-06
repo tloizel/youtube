@@ -290,7 +290,7 @@
             <h2>Enter channel name</h2>
           </div>
           <div class="modal-body">
-            <input type="text" id="channelInput" name="channelname" required minlength="0" maxlength="12" onkeypress="CheckSpace(event)"> 
+            <input type="text" id="channelInput" name="channelname" required minlength="0" maxlength="14" onkeypress="CheckSpace(event)"> 
           </div>
           <div class="modal-footer">
             <button class="button" id="channelBut1" onclick="insertName()">Let's start</button>
@@ -347,13 +347,13 @@
             <h2>Top 10 channels</h2>
           </div>
           <div class="modal-body">
-            <span>Your score:</span><span id="showScore">0</span>
+            <p id="yourScore">Your <span id="currentOrFinal">current</span> time: <span id="showScore">0</span> min</p>
             <table id="scoreboard">
               <tr>
                 <th>Rank</th>
-                <th>Channel name</th>
+                <th>Channel</th>
                 <th>Prestige</th> 
-                <th>Minutes to reach 100M subs</th>
+                <th>Score</th>
               </tr>
               <tr>
                 <td class="tableData">#1</td>

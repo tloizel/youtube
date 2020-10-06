@@ -177,7 +177,7 @@ var commentBox = [{comment:"👋", source:"story"},
                   {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
                   {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new computer mouse.", source:"story"},
                   {comment:"The road to 100M subscribers will be paved with obstacles!", source:"story"},
-                  {comment:"Good luck, have fun!", source:"story"},
+                  {comment:"Fastest to reach 100M wins, good luck!", source:"story"},
                   //{comment:"",source:""},
                   //{comment:"",source:""},
                   ];
@@ -185,7 +185,7 @@ var commentBox = [{comment:"👋", source:"story"},
 //project arrays
 var ideaProjects = [
   ["Start thinking","Generate 1 idea","ideasQtTotal>=1","editAppear()","You can now edit videos <span class='boldRed'>[Edit appear]</span>","0","0"],
-  ["Binge watch YouTube","Generate 5 ideas","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
+  ["Binge watch YouTube","Generate 5 ideas","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing <span class='boldRed'>[+1 Creativity]</span>","story","test"],
   ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Invite a mate over","Generate 25 ideas","ideasQtTotal>=25","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Watch the OGs of YouTube","Generate 50 ideas","ideasQtTotal>=50","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who? <span class='boldRed'>[+1 Creativity]</span>","0","0"],
@@ -291,7 +291,7 @@ var ideaProjects = [
 firstPageLoad();
 function firstPageLoad() {
   if(ideasQtTotal == 0 && emptyArrayUsed == false){
-    ideasGen(); //generate one idea to start off with
+    //ideasGen(); //generate one idea to start off with
     disableButton("subAdButton",true);
     disableButton("addAdButton",true);
     disableDiv("cashProjectsB","none");
@@ -317,7 +317,7 @@ console.log("This isn't what we meant by problem-solving. Get out of here!");
 refreshFitty();
 if(emptyArrayUsed == false){emptyArray()};
 
-//inital comment on first flash
+//inital comment on first flash NOT USED ANYMORE
 function helpBulbStory() {
   commentBox.unshift({comment:"Your light bulb just flashed after 1 minute of thinking, you've generated one or several new ideas!",source:"callProject"});
   commentArrayShift();
@@ -360,7 +360,7 @@ function startIdeaTicker() {
     thinking(); //you can still click on think with insufficient energy
   };
     ideaTimer = setInterval(function() {
-      if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment
+      //if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment NOT USED ANYMORE
       if(energy >= batchEnergyCost*2) { //energy check inside loop
         ideasGen();
         BulbOn();
@@ -962,8 +962,10 @@ function callProject(element,array,title,desc,num) {
       document.getElementById(projectTitle).innerHTML = array[0][0];
       document.getElementById(projectDesc).innerHTML = array[0][1];
       if(array[0][5]!=="0" && array[0][6]!=="0"){ //comments for storyline, such as negative effect projects
-        commentBox.unshift({comment:array[0][6],source:"story"});
-        commentArrayShift();
+        var str = array[0][6];;
+        var res = str.replace("channelReplace", channel);
+        commentBox.unshift({comment:res,source:"story"});
+        setTimeout(function(){ commentArrayShift(); }, 3000);
       }
   }
 }
@@ -1180,7 +1182,7 @@ function insertName(){
   else {
     channel = "user301";
   }
-  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:green'>" + channel + "</span>";
+  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:red'>" + channel + "</span>";
   document.getElementById("comment2").innerHTML = commentBox[1].comment;
   var channelName = document.getElementById("channelModal");
   channelName.style.display = "none";
