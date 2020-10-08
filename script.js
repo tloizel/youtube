@@ -6,9 +6,14 @@ var channel = "unknown"; //channel name
 var score = 0; //game score
 var prestige = 0;//prestige
 
+//Prestige choice
+var creativityP = 0;//0
+var editP = 1;//1
+var energyP = 1;//1
+
 //IDEA
 var ideaTimer = null;
-var creativity = 1; //creativity level - 1
+var creativity = 1 + creativityP; //creativity level - 1
 var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
@@ -19,6 +24,7 @@ var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
 var energyRegenRate = 1; //amount of energy gained (per second)
 var energyRegenTimer = null;
+var energyRegenSpeed = 1000 * energyP; //ONLY CHANGED BY PRESTIGE
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video - 200
@@ -26,6 +32,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
+var editPressSpeed = 50 * editP;//50ms ONLY CHANGED BY PRESTIGE
 var editorSpeed = 4; //how many times to call the function - 1
 
 //UPLOAD
@@ -175,9 +182,9 @@ var commentBox = [{comment:"👋", source:"story"},
                   {comment:"This is a game of patience, optimisation and problem-solving.", source:"story"},
                   {comment:"Once you have unlocked all the projects, a secret code will be revealed.", source:"story"},
                   {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
-                  {comment:"If the code is correct, you’ll enter our raffle for a brand spanking new computer mouse.", source:"story"},
                   {comment:"The road to 100M subscribers will be paved with obstacles!", source:"story"},
-                  {comment:"Fastest to reach 100M wins, good luck!", source:"story"},
+                  {comment:"Fastest to reach 100M, wins.", source:"story"},
+                  {comment:"Good luck!", source:"story"},
                   //{comment:"",source:""},
                   //{comment:"",source:""},
                   ];
@@ -317,9 +324,9 @@ console.log("This isn't what we meant by problem-solving. Get out of here!");
 refreshFitty();
 if(emptyArrayUsed == false){emptyArray()};
 
-//inital comment on first flash NOT USED ANYMORE
+//inital comment on first flash
 function helpBulbStory() {
-  commentBox.unshift({comment:"Your light bulb just flashed after 1 minute of thinking, you've generated one or several new ideas!",source:"callProject"});
+  commentBox.unshift({comment:"Your light bulb just flashed after 1 minute of thinking, you've generated your first idea(s)!",source:"callProject"});
   commentArrayShift();
 }
 
@@ -360,7 +367,7 @@ function startIdeaTicker() {
     thinking(); //you can still click on think with insufficient energy
   };
     ideaTimer = setInterval(function() {
-      //if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment NOT USED ANYMORE
+      if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment 
       if(energy >= batchEnergyCost*2) { //energy check inside loop
         ideasGen();
         BulbOn();
@@ -398,7 +405,7 @@ function stopIdeaTicker() {
   disableButton("stopTimer",true);
   disableDiv("stopTimer","none");
   BulbOff();
-  energyRegenTimer = setInterval(energyRegen,1000);
+  energyRegenTimer = setInterval(energyRegen,energyRegenSpeed);
 }
 
 //Light up the bulb
@@ -548,7 +555,7 @@ let editInterval = null;
 
 function pressingDownEdit(event) {
     if (event.type == "mousedown") {
-      editInterval = setInterval(clicksLeft,30);
+      editInterval = setInterval(clicksLeft,editPressSpeed);
     }
 }
 
@@ -956,17 +963,17 @@ function callProject(element,array,title,desc,num) {
       var com = array[0][0].concat(" - ",array[0][4]);
       commentBox.unshift({comment:com,source:"callProject"});
       commentArrayShift();
-      array.shift();
-      document.getElementById(elementId).className = "project";//to make next project immediately red
-      flickAppear("project",num);
-      document.getElementById(projectTitle).innerHTML = array[0][0];
-      document.getElementById(projectDesc).innerHTML = array[0][1];
       if(array[0][5]!=="0" && array[0][6]!=="0"){ //comments for storyline, such as negative effect projects
         var str = array[0][6];;
         var res = str.replace("channelReplace", channel);
         commentBox.unshift({comment:res,source:"story"});
         setTimeout(function(){ commentArrayShift(); }, 3000);
       }
+      array.shift();
+      document.getElementById(elementId).className = "project";//to make next project immediately red
+      flickAppear("project",num);
+      document.getElementById(projectTitle).innerHTML = array[0][0];
+      document.getElementById(projectDesc).innerHTML = array[0][1];
   }
 }
 
@@ -1024,6 +1031,7 @@ function save(){
     prestige: {variable: prestige},
     sleepModalReminder: {variable: sleepModalReminder},
     emptyArrayUsed: {variable: emptyArrayUsed},
+    editPressSpeed: {variable: editPressSpeed},
     creativity: {variable: creativity, id:"creativityLvl"},
     rangeIdea: {variable: rangeIdea, idf:"ideaRangeMax(rangeIdea)"},
     ideaQl: {variable: ideaQl, id:"ideaQl"},
@@ -1070,6 +1078,14 @@ function save(){
     visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}//this must be last
   };
   localStorage.setItem("save",JSON.stringify(gameSave));
+  var gameSavePrestige = {
+    channel: {variable: channel},
+    prestige: {variable: prestige},
+    creativityP: {variable: creativityP},
+    editP: {variable: editP},
+    energyP: {variable: energyP},
+  }
+  localStorage.setItem("saveP",JSON.stringify(gameSavePrestige));
   //console.log(gameSave); //ADD FOR TESTING
 }
 
@@ -1087,6 +1103,18 @@ function load() {
       document.getElementById(idx).innerHTML = gameSave[element].variable;
     } 
     let idf = gameSave[element].idf;
+    if (typeof idf !== "undefined") {
+      eval(idf);
+    }
+  }
+  var gameSavePrestige = JSON.parse(localStorage.getItem("saveP"));
+  for (var element in gameSavePrestige) {
+    window[element] = gameSavePrestige[element].variable;
+    let idx = gameSavePrestige[element].id;
+    if (typeof idx !== "undefined") {
+      document.getElementById(idx).innerHTML = gameSavePrestige[element].variable;
+    } 
+    let idf = gameSavePrestige[element].idf;
     if (typeof idf !== "undefined") {
       eval(idf);
     }
@@ -1164,7 +1192,8 @@ function restartModalFalse(){
 //restart modal option2
 function restartModalTrue(){
   localStorage.removeItem("save");
-  ga("send", "event", "Delete Save", "Click");
+  localStorage.removeItem("saveP");
+  ga("send", "event", "Delete Save", "Click");//NOT USED?
   location.reload();
 }
 
@@ -1200,7 +1229,9 @@ function CheckSpace(event)
 
 //game score
 function calculateScore(){
+  if(subscribers<100000000){
   score+=1;
+  }
 }
 
 //open scoreboard
@@ -1252,3 +1283,16 @@ async function sendScore(){
   const json = await response.json();
   console.log(json);
 };
+
+//Confetti
+function startConfetti(){
+  confetti.start(3000, 50, 150); //throws a random number of confetti particles (between 50 and 150) for 1200 milliseconds (3 seconds)
+}
+
+function endGame(){
+  document.getElementById("currentOrFinal").innerHTML="final";
+  scoreModalOpen();
+  allScores();
+  startConfetti();
+  //ADD FUNCTION THAT DELETES 'SAVE' not 'SAVEP' AND SHOW MODAL WITH CHOICE OF BONUS
+}
