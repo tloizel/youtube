@@ -245,7 +245,7 @@
                       id="subAdButton"
                       type="button"
                       value="-"
-                      onclick="changeAdLoad(0)">
+                      nclick="changeAdLoad(0)">o
               <input  class="button largeButton"
                       id="addAdButton"
                       type="button"
@@ -296,6 +296,32 @@
           <div class="modal-footer">
             <button class="button" id="channelBut1" onclick="insertName()">Let's start</button>
           </div>
+        </div>
+      </div>
+
+      <!-- PRESTIGEE MODAL -->     
+      <!-- The Modal -->
+      <div id="prestigeModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Select prestige bonus</h2>
+          </div>
+          <div class="modal-body">
+            <div class="prestige">
+              <div class="prestigeOption" id="option1" onclick="prestigeOptionSelect()">
+                <p><b>Option 1</b></p>
+                <p>Start with +1 creativity</p>
+              </div>
+              <div class="prestigeOption" id="option2" onclick="prestigeOptionSelect()">
+                <p><b>Option 2</b></p>
+                <p>+10% editing speed</p>
+              </div>
+              <div class="prestigeOption" id="option3" onclick="prestigeOptionSelect()">
+                <p><b>Option 3</b></p>
+                <p>+10% upload speed</p>
+              </div>
+            </div>
         </div>
       </div>
 

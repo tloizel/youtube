@@ -786,3 +786,26 @@ h2 {
   font-family: Rubik, sans-serif;
   text-align: center;
 }
+
+/* Prestige box css */
+.prestige {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.prestigeOption {
+border: solid;
+border-color: red;
+width: calc(33% - 1em);
+text-align: center;
+margin: 1em;
+cursor: pointer;
+border-radius: 20px;
+}
+
+.prestigeOption:hover {
+background-color: red;
+color: white;
+}
+

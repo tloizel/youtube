@@ -7,7 +7,7 @@ var score = 0; //game score
 var prestige = 0;//prestige
 
 //Prestige choice
-var creativityP = 0;//0
+var creativityP = 0;//0 ONLY CHANGED BY PRESTIGE
 var editP = 1;//1
 var energyP = 1;//1
 
@@ -309,7 +309,7 @@ function firstPageLoad() {
     disableDiv("uploadB","none");
     disableDiv("subAdButton","none");
     disableDiv("addAdButton","none");
-    displayInsertName(); //insert channel name
+    if(prestige == 0){displayInsertName()}; //insert channel name only on prestige 0
   }
 }
 
@@ -1081,6 +1081,7 @@ function save(){
   var gameSavePrestige = {
     channel: {variable: channel},
     prestige: {variable: prestige},
+    visiblePrestige: {variable: visiblePrestige},
     creativityP: {variable: creativityP},
     editP: {variable: editP},
     energyP: {variable: energyP},
@@ -1289,10 +1290,47 @@ function startConfetti(){
   confetti.start(3000, 50, 150); //throws a random number of confetti particles (between 50 and 150) for 1200 milliseconds (3 seconds)
 }
 
+
+//END OF GAME FUNCTION
 function endGame(){
+  clickablePrestigeOptions();
+  prestigeOptions();
   document.getElementById("currentOrFinal").innerHTML="final";
   scoreModalOpen();
   allScores();
   startConfetti();
-  //ADD FUNCTION THAT DELETES 'SAVE' not 'SAVEP' AND SHOW MODAL WITH CHOICE OF BONUS
+}
+
+//PRESTIGE FUNCTIONS BELOW
+function prestigeOptions() {
+  var prestigeModal = document.getElementById("prestigeModal");
+  prestigeModal.style.display = "block";
+}
+
+  //if varibales aren't equal to initial state, then deactivate div
+function clickablePrestigeOptions(){
+  if(creativityP !== 1){
+    disableDiv("option1","none");
+    document.getElementById("option1").style.backgroundColor = "LightGrey";
+    document.getElementById("option1").style.borderColor = "grey";
+  }
+  if(editP !== 1){
+    disableDiv("option2","none");
+    document.getElementById("option2").style.backgroundColor = "LightGrey";
+    document.getElementById("option2").style.borderColor = "grey";
+  }
+  if(energyP !== 1){
+    disableDiv("option3","none");
+    document.getElementById("option3").style.backgroundColor = "LightGrey";
+    document.getElementById("option3").style.borderColor = "grey";
+  }
+}
+
+function prestigeOptionSelect() {
+  //MUST SAVE VARIABLE HERE
+  visiblePrestige = true;
+  prestige+=1;
+  save();
+  localStorage.removeItem("save");
+  location.reload();
 }
