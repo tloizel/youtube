@@ -3,6 +3,7 @@ function prestigeAppear(){
   document.getElementById("prestige").innerHTML = "P" + prestige;
   flickAppear('reveal',0);
   visiblePrestige = true;
+  document.getElementById("creativityLvl").innerHTML = creativity;//for creativity bonus at start
 }
 
 function analyticsAppear(){

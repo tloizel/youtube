@@ -310,6 +310,7 @@ function firstPageLoad() {
     disableDiv("subAdButton","none");
     disableDiv("addAdButton","none");
     if(prestige == 0){displayInsertName()}; //insert channel name only on prestige 0
+    ideaRangeMax(1);//for prestige creativity bonus
   }
 }
 
@@ -1025,6 +1026,16 @@ function disableDiv(div,state) {
 //SAVE AND LOAD
 
 function save(){
+  var gameSavePrestige = {
+    channel: {variable: channel},
+    prestige: {variable: prestige},
+    visiblePrestige: {variable: visiblePrestige},
+    creativityP: {variable: creativityP},
+    editP: {variable: editP},
+    energyP: {variable: energyP},
+  }
+  localStorage.setItem("saveP",JSON.stringify(gameSavePrestige));
+  
   var gameSave = {
     channel: {variable: channel},
     score: {variable: score},
@@ -1078,15 +1089,6 @@ function save(){
     visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}//this must be last
   };
   localStorage.setItem("save",JSON.stringify(gameSave));
-  var gameSavePrestige = {
-    channel: {variable: channel},
-    prestige: {variable: prestige},
-    visiblePrestige: {variable: visiblePrestige},
-    creativityP: {variable: creativityP},
-    editP: {variable: editP},
-    energyP: {variable: energyP},
-  }
-  localStorage.setItem("saveP",JSON.stringify(gameSavePrestige));
   //console.log(gameSave); //ADD FOR TESTING
 }
 
@@ -1096,18 +1098,6 @@ function projectRefresh(array,title,desc) {
 }
 
 function load() {
-  var gameSave = JSON.parse(localStorage.getItem("save"));
-  for (var element in gameSave) {
-    window[element] = gameSave[element].variable;
-    let idx = gameSave[element].id;
-    if (typeof idx !== "undefined") {
-      document.getElementById(idx).innerHTML = gameSave[element].variable;
-    } 
-    let idf = gameSave[element].idf;
-    if (typeof idf !== "undefined") {
-      eval(idf);
-    }
-  }
   var gameSavePrestige = JSON.parse(localStorage.getItem("saveP"));
   for (var element in gameSavePrestige) {
     window[element] = gameSavePrestige[element].variable;
@@ -1120,17 +1110,33 @@ function load() {
       eval(idf);
     }
   }
+  var gameSave = JSON.parse(localStorage.getItem("save"));
+  for (var element in gameSave) {
+    window[element] = gameSave[element].variable;
+    let idx = gameSave[element].id;
+    if (typeof idx !== "undefined") {
+      document.getElementById(idx).innerHTML = gameSave[element].variable;
+    } 
+    let idf = gameSave[element].idf;
+    if (typeof idf !== "undefined") {
+      eval(idf);
+    }
+  }
+  //prestige changes repetition because variables init come before load()
+  creativity = 1 + creativityP;
+  energyRegenSpeed = 1000 * energyP;
+  editPressSpeed = 50 * editP;
 }
 
 function deleteLocalStorage() {
   var restartModal = document.getElementById("restartModal");
   restartModal.style.display = "block";
     // Get the <span> element that closes the modal
-    var closeModal = document.getElementById("closeRestartModal");
+  var closeModal = document.getElementById("closeRestartModal");
     // When the user clicks on <span> (x), close the modal
-    closeModal.onclick = function() {
+  closeModal.onclick = function() {
       restartModal.style.display = "none";
-    }
+  }
 }
 
 //document listener
@@ -1293,23 +1299,24 @@ function startConfetti(){
 
 //END OF GAME FUNCTION
 function endGame(){
-  clickablePrestigeOptions();
-  prestigeOptions();
-  document.getElementById("currentOrFinal").innerHTML="final";
-  scoreModalOpen();
-  allScores();
-  startConfetti();
+  sendScore();//send score to db
+  clickablePrestigeOptions();//which bonus have already been used
+  prestigeOptions();//open modal with final score
+  scoreModalOpen();//open score modal (underneath beacause of html order)
+  allScores();//show all scores
+  startConfetti();//start confetti yay
 }
 
 //PRESTIGE FUNCTIONS BELOW
 function prestigeOptions() {
+  document.getElementById("currentOrFinal").innerHTML="final";
   var prestigeModal = document.getElementById("prestigeModal");
   prestigeModal.style.display = "block";
 }
 
   //if varibales aren't equal to initial state, then deactivate div
 function clickablePrestigeOptions(){
-  if(creativityP !== 1){
+  if(creativityP !== 0){
     disableDiv("option1","none");
     document.getElementById("option1").style.backgroundColor = "LightGrey";
     document.getElementById("option1").style.borderColor = "grey";
@@ -1326,8 +1333,10 @@ function clickablePrestigeOptions(){
   }
 }
 
-function prestigeOptionSelect() {
-  //MUST SAVE VARIABLE HERE
+function prestigeOptionSelect(option) {
+  if(option=="option1"){creativityP = 1}
+  if(option=="option2"){editP = 0.9}
+  if(option=="option3"){energyP = 1.1}
   visiblePrestige = true;
   prestige+=1;
   save();

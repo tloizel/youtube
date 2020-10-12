@@ -291,7 +291,7 @@
             <h2>Enter channel name</h2>
           </div>
           <div class="modal-body">
-            <input type="text" id="channelInput" name="channelname" required minlength="0" maxlength="14" onkeypress="CheckSpace(event)"> 
+            <input type="text" id="channelInput" name="channelname" required minlength="0" maxlength="14" onkeypress="CheckSpace(event)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           </div>
           <div class="modal-footer">
             <button class="button" id="channelBut1" onclick="insertName()">Let's start</button>
@@ -309,19 +309,20 @@
           </div>
           <div class="modal-body">
             <div class="prestige">
-              <div class="prestigeOption" id="option1" onclick="prestigeOptionSelect()">
+              <div class="prestigeOption" id="option1" onclick="prestigeOptionSelect('option1')">
                 <p><b>Option 1</b></p>
                 <p>Start with +1 creativity</p>
               </div>
-              <div class="prestigeOption" id="option2" onclick="prestigeOptionSelect()">
+              <div class="prestigeOption" id="option2" onclick="prestigeOptionSelect('option2')">
                 <p><b>Option 2</b></p>
                 <p>+10% editing speed</p>
               </div>
-              <div class="prestigeOption" id="option3" onclick="prestigeOptionSelect()">
+              <div class="prestigeOption" id="option3" onclick="prestigeOptionSelect('option3')">
                 <p><b>Option 3</b></p>
-                <p>+10% upload speed</p>
+                <p>+10% regen speed</p>
               </div>
             </div>
+          </div>
         </div>
       </div>
 
