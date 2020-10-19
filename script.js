@@ -969,7 +969,7 @@ function callProject(element,array,title,desc,num) {
       commentBox.unshift({comment:com,source:"callProject"});
       commentArrayShift();
       if(array[0][5]!=="0" && array[0][6]!=="0"){ //comments for storyline, such as negative effect projects
-        var str = array[0][6];;
+        var str = array[0][6];
         var res = str.replace("channelReplace", channel);
         commentBox.unshift({comment:res,source:"story"});
         setTimeout(function(){ commentArrayShift(); }, 3000);
