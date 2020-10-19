@@ -4,12 +4,12 @@ var emptyArrayUsed = false;
 var sleepModalReminder = true; //true - activate sleep alert
 var channel = "unknown"; //channel name
 var score = 0; //game score
-var prestige = 0;//prestige
+var prestige = 0; //prestige
 
 //Prestige choice
-var creativityP = 0;//0 ONLY CHANGED BY PRESTIGE
-var editP = 1;//1
-var energyP = 1;//1
+var creativityP = 0; //0 ONLY CHANGED BY PRESTIGE
+var editP = 1; //1
+var energyP = 1; //1
 
 //IDEA
 var ideaTimer = null;
@@ -25,8 +25,8 @@ var batchEnergyCost = 25; //cost of each batch of ideas
 var energyRegenRate = 1; //amount of energy gained (per second)
 var energyRegenTimer = null;
 var energyRegenSpeed = 1000 * energyP; //ONLY CHANGED BY PRESTIGE
-var powerNap = false;//false - sleep automatically when 0 energy
-var alarmClock = false;//false - wake up when fully regened
+var powerNap = false; //false - sleep automatically when 0 energy
+var alarmClock = false; //false - wake up when fully regened
 
 //SHOOT AND EDIT
 var shootEdit = 200; //clicks required to edit a video - 200
@@ -62,16 +62,18 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visiblePrestige = false;
-var visibleEditBlock = false;
-var visibleUploadBlock = false;
-var visibleAnalyticsBlock = false;
-var visibleCash = false;
-var visibleAdAmount = false;
-var visibleAutoEdit = false;
-var visibleProjectedAverage = false;
-var visibleExpenses = false;
-var visibleIncome = false;
+var visiblePrestige = true;
+var visibleEditBlock = true;
+var visibleUploadBlock = true;
+var visibleAnalyticsBlock = true;
+var visibleCash = true;
+var visibleAdAmount = true;
+var visibleAutoEdit = true;
+var visibleProjectedAverage = true;
+var visibleExpenses = true;
+var visibleIncome = true;
+
+loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
 //COMMENTS
 var comments = [
@@ -775,7 +777,7 @@ function LDRF(factor) {
   likeDislikeFactor = factor;
   LDR();
   LDRColor();
-  document.getElementById("likeDislikeFactor").innerHTML = likeDislikeFactor;
+  document.getElementById("likeDislikeFactor").innerHTML = numeral(likeDislikeFactor).format('0.00');
 }
 
 //increase subscriber count
@@ -1305,12 +1307,12 @@ function startConfetti(){
 
 //END OF GAME FUNCTION
 function endGame(){
-  sendScore();//send score to db
-  clickablePrestigeOptions();//which bonus have already been used
-  prestigeOptions();//open modal with final score
-  scoreModalOpen();//open score modal (underneath beacause of html order)
-  allScores();//show all scores
-  startConfetti();//start confetti yay
+  sendScore(); //send score to db
+  clickablePrestigeOptions(); //which bonus have already been used
+  prestigeOptions(); //open modal with final score
+  scoreModalOpen(); //open score modal (underneath beacause of html order)
+  allScores(); //show all scores
+  startConfetti(); //start confetti yay
 }
 
 //PRESTIGE FUNCTIONS BELOW
@@ -1320,7 +1322,7 @@ function prestigeOptions() {
   prestigeModal.style.display = "block";
 }
 
-  //if varibales aren't equal to initial state, then deactivate div
+//if varibales aren't equal to initial state, then deactivate div
 function clickablePrestigeOptions(){
   if(creativityP !== 0){
     disableDiv("option1","none");

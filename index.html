@@ -58,7 +58,13 @@
     
     <div id="desktop">
       <div class="header flex-row">
-        <div><span id="views" class="viewsBig">0</span> views</div>
+        <div><span id="subscriberAmount" class="viewsBig">0</span> subscribers
+          <!--<div class="flex-column">
+            <div id="subDifference" class="subDifferenceClass">+0</div>
+            <div>subscribers</div> 
+          </div>-->
+        </div>
+          
         <div class="small-right-margin">
           <h1>notYouTube</h1>
           <div>
@@ -66,7 +72,7 @@
             <button class="settingsButton" onclick=scoreModalOpen();allScores()><i class="fa fa-2x fa-trophy" aria-hidden="true"></i></button>
             <p id="prestige" class="reveal">P1</p>
           </div>
-          </div>
+        </div>
       </div>
       <!--Start of parentFlex 1-->
       <div class = "flex-row parentFlex">
@@ -93,7 +99,7 @@
             <h2>Analytics</h2>
             <p class="explanation tightP">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
             <p class="explanation tightP">Popularity factor<span id="likeDislikeFactor" class="span">1<span></p>
-            <p class="explanation tightP">Subscribers<span id="subscriberAmount" class="span">0</span><span id="subDifference" class="subDifferenceClass">+0</span></p>
+            <p class="explanation tightP">Views<span id="views" class="span">0</span></p>
           </div>
           <div  id="subProjectsB"
                 class="project"
@@ -245,12 +251,19 @@
                       id="subAdButton"
                       type="button"
                       value="-"
-                      nclick="changeAdLoad(0)">o
+                      onclick="changeAdLoad(0)">
               <input  class="button largeButton"
                       id="addAdButton"
                       type="button"
                       value="+"
                       onclick="changeAdLoad(1)">
+            </div>
+            <div>
+              <input  class="button small-top-margin small-bottom-margin"
+                      id="donationButton"
+                      type="button"
+                      value="Donate: $10"
+                      onclick="donate()">
             </div>
           </div>
 
@@ -381,7 +394,7 @@
                 <th>Rank</th>
                 <th>Channel</th>
                 <th>Prestige</th> 
-                <th>Score</th>
+                <th>Time</th>
               </tr>
               <tr>
                 <td class="tableData">#1</td>
@@ -455,6 +468,7 @@
       <script src="fitty.min.js"></script>
       <script src="fittyProjects.js" type="text/javascript"></script>
       <script src="loadAppearFunctions.js" type="text/javascript"></script>
+      <script src="charityBox.js" type="text/javascript"></script>
       <script  src="script.js" type="text/javascript"></script>
     </div>
 

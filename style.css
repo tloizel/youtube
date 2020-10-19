@@ -111,6 +111,11 @@ h2 {
   margin-bottom: 1em;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .unselectable {
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
