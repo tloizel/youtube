@@ -103,6 +103,10 @@ h2 {
   margin-right: 1em;
 }
 
+.small-left-margin {
+  margin-left: 1em;
+}
+
 .small-top-margin {
   margin-top: 1em;
 }
@@ -114,6 +118,19 @@ h2 {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-end {
+  align-items: flex-end;
+}
+
+.subscribersBig {
+  font-size: 3vh;
+  padding: 0 0 0.6vh 0.6vh;
+}
+
+.zero-margin { /* used to delete margins added by other classes on an object*/
+  margin: 0 0 0 0 !important;
 }
 
 .unselectable {
@@ -651,6 +668,18 @@ h2 {
 .valid {
   background-color: green;
   cursor: pointer;
+}
+
+.valid:hover {
+  background-color: rgb(2, 173, 2);
+  cursor: pointer;
+}
+
+.valid:active {
+  background-color: green;
+  cursor: pointer;
+  box-shadow: 0px 0px #999;
+  transform: translateY(2px);
 }
 
 .negativeProject {
