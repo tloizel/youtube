@@ -389,75 +389,80 @@
           </div>
           <div class="modal-body">
             <p id="yourScore">Your <span id="currentOrFinal">current</span> time: <span id="showScore">0</span> min</p>
-            <table id="scoreboard">
-              <tr>
-                <th>Rank</th>
-                <th>Channel</th>
-                <th>Prestige</th> 
-                <th>Time</th>
-              </tr>
-              <tr>
-                <td class="tableData">#1</td>
-                <td id="tdChannel1" class="tableData"></td>
-                <td id="tdPrestige1" class="tableData"></td> 
-                <td id="tdScore1" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#2</td>
-                <td id="tdChannel2" class="tableData"></td>
-                <td id="tdPrestige2" class="tableData"></td> 
-                <td id="tdScore2" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#3</td>
-                <td id="tdChannel3" class="tableData"></td>
-                <td id="tdPrestige3" class="tableData"></td> 
-                <td id="tdScore3" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#4</td>
-                <td id="tdChannel4" class="tableData"></td>
-                <td id="tdPrestige4" class="tableData"></td> 
-                <td id="tdScore4" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#5</td>
-                <td id="tdChannel5" class="tableData"></td>
-                <td id="tdPrestige5" class="tableData"></td> 
-                <td id="tdScore5" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#6</td>
-                <td id="tdChannel6" class="tableData"></td>
-                <td id="tdPrestige6" class="tableData"></td> 
-                <td id="tdScore6" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#7</td>
-                <td id="tdChannel7" class="tableData"></td>
-                <td id="tdPrestige7" class="tableData"></td> 
-                <td id="tdScore7" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#8</td>
-                <td id="tdChannel8" class="tableData"></td>
-                <td id="tdPrestige8" class="tableData"></td> 
-                <td id="tdScore8" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#9</td>
-                <td id="tdChannel9" class="tableData"></td>
-                <td id="tdPrestige9" class="tableData"></td> 
-                <td id="tdScore9" class="tableData"></td>
-              </tr>
-              <tr>
-                <td class="tableData">#10</td>
-                <td id="tdChannel10" class="tableData"></td>
-                <td id="tdPrestige10" class="tableData"></td> 
-                <td id="tdScore10" class="tableData"></td>
-              </tr>
-            
-            </table>
+            <div id="loading">
+              <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div id="loaded">
+              <table id="scoreboard">
+                <tr>
+                  <th>Rank</th>
+                  <th>Channel</th>
+                  <th>Prestige</th> 
+                  <th>Time</th>
+                </tr>
+                <tr>
+                  <td class="tableData">#1</td>
+                  <td id="tdChannel1" class="tableData"></td>
+                  <td id="tdPrestige1" class="tableData"></td> 
+                  <td id="tdScore1" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#2</td>
+                  <td id="tdChannel2" class="tableData"></td>
+                  <td id="tdPrestige2" class="tableData"></td> 
+                  <td id="tdScore2" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#3</td>
+                  <td id="tdChannel3" class="tableData"></td>
+                  <td id="tdPrestige3" class="tableData"></td> 
+                  <td id="tdScore3" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#4</td>
+                  <td id="tdChannel4" class="tableData"></td>
+                  <td id="tdPrestige4" class="tableData"></td> 
+                  <td id="tdScore4" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#5</td>
+                  <td id="tdChannel5" class="tableData"></td>
+                  <td id="tdPrestige5" class="tableData"></td> 
+                  <td id="tdScore5" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#6</td>
+                  <td id="tdChannel6" class="tableData"></td>
+                  <td id="tdPrestige6" class="tableData"></td> 
+                  <td id="tdScore6" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#7</td>
+                  <td id="tdChannel7" class="tableData"></td>
+                  <td id="tdPrestige7" class="tableData"></td> 
+                  <td id="tdScore7" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#8</td>
+                  <td id="tdChannel8" class="tableData"></td>
+                  <td id="tdPrestige8" class="tableData"></td> 
+                  <td id="tdScore8" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#9</td>
+                  <td id="tdChannel9" class="tableData"></td>
+                  <td id="tdPrestige9" class="tableData"></td> 
+                  <td id="tdScore9" class="tableData"></td>
+                </tr>
+                <tr>
+                  <td class="tableData">#10</td>
+                  <td id="tdChannel10" class="tableData"></td>
+                  <td id="tdPrestige10" class="tableData"></td> 
+                  <td id="tdScore10" class="tableData"></td>
+                </tr>
+              
+              </table>
+            </div>
           </div>
           <div class="modal-footer">
             <button class="button" id="restartBut1" onclick="scoreModalClose()">OK</button>
