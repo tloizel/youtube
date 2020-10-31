@@ -759,7 +759,7 @@ h2 {
 
 /* Modal Footer */
 .modal-footer {
-  padding: 1em;
+  padding: 0.2em 1em 1em 1em;
   background-color: #fefefe;
   color: white;
   margin-bottom: 0.1em;
