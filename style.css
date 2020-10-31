@@ -788,6 +788,12 @@ h2 {
   padding: 5px 10px;
 }
 
+/* score modal button */
+#gotoprestige {
+display: none;
+margin: 1em auto 1em auto;
+}
+
 .close:hover,
 .close:focus {
   color: #999;
