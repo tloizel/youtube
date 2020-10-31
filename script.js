@@ -705,13 +705,13 @@ function uploadVideo() {
         document.getElementById("videos").innerHTML = numeral(videosUploaded).format('0,0');
         videosEdited--;
         //document.getElementById("videosEdited").innerHTML = videosEdited;
-        averageQlCalculation();//calculated average Ql at each upload
-        ideaQlArray.shift();//pulled out of averageQlCalculation for load funtion, placement here is important
-        updateArrayQlView();//update array to view
-        LDR();//calculated new ratio at each upload
-        SubsFromUpload();//calculated sub count at each upload
-        viewsFromSubs();//calculated view count at each upload
-        memoryBlockRefresh();//refreshes the memory block canvas
+        averageQlCalculation(); //calculated average Ql at each upload
+        ideaQlArray.shift(); //pulled out of averageQlCalculation for load funtion, placement here is important
+        updateArrayQlView(); //update array to view
+        LDR(); //calculated new ratio at each upload
+        SubsFromUpload(); //calculated sub count at each upload
+        viewsFromSubs(); //calculated view count at each upload
+        memoryBlockRefresh(); //refreshes the memory block canvas
         averageQlCalculationProjected(); //calculate projected average
         disableButton("uploadB",false);
         disableDiv("uploadB","auto");
@@ -721,6 +721,17 @@ function uploadVideo() {
         elem.style.width = width + "%";
       }
     }
+  }
+}
+
+function uploadVideoState() {
+  if (videosEdited == 0) {
+    disableButton("uploadB",true);
+    disableDiv("uploadB","none");
+  }
+  else {
+    disableButton("uploadB",false);
+    disableDiv("uploadB","auto");
   }
 }
 
@@ -1006,6 +1017,8 @@ function testProjects() {
     }
     else {document.getElementById(id).className = "project"};
   }
+  uploadVideoState(); //to grey out upload button
+  donationButtonState(); //to grey out donate button
 }
 
 //flickering effect on appearing objects
