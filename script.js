@@ -792,7 +792,7 @@ function LDR() {
 
 //Change LDRF
 function LDRF(factor) {
-  likeDislikeFactor = factor;
+  likeDislikeFactor += factor;
   LDR();
   LDRColor();
   document.getElementById("likeDislikeFactor").innerHTML = numeral(likeDislikeFactor).format('0.00');
