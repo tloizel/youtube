@@ -748,7 +748,7 @@ h2 {
 
 /* Modal Header */
 .modal-header {
-  padding: 2px 16px;
+  padding: 0.1em 1em;
   background-color: red;
   color: white;
   text-align: center;
@@ -759,10 +759,10 @@ h2 {
 
 /* Modal Footer */
 .modal-footer {
-  padding: 2px 16px;
+  padding: 1em;
   background-color: #fefefe;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 0.1em;
   text-align: center;
 }
 
@@ -772,7 +772,6 @@ h2 {
   background-color: #fefefe;
   margin: 10% auto; /* 15% from the top and centered */
   padding: 0;
-  border: 1px solid #888;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
