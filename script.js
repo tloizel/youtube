@@ -1180,6 +1180,14 @@ document.addEventListener('visibilitychange', function() {
   }
 });
 
+//to close modals by clicking out
+window.onclick = function(event) {
+  let modal = document.getElementById("scoreModal")
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 //sleep modal option1
 function sleepModalReminderTrue(){
   sleepModalReminder = true;
@@ -1347,7 +1355,8 @@ function endGame(){
 
 //PRESTIGE FUNCTIONS BELOW
 function prestigeOptions() {
-  document.getElementById("currentOrFinal").innerHTML="final";
+  document.getElementById("gotoprestige").style.display = "block";
+  document.getElementById("currentOrFinal").innerHTML = "final";
   var prestigeModal = document.getElementById("prestigeModal");
   prestigeModal.style.display = "block";
 }
