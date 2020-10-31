@@ -3,7 +3,7 @@
 // Donation box appears when player needs to improve their public image
 // Reward at certain lvls? Milestones to reach?
 
-let donationCost = 10;
+let donationCost = 10; //this has to be added to save()
 
 function donate() {
     if (cashAmount >= donationCost) {    
