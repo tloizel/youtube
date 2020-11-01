@@ -7,7 +7,7 @@ function prestigeAppear(){
 }
 
 function analyticsAppear(){
-  flickAppear('reveal',1);
+  flickAppearOnce('reveal',1);
   visibleAnalyticsBlock = true;
 }
 function editAppear(){
@@ -17,18 +17,18 @@ function editAppear(){
   visibleEditBlock = true;
 }
 function uploadAppear(){
-  flickAppear('reveal',5);
+  flickAppearOnce('reveal',5);
   disableDiv("uploadB",'auto');
   visibleUploadBlock = true;
 }
 
 function projectedAverageAppear() {
-  flickAppear('reveal',6);
+  flickAppearOnce('reveal',6);
   visibleProjectedAverage = true;
 }
 
 function cashAppear() {
-  flickAppear('reveal',7);
+  flickAppearOnce('reveal',7);
   disableDiv('cashProjectsB','auto');
   disableDiv("subAdButton",'auto');
   disableDiv("addAdButton",'auto');
@@ -36,12 +36,12 @@ function cashAppear() {
 }
 
 function incomeAppear() {
-  flickAppear('reveal',8);
+  flickAppearOnce('reveal',8);
   visibleIncome = true;
 }
 
 function adAmountAppear() {
-  flickAppear('reveal',10);
+  flickAppearOnce('reveal',10);
   disableButton('subAdButton',false);
   disableButton('addAdButton',false);
   visibleAdAmount = true;
@@ -49,9 +49,9 @@ function adAmountAppear() {
 
 //function concerns autoEdit switch and editor expenses
 function autoEditAppear() {
-  flickAppear('reveal',3); //autoedit
-  flickAppear('reveal',9); //expenses
-  flickAppear('reveal',4); //autoedit
+  flickAppearOnce('reveal',3); //autoedit
+  flickAppearOnce('reveal',9); //expenses
+  flickAppearOnce('reveal',4); //autoedit
   disableButton('myonoffswitch',false);
   disableDiv('onOffSwitchContainer','auto');
   visibleAutoEdit = true;
@@ -80,7 +80,7 @@ function incomeUpdate(){
 }
 
 function donationBoxAppear() {
-  flickAppear('reveal',11);
+  flickAppearOnce('reveal',11);
   visibleDonationBox == true;
   document.getElementById("donationButton").value = "Donate $"+ donationCost;
 }
