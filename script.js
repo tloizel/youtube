@@ -50,11 +50,11 @@ var autoUploadActivated = false; //0 for no 1 for yes
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 0;
+var subscribers = 100000000000;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 0;
+var cashAmount = 100000000;
 var adLoadMax = 1; //- 1
 var income = 0;
 var expenses = 0;
@@ -72,6 +72,7 @@ var visibleAutoEdit = true;
 var visibleProjectedAverage = true;
 var visibleExpenses = true;
 var visibleIncome = true;
+var visibleDonationBox = false;
 
 loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
@@ -265,6 +266,7 @@ var ideaProjects = [
   ["Apologize to your community for the spam","Reach 25k subscribers","subscribers>=25000","subscribers+=3000;LDRF(0.1)","Swallow your pride <span class='boldRed'>[Popularity = 1 & +3k Subscribers]</span>","0","0"],
   ["Write an email to your fave YouTuber","Reach 40k subscribers","subscribers>=40000","subscribers+=0","He never answered. What did you expect? <span class='boldRed'>[+Still your fave tho :'( ]</span>","0","0"],
   ["Shoutout from Keemstar","Reach 50k subscribers","subscribers>=50000","LDRF(-0.2)","You got right into the neeeews <span class='boldRed'>[Popularity = 0.8]</span>","0","0"],
+  ["Donate to charity!","Reach 55k subscribers","subscribers>=55000","visibleDonationBox = true;donationBoxAppear()","Pandas have souls mkay <span class='boldRed'>[Donation Box unlocked]</span>","story","The Keemstar haters are getting to your head. Perhaps donating could improve your image."],
   ["Shoutout from MysteryGuitarMan","Reach 60k subscribers","subscribers>=60000","LDRF(0.3)","Will he ever take off his glasses? <span class='boldRed'>[Popularity = 1.1]</span>","0","0"],
   ["Master the art of thumbnails","Reach 100k subscribers","subscribers>=100000","views+=4000000","Bewbs in thumbnail seems to work... <span class='boldRed'>[+4M Views]</span>","story","Who would have thought channelReplace would reach six digits this soon"],
   ["GIVEAWAY TIME","Reach 130k subscribers & Pay $8k","subscribers>=130000 && cashAmount>=8000","subscribers=subscribers*2;cashAmount-=8000","What a coincidence, your best friend won! <span class='boldRed'>[Doubled your subscribers!]</span>","0","0"],
@@ -320,8 +322,10 @@ function firstPageLoad() {
     disableDiv("uploadB","none");
     disableDiv("subAdButton","none");
     disableDiv("addAdButton","none");
+    disableDiv("donationContainer","none");
+    disableButton("donationContainer",true);
     if(prestige == 0){displayInsertName()}; //insert channel name only on prestige 0
-    ideaRangeMax(1);//for prestige creativity bonus
+    ideaRangeMax(1); //for prestige creativity bonus
   }
 }
 
@@ -1107,6 +1111,7 @@ function save(){
     subProjects: {variable: subProjects, idf:"projectRefresh(subProjects,subProjectsTitle,subProjectsDesc)"},
     cashProjects: {variable: cashProjects, idf:"projectRefresh(cashProjects,cashProjectsTitle,cashProjectsDesc)"},
     commentBox: {variable: commentBox, idf:"callComment()"},
+    donationCost: {variable: donationCost},
     visiblePrestige: {variable: visiblePrestige},
     visibleEditBlock: {variable: visibleEditBlock},
     visibleUploadBlock: {variable: visibleUploadBlock},
@@ -1116,7 +1121,8 @@ function save(){
     visibleAutoEdit: {variable: visibleAutoEdit},
     visibleProjectedAverage: {variable: visibleProjectedAverage},
     visibleExpenses: {variable: visibleExpenses},
-    visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"}//this must be last
+    visibleDonationBox: {variable: visibleDonationBox},
+    visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"} //this must be last
   };
   localStorage.setItem("save",JSON.stringify(gameSave));
   //console.log(gameSave); //ADD FOR TESTING

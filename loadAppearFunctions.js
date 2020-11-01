@@ -49,9 +49,9 @@ function adAmountAppear() {
 
 //function concerns autoEdit switch and editor expenses
 function autoEditAppear() {
-  flickAppear('reveal',3);//autoedit
-  flickAppear('reveal',9);//expenses
-  flickAppear('reveal',4);//autoedit
+  flickAppear('reveal',3); //autoedit
+  flickAppear('reveal',9); //expenses
+  flickAppear('reveal',4); //autoedit
   disableButton('myonoffswitch',false);
   disableDiv('onOffSwitchContainer','auto');
   visibleAutoEdit = true;
@@ -71,13 +71,20 @@ function expensesUpdate(){
 }
 
 function incomeUpdate(){
-  if(income==1){
+  if(income == 1){
   document.getElementById("extraIncome").innerHTML = "Merch (+$"+income+"/sec)";
   }
-  else if (income>1){
+  else if (income > 1){
   document.getElementById("extraIncome").innerHTML = "Patreon (+$"+income+"/sec)";
   }
 }
+
+function donationBoxAppear() {
+  flickAppear('reveal',11);
+  visibleDonationBox == true;
+  document.getElementById("donationButton").value = "Donate $"+ donationCost;
+}
+
 
 function loadVisibleDivs() {
   if(visiblePrestige == true){prestigeAppear()};
@@ -90,5 +97,6 @@ function loadVisibleDivs() {
   if(visibleProjectedAverage == true){projectedAverageAppear()};
   if(visibleIncome == true){incomeAppear()};
   if(autoUploadActivated == true){autoUpload()};
+  if(visibleDonationBox == true){donationBoxAppear()};
   memoryBlockRefresh();
 }
