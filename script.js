@@ -72,7 +72,7 @@ var visibleAutoEdit = true;
 var visibleProjectedAverage = true;
 var visibleExpenses = true;
 var visibleIncome = true;
-var visibleDonationBox = false;
+var visibleDonationBox = true;
 
 loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
