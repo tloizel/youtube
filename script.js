@@ -1,5 +1,6 @@
 //GENERAL
 var testTimer = setInterval(testProjects,500);
+var checkChequeTimer = setInterval(donationButtonState, 500); //see charityBox.js
 var emptyArrayUsed = false;
 var sleepModalReminder = true; //true - activate sleep alert
 var channel = "unknown"; //channel name
@@ -399,7 +400,6 @@ function startIdeaTicker() {
         clearInterval(ideaTimer);
         BulbOff();
         if(powerNap == true){stopIdeaTicker()};
-        console.log("No more energy"); //PLACEHOLDER FOR PROPER MESSAGE
       }
     },ideaSpeed);
     clearInterval(energyRegenTimer);
@@ -1021,7 +1021,6 @@ function testProjects() {
     else {document.getElementById(id).className = "project"};
   }
   uploadVideoState(); //to grey out upload button
-  donationButtonState(); //to grey out donate button
 }
 
 //flickering effect on appearing objects
