@@ -227,22 +227,35 @@ h2 {
   padding: 0px;
 }
 
+#bulbDiv{
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 2em;
+}
+
+#bulbFrameDiv{
+  width: 90px
+}
+
+#startTimer{
+  margin-bottom: 2vh;
+}
+
 /* IDEA BULB */
 .bulbFrame {
-  border:solid red;
   position: relative;
   text-align: center;
-  height: 7.5em;
   cursor: default;
   border: 0;
-  transform: scale(0.7,0.7)
+  transform: scale(0.7,0.7);
 }
 
 #bulb {
   position: absolute;
   z-index: 2;
-  top: 0px;
-  left: 37%;
+  top: -60px;
+  left: 10%;
   fill: #FFD700;
   transition: all .5s ease-in-out;
 }
@@ -254,16 +267,16 @@ h2 {
   background: #fff130;
   border-radius: 50px;
   box-shadow: 0 0 50px 10px #fff130;
-  top: 0px;
-  left: 37%;
+  top: -60px;
+  left: 10%;
   transition: all .5s ease-in-out;
 }
 
 #base {
   position: absolute;
   width: 76px;
-  top: 99px;
-  left: 37%;
+  top: 39px;
+  left: 10%;
   fill: #000000;
 }
 
