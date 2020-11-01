@@ -18,7 +18,7 @@ var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
 var ideasQtTotal = 0; //amount of ideas since beginning - 0
-var ideaSpeed = 6000; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
 var energy = 100; //current energy amount
 var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
@@ -43,18 +43,18 @@ var videosUploaded = 0; //Videos online - 0
 var averageQlNum = 0; //average Ql numerator - 0
 var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly - 1
-var uploadSpeed = 100; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0; //load state of progress bar
 var autoUploadActivated = false; //0 for no 1 for yes
 
 //SUBS
 var views = 0;
 var likeDislikeRatio = 0;
-var subscribers = 100000000000;
+var subscribers = 0;
 
 //CASH
 var adAmount = 0;
-var cashAmount = 100000000;
+var cashAmount = 0;
 var adLoadMax = 1; //- 1
 var income = 0;
 var expenses = 0;
