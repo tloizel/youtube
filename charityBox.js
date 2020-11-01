@@ -1,4 +1,4 @@
-var donationCost = 10; //this has to be added to save()
+var donationCost = 10;
 
 function donate() {
     if (cashAmount >= donationCost) {
@@ -22,3 +22,22 @@ function donationButtonState() {
         disableDiv("donationButton","none");
     }
 }
+
+var signatureCanvas = document.getElementById("signatureCanvas");
+var signaturePad = new SignaturePad(signatureCanvas, {
+    minWidth: 1,
+    maxWidth: 2,
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    penColor: 'rgb(0, 0, 0)'
+});
+
+function resizeCanvas() {
+    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+    signatureCanvas.width = signatureCanvas.offsetWidth * ratio;
+    signatureCanvas.height = signatureCanvas.offsetHeight * ratio;
+    signatureCanvas.getContext("2d").scale(ratio, ratio);
+    signaturePad.clear(); // otherwise isEmpty() might return incorrect value
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
