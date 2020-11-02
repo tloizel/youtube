@@ -15,22 +15,30 @@ function donate() {
 function donationButtonState() {
     if (cashAmount >= donationCost && visibleDonationBox == true) {
         signaturePad.on();
-        drawCheque(); //ADD BORDER COLOR CHANGE TO RED TO NOTIFY
         clearInterval(checkChequeTimer);
-        //ADD MOUSEDOWN EVENTLISTENER -> DELETES TEXT
-        //ADD MOUSEUP EVENTLISTENER -> donate() & relaunches checkChequeTimer & changes back border color
-
-        //disableButton("donationButton",false);
-        //disableDiv("donationButton","auto");
+        signatureCanvas.style.border = "solid red";
+        signatureCanvas.addEventListener("mousedown", clearSignatureCanvas);
+        commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.01 Popularity]</span>",source:"callProject"});
+        commentArrayShift();
     }
     else {
         signaturePad.off();
-        signaturePad.clear();
-
-        //disableButton("donationButton",true);
-        //disableDiv("donationButton","none");
     }
 }
+
+function clearSignatureCanvas(){
+    let ctx = signatureCanvas.getContext("2d");
+    ctx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+    window.addEventListener("mouseup", signedCheque);
+}
+function signedCheque(){
+    donate();
+    checkChequeTimer = setInterval(donationButtonState, 500);
+    signatureCanvas.style.border = "solid grey";
+    clearSignatureCanvas();
+    drawCheque();
+}
+
 
 var signatureCanvas = document.getElementById("signatureCanvas");
 var signaturePad = new SignaturePad(signatureCanvas, {
@@ -41,8 +49,8 @@ var signaturePad = new SignaturePad(signatureCanvas, {
 });
 
 function drawCheque() {
-    var ratio = window.devicePixelRatio;
-    var ctx = signatureCanvas.getContext("2d");
+    let ratio = window.devicePixelRatio;
+    let ctx = signatureCanvas.getContext("2d");
     ctx.font = "15px Rubik, sans-serif";
     ctx.textAlign = "center";
     let chequeText = "to donate $" + donationCost;
@@ -65,3 +73,4 @@ window.addEventListener("resize", function() {
 
 resizeCanvas();
 drawCheque();
+
