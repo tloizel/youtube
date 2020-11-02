@@ -41,12 +41,13 @@ var signaturePad = new SignaturePad(signatureCanvas, {
 });
 
 function drawCheque() {
+    var ratio = window.devicePixelRatio;
     var ctx = signatureCanvas.getContext("2d");
     ctx.font = "15px Rubik, sans-serif";
     ctx.textAlign = "center";
     let chequeText = "to donate $" + donationCost;
-    ctx.fillText("Sign this cheque",signatureCanvas.width/2.5,signatureCanvas.height/3);
-    ctx.fillText(chequeText,signatureCanvas.width/2.5,signatureCanvas.height/1.65);
+    ctx.fillText("Sign this cheque",signatureCanvas.width/ratio/2,signatureCanvas.height/ratio/2.5);
+    ctx.fillText(chequeText,signatureCanvas.width/ratio/2,signatureCanvas.height/ratio/1.5);
 }
 
 function resizeCanvas() {
