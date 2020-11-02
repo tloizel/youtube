@@ -322,8 +322,8 @@ function firstPageLoad() {
     disableDiv("uploadB","none");
     disableDiv("subAdButton","none");
     disableDiv("addAdButton","none");
-    disableDiv("donationContainer","none");
-    disableButton("donationContainer",true);
+    //disableDiv("donationContainer","none");
+    //disableButton("donationContainer",true);
     if(prestige == 0){displayInsertName()}; //insert channel name only on prestige 0
     ideaRangeMax(1); //for prestige creativity bonus
   }
