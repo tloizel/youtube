@@ -83,6 +83,7 @@ function donationBoxAppear() {
   flickAppearOnce('reveal',11);
   visibleDonationBox = true;
   document.getElementById("donationButton").value = "Donate $"+ donationCost;
+  drawCheque();
 }
 
 

@@ -17,9 +17,7 @@ function donationButtonState() {
         signaturePad.on();
         clearInterval(checkChequeTimer);
         signatureCanvas.style.border = "solid red";
-        signatureCanvas.addEventListener("mousedown", clearSignatureCanvas);
-        commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.01 Popularity]</span>",source:"callProject"});
-        commentArrayShift();
+        //signatureCanvas.addEventListener("mousedown", clearSignatureCanvas);
     }
     else {
         signaturePad.off();
@@ -27,25 +25,33 @@ function donationButtonState() {
 }
 
 function clearSignatureCanvas(){
+    console.log("clearSignatureCanvas called");
     let ctx = signatureCanvas.getContext("2d");
     ctx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-    window.addEventListener("mouseup", signedCheque);
+    //window.addEventListener("mouseup", signedCheque);
 }
+
 function signedCheque(){
+    console.log("signedCheque called")
     donate();
-    checkChequeTimer = setInterval(donationButtonState, 500);
-    signatureCanvas.style.border = "solid grey";
     clearSignatureCanvas();
+    signatureCanvas.style.border = "solid grey";
     drawCheque();
+    commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.01 Popularity]</span>",source:"callProject"});
+    commentArrayShift();
+    checkChequeTimer = setInterval(donationButtonState, 500);
+
 }
 
 
 var signatureCanvas = document.getElementById("signatureCanvas");
 var signaturePad = new SignaturePad(signatureCanvas, {
-    minWidth: 1,
-    maxWidth: 2,
+    minWidth: 0.5,
+    maxWidth: 1.5,
     backgroundColor: 'rgba(255, 255, 255, 0)',
-    penColor: 'rgb(0, 0, 0)'
+    penColor: 'rgb(0, 0, 0)',
+    onBegin: clearSignatureCanvas,
+    onEnd: signedCheque
 });
 
 function drawCheque() {
@@ -53,7 +59,8 @@ function drawCheque() {
     let ctx = signatureCanvas.getContext("2d");
     ctx.font = "15px Rubik, sans-serif";
     ctx.textAlign = "center";
-    let chequeText = "to donate $" + donationCost;
+    let chequeText = "to donate " + numeral(donationCost).format('$0,0');
+    signaturePad.clear();
     ctx.fillText("Sign this cheque",signatureCanvas.width/ratio/2,signatureCanvas.height/ratio/2.5);
     ctx.fillText(chequeText,signatureCanvas.width/ratio/2,signatureCanvas.height/ratio/1.5);
 }
