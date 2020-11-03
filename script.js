@@ -1121,7 +1121,6 @@ function save(){
     visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"} //this must be last
   };
   localStorage.setItem("save",JSON.stringify(gameSave));
-  //console.log(gameSave); //ADD FOR TESTING
 }
 
 function projectRefresh(array,title,desc) {
@@ -1336,7 +1335,6 @@ async function sendScore(){
     };
   const response = await fetch('https://notyoutube-back.herokuapp.com/newScore', options);
   const json = await response.json();
-  console.log(json);
 };
 
 //Confetti
@@ -1353,6 +1351,8 @@ function endGame(){
   scoreModalOpen(); //open score modal (underneath beacause of html order)
   allScores(); //show all scores
   startConfetti(); //start confetti yay
+  let winSound = new Audio("WinSound.mp3");
+  winSound.play();
 }
 
 //PRESTIGE FUNCTIONS BELOW
