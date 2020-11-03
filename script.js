@@ -19,7 +19,7 @@ var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
 var ideasQtTotal = 0; //amount of ideas since beginning - 0
-var ideaSpeed = 6000; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
 var energy = 100; //current energy amount
 var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
@@ -35,7 +35,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
-var editPressSpeed = 70 * editP;//50ms ONLY CHANGED BY PRESTIGE - LINE 1163 TO CHANGE
+var editPressSpeed = 70 * editP;//70ms ONLY CHANGED BY PRESTIGE - LINE 1163 TO CHANGE
 var editorSpeed = 4; //how many times to call the function - 1
 
 //UPLOAD
@@ -44,7 +44,7 @@ var videosUploaded = 0; //Videos online - 0
 var averageQlNum = 0; //average Ql numerator - 0
 var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly - 1
-var uploadSpeed = 1000; //*100
+var uploadSpeed = 1; //*100
 var loadState = 0; //load state of progress bar
 var autoUploadActivated = false; //0 for no 1 for yes
 
@@ -63,19 +63,19 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visiblePrestige = true;
-var visibleEditBlock = true;
-var visibleUploadBlock = true;
-var visibleAnalyticsBlock = true;
-var visibleCash = true;
-var visibleAdAmount = true;
-var visibleAutoEdit = true;
-var visibleProjectedAverage = true;
-var visibleExpenses = true;
-var visibleIncome = true;
-var visibleDonationBox = true;
+var visiblePrestige = false;
+var visibleEditBlock = false;
+var visibleUploadBlock = false;
+var visibleAnalyticsBlock = false;
+var visibleCash = false;
+var visibleAdAmount = false;
+var visibleAutoEdit = false;
+var visibleProjectedAverage = false;
+var visibleExpenses = false;
+var visibleIncome = false;
+var visibleDonationBox = false;
 
-loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
+//loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
 //COMMENTS
 var comments = [
