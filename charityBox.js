@@ -16,7 +16,7 @@ function donationButtonState() {
     if (cashAmount >= donationCost && visibleDonationBox == true) {
         signaturePad.on();
         clearInterval(checkChequeTimer);
-        signatureCanvas.style.border = "solid red";
+        signatureCanvas.style.border = "solid green";
         //signatureCanvas.addEventListener("mousedown", clearSignatureCanvas);
     }
     else {
@@ -25,14 +25,12 @@ function donationButtonState() {
 }
 
 function clearSignatureCanvas(){
-    console.log("clearSignatureCanvas called");
     let ctx = signatureCanvas.getContext("2d");
     ctx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
     //window.addEventListener("mouseup", signedCheque);
 }
 
 function signedCheque(){
-    console.log("signedCheque called")
     donate();
     clearSignatureCanvas();
     signatureCanvas.style.border = "solid grey";

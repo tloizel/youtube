@@ -1088,7 +1088,7 @@ function save(){
     videosUploaded: {variable: videosUploaded, id:"videos"},
     averageQlNum: {variable: averageQlNum},
     averageQl: {variable: averageQl, idf:"document.getElementById('averageQl').innerHTML = averageQl.toFixed(2)"},
-    likeDislikeFactor: {variable: likeDislikeFactor, id:"likeDislikeFactor"},
+    likeDislikeFactor: {variable: likeDislikeFactor, idf:"LDRF(0)"},
     uploadSpeed: {variable: uploadSpeed, idf:"upgradeUploadSpeed(uploadSpeed)"},
     views: {variable: views, idf:"viewsRefresh()"},
     adAmount: {variable: adAmount, id:"adLoad"},
