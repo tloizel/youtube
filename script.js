@@ -1351,7 +1351,7 @@ function endGame(){
   scoreModalOpen(); //open score modal (underneath beacause of html order)
   allScores(); //show all scores
   startConfetti(); //start confetti yay
-  let winSound = new Audio("WinSound.mp3");
+  const winSound = new Audio("winSound.mp3");
   winSound.play();
 }
 
