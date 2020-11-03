@@ -82,7 +82,7 @@ function incomeUpdate(){
 function donationBoxAppear() {
   flickAppearOnce('reveal',11);
   visibleDonationBox = true;
-  document.getElementById("donationButton").value = "Donate $"+ donationCost;
+  document.getElementById("donationContainer").value = "Donate $"+ donationCost;
   drawCheque();
 }
 
