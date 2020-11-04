@@ -35,7 +35,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
-var editPressSpeed = 70 * editP;//70ms ONLY CHANGED BY PRESTIGE - LINE 1163 TO CHANGE
+var editPressSpeed = 90 * editP;//90ms ONLY CHANGED BY PRESTIGE - LINE 1163 TO CHANGE
 var editorSpeed = 4; //how many times to call the function - 1
 
 //UPLOAD
@@ -63,19 +63,19 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visiblePrestige = false;
-var visibleEditBlock = false;
-var visibleUploadBlock = false;
-var visibleAnalyticsBlock = false;
-var visibleCash = false;
-var visibleAdAmount = false;
-var visibleAutoEdit = false;
-var visibleProjectedAverage = false;
-var visibleExpenses = false;
-var visibleIncome = false;
-var visibleDonationBox = false;
+var visiblePrestige = true;
+var visibleEditBlock = true;
+var visibleUploadBlock = true;
+var visibleAnalyticsBlock = true;
+var visibleCash = true;
+var visibleAdAmount = true;
+var visibleAutoEdit = true;
+var visibleProjectedAverage = true;
+var visibleExpenses = true;
+var visibleIncome = true;
+var visibleDonationBox = true;
 
-//loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
+loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
 //COMMENTS
 var comments = [
@@ -267,6 +267,7 @@ var ideaProjects = [
   ["Apologize to your community for the spam","Reach 25k subscribers","subscribers>=25000","subscribers+=3000;LDRF(0.1)","Swallow your pride <span class='boldRed'>[+0.1 Popularity & +3k Subscribers]</span>","0","0"],
   ["Write an email to your fave YouTuber","Reach 40k subscribers","subscribers>=40000","subscribers+=0","He never answered. What did you expect? <span class='boldRed'>[+Still your fave tho :'( ]</span>","0","0"],
   ["Shoutout from Keemstar","Reach 50k subscribers","subscribers>=50000","LDRF(-0.2)","You got right into the neeeews <span class='boldRed'>[-0.2 Popularity]</span>","0","0"],
+  ["Donate to charity!","Reach 55k subscribers","subscribers>=55000","visibleDonationBox = true;donationBoxAppear()","Pandas have souls mkay <span class='boldRed'>[Donation Box unlocked]</span>","story","The Keemstar haters are getting to your head. Perhaps donating could improve your image."],
   ["Shoutout from MysteryGuitarMan","Reach 60k subscribers","subscribers>=60000","LDRF(0.1)","Will he ever take off his glasses? <span class='boldRed'>[0.1 Popularity]</span>","0","0"],
   ["Master the art of thumbnails","Reach 100k subscribers","subscribers>=100000","views+=4000000","Bewbs in thumbnail seems to work... <span class='boldRed'>[+4M Views]</span>","story","Who would have thought channelReplace would reach six digits this soon"],
   ["GIVEAWAY TIME","Reach 130k subscribers & Pay $8k","subscribers>=130000 && cashAmount>=8000","subscribers=subscribers*2;cashAmount-=8000","What a coincidence, your best friend won! <span class='boldRed'>[Doubled your subscribers!]</span>","0","0"],
@@ -481,11 +482,15 @@ window.setInterval(function() {
   cashRefresh();
 },1000);
 
+//calculate score every minute
+window.setInterval(function() {
+  calculateScore();
+},60000);
+
 //calls comments every minute
 window.setInterval(function() {
   callComment();
-  calculateScore();
-},60000);
+},120000);
 
 //saves every 10s
 window.setInterval(function() {
@@ -566,6 +571,7 @@ function newArray(value, len) {
 SECircleContainer.addEventListener("mousedown", pressingDownEdit);
 SECircleContainer.addEventListener("mouseup", pressingUpEdit);
 SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
+SECircleContainer.addEventListener('contextmenu', event => event.preventDefault());
 let editInterval = null;
 
 function pressingDownEdit(event) {
@@ -580,6 +586,7 @@ function pressingUpEdit() {
 
 //Shoot & Edit
 function clicksLeft() {
+  console.log("click");
   if(shootEditRem < 0) {
     shootEditRem = 0 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
@@ -1154,9 +1161,9 @@ function load() {
     }
   }
   //prestige changes repetition because variables init come before load()
-  creativity = 1 + creativityP;
+  creativity += creativityP;
   energyRegenSpeed = 1000 * energyP;
-  editPressSpeed = 70 * editP;//EDITPRESSSPEED TO BE CHANGED HERE
+  editPressSpeed = 90 * editP;//EDITPRESSSPEED TO BE CHANGED HERE
 }
 
 function deleteLocalStorage() {
