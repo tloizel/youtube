@@ -571,8 +571,8 @@ function newArray(value, len) {
 SECircleContainer.addEventListener("mousedown", pressingDownEdit);
 SECircleContainer.addEventListener("mouseup", pressingUpEdit);
 SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
-SECircleContainer.addEventListener('contextmenu', event => event.preventDefault());
-let editInterval = null;
+childFlexTopNoLeftClick.addEventListener('contextmenu', event => event.preventDefault());
+var editInterval = null;
 
 function pressingDownEdit(event) {
     if (event.type == "mousedown") {
@@ -586,7 +586,6 @@ function pressingUpEdit() {
 
 //Shoot & Edit
 function clicksLeft() {
-  console.log("click");
   if(shootEditRem < 0) {
     shootEditRem = 0 ;
     //document.getElementById("editClicks").innerHTML = shootEditRem;
