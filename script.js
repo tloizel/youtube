@@ -9,7 +9,7 @@ var prestige = 0; //prestige
 
 //Prestige choice
 var creativityP = 0; //0 ONLY CHANGED BY PRESTIGE
-var editP = 1; //1
+var editP = 1; //1 
 var energyP = 1; //1
 
 //IDEA
@@ -25,7 +25,7 @@ var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
 var energyRegenRate = 1; //amount of energy gained (per second)
 var energyRegenTimer = null;
-var energyRegenSpeed = 1000 * energyP; //ONLY CHANGED BY PRESTIGE
+var energyRegenSpeed = 1000 * energyP; //ONLY CHANGED BY PRESTIGE - If changed the also change line 1164
 var powerNap = false; //false - sleep automatically when 0 energy
 var alarmClock = false; //false - wake up when fully regened
 
@@ -35,7 +35,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
-var editPressSpeed = 90 * editP;//90ms ONLY CHANGED BY PRESTIGE - LINE 1163 TO CHANGE
+var editPressSpeed = 90 * editP;//90ms ONLY CHANGED BY PRESTIGE - - If changed the also change line 1165
 var editorSpeed = 4; //how many times to call the function - 1
 
 //UPLOAD
@@ -75,7 +75,7 @@ var visibleExpenses = true;
 var visibleIncome = true;
 var visibleDonationBox = true;
 
-loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
+//loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
 //COMMENTS
 var comments = [
@@ -1160,9 +1160,9 @@ function load() {
     }
   }
   //prestige changes repetition because variables init come before load()
-  creativity += creativityP;
-  energyRegenSpeed = 1000 * energyP;
-  editPressSpeed = 90 * editP;//EDITPRESSSPEED TO BE CHANGED HERE
+  if (creativity==1){creativity += creativityP};
+  if (energyRegenSpeed==1000){energyRegenSpeed = 1000 * energyP}; //ENERGYREGENSPEED TO BE CHANGED HERE
+  if (editPressSpeed==90){editPressSpeed = 90 * editP}; //EDITPRESSSPEED TO BE CHANGED HERE
 }
 
 function deleteLocalStorage() {
