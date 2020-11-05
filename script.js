@@ -198,15 +198,15 @@ var commentBox = [{comment:"👋", source:"story"},
 //project arrays
 var ideaProjects = [
   ["Start thinking","Generate 1 idea","ideasQtTotal>=1","editAppear()","You can now edit videos <span class='boldRed'>[Edit appear]</span>","story","Now let's edit your first ever video!"],
-  ["Binge watch YouTube","Generate 5 ideas","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea)","17 hours later, inspiration is flowing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
+  ["Binge watch YouTube","Generate 5 ideas","ideasQtTotal>=5","upgradeCreativity(1);ideaRangeMax(rangeIdea);setTimeout(function(){qualityJudge()},2000)","17 hours later, inspiration is flowing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Wear glasses","Generate 8 ideas","ideasQtTotal>=8","batchEnergyCost-=5","Looking clever makes you feel clever <span class='boldRed'>[-5 Energy Cost]</span>","story","It takes you less effort to come up with ideas - you're a creative now. "],
-  ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Invite a mate over","Generate 25 ideas","ideasQtTotal>=25","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn <span class='boldRed'>[+1 Creativity]</span>","0","0"],
-  ["Get a new mattress","Generate 35 ideas","ideasQtTotal>=40","energyRegenRate+=1","Underrated Christmas gift <span class='boldRed'>[+1 Regen Rate]</span>","story","You know it's serious when even family gifts are for channelReplace"],
+  ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
+  ["Get a new mattress","Generate 35 ideas","ideasQtTotal>=35","energyRegenRate+=1","Underrated Christmas gift <span class='boldRed'>[+1 Regen Rate]</span>","story","You know it's serious when even family gifts are for channelReplace"],
   ["Watch the OGs of YouTube","Generate 50 ideas","ideasQtTotal>=50","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who? <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Power Nap","Generate 70 ideas","ideasQtTotal>=70","powerNap=true","Surely Tim Ferris does this <span class='boldRed'>[Power Nap activated]</span>","story","You now fall asleep as soon as you hit 0 energy"],
-  ["Take guitar lessons","Reach 500k views & 5k subscribers & Pay $500","views>=500000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=500;ideaRangeMax(rangeIdea);creativeBlock()","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity & -$500]</span>","negativeProject","channelReplace your creativity just plummeted, reach the next project to get your imagination back to normal!"],
-  ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(10);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+10 Creativity]</span>","0","0"],
+  ["Take guitar lessons","Reach 500k views & 5k subscribers & Pay $500","views>=500000 && subscribers>=5000 && cashAmount >=500","upgradeCreativity(2);cashAmount-=500;ideaRangeMax(rangeIdea);creativeBlock()","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity & -$500]</span>","story","channelReplace your creativity just plummeted, reach the next project to get your imagination back to normal!"],
+  ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(10);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+10 Creativity]</span>","negativeProject","That was awful, you'll never let that happen to you again."],
   ["Finish Netflix","Generate 300 ideas & Reach 7.5 average video quality","averageQl>=7.5 && ideasQtTotal>=300","upgradeCreativity(2);ideaRangeMax(rangeIdea)","Get that inspo <span class='boldRed'>[+2 Creativity]</span>","0","0"],
   ["Take Yoga classes","Generate 380 ideas & Pay $8k","ideasQtTotal>=380 && cashAmount >=8000","batchEnergyCost-=10;cashAmount-=8000","Helps you think clearly but wow that's expensive <span class='boldRed'>[-10 Energy Cost & -$8k]</span>","0",""],
   ["Buy a kitten","Generate 500 ideas & Reach 250M views & Pay $15k","views>=250000000 && ideasQtTotal>=500 && cashAmount >=15000","upgradeCreativity(3);ideaRangeMax(rangeIdea);cashAmount-=15000","They're the real OGs of YouTube <span class='boldRed'>[+3 Creativity & -$15k]</span>","0","0"],
@@ -256,9 +256,9 @@ var ideaProjects = [
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
   var subProjects = [
-  ["Reply to comments","Reach 50 subscribers","subscribers>=50","views+=200","Love you guys <span class='boldRed'>[+200 Views]</span>","0","0"],
-  ["Pimp your video intro","Reach 100 subscribers","subscribers>=100","views+=500","Don't make it a minute long tho <span class='boldRed'>[+500 Views]</span>","0","0"],
-  ["Break the piggy bank","Reach 150 subscribers","subscribers>=150","cashAppear()","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>","0","0"],
+  ["Reply to comments","Reach 50 subscribers or 500 views","subscribers>=50 || views>=500","views+=200","Love you guys <span class='boldRed'>[+200 Views]</span>","0","0"],
+  ["Pimp your video intro","Reach 100 subscribers or 1.5k views","subscribers>=100 || views>=1500","views+=500","Don't make it a minute long tho <span class='boldRed'>[+500 Views]</span>","0","0"],
+  ["Break the piggy bank","Reach 150 subscribers or 4k views","subscribers>=150 || views>=4000","cashAppear()","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>","0","0"],
   ["SMASH THAT LIKE BUTTON","Reach 300 subscribers","subscribers>=300","views+=5000","Reminding never hurts <span class='boldRed'>[+5k Views]</span>","0","0"],
   ["Balcony conversation with Jimmy","Reach 1k subscribers","subscribers>=1000","subscribers=subscribers*2","Gotta rep that moustache <span class='boldRed'>[Doubled your subscribers!]</span>","0","0"],
   ["YouTube Partner","Reach 5k subscribers","subscribers>=5000","youtubePartner=1;adAmountAppear()","YouTube money is gonna be rolling in booooy <span class='boldRed'>[Ad Time]</span>","story","The dream just got a little closer to reality"],
@@ -344,6 +344,17 @@ function helpBulbStory() {
   commentBox.unshift({comment:"Your light bulb just flashed after 1 minute of thinking, you've generated your first idea(s)!",source:"callProject"});
   commentArrayShift();
 }
+//to help player start in right direction (called on second idea project)
+function qualityJudge(){
+  if(averageQl >= 4){
+    commentBox.unshift({comment:"Quality over quantity, that's the way to go!",source:"story"});
+  }
+  else {
+    commentBox.unshift({comment:"I'm sure you can produce better quality content!",source:"story"})
+  }
+  commentArrayShift();
+}
+
 
 //empty array help
 function emptyArray() {
@@ -1072,6 +1083,7 @@ function save(){
     channel: {variable: channel},
     score: {variable: score},
     prestige: {variable: prestige},
+    energy: {variable: energy, id:"energy"},
     batchEnergyCost: {variable: batchEnergyCost},
     energyRegenRate: {variable: energyRegenRate},
     powerNap: {variable: powerNap},
