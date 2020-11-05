@@ -896,7 +896,7 @@ function viewsFromSubs() {
 
 //views calculation
 function viewsRefresh() {
-  if(views > 10){views++}; //at least one view a second for the messed up start
+  if(views > 3){views+=0.25}; //at least one view a second for the messed up start
   views += 0.05*subscribers;
   var viewsRound = views.toFixed();
   document.getElementById("views").innerHTML = numeral(viewsRound).format('0,0');
