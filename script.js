@@ -506,7 +506,7 @@ window.setInterval(function() {
 //saves every 10s
 window.setInterval(function() {
   save(); //REMOVE FOR TESTING
-},8000);                   
+},1000);                   
 
 //Upgrades creativity
 function upgradeCreativity(num) {
@@ -582,11 +582,11 @@ function newArray(value, len) {
 SECircleContainer.addEventListener("mousedown", pressingDownEdit);
 SECircleContainer.addEventListener("mouseup", pressingUpEdit);
 SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
-childFlexTopNoLeftClick.addEventListener('contextmenu', event => event.preventDefault());
+childFlexTopNoRightClick.addEventListener('contextmenu', event => event.preventDefault());
 var editInterval = null;
 
 function pressingDownEdit(event) {
-    if (event.type == "mousedown") {
+    if (event.type == "mousedown" && event.button == 0) {
       editInterval = setInterval(clicksLeft,editPressSpeed);
     }
 }
@@ -906,7 +906,7 @@ function viewsFromSubs() {
 
 //views calculation
 function viewsRefresh() {
-  if(views > 3){views+=0.25}; //at least one view a second for the messed up start
+  if(views >= 0){views+=0.25}; //at least one view a second for the messed up start
   views += 0.05*subscribers;
   var viewsRound = views.toFixed();
   document.getElementById("views").innerHTML = numeral(viewsRound).format('0,0');
