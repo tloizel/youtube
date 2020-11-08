@@ -63,19 +63,19 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visiblePrestige = false;
-var visibleEditBlock = false;
-var visibleUploadBlock = false;
-var visibleAnalyticsBlock = false;
-var visibleCash = false;
-var visibleAdAmount = false;
-var visibleAutoEdit = false;
-var visibleProjectedAverage = false;
-var visibleExpenses = false;
-var visibleIncome = false;
-var visibleDonationBox = false;
+var visiblePrestige = true;
+var visibleEditBlock = true;
+var visibleUploadBlock = true;
+var visibleAnalyticsBlock = true;
+var visibleCash = true;
+var visibleAdAmount = true;
+var visibleAutoEdit = true;
+var visibleProjectedAverage = true;
+var visibleExpenses = true;
+var visibleIncome = true;
+var visibleDonationBox = true;
 
-//loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
+loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
 //COMMENTS
 var comments = [
@@ -323,7 +323,7 @@ function firstPageLoad() {
     disableDiv("uploadB","none");
     disableDiv("subAdButton","none");
     disableDiv("addAdButton","none");
-    if(prestige == 0){displayInsertName()}; //insert channel name only on prestige 0
+    if(prestige == 0 && channel == "unknown"){displayInsertName()}; //insert channel name only on prestige 0
     ideaRangeMax(1); //for prestige creativity bonus
   }
 }
@@ -332,7 +332,7 @@ function firstPageLoad() {
 memoryBlockRefresh();//refreshes the memory block canvas
 //BulbOn();
 stopIdeaTicker(); //sleep
-clearInterval(energyRegenTimer); // IS THIS LINE NECESSARY?
+//clearInterval(energyRegenTimer); // IS THIS LINE NECESSARY?
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem-solving. Get out of here!");
@@ -496,7 +496,7 @@ window.setInterval(function() {
 //calculate score every minute
 window.setInterval(function() {
   calculateScore();
-},60000);
+},1000);
 
 //calls comments every minute
 window.setInterval(function() {
@@ -812,9 +812,6 @@ function LDR() {
     if (likeDislikeRatio < 0){
      likeDislikeRatio = 0;
     } 
-//    else if (likeDislikeRatio > 100){
-//     likeDislikeRatio = 100;
-//    }
   document.getElementById("likeDislikeRatio").innerHTML = likeDislikeRatio + "%";
 }
 
@@ -1308,7 +1305,7 @@ function CheckSpace(event)
 //game score
 function calculateScore(){
   if(subscribers<100000000){
-  score+=1;
+  score += 1;
   }
 }
 
@@ -1364,6 +1361,7 @@ async function sendScore(){
     };
   const response = await fetch('https://notyoutube-back.herokuapp.com/newScore', options);
   const json = await response.json();
+  allScores();
 };
 
 //Confetti
@@ -1378,7 +1376,7 @@ function endGame(){
   clickablePrestigeOptions(); //which bonus have already been used
   prestigeOptions(); //open modal with final score
   scoreModalOpen(); //open score modal (underneath beacause of html order)
-  allScores(); //show all scores
+  //allScores(); //show all scores
   startConfetti(); //start confetti yay
   const winSound = new Audio("winSound.mp3");
   winSound.play();

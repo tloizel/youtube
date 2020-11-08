@@ -7,27 +7,26 @@ function donate() {
         donationCost = nextDonationCost;
         likeDislikeFactor += 0.01;
         document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
-        //document.getElementById("donationButton").value = "Donate $"+ donationCost;
         document.getElementById("likeDislikeFactor").innerHTML = numeral(likeDislikeFactor).format('0.00');
+        LDR();
     }
 }
 
 function donationButtonState() {
     if (cashAmount >= donationCost && visibleDonationBox == true) {
         signaturePad.on();
-        clearInterval(checkChequeTimer);
         signatureCanvas.style.border = "solid green";
-        //signatureCanvas.addEventListener("mousedown", clearSignatureCanvas);
     }
     else {
         signaturePad.off();
+        signatureCanvas.style.border = "solid grey";
     }
 }
 
 function clearSignatureCanvas(){
+    clearInterval(checkChequeTimer);
     let ctx = signatureCanvas.getContext("2d");
     ctx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-    //window.addEventListener("mouseup", signedCheque);
 }
 
 function signedCheque(){
