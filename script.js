@@ -10,7 +10,7 @@ var prestige = 0; //prestige
 //Prestige choice
 var creativityP = 0; //0 ONLY CHANGED BY PRESTIGE
 var editP = 1; //1 
-var energyP = 1; //1
+var uploadP = 1; //1
 
 //IDEA
 var ideaTimer = null;
@@ -25,7 +25,7 @@ var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
 var energyRegenRate = 1; //amount of energy gained (per second)
 var energyRegenTimer = null;
-var energyRegenSpeed = 1000 * energyP; //ONLY CHANGED BY PRESTIGE - If changed the also change line 1164
+var energyRegenSpeed = 1000; //1000
 var powerNap = false; //false - sleep automatically when 0 energy
 var alarmClock = false; //false - wake up when fully regened
 
@@ -44,7 +44,7 @@ var videosUploaded = 0; //Videos online - 0
 var averageQlNum = 0; //average Ql numerator - 0
 var averageQl = 0; //average video quality after upload - 0
 var likeDislikeFactor = 1; //factor used to change LDR directly - 1
-var uploadSpeed = 1; //*100
+var uploadSpeed = 1 * uploadP; //*100 - If changed the also change line 1164
 var loadState = 0; //load state of progress bar
 var autoUploadActivated = false; //0 for no 1 for yes
 
@@ -705,7 +705,7 @@ function upgradeMemory(num) {
 //change upload speed
 function upgradeUploadSpeed(para) {
   uploadSpeed = para;
-  let uploadSpeedConversion = uploadSpeed * 100;
+  let uploadSpeedConversion = uploadSpeed * 100 * uploadP;
   document.getElementById("uploadSpeed").innerHTML = uploadSpeedConversion+" kB/s";
 }
 
@@ -1083,7 +1083,7 @@ function save(){
     visiblePrestige: {variable: visiblePrestige},
     creativityP: {variable: creativityP},
     editP: {variable: editP},
-    energyP: {variable: energyP},
+    uploadP: {variable: uploadP},
   }
   localStorage.setItem("saveP",JSON.stringify(gameSavePrestige));
   
@@ -1181,8 +1181,8 @@ function load() {
   }
   //prestige changes repetition because variables init come before load()
   if (creativity==1){creativity += creativityP};
-  if (energyRegenSpeed==1000){energyRegenSpeed = 1000 * energyP}; //ENERGYREGENSPEED TO BE CHANGED HERE
   if (editPressSpeed==90){editPressSpeed = 90 * editP}; //EDITPRESSSPEED TO BE CHANGED HERE
+  if (uploadSpeed==1){uploadSpeed = 1 * uploadP}; //ENERGYREGENSPEED TO BE CHANGED HERE
 }
 
 function deleteLocalStorage() {
@@ -1414,7 +1414,7 @@ function clickablePrestigeOptions(){
     document.getElementById("option2").style.backgroundColor = "LightGrey";
     document.getElementById("option2").style.borderColor = "grey";
   }
-  if(energyP !== 1){
+  if(uploadP !== 1){
     disableDiv("option3","none");
     document.getElementById("option3").style.backgroundColor = "LightGrey";
     document.getElementById("option3").style.borderColor = "grey";
@@ -1423,8 +1423,8 @@ function clickablePrestigeOptions(){
 
 function prestigeOptionSelect(option) {
   if(option=="option1"){creativityP = 1}
-  if(option=="option2"){editP = 0.9}
-  if(option=="option3"){energyP = 0.9}
+  if(option=="option2"){editP = 0.75}
+  if(option=="option3"){uploadP = 1.25}
   visiblePrestige = true;
   prestige+=1;
   save();
