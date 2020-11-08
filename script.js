@@ -1310,10 +1310,11 @@ function calculateScore(){
   }
 }
 
-let scoreRefresh; //Timer var and function to update score/time in scoreboard when open
+let scoreRefresh; //Timer and function to update score/time in scoreboard when open
 function scoreRefreshTimer() {
   scoreRefresh = setInterval(function(){
     document.getElementById("showScore").innerHTML = numeral(score).format('00:00:00');
+    console.log("timer on");
   }, 1000);
 }
 
@@ -1322,9 +1323,10 @@ function scoreModalOpen(){
   scoreRefreshTimer();
   const scoreboard = document.getElementById("scoreModal");
   scoreboard.style.display = "block";
-  const closeModal = document.getElementById("closeScoreModal");
+  const closeModal = document.getElementById("closeScoreModal"); //to close modal through x
   closeModal.onclick = function() {
   scoreboard.style.display = "none";
+  clearInterval(scoreRefresh);
   }
 }
 
