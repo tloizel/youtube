@@ -789,7 +789,7 @@ function sumArray(array){
 
 //change ad load
 function changeAdLoad(number) {
-  if(number==1){
+  if(number == 1){
     if (adAmount < adLoadMax){
       adAmount++;
       LDR();
@@ -973,9 +973,9 @@ function commentStyle(commentSource,id) {
     element.classList.add("projectCommentcolor");
   }
   else if (commentSource == "story"){
-      element.classList.remove("callCommentcolor");
-      element.classList.remove("projectCommentcolor");
-      element.classList.add("storyComment");
+    element.classList.remove("callCommentcolor");
+    element.classList.remove("projectCommentcolor");
+    element.classList.add("storyComment");
   }
 }
 
@@ -1209,9 +1209,10 @@ document.addEventListener('visibilitychange', function() {
 
 //to close modals by clicking out
 window.onclick = function(event) {
-  let modal = document.getElementById("scoreModal")
+  const modal = document.getElementById("scoreModal");
   if (event.target == modal) {
     modal.style.display = "none";
+    clearInterval(scoreRefresh);
   }
 }
 
@@ -1288,8 +1289,8 @@ function insertName(){
   channelName.style.display = "none";
 }
 function personnaliseFirstComment(){
-commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:red'>" + channel + "</span>";
-document.getElementById("comment2").innerHTML = commentBox[1].comment;
+  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:red'>" + channel + "</span>";
+  document.getElementById("comment2").innerHTML = commentBox[1].comment;
 }
 
 //prevent spaces in channel ame
@@ -1297,8 +1298,8 @@ function CheckSpace(event)
 {
    if((event.which == 32) || (event.which == 222) || (event.key == "'"))
    {
-      event.preventDefault();
-      return false;
+    event.preventDefault();
+    return false;
    }
 }
 
@@ -1309,19 +1310,27 @@ function calculateScore(){
   }
 }
 
-//open scoreboard
-function scoreModalOpen(){
-  var scoreboard = document.getElementById("scoreModal");
-  scoreboard.style.display = "block";
-    var closeModal = document.getElementById("closeScoreModal");
-    closeModal.onclick = function() {
-    scoreboard.style.display = "none";
-    }
+let scoreRefresh; //Timer var and function to update score/time in scoreboard when open
+function scoreRefreshTimer() {
+  scoreRefresh = setInterval(function(){
+    document.getElementById("showScore").innerHTML = numeral(score).format('00:00:00');
+  }, 1000);
 }
 
-//close scoreboard
-function scoreModalClose(){
-  var scorebard = document.getElementById("scoreModal");
+//open scoreboard
+function scoreModalOpen(){
+  scoreRefreshTimer();
+  const scoreboard = document.getElementById("scoreModal");
+  scoreboard.style.display = "block";
+  const closeModal = document.getElementById("closeScoreModal");
+  closeModal.onclick = function() {
+  scoreboard.style.display = "none";
+  }
+}
+
+//close scoreboard ONLY FOR Select prestige bonus
+function scoreModalClose(){ 
+  const scorebard = document.getElementById("scoreModal");
   scorebard.style.display = "none";
 }
 
@@ -1333,6 +1342,7 @@ async function allScores(){
   updateTable(obj);
   updateLoading();
 }
+
 function updateTable(object){
   for (var i = 0; i < 10; i++) {
   let channelID = "tdChannel"+(i+1);
@@ -1340,9 +1350,9 @@ function updateTable(object){
   let scoreID = "tdScore"+(i+1);
   document.getElementById(channelID).innerHTML = object[i].channel;
   document.getElementById(prestigeID).innerHTML = object[i].prestige;
-  document.getElementById(scoreID).innerHTML = object[i].score;
+  document.getElementById(scoreID).innerHTML = numeral(object[i].score).format('00:00:00');
   }
-  document.getElementById("showScore").innerHTML = score;
+  document.getElementById("showScore").innerHTML = numeral(score).format('00:00:00');
 }
 function updateLoading(){
   document.getElementById("loading").style.display = "none";
