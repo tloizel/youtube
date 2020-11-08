@@ -19,7 +19,7 @@ function donationButtonState() {
     }
     else {
         signaturePad.off();
-        signatureCanvas.style.border = "solid grey";
+        signatureCanvas.style.border = "solid rgb(189, 94, 94)";
     }
 }
 
@@ -30,9 +30,12 @@ function clearSignatureCanvas(){
 }
 
 function signedCheque(){
+    var element = document.getElementById("signatureCanvas");
+    element.classList.add("borderFlash");
+    setTimeout(function(){ element.classList.remove("borderFlash"); }, 1000);
     donate();
     clearSignatureCanvas();
-    signatureCanvas.style.border = "solid grey";
+    signatureCanvas.style.border = "solid rgb(189, 94, 94)";
     drawCheque();
     commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.01 Popularity]</span>",source:"callProject"});
     commentArrayShift();
@@ -46,7 +49,7 @@ var signaturePad = new SignaturePad(signatureCanvas, {
     minWidth: 0.5,
     maxWidth: 1.5,
     backgroundColor: 'rgba(255, 255, 255, 0)',
-    penColor: 'rgb(0, 0, 0)',
+    penColor: 'black',
     onBegin: clearSignatureCanvas,
     onEnd: signedCheque
 });

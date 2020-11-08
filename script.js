@@ -404,7 +404,7 @@ function startIdeaTicker() {
     thinking(); //you can still click on think with insufficient energy
   };
     ideaTimer = setInterval(function() {
-      if(ideasQtTotal == 1){helpBulbStory()}; //for beginning story comment 
+      if(ideasQtTotal == 0){helpBulbStory()}; //for beginning story comment 
       if(energy >= batchEnergyCost*2) { //energy check inside loop
         ideasGen();
         BulbOn();
