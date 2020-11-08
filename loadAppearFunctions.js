@@ -10,25 +10,36 @@ function analyticsAppear(){
   flickAppearOnce('reveal',1);
   visibleAnalyticsBlock = true;
 }
-function editAppear(){
+
+function alarmAppear(){
   flickAppearOnce('reveal',2);
+  powerNap = true;
+}
+
+function napAppear(){
+  flickAppearOnce('reveal',3);
+  powerNap = true;
+}
+
+function editAppear(){
+  flickAppearOnce('reveal',4);
   memoryBlockRefresh();
   disableDiv("childFlexEdit",'auto');
   visibleEditBlock = true;
 }
 function uploadAppear(){
-  flickAppearOnce('reveal',5);
+  flickAppearOnce('reveal',7);
   disableDiv("uploadB",'auto');
   visibleUploadBlock = true;
 }
 
 function projectedAverageAppear() {
-  flickAppearOnce('reveal',6);
+  flickAppearOnce('reveal',8);
   visibleProjectedAverage = true;
 }
 
 function cashAppear() {
-  flickAppearOnce('reveal',7);
+  flickAppearOnce('reveal',9);
   disableDiv('cashProjectsB','auto');
   disableDiv("subAdButton",'auto');
   disableDiv("addAdButton",'auto');
@@ -36,12 +47,12 @@ function cashAppear() {
 }
 
 function incomeAppear() {
-  flickAppearOnce('reveal',8);
+  flickAppearOnce('reveal',10);
   visibleIncome = true;
 }
 
 function adAmountAppear() {
-  flickAppearOnce('reveal',10);
+  flickAppearOnce('reveal',12);
   disableButton('subAdButton',false);
   disableButton('addAdButton',false);
   visibleAdAmount = true;
@@ -49,9 +60,9 @@ function adAmountAppear() {
 
 //function concerns autoEdit switch and editor expenses
 function autoEditAppear() {
-  flickAppearOnce('reveal',3); //autoedit
-  flickAppearOnce('reveal',9); //expenses
-  flickAppearOnce('reveal',4); //autoedit
+  flickAppearOnce('reveal',5); //autoedit
+  flickAppearOnce('reveal',11); //expenses
+  flickAppearOnce('reveal',6); //autoedit
   disableButton('myonoffswitch',false);
   disableDiv('onOffSwitchContainer','auto');
   visibleAutoEdit = true;
@@ -80,7 +91,7 @@ function incomeUpdate(){
 }
 
 function donationBoxAppear() {
-  flickAppearOnce('reveal',11);
+  flickAppearOnce('reveal',13);
   visibleDonationBox = true;
   document.getElementById("donationContainer").value = "Donate $"+ donationCost;
   drawCheque();
@@ -99,5 +110,7 @@ function loadVisibleDivs() {
   if(visibleIncome == true){incomeAppear()};
   if(autoUploadActivated == true){autoUpload()};
   if(visibleDonationBox == true){donationBoxAppear()};
+  if(powerNap == true){napAppear()};
+  if(alarmClock == true){alarmAppear()};
   memoryBlockRefresh();
 }
