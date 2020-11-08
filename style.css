@@ -614,6 +614,13 @@ h2 {
   margin-left: 5px;
 }
 
+.subDifferenceClassEnergy {
+  position: relative;
+  color:#BEBEBE;
+  opacity:1;
+  margin-left: 5px;
+}
+
 .subDifferenceClass.animatedRed {
   animation-name: animationRed;
   animation-duration: 3s;
@@ -626,14 +633,26 @@ h2 {
   animation-timing-function: ease-out;
 }
 
+.subDifferenceClassEnergy.animatedRed {
+  animation-name: animationRed;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+
+.subDifferenceClassEnergy.animatedGreen {
+  animation-name: animationGreen;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+
 @keyframes animationRed {
-  0%    {bottom:0px;opacity:100;color:red;}
+  0%    {bottom:0px;opacity:1;color:red;}
   100%   {bottom:10px;opacity:0;color:red;}
 
 }
 
 @keyframes animationGreen {
-  0%    {bottom:0px;opacity:100;color:green;}
+  0%    {bottom:0px;opacity:1;color:green;}
   100%   {bottom:10px;opacity:0;color:green;}
 }
 

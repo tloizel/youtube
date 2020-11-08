@@ -332,6 +332,7 @@ function firstPageLoad() {
 memoryBlockRefresh();//refreshes the memory block canvas
 //BulbOn();
 stopIdeaTicker(); //sleep
+upgradeEnergyBatch(0);
 //clearInterval(energyRegenTimer); // IS THIS LINE NECESSARY?
 commentArrayShift(); //to show story comments
 loadVisibleDivs(); //if visible variables are true
@@ -384,8 +385,17 @@ function energyRegen() {
     document.getElementById("energy").innerHTML = energy;
 }
 
+//function to reduce energy batch cost
+function upgradeEnergyBatch(num){
+  batchEnergyCost-=num;
+  if (document.getElementById("startTimer").disabled == true || document.getElementById("startTimer").disabled == false && energy == 100) {
+    document.getElementById("energyRefreshNum").innerHTML = -batchEnergyCost
+  }
+}
+
 //start idea ticker
-function startIdeaTicker() {
+function startIdeaTicker() {  
+  setTimeout(function(){ document.getElementById("energyRefreshNum").innerHTML = -batchEnergyCost; }, 2500);
   if(energy >= batchEnergyCost) {
     BulbOn(); //initial energy check when pressing THINK
     thinking();
