@@ -181,6 +181,7 @@ var comments = [
   {name: "Even my dog edits videos better than this", type: "negative"},
   {name: "i can tell your palms were sweaty, knees were weak and arms were heavy when you shot this video", type: "negative"},
   {name: "I can barely hear your voice with my speakers all the way up :/", type: "negative"},
+  {name: "This comment section is SAVAGE 🤣", type: "negative"},
     ];
   
 var commentBox = [{comment:"👋", source:"story"},
@@ -325,6 +326,7 @@ function firstPageLoad() {
     disableDiv("addAdButton","none");
     if(prestige == 0 && channel == "unknown"){displayInsertName()}; //insert channel name only on prestige 0
     ideaRangeMax(1); //for prestige creativity bonus
+    upgradeUploadSpeed(1);
   }
 }
 
@@ -913,7 +915,7 @@ function viewsFromSubs() {
 
 //views calculation
 function viewsRefresh() {
-  if(views >= 0){views+=0.25}; //at least one view a second for the messed up start
+  if(views > 0){views+=0.25}; //at least one view a second for the messed up start
   views += 0.05*subscribers;
   var viewsRound = views.toFixed();
   document.getElementById("views").innerHTML = numeral(viewsRound).format('0,0');
@@ -1322,10 +1324,12 @@ function calculateScore(){
 
 let scoreRefresh; //Timer and function to update score/time in scoreboard when open
 function scoreRefreshTimer() {
-  scoreRefresh = setInterval(function(){
-    document.getElementById("showScore").innerHTML = numeral(score).format('00:00:00');
-    console.log("timer on");
-  }, 1000);
+  if(subscribers<100000000){
+    scoreRefresh = setInterval(function(){
+      document.getElementById("showScore").innerHTML = numeral(score).format('00:00:00');
+    }, 1000);
+  }
+  else {document.getElementById("showScore").innerHTML = numeral(score).format('00:00:00')}
 }
 
 //open scoreboard
