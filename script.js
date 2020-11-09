@@ -191,7 +191,7 @@ var commentBox = [{comment:"👋", source:"story"},
                   {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
                   {comment:"The road to 100M subscribers will be paved with obstacles!", source:"story"},
                   {comment:"Fastest to reach 100M, wins.", source:"story"},
-                  {comment:"Good luck!", source:"story"},
+                  {comment:"Good luck! <b>Desktop</b> is recommended for optimal experience and performance.", source:"story"},
                   //{comment:"",source:""},
                   //{comment:"",source:""},
                   ];
