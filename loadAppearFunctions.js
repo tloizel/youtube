@@ -13,7 +13,7 @@ function analyticsAppear(){
 
 function alarmAppear(){
   flickAppearOnce('reveal',2);
-  powerNap = true;
+  alarmClock = true;
 }
 
 function napAppear(){
