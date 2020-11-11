@@ -598,15 +598,18 @@ SECircleContainer.addEventListener("mouseup", pressingUpEdit);
 SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
 childFlexTopNoRightClick.addEventListener('contextmenu', event => event.preventDefault());
 var editInterval = null;
+var editIntervalOn = false;
 
 function pressingDownEdit(event) {
-    if (event.type == "touchstart" || (event.type == "mousedown" && event.button == 0)) { //event.button to confirm left click
+    if ((event.type == "touchstart" || (event.type == "mousedown" && event.button == 0)) && editIntervalOn == false) { //event.button to confirm left click
       editInterval = setInterval(clicksLeft,editPressSpeed);
+      editIntervalOn = true;
     }
 }
 
 function pressingUpEdit() {
   clearInterval(editInterval);
+  editIntervalOn = false;
 }
 
 //function for edit projects
