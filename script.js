@@ -63,19 +63,20 @@ var expensesComp = 0;
 var youtubePartner = 0; //0 for no 1 for yes
 
 //VISIBLE STATE ON LOAD - functions that change these var are located in PROJECTS
-var visiblePrestige = true;
-var visibleEditBlock = true;
-var visibleUploadBlock = true;
-var visibleAnalyticsBlock = true;
-var visibleCash = true;
-var visibleAdAmount = true;
-var visibleAutoEdit = true;
-var visibleProjectedAverage = true;
-var visibleExpenses = true;
-var visibleIncome = true;
-var visibleDonationBox = true;
+var visibleAll = false;
+var visiblePrestige = visibleAll;
+var visibleEditBlock = visibleAll;
+var visibleUploadBlock = visibleAll;
+var visibleAnalyticsBlock = visibleAll;
+var visibleCash = visibleAll;
+var visibleAdAmount = visibleAll;
+var visibleAutoEdit = visibleAll;
+var visibleProjectedAverage = visibleAll;
+var visibleExpenses = visibleAll;
+var visibleIncome = visibleAll;
+var visibleDonationBox = visibleAll;
 
-loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
+//loadVisibleDivs(); //TO DELETE : FOR CODING PURPOSES
 
 //COMMENTS
 var comments = [
