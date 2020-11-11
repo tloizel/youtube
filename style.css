@@ -34,7 +34,7 @@ h2 {
 .header {
   /*height: 4%;*/
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   background-color: #ffffff;
   margin: 0;
   padding: 0;
@@ -43,9 +43,14 @@ h2 {
 
 .viewsBig {
   font-family: Rubik, sans-serif;
-  font-size: 6vh;
+  font-size: 40px;
   width: 95%;
   padding-left: 2vw;
+}
+
+.subscribersBig {
+  font-size: 20px;
+  padding: 0 0 0.8vh 0.6vh;
 }
 
 .settingsButton {
@@ -114,11 +119,6 @@ h2 {
 
 .flex-end {
   align-items: flex-end;
-}
-
-.subscribersBig {
-  font-size: 3vh;
-  padding: 0 0 0.8vh 0.6vh;
 }
 
 .zero-margin { /* used to delete margins added by other classes on an object*/
@@ -870,6 +870,7 @@ h2 {
 border: solid;
 border-color: red;
 width: calc(33% - 1em);
+min-width : 3em;
 text-align: center;
 margin: 1em;
 cursor: pointer;
@@ -1009,7 +1010,7 @@ color: white;
 @media (max-width: 800px) {
   .block-bg-color {
     background-color: #f5f6f7; /*#edeff2*/
-    border :rgb(255, 36, 36) solid 2px;
+    border :red solid 2px;
   }
   .mobile-child-flex-width {
     width: calc(100% - 2em);
@@ -1040,13 +1041,8 @@ color: white;
     overflow-y: scroll;
   }*/
 
-  .mobile-subsBigNum {
-    font-size: 4vh;
+  .viewsBig {
     padding-left: 4vw;
-  }
-
-  .mobile-subsBig {
-    font-size: 2vh;
   }
 
   .mobile-background {
@@ -1074,6 +1070,24 @@ color: white;
     height: auto;
   }
 
+  .modal-content{
+    width: 80%;
+    margin: 20% auto;
+  }
+
+  #channelInput{
+    font-size: 3vh;
+  }
+
+  .prestige {
+    flex-direction: column;
+    align-items: center;
+  }
+  .prestigeOption {
+    min-width : 10em;
+    min-height: 6em;
+    }
+
 }
 
 @media (max-width: 1140px) { /*To move analytics last and make ideas first on mobile*/
@@ -1090,6 +1104,12 @@ color: white;
   position: sticky;
   top: 5%;
 }*/
+
+
+.buttonMargin
+{
+  margin: 1em;
+}
 
 #icon-container {
   min-width: 55px;
