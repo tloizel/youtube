@@ -52,7 +52,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
   </head>
   
-  <body>
+  <body class="mobile-background">
     <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6ZPSHH"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -81,10 +81,10 @@
       <!--Start of parentFlex 1-->
       <div class = "flex-row parentFlex">
         <!--Start of COMMENTS-->
-          <div class = "childFlexWide mobile-child-flex-width mobile-child-flex-margin sticky1">
-            <div class = "childFlexTopWide overflowY-scroll mobile-noboxshadow">
-              <h2>Comments</h2>
-              <div class="comments">
+          <div class = "childFlexWide mobile-child-flex-width mobile-comments-margin">
+            <div class = "childFlexTopWide overflowY-scroll mobile-noboxshadow mobile-no-height block-bg-color">
+              <h2 class="hidden">Comments</h2>
+              <div class="comments mobile-commentbox-padding">
                 <span>&nbsp;•&nbsp;</span><span id="comment1"></span><br>
                 <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment2"></span><br>
                 <span>&nbsp;•&nbsp;</span><span class="oldComment" id="comment3"></span><br>
@@ -98,8 +98,8 @@
           </div>
         <!--End of COMMENTS--> 
         <!--Start of ANALYTICS-->
-        <div class="childFlexShort reveal mobile-child-flex-width mobile-child-flex-margin">
-          <div class="childFlexTopShort mobile-noboxshadow">
+        <div class="childFlexShort reveal mobile-child-flex-width mobile-child-flex-margin flex-order5">
+          <div class="childFlexTopShort mobile-noboxshadow mobile-no-height block-bg-color">
             <h2>Analytics</h2>
             <p class="explanation tightP">Like/Dislike ratio<span id="likeDislikeRatio" class="span">0%<span></p>
             <p class="explanation tightP">Popularity factor<span id="likeDislikeFactor" class="span">1.00<span></p>
@@ -116,7 +116,7 @@
 
         <!--Start of parentFlex 2-->
         <div class="childFlex mobile-child-flex-width mobile-child-flex-margin">
-          <div class="childFlexTop mobile-noboxshadow">
+          <div class="childFlexTop mobile-noboxshadow mobile-no-height block-bg-color">
             <h2>Idea</h2>
             <div class="flex-row" id="bulbDiv">
               <div id="thinkSleep">
@@ -183,7 +183,7 @@
         </div> <!--end of child flex IDEA-->
 
         <div class = "childFlex reveal mobile-child-flex-width mobile-child-flex-margin" id="childFlexEdit">
-          <div class = "childFlexTop mobile-noboxshadow" id="childFlexTopNoRightClick">
+          <div class = "childFlexTop mobile-noboxshadow mobile-no-height block-bg-color" id="childFlexTopNoRightClick">
             <h2>Edit</h2>
               <div class="flex-row align-center">
                 <div class="empty"></div>
@@ -215,7 +215,7 @@
         </div> <!--end of child flex SHOOT AND EDT-->
 
         <div class = "childFlex reveal mobile-child-flex-width mobile-child-flex-margin">
-          <div class = "childFlexTop mobile-noboxshadow">
+          <div class = "childFlexTop mobile-noboxshadow mobile-no-height block-bg-color">
             <h2>Upload</h2>
             <p class="explanation tightP">Videos ready to upload</p>
             <div id="pipeline"><span id="arrayQlViewColor">0</span><span id="arrayQlView">0</span></div>
@@ -244,7 +244,7 @@
 
         <!--Start of child flex CASH-->
         <div class = "childFlex reveal mobile-child-flex-width mobile-child-flex-margin">
-          <div class = "childFlexTop mobile-noboxshadow">
+          <div class = "childFlexTop mobile-noboxshadow mobile-no-height block-bg-color">
             <h2>Piggy Bank</h2>
             <!-- <input  class="button"
                     type="button"

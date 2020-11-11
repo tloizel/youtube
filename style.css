@@ -34,6 +34,7 @@ h2 {
 .header {
   /*height: 4%;*/
   justify-content: space-between;
+  align-items: flex-start;
   background-color: #ffffff;
   margin: 0;
   padding: 0;
@@ -68,7 +69,7 @@ h2 {
   float: right;
   background-color: #ffffff;
   padding: 0; /* to remove default padding */
-  margin-top: .3em;
+  margin-top: 0.3em;
   margin-right: .2em;
   margin-left: .3em;
 }
@@ -373,7 +374,6 @@ h2 {
   margin-bottom: 1.5vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-  background-color: #edeff2;
 }
 
 /* Analytics container */
@@ -389,7 +389,6 @@ h2 {
   margin-bottom: 1.5vh;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-  background-color: #edeff2;
 }
 
 /* Comments container */
@@ -402,12 +401,10 @@ h2 {
 }
 
 .childFlexTopWide {
-  max-height: 30vh;
-
+  /*max-height: 30vh;*/
   padding: 0.2em 0.5em 0.5em;
   border-radius: 20px;
   box-shadow: -5px -5px 10px #ffffffb2, 5px 5px 10px rgba(94, 104, 121, 0.945);
-  background-color: #edeff2;
 }
 
 /* FLEXBOX END */
@@ -502,7 +499,7 @@ h2 {
   position: absolute;
   left: 10%;
   top: 10%;
-  background: #edeff2ce;
+  background: #e3e5e7;
   border-radius: 50%;
   text-align: center;
   box-shadow: inset -5px -5px 7px #ffffffb0, inset 5px 5px 7px rgba(94, 104, 121, 0.671);
@@ -1005,31 +1002,43 @@ color: white;
   55% {border-width: 0px; border-color: green;}
   100% {border-width: 3px; border-color: green;}
 }
+.block-bg-color {
+  background-color: #f5f6f7; /*#edeff2*/
+}
 
-@media screen and (max-width: 600px) {
+@media (max-width: 800px) {
+  .block-bg-color {
+    background-color: #f5f6f7; /*#edeff2*/
+    border :rgb(255, 36, 36) solid 2px;
+  }
   .mobile-child-flex-width {
     width: calc(100% - 2em);
   }
 
   .mobile-child-flex-margin { /*Added to analytics to make it behave like other childflexs*/
-    margin: 4% 1em 1% 1em !important;
+    margin: 0.5em 1em 1em 1em !important;
+  }
+
+  .mobile-comments-margin {
+    margin: 0.5em 1em 0em 1em;
   }
 
   .sticky0 {
     position: sticky;
     top: 0;
     z-index: 3;
+    padding-top: 0.1em;
   }
   
-  .sticky1 {
+  /*.sticky1 {
     position: sticky;
     top: 5vh;
     z-index: 3;
-  }
+  }*/
 
-  .overflowY-scroll {
+  /*.overflowY-scroll {
     overflow-y: scroll;
-  }
+  }*/
 
   .mobile-subsBigNum {
     font-size: 4vh;
@@ -1041,8 +1050,8 @@ color: white;
   }
 
   .mobile-background {
-    width: 100%;
     background-color: #ffffff;
+    /*border :rgb(255, 36, 36) solid 1px;*/
   }
 
   .mobile-noboxshadow {
@@ -1051,6 +1060,25 @@ color: white;
 
   .hidden {
     display: none;
+  }
+
+  .flex-order5 {
+    order: 5;
+  }
+
+  .mobile-commentbox-padding {
+    padding: 0.5em 0;
+  }
+
+  .mobile-no-height {
+    height: auto;
+  }
+
+}
+
+@media (max-width: 1140px) { /*To move analytics last and make ideas first on mobile*/
+  .flex-order5 {
+    order: 5;
   }
 }
 
