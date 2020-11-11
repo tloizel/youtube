@@ -978,7 +978,7 @@ color: white;
 
 #signatureCanvas {
   width: 90%;
-  height: 80px;
+  height: 90px;
   border: solid grey;
   border-width: 3px;
 }
@@ -1115,6 +1115,12 @@ color: white;
 
   .childFlexShort {
     margin: 1% 1em 0em 1em;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1179px) { /*To move analytics last and make ideas first on mobile*/
+  #signatureCanvas {
+    height: 60px;
   }
 }
 
