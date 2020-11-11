@@ -106,14 +106,14 @@
             <p class="explanation tightP">Views<span id="views" class="span">0</span></p>
           </div>
           <div  id="subProjectsB"
-                class="project"
+                class="project project-height"
                 onclick="callProject(subProjectsB,subProjects,subProjectsTitle,subProjectsDesc,0);refreshFitty()">
             <span class="projectTitle" id="subProjectsTitle">Reply to comments</span><br>
             <span class="projectDesc" id="subProjectsDesc">Reach 50 subscribers or 500 views</span>
           </div> 
         </div> <!--End of child ANALYTICS-->
        <!--End of parent flex 1-->
-
+       <div class="break"></div>
         <!--Start of parentFlex 2-->
         <div class="childFlex mobile-child-flex-width mobile-child-flex-margin">
           <div class="childFlexTop mobile-noboxshadow mobile-no-height block-bg-color">
@@ -256,10 +256,10 @@
                     id="saveButton"
                     onclick="load()" 
                   value="Load"/> //ADD FOR TESTING -->
-            <p class="explanation tightP">Cash<span id="cashAmount" class="span">$0.00<span></p>
-            <p class="explanation reveal tightP">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
-            <p class="explanation reveal tightP">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
-            <div class="reveal">
+            <p class="explanation tightP displayBlock">Cash<span id="cashAmount" class="span">$0.00<span></p>
+            <p class="explanation reveal tightP displayBlock">Extra income<span class="span" id="extraIncome">None (too lazy)<span></p>
+            <p class="explanation reveal tightP displayBlock">Expenses<span class="span" id="extraExpenses">None (yay)<span></p>
+            <div class="reveal displayBlock">
               <p class="explanation tightP">Ad Load<span id="adLoad" class="span">0<span></p>
               <input  class="button largeButton"
                       id="subAdButton"
@@ -272,7 +272,7 @@
                       value="+"
                       onclick="changeAdLoad(1)">
             </div>
-            <div id="donationContainer" class="reveal">
+            <div id="donationContainer" class="reveal displayBlock">
               <canvas id="signatureCanvas" class="small-top-margin"></canvas>
             </div>
           </div>

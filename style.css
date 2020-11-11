@@ -414,6 +414,7 @@ h2 {
 }
 
 .reveal.animated {
+  display: block;
   animation-name: revealElement;
   animation-duration: 1000ms;
   animation-iteration-count: 1;
@@ -1074,12 +1075,34 @@ color: white;
     height: auto;
   }
 
+  .reveal {
+    display: none;
+  }
+
+  .displayBlock { /*to keep spacing in blocks for elements with reveal*/
+    display: block !important;
+  }
+
 }
 
 @media (max-width: 1140px) { /*To move analytics last and make ideas first on mobile*/
   .flex-order5 {
     order: 5;
   }
+  #subProjectsB { /*To adjust analytics project height*/
+    height: 10%;
+  }
+
+  .childFlexShort {
+    margin: 1% 1em 0em 1em;
+  }
+}
+
+
+
+.break {
+  flex-basis: 100%;
+  height: 0;
 }
 
 /*.white {
