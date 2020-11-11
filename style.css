@@ -1102,7 +1102,6 @@ color: white;
   #subProjectsB { /*To adjust analytics project height*/
     height: 20% !important;
   }
-
   #SECircleContainer {
     transform: scale(1.3,1.3);
     margin: 1em 0em;
@@ -1110,6 +1109,7 @@ color: white;
   
   #SECircleContainer:active {
     transform: scale(1.3,1.3);
+  }
 }
 
 @media (max-width: 1140px) { /*To move analytics last and make ideas first on mobile*/
