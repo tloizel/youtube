@@ -589,6 +589,10 @@ function newArray(value, len) {
 }
 
 //click hold for edit
+SECircleContainer.addEventListener("touchstart", pressingDownEdit);
+SECircleContainer.addEventListener("touchend", pressingUpEdit);
+SECircleContainer.addEventListener("touchcancel", pressingUpEdit);
+
 SECircleContainer.addEventListener("mousedown", pressingDownEdit);
 SECircleContainer.addEventListener("mouseup", pressingUpEdit);
 SECircleContainer.addEventListener("mouseleave", pressingUpEdit);
@@ -596,7 +600,7 @@ childFlexTopNoRightClick.addEventListener('contextmenu', event => event.preventD
 var editInterval = null;
 
 function pressingDownEdit(event) {
-    if (event.type == "mousedown" && event.button == 0) {
+    if (event.type == "touchstart" || (event.type == "mousedown" && event.button == 0)) { //event.button to confirm left click
       editInterval = setInterval(clicksLeft,editPressSpeed);
     }
 }
@@ -611,7 +615,7 @@ function lessClicks(num){
     shootEditRem -= num
   }
   else {
-    shootEditRem -= (num+1)
+    shootEditRem -= (num + 1)
   }
 }
 
