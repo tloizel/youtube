@@ -1,11 +1,11 @@
-var donationCost = 10;
+var donationCost = 100;
 
 function donate() {
     if (cashAmount >= donationCost) {
         let nextDonationCost = donationCost * 2;
         cashAmount -= donationCost;
         donationCost = nextDonationCost;
-        likeDislikeFactor += 0.01;
+        likeDislikeFactor += 0.02;
         document.getElementById("cashAmount").innerHTML = numeral(cashAmount).format('$0,0.00');
         document.getElementById("likeDislikeFactor").innerHTML = numeral(likeDislikeFactor).format('0.00');
         LDR();
@@ -37,7 +37,7 @@ function signedCheque(){
     clearSignatureCanvas();
     signatureCanvas.style.border = "solid rgb(189, 94, 94)";
     drawCheque();
-    commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.01 Popularity]</span>",source:"callProject"});
+    commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.02 Popularity]</span>",source:"callProject"});
     commentArrayShift();
     checkChequeTimer = setInterval(donationButtonState, 500);
 

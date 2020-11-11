@@ -35,7 +35,7 @@ var shootEditRem = 200; //number of remaining clicks - 200
 var videosEdited = 0; //number of videos edited - 0
 var videosEditedTotal = 0; //TOTAL number of videos edited - 0
 var computerMemory = 1; //max videos edited - 1
-var editPressSpeed = 90 * editP;//90ms ONLY CHANGED BY PRESTIGE - - If changed the also change line 1165
+var editPressSpeed = 100 * editP;//90ms ONLY CHANGED BY PRESTIGE - - ALSO CHANGE prestige changes!
 var editorSpeed = 4; //how many times to call the function - 1
 
 //UPLOAD
@@ -1193,7 +1193,7 @@ function load() {
   }
   //prestige changes repetition because variables init come before load()
   if (creativity==1){creativity += creativityP};
-  if (editPressSpeed==90){editPressSpeed = 90 * editP}; //EDITPRESSSPEED TO BE CHANGED HERE
+  if (editPressSpeed==100){editPressSpeed = 100 * editP}; //EDITPRESSSPEED TO BE CHANGED HERE
   if (uploadSpeed==1){uploadSpeed = 1 * uploadP}; //ENERGYREGENSPEED TO BE CHANGED HERE
 }
 
