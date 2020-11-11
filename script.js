@@ -184,16 +184,14 @@ var comments = [
   {name: "This comment section is SAVAGE 🤣", type: "negative"},
     ];
   
-var commentBox = [{comment:"👋", source:"story"},
-                  {comment:"Welcome to notYouTube", source:"story"},
-                  {comment:"This is a game of patience, optimisation and problem-solving.", source:"story"},
-                  {comment:"Once you have unlocked all the projects, a secret code will be revealed.", source:"story"},
-                  {comment:"Comment that code on our LinkedIn post or send it to iwon@notyoutube.dev", source:"story"},
-                  {comment:"The road to 100M subscribers will be paved with obstacles!", source:"story"},
-                  {comment:"Fastest to reach 100M, wins.", source:"story"},
-                  {comment:"Good luck! <b>Desktop</b> is recommended for optimal experience and performance.", source:"story"},
-                  //{comment:"",source:""},
-                  //{comment:"",source:""},
+var commentBox = [{comment:"👋 Welcome to notYouTube ", source:"story"},
+                  {comment:"This is a game of patience, optimisation & problem-solving.", source:"story"},
+                  {comment:"You're a young aspiring YouTuber, with high hopes and dreams.", source:"story"},
+                  {comment:"The road to 100M subscribers will be paved with obstacles.", source:"story"},
+                  {comment:"Fastest player to reach 100M, wins.", source:"story"},
+                  {comment:"Please share the game if you enjoyed it!", source:"story"},
+                  {comment:"Desktop is recommended for optimal experience & performance.", source:"story"},
+                  {comment:"Good luck! - iwon@notyoutube.dev", source:"story"},
                   ];
 
 //project arrays
@@ -214,8 +212,8 @@ var ideaProjects = [
   ["Buy an alarm clock","Generate 600 ideas & Pay $12","ideasQtTotal>=600 && cashAmount >=12","alarmAppear();cashAmount-=12","Because Apple's last update scrapped the feature <span class='boldRed'>[Alarm Clock activated]</span>","story","You now wake-up as soon as your energy is full"],
   ["Work out","Generate 650 ideas & Reach 9 average video quality","ideasQtTotal>=650 && averageQl>=9","energyRegenRate+=2","A few pushups and you're asleep <span class='boldRed'>[+2 Regen Rate]</span>","0",""],
   ["Buy a greenscreen","Reach 9.25 average video quality & Pay $30k","averageQl>=9.25 && cashAmount >=30000","upgradeCreativity(12);ideaRangeMax(rangeIdea);cashAmount-=30000","Your bedroom is now a creative cocoon <span class='boldRed'>[+12 Creativity & -$30k]</span>","0","0"],
-  ["Meditate every morning","Generate 900 ideas","ideasQtTotal>=900","upgradeEnergyBatch(5)","Clear mind leads to great content - is a Buddhist saying <span class='boldRed'>[-5 Energy Cost]</span>","0",""],
-  ["Figure out translating isn't plagiarism","Generate 1k ideas & Reach 5M subscribers","ideasQtTotal>=1000 && subscribers>=5000000","upgradeCreativity(12);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+12 Creativity]</span>","0","0"],
+  ["Meditate every morning","Generate 800 ideas","ideasQtTotal>=800","upgradeEnergyBatch(5)","Clear mind leads to great content - is a Buddhist saying <span class='boldRed'>[-5 Energy Cost]</span>","0",""],
+  ["Figure out translating isn't plagiarism","Generate 900 ideas & Reach 4M subscribers","ideasQtTotal>=900 && subscribers>=4000000","upgradeCreativity(12);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+12 Creativity]</span>","0","0"],
   ["Start streaming video games","Reach 10M subscribers & Pay $50k","subscribers>=7000000 && cashAmount>=50000","upgradeCreativity(20);ideaRangeMax(rangeIdea);cashAmount-=50000","About to reach the Ender Dragon... <span class='boldRed'>[+20 Creativity & -$50k]</span>","0","0"],
   ["Start a daily vlog","Reach 20M subscribers & 5B views","subscribers>=9000000 && views>=5000000000","upgradeCreativity(40);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+40 Creativity]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
@@ -234,11 +232,10 @@ var ideaProjects = [
   ["1 month iCloud storage trial","Edit 200 videos & Pay $5k","videosEditedTotal>=200&&cashAmount>=5000","upgradeMemory(2);cashAmount-=5000","Forgot to unsubscribe one month later <span class='boldRed'>[+2 Memory & -$5k]</span>","0","0"],
   ["Switch to Adobe Premiere","Pay $12k","cashAmount>=12000","shootEdit-=25;lessClicks(24);cashAmount-=12000;clicksLeft()","Aaah now that's the sofware you need <span class='boldRed'>[-25 Clicks & -$12k]</span>","0","0"],
   ["Hire an experienced editor","Pay $15k & Reach 8.5 average video quality & 700k subscribers & 90M views","cashAmount>=15000&&averageQl>=8.5&&subscribers>=700000&&views>=90000000","upgradeEditorSpeed(10);expenses+=45;cashAmount-=15000","One of Casey's old editors <span class='boldRed'>[AutoEditor Level 3 & -$15k & -$70/s]</span>","0","0"],
-  ["Sign up to SkillShare","Edit 400 videos","videosEditedTotal>=400","shootEdit-=25;lessClicks(24);clicksLeft()","This is not a product placement <span class='boldRed'>[-25 Clicks]</span>","0","0"],
+  ["Sign up to SkillShare","Edit 666 videos","videosEditedTotal>=666","shootEdit-=25;lessClicks(24);clicksLeft()","This is not a product placement <span class='boldRed'>[-25 Clicks]</span>","0","0"],
   ["Convince parents that iCloud storage is useful","Pay $20k","cashAmount>=20000","upgradeMemory(2);cashAmount-=20000","That was a battle worth fighting for <span class='boldRed'>[+2 Memory & -$20k]</span>","0","0"],
-  ["Google Drive premium account","Pay $25k","cashAmount>=25000","upgradeMemory(2);cashAmount-=25000","Data-driven <span class='boldRed'>[+2 Memory & -$25k]</span>","0","0"],
+  ["Get a AWS server","Pay $25k","cashAmount>=25000","upgradeMemory(5);cashAmount-=25000","Hopefully Jeff will see this game <span class='boldRed'>[+5 Memory & -$25k]</span>","0","0"],
   ["Hire a badass editor","Pay $50k & Reach 9.5 average video quality & 2M subscribers & 500M views","cashAmount>=50000&&averageQl>=9.5&&subscribers>=2000000&&views>=500000000","upgradeEditorSpeed(16);expenses+=100;cashAmount-=50000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$50k & -$170/s]</span>","0","0"],
-  ["Get a AWS server","Pay $60k","cashAmount>=60000","upgradeMemory(3);cashAmount-=60000","Hopefully Jeff will see this game <span class='boldRed'>[+3 Memory & -$60k]</span>","0","0"],
   ["Hire Casey himself","Pay $100k & Reach 10 average video quality & 50M subscribers & 2B views","cashAmount>=100000&&averageQl>=10&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(32);expenses+=130;cashAmount-=100000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100k & -$300/s]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
@@ -253,13 +250,13 @@ var ideaProjects = [
   ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>","0","0"],
   ["Drill a hole in wall for better WiFi","Upload 175 videos","videosUploaded>=175","upgradeUploadSpeed(20)","Grounded for a month :( <span class='boldRed'>[+400kB/s Upload Speed]</span>","0","0"],
   ["Convince mum to upgrade premium internet plan","Upload 400 videos & Pay $50k","videosUploaded>=400 && cashAmount>=50000","upgradeUploadSpeed(25);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+500kB/s Upload Speed & -$50000]</span>","0","0"],
-  ["Dad kindly installs a WiFi repeater","Upload 700 videos","videosUploaded>=700","upgradeUploadSpeed(75)","Love u dad <span class='boldRed'>[+5000kB/s Upload Speed]</span>","0","0"],
-  ["Your building now has fibre-optic internet","Upload 1k videos","videosUploaded>=1000","upgradeUploadSpeed(200)","Can't get more efficient <span class='boldRed'>[+12500kB/s Upload Speed]</span>","0","0"],
+  ["Dad kindly installs a WiFi repeater","Upload 650 videos","videosUploaded>=650","upgradeUploadSpeed(70)","Love u dad <span class='boldRed'>[+4500kB/s Upload Speed]</span>","0","0"],
+  ["Your building now has fibre-optic internet","Upload 1.2k videos","videosUploaded>=1200","upgradeUploadSpeed(200)","Can't get more efficient <span class='boldRed'>[+13000kB/s Upload Speed]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
   var subProjects = [
   ["Reply to comments","Reach 50 subscribers or 500 views","subscribers>=50 || views>=500","views+=200","Love you guys <span class='boldRed'>[+200 Views]</span>","0","0"],
-  ["Pimp your video intro","Reach 100 subscribers or 1.5k views","subscribers>=100 || views>=1500","views+=500","Don't make it a minute long tho <span class='boldRed'>[+500 Views]</span>","0","0"],
+  ["Pimp your video intro","Reach 100 subscribers or 1.5k views","subscribers>=100 || views>=1500","views+=500","Don't make it a minute long though <span class='boldRed'>[+500 Views]</span>","0","0"],
   ["Break the piggy bank","Reach 150 subscribers or 4k views","subscribers>=150 || views>=4000","cashAppear()","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>","0","0"],
   ["SMASH THAT LIKE BUTTON","Reach 300 subscribers","subscribers>=300","views+=5000","Reminding never hurts <span class='boldRed'>[+5k Views]</span>","0","0"],
   ["Balcony conversation with Jimmy","Reach 1k subscribers","subscribers>=1000","subscribers=subscribers*2","Gotta rep that moustache <span class='boldRed'>[Doubled your subscribers]</span>","0","0"],
@@ -283,7 +280,7 @@ var ideaProjects = [
   ["Shoutout from PewDiePie","Reach 4M subscribers","subscribers>=4000000","LDRF(1)","*Drop the mic* <span class='boldRed'>[+1 Popularity]</span>","0","0"],
   ["Go viral","Reach 4.5M subscribers","subscribers>=4500000","views+=100000000","If only it was always that easy <span class='boldRed'>[+100M Views]</span>","0","0"],
   ["Participate in YouTube Rewind","Reach 5M subscribers","subscribers>=5000000","LDRF(-0.8)","They can't seem to get it right <span class='boldRed'>[-0.8 Popularity]</span>","0","0"],
-  ["Shoutout from Casey","Reach 6M subscribers","subscribers>=6000000","LDRF(5)","*Faints* <span class='boldRed'>[+5 Popularity]</span>","story","Trust me channelReplace, you're very close to finishing."],
+  ["Shoutout from Casey","Reach 10M subscribers","subscribers>=10000000","LDRF(1)","*Faints* <span class='boldRed'>[+1 Popularity]</span>","story","Trust me channelReplace, you're very close to finishing."],
   ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","subscribers=subscribers*2","You've just figured out internet's biggest secret <span class='boldRed'>[Doubled your subscribers]</span>","0","0"],
   ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","endGame()","Thank you <span class='boldRed'>[Your time has been added to the scoreboard!]</span>","0","Now prestige and try to beat your score!"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
@@ -846,7 +843,7 @@ function SubsFromUpload() {
     subscribers += videosUploaded * parseInt(likeDislikeRatio/10)/2;
   }
   else{
-    subscribers -= videosUploaded * parseInt(5-likeDislikeRatio/10);
+    subscribers -= videosUploaded * parseInt(30-likeDislikeRatio/10);
   }
   if (subscribers < 0){
     subscribers = 0;
@@ -877,7 +874,7 @@ function subsRefresh() {
     subscribers += videosUploaded * likeDislikeRatio * Math.exp(likeDislikeRatio*0.02) * 0.0005;
   }
   else {
-    subscribers -= videosUploaded * likeDislikeRatio * Math.exp((50-likeDislikeRatio)*0.02) * 0.0005;
+    subscribers -= videosUploaded * (50-likeDislikeRatio) * Math.exp((50-likeDislikeRatio)*0.02) * 0.0005;
   }
   if (subscribers < 0){
     subscribers = 0;
@@ -1301,8 +1298,8 @@ function insertName(){
   channelName.style.display = "none";
 }
 function personnaliseFirstComment(){
-  commentBox[1].comment = "Welcome to notYouTube " + "<span style='color:red'>" + channel + "</span>";
-  document.getElementById("comment2").innerHTML = commentBox[1].comment;
+  commentBox[0].comment = "👋 Welcome to notYouTube  " + "<span style='color:red'>" + channel + "</span>";
+  document.getElementById("comment1").innerHTML = commentBox[0].comment;
 }
 
 //prevent spaces in channel ame
