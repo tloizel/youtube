@@ -446,7 +446,7 @@ h2 {
 }
 
 #SECircleContainer:active {
-  transform: translateY(2px);
+  transform: translateY(3px);
 }
 
 .progress-holder {
@@ -1103,6 +1103,13 @@ color: white;
     height: 20% !important;
   }
 
+  #SECircleContainer {
+    transform: scale(1.3,1.3);
+    margin: 1em 0em;
+  }
+  
+  #SECircleContainer:active {
+    transform: scale(1.3,1.3);
 }
 
 @media (max-width: 1140px) { /*To move analytics last and make ideas first on mobile*/
