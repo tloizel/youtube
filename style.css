@@ -121,16 +121,17 @@ h2 {
   align-items: flex-end;
 }
 
-.zero-margin { /* used to delete margins added by other classes on an object*/
+.zero-margin { /* used to delete margins added by other classes on an object */
   margin: 0 0 0 0 !important;
 }
 
 .unselectable {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version */
 }
 
 .rangeDescription {
@@ -1096,6 +1097,10 @@ color: white;
 
   .displayBlock { /*to keep spacing in blocks for elements with reveal*/
     display: block !important;
+  }
+
+  #subProjectsB { /*To adjust analytics project height*/
+    height: 20% !important;
   }
 
 }
