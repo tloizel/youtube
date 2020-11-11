@@ -113,4 +113,8 @@ function loadVisibleDivs() {
   if(powerNap == true){napAppear()};
   if(alarmClock == true){alarmAppear()};
   memoryBlockRefresh();
+  if(visibleAutoEdit == false){// to fix the autoedit bug
+    disableButton("myonoffswitch",true); //autoEdit switch disabled
+    disableDiv("onOffSwitchContainer","none"); //autoEdit switch div non clickable
+  }; 
 }
