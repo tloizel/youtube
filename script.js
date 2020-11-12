@@ -209,14 +209,14 @@ var ideaProjects = [
   ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(11);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+11 Creativity]</span>","negativeProject","That was awful, you'll never let that happen to you again."],
   ["Finish Netflix","Generate 200 ideas","ideasQtTotal>=200","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Get that inspo <span class='boldRed'>[+3 Creativity]</span>","0","0"],
   ["Take Yoga classes","Generate 300 ideas & Pay $8k","ideasQtTotal>=300 && cashAmount >=8000","upgradeEnergyBatch(10);cashAmount-=8000","Helps you think clearly but wow that's expensive <span class='boldRed'>[-10 Energy Cost & -$8k]</span>","0",""],
-  ["Buy a kitten","Generate 500 ideas & Reach 250M views & Pay $15k","views>=250000000 && ideasQtTotal>=500 && cashAmount >=15000","upgradeCreativity(5);ideaRangeMax(rangeIdea);cashAmount-=15000","They're the real OGs of YouTube <span class='boldRed'>[+5 Creativity & -$15k]</span>","0","0"],
+  ["Buy a kitten","Generate 450 ideas & Reach 200M views & Pay $15k","views>=200000000 && ideasQtTotal>=450 && cashAmount >=15000","upgradeCreativity(5);ideaRangeMax(rangeIdea);cashAmount-=15000","They're the real OGs of YouTube <span class='boldRed'>[+5 Creativity & -$15k]</span>","0","0"],
   ["Buy an alarm clock","Generate 600 ideas & Pay $12","ideasQtTotal>=600 && cashAmount >=12","alarmAppear();cashAmount-=12","Because Apple's last update scrapped the feature <span class='boldRed'>[Alarm Clock activated]</span>","story","You now wake-up as soon as your energy is full"],
   ["Work out","Generate 650 ideas & Reach 9 average video quality","ideasQtTotal>=650 && averageQl>=9","energyRegenRate+=2","A few pushups and you're asleep <span class='boldRed'>[+2 Regen Rate]</span>","0",""],
   ["Buy a greenscreen","Reach 9.25 average video quality & Pay $30k","averageQl>=9.25 && cashAmount >=30000","upgradeCreativity(12);ideaRangeMax(rangeIdea);cashAmount-=30000","Your bedroom is now a creative cocoon <span class='boldRed'>[+12 Creativity & -$30k]</span>","0","0"],
   ["Meditate every morning","Generate 800 ideas","ideasQtTotal>=800","upgradeEnergyBatch(5)","Clear mind leads to great content - is a Buddhist saying <span class='boldRed'>[-5 Energy Cost]</span>","0",""],
-  ["Figure out translating isn't plagiarism","Generate 900 ideas & Reach 4M subscribers","ideasQtTotal>=900 && subscribers>=4000000","upgradeCreativity(12);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+12 Creativity]</span>","0","0"],
-  ["Start streaming video games","Reach 10M subscribers & Pay $50k","subscribers>=7000000 && cashAmount>=50000","upgradeCreativity(20);ideaRangeMax(rangeIdea);cashAmount-=50000","About to reach the Ender Dragon... <span class='boldRed'>[+20 Creativity & -$50k]</span>","0","0"],
-  ["Start a daily vlog","Reach 20M subscribers & 5B views","subscribers>=9000000 && views>=5000000000","upgradeCreativity(40);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+40 Creativity]</span>","0","0"],
+  ["Figure out translating isn't plagiarism","Generate 900 ideas & Reach 3.5M subscribers","ideasQtTotal>=900 && subscribers>=3500000","upgradeCreativity(12);ideaRangeMax(rangeIdea)","Ask Math Podcast about it <span class='boldRed'>[+12 Creativity]</span>","0","0"],
+  ["Start streaming video games","Reach 7M subscribers & Pay $50k","subscribers>=7000000 && cashAmount>=50000","upgradeCreativity(20);ideaRangeMax(rangeIdea);cashAmount-=50000","About to reach the Ender Dragon... <span class='boldRed'>[+20 Creativity & -$50k]</span>","0","0"],
+  ["Start a daily vlog","Reach 10M subscribers & 5B views","subscribers>=10000000 && views>=5000000000","upgradeCreativity(40);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+40 Creativity]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
   var shootEditProjects = [
@@ -237,7 +237,7 @@ var ideaProjects = [
   ["Convince parents that iCloud storage is useful","Pay $20k","cashAmount>=20000","upgradeMemory(2);cashAmount-=20000","That was a battle worth fighting for <span class='boldRed'>[+2 Memory & -$20k]</span>","0","0"],
   ["Get a AWS server","Pay $25k","cashAmount>=25000","upgradeMemory(5);cashAmount-=25000","Hopefully Jeff will see this game <span class='boldRed'>[+5 Memory & -$25k]</span>","0","0"],
   ["Hire a badass editor","Pay $50k & Reach 9.5 average video quality & 2M subscribers & 500M views","cashAmount>=50000&&averageQl>=9.5&&subscribers>=2000000&&views>=500000000","upgradeEditorSpeed(16);expenses+=100;cashAmount-=50000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$50k & -$170/s]</span>","0","0"],
-  ["Hire Casey himself","Pay $100k & Reach 10 average video quality & 50M subscribers & 2B views","cashAmount>=100000&&averageQl>=10&&subscribers>=50000000&&views>=1000000000","upgradeEditorSpeed(32);expenses+=130;cashAmount-=100000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100k & -$300/s]</span>","0","0"],
+  ["Hire Casey himself","Pay $100k & Reach 10 average video quality & 10M subscribers & 2B views","cashAmount>=100000&&averageQl>=10&&subscribers>=10000000&&views>=1000000000","upgradeEditorSpeed(32);expenses+=130;cashAmount-=100000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100k & -$300/s]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
   var uploadProjects = [
@@ -282,7 +282,7 @@ var ideaProjects = [
   ["Go viral","Reach 4.5M subscribers","subscribers>=4500000","views+=100000000","If only it was always that easy <span class='boldRed'>[+100M Views]</span>","0","0"],
   ["Participate in YouTube Rewind","Reach 5M subscribers","subscribers>=5000000","LDRF(-0.8)","They can't seem to get it right <span class='boldRed'>[-0.8 Popularity]</span>","0","0"],
   ["Shoutout from Casey","Reach 10M subscribers","subscribers>=10000000","LDRF(1)","*Faints* <span class='boldRed'>[+1 Popularity]</span>","story","Trust me channelReplace, you're very close to finishing."],
-  ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","subscribers=subscribers*2","You've just figured out internet's biggest secret <span class='boldRed'>[Doubled your subscribers]</span>","0","0"],
+  ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","LDRF(1)","You've just figured out internet's biggest secret <span class='boldRed'>[+1 Popularity]</span>","0","0"],
   ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","endGame()","Thank you <span class='boldRed'>[Your time has been added to the scoreboard!]</span>","0","Now prestige and try to beat your score!"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
   ];
@@ -290,7 +290,7 @@ var ideaProjects = [
   ["Extra pocket money","Reach 5k views","views>=5000","cashAmount+=20","Mum was feeling generous <span class='boldRed'>[+$20]</span>","0","0"],
   ["Christmas","Reach 7k views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated <span class='boldRed'>[+$80]</span>","0","0"],
   ["Steal from mum's purse","Reach 10k views","views>=10000","cashAmount+=500","Sacrifices for the better good <span class='boldRed'>[+$500]</span>","0","0"],
-  ["Steal from dad's wallet","Reach 15k views","views>=15000","cashAmount+=500","Ready for a whoppin <span class='boldRed'>[+$500]</span>","0","0"],
+  ["Steal from dad's wallet","Reach 15k views","views>=15000","cashAmount+=500","Ready for a whoppin' <span class='boldRed'>[+$500]</span>","0","0"],
   ["Sly fox","Be a YouTube Partner & Reach 6 average video quality","averageQl>=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... <span class='boldRed'>[+1 Ad Amount]</span>","story","channelReplace now entering the ad game..."],
   ["Loan from friends","Reach 6.3 average video quality","averageQl>=6.3","cashAmount+=2000","...and never pay them back <span class='boldRed'>[+$2k]</span>","0","0"],
   ["Greedy pig","Reach 1.5M views","views>=1500000","adLoadMax+=3","Those ads are getting kind of intrusive now <span class='boldRed'>[+3 Ad Amount]</span>","0","0"],
@@ -1102,7 +1102,7 @@ function save(){
     editP: {variable: editP},
     uploadP: {variable: uploadP},
   }
-  localStorage.setItem("saveP",JSON.stringify(gameSavePrestige));
+  localStorage.setItem("NYsaveP",JSON.stringify(gameSavePrestige));
   
   var gameSave = {
     channel: {variable: channel},
@@ -1158,12 +1158,12 @@ function save(){
     visibleCash: {variable: visibleCash},
     visibleAdAmount: {variable: visibleAdAmount},
     visibleAutoEdit: {variable: visibleAutoEdit},
-    visibleProjectedAverage: {variable: visibleProjectedAverage},
+    visibleProjectedAverage: {variable: visibleProjectedAverage, idf:"averageQlCalculationProjected()"},
     visibleExpenses: {variable: visibleExpenses},
     visibleDonationBox: {variable: visibleDonationBox},
     visibleIncome: {variable: visibleIncome, idf:"loadVisibleDivs()"} //this must be last
   };
-  localStorage.setItem("save",JSON.stringify(gameSave));
+  localStorage.setItem("NYsave",JSON.stringify(gameSave));
 }
 
 function projectRefresh(array,title,desc) {
@@ -1172,7 +1172,7 @@ function projectRefresh(array,title,desc) {
 }
 
 function load() {
-  var gameSavePrestige = JSON.parse(localStorage.getItem("saveP"));
+  var gameSavePrestige = JSON.parse(localStorage.getItem("NYsaveP"));
   for (var element in gameSavePrestige) {
     window[element] = gameSavePrestige[element].variable;
     let idx = gameSavePrestige[element].id;
@@ -1184,7 +1184,7 @@ function load() {
       eval(idf);
     }
   }
-  var gameSave = JSON.parse(localStorage.getItem("save"));
+  var gameSave = JSON.parse(localStorage.getItem("NYsave"));
   for (var element in gameSave) {
     window[element] = gameSave[element].variable;
     let idx = gameSave[element].id;
@@ -1281,8 +1281,8 @@ function restartModalFalse(){
 
 //restart modal option2
 function restartModalTrue(){
-  localStorage.removeItem("save");
-  localStorage.removeItem("saveP");
+  localStorage.removeItem("NYsave");
+  localStorage.removeItem("NYsaveP");
   ga("send", "event", "Delete Save", "Click");//NOT USED?
   location.reload();
 }
@@ -1448,6 +1448,6 @@ function prestigeOptionSelect(option) {
   visiblePrestige = true;
   prestige+=1;
   save();
-  localStorage.removeItem("save");
+  localStorage.removeItem("NYsave");
   location.reload();
 }
