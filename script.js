@@ -344,8 +344,10 @@ if(emptyArrayUsed == false){emptyArray()};
 
 //inital comment before first flash
 function helpBeforeBulbStory() {
+  if (commentBox[0].comment !== "Patience is a virtue - it will always take you 1 minute of thinking to generate ideas."){
   commentBox.unshift({comment:"Patience is a virtue - it will always take you 1 minute of thinking to generate ideas.",source:"callProject"});
   commentArrayShift();
+  }
 }
 //inital comment on first flash
 function helpBulbStory() {
