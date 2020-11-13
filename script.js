@@ -326,6 +326,7 @@ function firstPageLoad() {
     if(prestige == 0 && channel == "unknown"){displayInsertName()}; //insert channel name only on prestige 0
     ideaRangeMax(1); //for prestige creativity bonus
     upgradeUploadSpeed(1);
+    setTimeout(helpBeforeBulbStory, 45000);
   }
 }
 
@@ -341,6 +342,11 @@ console.log("This isn't what we meant by problem-solving. Get out of here!");
 refreshFitty();
 if(emptyArrayUsed == false){emptyArray()};
 
+//inital comment before first flash
+function helpBeforeBulbStory() {
+  commentBox.unshift({comment:"Patience is a virtue - it will always take you 1 minute of thinking to generate ideas.",source:"callProject"});
+  commentArrayShift();
+}
 //inital comment on first flash
 function helpBulbStory() {
   commentBox.unshift({comment:"Your light bulb just flashed after 1 minute of thinking, you've generated your first idea(s)!",source:"callProject"});
