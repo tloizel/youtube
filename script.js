@@ -14,12 +14,13 @@ var uploadP = 1; //1
 
 //IDEA
 var ideaTimer = null;
+var countDownTimer = null; //for number counting down in idea lightbulb
 var creativity = 1 + creativityP; //creativity level - 1
 var rangeIdea = 1; //value of Qt on range - 1
 var ideaQl =  5; //value of Ql on range - 5
 var ideasQt = 0; //amount of ideas ready to edit - 0
 var ideasQtTotal = 0; //amount of ideas since beginning - 0
-var ideaSpeed = 60000; //speed of idea generation : the lower the number the faster ideas generate
+var ideaSpeed = 60000; //60000ms: speed of idea generation : the lower the number the faster ideas generate
 var energy = 100; //current energy amount
 var energyMax = 100; //max energy amount
 var batchEnergyCost = 25; //cost of each batch of ideas
@@ -402,36 +403,66 @@ function upgradeEnergyBatch(num){
   }
 }
 
+var countDownNum; //discrete, hidden, camouflaged global variable, dont @ me
+function bulbTimerOn() {
+  countDownNum = 59;
+  countDownTimer = setInterval(function(){
+    if (countDownNum > 0) {
+      document.getElementById("bulbCountDown").innerHTML = countDownNum;
+      countDownNum--;
+    }
+    else {
+      bulbTimerOff();
+    }
+  },1000);
+}
+
+function bulbTimerOff() {
+  clearInterval(countDownTimer);
+  countDownNum = 60;
+  document.getElementById("bulbCountDown").innerHTML = countDownNum;
+}
+
 //start idea ticker
-function startIdeaTicker() {  
+function startIdeaTicker() {
+  document.getElementById("bulbCDcontainer").style.display = "block"; 
   setTimeout(function(){ document.getElementById("energyRefreshNum").innerHTML = -batchEnergyCost; }, 2500);
   if(energy >= batchEnergyCost) {
     BulbOn(); //initial energy check when pressing THINK
+    bulbTimerOff()
+    bulbTimerOn();
     thinking();
   }
   else {
     thinking(); //you can still click on think with insufficient energy
+    bulbTimerOff();
+    document.getElementById("bulbCDcontainer").style.display = "none";
   };
-    ideaTimer = setInterval(function() {
-      if(ideasQtTotal == 0){helpBulbStory()}; //for beginning story comment 
-      if(energy >= batchEnergyCost*2) { //energy check inside loop
-        ideasGen();
-        BulbOn();
-        energyUpdate();
-        thinking();
-      }
-      else if(energy < batchEnergyCost*2 && energy >= batchEnergyCost) { //energy check inside loop
-        ideasGen();
-        energyUpdate();
-        thinking();
-      }
-      if(energy < batchEnergyCost) {
-        clearInterval(ideaTimer);
-        BulbOff();
-        if(powerNap == true){stopIdeaTicker()};
-      }
-    },ideaSpeed);
-    clearInterval(energyRegenTimer);
+
+  ideaTimer = setInterval(function() {
+    if (ideasQtTotal == 0){helpBulbStory()}; //for beginning story comment 
+    if (energy >= batchEnergyCost * 2) { //energy check inside loop
+      bulbTimerOff();
+      bulbTimerOn();
+      ideasGen();
+      BulbOn();
+      energyUpdate();
+      thinking();
+    }
+    else if(energy < batchEnergyCost * 2 && energy >= batchEnergyCost) { //energy check inside loop
+      ideasGen();
+      energyUpdate();
+      thinking();
+    }
+    if (energy < batchEnergyCost) {
+      clearInterval(ideaTimer);
+      BulbOff();
+      bulbTimerOff();
+      document.getElementById("bulbCDcontainer").style.display = "none";
+      if (powerNap == true){stopIdeaTicker()};
+    }
+  },ideaSpeed);
+  clearInterval(energyRegenTimer);
 }
 
 //think button activated
@@ -439,7 +470,7 @@ function thinking() { //activates Think button without generating ideas (Ideagen
   disableButton("startTimer",true);
   disableDiv("startTimer","none");
   disableButton("stopTimer",false);
-  disableDiv("stopTimer","auto");  
+  disableDiv("stopTimer","auto");
 }
 
 //stop idea ticker : SLEEP
@@ -451,6 +482,8 @@ function stopIdeaTicker() {
   disableButton("stopTimer",true);
   disableDiv("stopTimer","none");
   BulbOff();
+  bulbTimerOff();
+  document.getElementById("bulbCDcontainer").style.display = "none";
   energyRegenTimer = setInterval(energyRegen,energyRegenSpeed);
 }
 
@@ -546,8 +579,8 @@ function ideaRangeMax(rangeValue) {
 
 //Creative block project
 function creativeBlock(){
-  upgradeCreativity(-7);
-  ideaRangeMax(1);
+  upgradeCreativity(-6);
+  ideaRangeMax(6);
 }
 
 //Adds up range value quantities in ideas generated and calculates Ql array
