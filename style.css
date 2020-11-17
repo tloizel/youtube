@@ -838,7 +838,6 @@ h2 {
 #scoreboard{
   width: 90%;
   margin: 0em auto 1em auto;
-
 }
 .tableData{
   text-align: center;
@@ -1069,7 +1068,7 @@ color: white;
   }
 
   .modal-content{
-    width: 80%;
+    width: 85%;
     margin: 20% auto;
   }
 
@@ -1159,4 +1158,9 @@ color: white;
 #mobile {
   text-align: center;
   margin-top: 10em;
+}
+
+#contact{
+  text-align: center;
+  margin-top: 2em;
 }
