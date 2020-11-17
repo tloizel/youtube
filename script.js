@@ -193,7 +193,7 @@ var commentBox = [{comment:"👋 Welcome to notYouTube ", source:"story"},
                   {comment:"Autosave is on, you can always close the page & come back later.", source:"story"},
                   {comment:"Desktop is recommended for optimal experience & performance.", source:"story"},
                   {comment:"Please share the game if you enjoyed it!", source:"story"},
-                  {comment:"Good luck! - iwon@notyoutube.dev", source:"story"},
+                  {comment:"Good luck!", source:"story"},
                   ];
 
 //project arrays
@@ -203,15 +203,15 @@ var ideaProjects = [
   ["Wear glasses","Generate 10 ideas","ideasQtTotal>=10","upgradeEnergyBatch(5)","Looking clever makes you feel clever <span class='boldRed'>[-5 Energy Cost]</span>","story","It takes you less effort to come up with ideas - you're a creative now. "],
   ["Invite a mate over","Generate 20 ideas","ideasQtTotal>=20","upgradeCreativity(1);ideaRangeMax(rangeIdea)","You brainstorm until dawn <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Write down your dreams","Reach 5.3 average video quality","averageQl>=5.3","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Imagination is a beautiful thing <span class='boldRed'>[+1 Creativity]</span>","0","0"],
-  ["Get a new mattress","Generate 35 ideas","ideasQtTotal>=35","energyRegenRate+=1","Underrated birthday gift <span class='boldRed'>[+1 Regen Rate]</span>","story","You know it's serious when even family gifts are for channelReplace."],
+  ["Get a new mattress","Generate 35 ideas","ideasQtTotal>=35","energyRegenRate+=1","Underrated birthday gift <span class='boldRed'>[+1 Regen Rate]</span>","story","channelReplace you're committed to this channel now, even birthday gifts are for the grind. "],
   ["Watch the OGs of YouTube","Generate 45 ideas","ideasQtTotal>=45","upgradeCreativity(1);ideaRangeMax(rangeIdea)","Rhett and who? <span class='boldRed'>[+1 Creativity]</span>","0","0"],
   ["Power Nap","Generate 70 ideas","ideasQtTotal>=70","napAppear()","Surely Tim Ferris does this <span class='boldRed'>[Power Nap activated]</span>","story","You now fall asleep as soon as you hit 0 energy."],
-  ["Take guitar lessons","Reach 1M views","views>=1000000","upgradeCreativity(2);ideaRangeMax(rangeIdea);creativeBlock()","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity]</span>","story","Incredible channelReplace, one million people have watched your videos! That's more people than you can fathom. Suddenly, you crack under the pressure: you hit a creative block. Reach the next project to get your imagination back to normal! <span class='boldRed'>[Creativity = 0]</span>"],
-  ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(11);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+11 Creativity]</span>","negativeProject","That was awful, you'll never let that happen to you again."],
+  ["Take guitar lessons","Reach 1M views","views>=1000000","upgradeCreativity(2);ideaRangeMax(rangeIdea);creativeBlock()","Music channels seem to be a thing <span class='boldRed'>[+2 Creativity]</span>","story","Incredible channelReplace, one million people have watched your videos! That's more people than you can fathom. Suddenly, you crack under the pressure: you hit a creative block. Reach the next project to get your imagination back to normal! <span class='boldRed'>[Creativity = 1]</span>"],
+  ["Creative block","Less than 4 average video quality","averageQl<=4","upgradeCreativity(10);ideaRangeMax(rangeIdea)","Happens to the best of us <span class='boldRed'>[+10 Creativity]</span>","negativeProject","That was awful, you'll never let that happen to you again."],
   ["Finish Netflix","Generate 200 ideas","ideasQtTotal>=200","upgradeCreativity(3);ideaRangeMax(rangeIdea)","Get that inspo <span class='boldRed'>[+3 Creativity]</span>","0","0"],
   ["Take Yoga classes","Generate 300 ideas & Pay $8k","ideasQtTotal>=300 && cashAmount >=8000","upgradeEnergyBatch(10);cashAmount-=8000","Helps you think clearly but wow that's expensive <span class='boldRed'>[-10 Energy Cost & -$8k]</span>","0",""],
-  ["Buy a kitten","Generate 450 ideas & Reach 200M views & Pay $15k","views>=200000000 && ideasQtTotal>=450 && cashAmount >=15000","upgradeCreativity(5);ideaRangeMax(rangeIdea);cashAmount-=15000","They're the real OGs of YouTube <span class='boldRed'>[+5 Creativity & -$15k]</span>","0","0"],
-  ["Buy an alarm clock","Generate 600 ideas & Pay $12","ideasQtTotal>=600 && cashAmount >=12","alarmAppear();cashAmount-=12","Because Apple's last update scrapped the feature <span class='boldRed'>[Alarm Clock activated]</span>","story","You now wake-up as soon as your energy is full."],
+  ["Buy a kitten","Generate 400 ideas & Reach 150M views & Pay $15k","views>=150000000 && ideasQtTotal>=400 && cashAmount >=15000","upgradeCreativity(5);ideaRangeMax(rangeIdea);cashAmount-=15000","They're the real OGs of YouTube <span class='boldRed'>[+5 Creativity & -$15k]</span>","0","0"],
+  ["Buy an alarm clock","Generate 500 ideas & Pay $12","ideasQtTotal>=500 && cashAmount >=12","alarmAppear();cashAmount-=12","Because Apple's last update scrapped the feature <span class='boldRed'>[Alarm Clock activated]</span>","story","You now wake-up as soon as your energy is full."],
   ["Work out","Generate 650 ideas & Reach 9 average video quality","ideasQtTotal>=650 && averageQl>=9","energyRegenRate+=2","A few pushups and you're asleep <span class='boldRed'>[+2 Regen Rate]</span>","0",""],
   ["Buy a greenscreen","Reach 9.25 average video quality & Pay $30k","averageQl>=9.25 && cashAmount >=30000","upgradeCreativity(12);ideaRangeMax(rangeIdea);cashAmount-=30000","Your bedroom is now a creative cocoon <span class='boldRed'>[+12 Creativity & -$30k]</span>","0","0"],
   ["Meditate every morning","Generate 800 ideas","ideasQtTotal>=800","upgradeEnergyBatch(5)","Clear mind leads to great content - is a Buddhist saying <span class='boldRed'>[-5 Energy Cost]</span>","0",""],
@@ -251,7 +251,7 @@ var ideaProjects = [
   ["Ask Drew for Javascript lessons","Upload 100 videos","videosUploaded>=100","upgradeUploadSpeed(16)","You wonder if this will ever come in handy... <span class='boldRed'>[+900kB/s Upload Speed]</span>","0","0"],
   ["Code your own AutoUpload","Upload 125 videos & Reach 30k subscribers & 4M views ","videosUploaded>=125 && views>=4000000 && subscribers>=30000","autoUpload()","Cheers Drew <3 <span class='boldRed'>[Activate Auto Upload]</span>","0","0"],
   ["Drill a hole in wall for better WiFi","Upload 175 videos","videosUploaded>=175","upgradeUploadSpeed(20)","Grounded for a month :( <span class='boldRed'>[+400kB/s Upload Speed]</span>","0","0"],
-  ["Convince mum to upgrade premium internet plan","Upload 400 videos & Pay $50k","videosUploaded>=400 && cashAmount>=50000","upgradeUploadSpeed(25);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+500kB/s Upload Speed & -$50000]</span>","0","0"],
+  ["Convince mum to upgrade premium internet plan","Upload 350 videos & Pay $50k","videosUploaded>=350 && cashAmount>=50000","upgradeUploadSpeed(25);cashAmount-=50000","Worth it but you're paying boy <span class='boldRed'>[+500kB/s Upload Speed & -$50000]</span>","0","0"],
   ["Dad kindly installs a WiFi repeater","Upload 650 videos","videosUploaded>=650","upgradeUploadSpeed(70)","Love u dad <span class='boldRed'>[+4500kB/s Upload Speed]</span>","0","0"],
   ["Your building now has fibre-optic internet","Upload 1.2k videos","videosUploaded>=1200","upgradeUploadSpeed(200)","Can't get more efficient <span class='boldRed'>[+13000kB/s Upload Speed]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
@@ -1298,7 +1298,7 @@ function emptyArrayModalFalse() {
   clearInterval(emptyArrayTimer);
   emptyArrayUsed = true;
   save();
-  location.reload();
+  emptyArrayModal.style.display = "none";
 }
 
 //emptyarray modal option2
