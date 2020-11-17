@@ -160,7 +160,7 @@ h2 {
 }
 
 #arrayQlView {
-  color: black;
+  color: grey;
   text-align: left;
   float: left;
   margin-right: 0em;
@@ -227,6 +227,22 @@ h2 {
   padding: 0px;
 }
 
+/* IDEA BULB */
+#bulbCDcontainer {
+  width: 3em;
+  position: absolute;
+  left: 1.4em;
+  bottom: 0.2em;
+  text-align: center;
+}
+
+#bulbCountDown {
+  font-size: 2em;
+  position: relative;
+  z-index: 5;
+  color: white;
+}
+
 #bulbDiv{
   justify-content: center;
   align-items: center;
@@ -242,7 +258,6 @@ h2 {
   margin-bottom: 2vh;
 }
 
-/* IDEA BULB */
 .bulbFrame {
   position: relative;
   text-align: center;
@@ -688,8 +703,8 @@ h2 {
 }
 
 .project {
-  height: 10%;
-  padding: 5% 3% 3% 3%;
+  height: 2.8em;
+  padding: 4% 3% 3% 3%;
   text-align: center;
   border-width: 2px;
   transition-duration: 50ms;

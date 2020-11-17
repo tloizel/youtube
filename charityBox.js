@@ -30,17 +30,16 @@ function clearSignatureCanvas(){
 }
 
 function signedCheque(){
-    var element = document.getElementById("signatureCanvas");
-    element.classList.add("borderFlash");
-    setTimeout(function(){ element.classList.remove("borderFlash"); }, 1000);
-    donate();
-    clearSignatureCanvas();
-    signatureCanvas.style.border = "solid rgb(189, 94, 94)";
-    drawCheque();
-    commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.02 Popularity]</span>",source:"callProject"});
-    commentArrayShift();
-    checkChequeTimer = setInterval(donationButtonState, 500);
-
+        var element = document.getElementById("signatureCanvas");
+        element.classList.add("borderFlash");
+        setTimeout(function(){ element.classList.remove("borderFlash"); }, 1000);
+        donate();
+        clearSignatureCanvas();
+        signatureCanvas.style.border = "solid rgb(189, 94, 94)";
+        drawCheque();
+        commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.02 Popularity]</span>",source:"callProject"});
+        commentArrayShift();
+        checkChequeTimer = setInterval(donationButtonState, 500);
 }
 
 
