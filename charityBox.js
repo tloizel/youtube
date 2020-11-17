@@ -31,16 +31,22 @@ function clearSignatureCanvas(){
 
 function signedCheque(){
     var element = document.getElementById("signatureCanvas");
-    element.classList.add("borderFlash");
-    setTimeout(function(){ element.classList.remove("borderFlash"); }, 1000);
-    donate();
-    clearSignatureCanvas();
-    signatureCanvas.style.border = "solid rgb(189, 94, 94)";
-    drawCheque();
-    commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.02 Popularity]</span>",source:"callProject"});
-    commentArrayShift();
-    checkChequeTimer = setInterval(donationButtonState, 500);
-
+    if (Math.abs(startX - endX) < 10) {
+        clearSignatureCanvas();
+        drawCheque();
+        checkChequeTimer = setInterval(donationButtonState, 500);
+    }
+    else if (Math.abs(startX - endX) >= 10) {
+        element.classList.add("borderFlash");
+        setTimeout(function(){ element.classList.remove("borderFlash"); }, 1000);
+        donate();
+        clearSignatureCanvas();//
+        signatureCanvas.style.border = "solid rgb(189, 94, 94)";
+        drawCheque();//
+        commentBox.unshift({comment:"Thank you for the donation! <span class='boldRed'>[+0.02 Popularity]</span>",source:"callProject"});
+        commentArrayShift();
+        checkChequeTimer = setInterval(donationButtonState, 500);//
+    };
 }
 
 
@@ -51,7 +57,7 @@ var signaturePad = new SignaturePad(signatureCanvas, {
     backgroundColor: 'rgba(255, 255, 255, 0)',
     penColor: 'black',
     onBegin: clearSignatureCanvas,
-    onEnd: signedCheque
+    onEnd: signedCheque,
 });
 
 function drawCheque() {
@@ -80,4 +86,21 @@ window.addEventListener("resize", function() {
 
 resizeCanvas();
 drawCheque();
+
+var startX = 0;
+var endX = 0;
+
+document.getElementById("signatureCanvas").addEventListener("mousedown", printMousePosDown);
+document.getElementById("signatureCanvas").addEventListener("mousemove", getEndX);
+document.getElementById("signatureCanvas").addEventListener("mouseleave", getEndX)
+
+function printMousePosDown(event) {
+    startX = event.clientX;
+};
+
+function getEndX(event){
+    endX = event.clientX;  
+}
+
+
 
