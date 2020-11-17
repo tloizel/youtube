@@ -31,12 +31,12 @@ function clearSignatureCanvas(){
 
 function signedCheque(){
     var element = document.getElementById("signatureCanvas");
-    if (Math.abs(startX - endX) < 10) {
+    if (Math.abs(startX - endX) < 10 && Math.abs(startY - endY) < 10) {
         clearSignatureCanvas();
         drawCheque();
         checkChequeTimer = setInterval(donationButtonState, 500);
     }
-    else if (Math.abs(startX - endX) >= 10) {
+    else if (Math.abs(startX - endX) >= 10 || Math.abs(startY - endY) >= 10) {
         element.classList.add("borderFlash");
         setTimeout(function(){ element.classList.remove("borderFlash"); }, 1000);
         donate();
@@ -89,6 +89,8 @@ drawCheque();
 
 var startX = 0;
 var endX = 0;
+var startY = 0;
+var endY = 0;
 
 document.getElementById("signatureCanvas").addEventListener("mousedown", printMousePosDown);
 document.getElementById("signatureCanvas").addEventListener("mousemove", getEndX);
@@ -96,10 +98,12 @@ document.getElementById("signatureCanvas").addEventListener("mouseleave", getEnd
 
 function printMousePosDown(event) {
     startX = event.clientX;
+    startY = event.clientY;
 };
 
 function getEndX(event){
     endX = event.clientX;  
+    endY = event.clientY;
 }
 
 
