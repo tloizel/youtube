@@ -405,24 +405,19 @@ function upgradeEnergyBatch(num){
 
 var countDownNum; //discrete, hidden, camouflaged global variable, dont @ me
 function bulbTimerOn() {
-  console.log("bulbTimerOn");
   countDownNum = 59;
   countDownTimer = setInterval(function(){
     if (countDownNum > 0) {
-      console.log("IF bulbTimerOn");
-      console.log(countDownNum);
       document.getElementById("bulbCountDown").innerHTML = countDownNum;
       countDownNum--;
     }
     else {
-      console.log("ELSE bulbTimerOn");
       bulbTimerOff();
     }
   },1000);
 }
 
 function bulbTimerOff() {
-  console.log("bulbTimerOFF");
   clearInterval(countDownTimer);
   countDownNum = 60;
   document.getElementById("bulbCountDown").innerHTML = countDownNum;
