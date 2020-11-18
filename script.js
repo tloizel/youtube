@@ -219,8 +219,8 @@ var ideaProjects = [
   ["Start streaming video games","Reach 7M subscribers & Pay $50k","subscribers>=7000000 && cashAmount>=50000","upgradeCreativity(20);ideaRangeMax(rangeIdea);cashAmount-=50000","About to reach the Ender Dragon... <span class='boldRed'>[+20 Creativity & -$50k]</span>","0","0"],
   ["Start a daily vlog","Reach 10M subscribers & 5B views","subscribers>=10000000 && views>=5000000000","upgradeCreativity(40);ideaRangeMax(rangeIdea)","Daily routine and all <span class='boldRed'>[+40 Creativity]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
-  ];
-  var shootEditProjects = [
+];
+var shootEditProjects = [
   ["Start Editing","Edit 1 video","videosEditedTotal>=1","uploadAppear()","You can now upload videos <span class='boldRed'>[Upload appeared]</span>","story","Congrats channelReplace, you've edited your first video. Try uploading it."],
   ["Watch an iMovie tutorial","Edit 3 videos","videosEditedTotal>=3","shootEdit-=25;lessClicks(24);clicksLeft()","Two hours later, you're a pro <span class='boldRed'>[-25 Clicks]</span>","0","0"],
   ["Borrow your sister's USB key","Edit 10 videos","videosEditedTotal>=10","upgradeMemory(1)","It shall never be returned <span class='boldRed'>[+1 Memory]</span>","0","0"],
@@ -240,8 +240,8 @@ var ideaProjects = [
   ["Hire a badass editor","Pay $50k & Reach 9.5 average video quality & 2M subscribers & 500M views","cashAmount>=50000&&averageQl>=9.5&&subscribers>=2000000&&views>=500000000","upgradeEditorSpeed(16);expenses+=100;cashAmount-=50000","This is getting real <span class='boldRed'>[AutoEditor Level 4 & -$50k & -$170/s]</span>","0","0"],
   ["Hire Casey himself","Pay $100k & Reach 10 average video quality & 10M subscribers & 2B views","cashAmount>=100000&&averageQl>=10&&subscribers>=10000000&&views>=1000000000","upgradeEditorSpeed(32);expenses+=130;cashAmount-=100000","Those vlogs teach you more than film school <span class='boldRed'>[AutoEditor Level 5 & -$100k & -$300/s]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
-  ];
-  var uploadProjects = [
+];
+var uploadProjects = [
   ["Start uploading","Upload 1 video","videosUploaded>=1","analyticsAppear()","Now get more subs! 100M ain't that hard <span class='boldRed'>[Analytics appeared]</span>","story","That was easy, channelReplace is now live!"],
   ["Upload videos from school library","Upload 3 videos","videosUploaded>=3","upgradeUploadSpeed(2)","You read books while you're there <span class='boldRed'>[+100kB/s Upload Speed]</span>","0","0"],
   ["Figure out how to use hotspot","Upload 15 videos & Pay $100","videosUploaded>=15 && cashAmount>=100","upgradeUploadSpeed(3);cashAmount-=100","Parents weren't please with the phone bill <span class='boldRed'>[+100kB/s Upload Speed & -$100]</span>","0","0"],
@@ -255,8 +255,8 @@ var ideaProjects = [
   ["Dad kindly installs a WiFi repeater","Upload 650 videos","videosUploaded>=650","upgradeUploadSpeed(70)","Love u dad <span class='boldRed'>[+4500kB/s Upload Speed]</span>","0","0"],
   ["Your building now has fibre-optic internet","Upload 1.2k videos","videosUploaded>=1200","upgradeUploadSpeed(200)","Can't get more efficient <span class='boldRed'>[+13000kB/s Upload Speed]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
-  ];
-  var subProjects = [
+];
+var subProjects = [
   ["Reply to comments","Reach 50 subscribers or 500 views","subscribers>=50 || views>=500","views+=200","Love you guys <span class='boldRed'>[+200 Views]</span>","0","0"],
   ["Pimp your video intro","Reach 100 subscribers or 1.5k views","subscribers>=100 || views>=1500","views+=500","Don't make it a minute long though <span class='boldRed'>[+500 Views]</span>","0","0"],
   ["Break the piggy bank","Reach 150 subscribers or 4k views","subscribers>=150 || views>=4000","cashAppear()","Opening a bank account as we speak <span class='boldRed'>[Money Time]</span>","0","0"],
@@ -286,8 +286,8 @@ var ideaProjects = [
   ["Figure out the algorithm","Reach 15M subscribers","subscribers>=15000000","LDRF(1)","You've just figured out internet's biggest secret <span class='boldRed'>[+1 Popularity]</span>","0","0"],
   ["Overtake PewDiePie","Reach 100M subscribers","subscribers>=100000000","endGame()","Thank you <span class='boldRed'>[Your time has been added to the scoreboard!]</span>","0","Now prestige and try to beat your score!"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
-  ];
-  var cashProjects = [
+];
+var cashProjects = [
   ["Extra pocket money","Reach 5k views","views>=5000","cashAmount+=20","Mum was feeling generous <span class='boldRed'>[+$20]</span>","0","0"],
   ["Christmas","Reach 7k views","views>=7000","cashAmount+=80","Grandma's annual cheque is always appreciated <span class='boldRed'>[+$80]</span>","0","0"],
   ["Steal from mum's purse","Reach 10k views","views>=10000","cashAmount+=500","Sacrifices for the better good <span class='boldRed'>[+$500]</span>","0","0"],
@@ -305,7 +305,7 @@ var ideaProjects = [
   ["Sell overpriced ice-cream on the beach","Reach 500M views","views>=500000000","cashAmount+=15000","Supply and demand my friend <span class='boldRed'>[+$15k]</span>","0","0"],
   ["Sell your rare Pokemon cards","Reach 1B views","views>=1000000000","cashAmount+=20000","Broke your heart <span class='boldRed'>[+$20k]</span>","0","0"],
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
-  ];
+];
 
   load(); //REMOVE FOR TESTING
 
