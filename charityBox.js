@@ -84,8 +84,11 @@ window.addEventListener("resize", function() {
     drawCheque();
 });
 
+setTimeout(function(){ initialCheque(); }, 100);
+function initialCheque(){
 resizeCanvas();
 drawCheque();
+}
 
 var startX = 0;
 var endX = 0;
@@ -93,12 +96,18 @@ var startY = 0;
 var endY = 0;
 
 document.getElementById("signatureCanvas").addEventListener("mousedown", printMousePosDown);
+document.getElementById("signatureCanvas").addEventListener("touchstart", printTouchDown);
+
 document.getElementById("signatureCanvas").addEventListener("mousemove", getEndX);
-document.getElementById("signatureCanvas").addEventListener("mouseleave", getEndX)
+document.getElementById("signatureCanvas").addEventListener("mouseleave", getEndX);
 
 function printMousePosDown(event) {
     startX = event.clientX;
     startY = event.clientY;
+};
+function printTouchDown(event) {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
 };
 
 function getEndX(event){
@@ -106,5 +115,14 @@ function getEndX(event){
     endY = event.clientY;
 }
 
+/*
+document.getElementById("signatureCanvas").addEventListener("touchmove", getTouchEndX);
+document.getElementById("signatureCanvas").addEventListener("touchend", getTouchEndX);
 
-
+function getTouchEndX(event){
+    endX = event.changedTouches[0].clientX;  
+    endY = event.changedTouches[0].clientY;
+   console.log("x: "+endX+ "Y: "+endY);
+    console.log(startY - endY)
+}
+*/
