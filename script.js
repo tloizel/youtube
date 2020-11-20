@@ -532,7 +532,7 @@ function autoUpload() {
   var uploaderTimer = setInterval(function() {
     if (loadState == 0){ //&& cashAmount > 0
     uploadVideo();};
-    },1000/uploadSpeed);
+    },1000/(uploadSpeed*uploadP));
   autoUploadActivated = true;
 }
 
@@ -783,7 +783,7 @@ function uploadVideo() {
     disableDiv("uploadB","none");
     var elem = document.getElementById("myBar");
     width = 1;
-    var id = setInterval(frame, 1000/uploadSpeed);
+    var id = setInterval(frame, 1000/(uploadSpeed*uploadP));
     function frame() {
       if (width >= 100) {
         clearInterval(id);
@@ -1240,7 +1240,7 @@ function load() {
   //prestige changes repetition because variables init come before load()
   if (creativity==1){creativity += creativityP};
   if (editPressSpeed==100){editPressSpeed = 100 * editP}; //EDITPRESSSPEED TO BE CHANGED HERE
-  if (uploadSpeed==1){uploadSpeed = 1 * uploadP}; //ENERGYREGENSPEED TO BE CHANGED HERE
+  if (uploadSpeed==1){uploadSpeed = 1 * uploadP}; 
 }
 
 function deleteLocalStorage() {
@@ -1484,8 +1484,8 @@ function clickablePrestigeOptions(){
 
 function prestigeOptionSelect(option) {
   if(option=="option1"){creativityP = 1}
-  if(option=="option2"){editP = 0.75}
-  if(option=="option3"){uploadP = 1.25}
+  if(option=="option2"){editP = 0.5}
+  if(option=="option3"){uploadP = 2}
   visiblePrestige = true;
   prestige+=1;
   save();
