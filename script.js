@@ -1382,20 +1382,21 @@ function scoreRefreshTimer() {
 
 //open scoreboard
 function scoreModalOpen(){
+  badboi();
   scoreRefreshTimer();
   const scoreboard = document.getElementById("scoreModal");
   scoreboard.style.display = "block";
   const closeModal = document.getElementById("closeScoreModal"); //to close modal through x
   closeModal.onclick = function() {
-  scoreboard.style.display = "none";
-  clearInterval(scoreRefresh);
+    scoreboard.style.display = "none";
+    clearInterval(scoreRefresh);
   }
 }
 
 //close scoreboard ONLY FOR Select prestige bonus
 function scoreModalClose(){ 
-  const scorebard = document.getElementById("scoreModal");
-  scorebard.style.display = "none";
+  const scoreboard = document.getElementById("scoreModal");
+  scoreboard.style.display = "none";
 }
 
 //RETRIEVE ALL SCORE FROM BACK

@@ -1046,16 +1046,6 @@ color: white;
     z-index: 3;
     padding-top: 0.1em;
   }
-  
-  /*.sticky1 {
-    position: sticky;
-    top: 5vh;
-    z-index: 3;
-  }*/
-
-  /*.overflowY-scroll {
-    overflow-y: scroll;
-  }*/
 
   .viewsBig {
     padding-left: 4vw;
@@ -1083,7 +1073,7 @@ color: white;
   }
 
   .modal-content{
-    width: 85%;
+    width: 90%;
     margin: 20% auto;
   }
 
@@ -1143,22 +1133,10 @@ color: white;
   }
 }
 
-
-
 .break {
   flex-basis: 100%;
   height: 0;
 }
-
-/*.white {
-  background-color: red;
-  z-index: 2;
-  height: 40vh;
-  width: 100vw;
-  position: sticky;
-  top: 5%;
-}*/
-
 
 .buttonMargin
 {
