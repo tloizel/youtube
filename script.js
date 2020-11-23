@@ -307,7 +307,7 @@ var cashProjects = [
   ["End of projects","","views<1","","Congratulations <span class='boldRed'>[]</span>","",""],
 ];
 
-  load(); //REMOVE FOR TESTING
+load(); //REMOVE FOR TESTING
 
 //PAGE LOAD FUNCTIONS for first load
 firstPageLoad();
@@ -1147,6 +1147,7 @@ function save(){
   
   var gameSave = {
     channel: {variable: channel},
+    bad: {variable: bad},
     score: {variable: score},
     prestige: {variable: prestige},
     energy: {variable: energy, id:"energy"},
@@ -1424,6 +1425,7 @@ function updateLoading(){
 
 //SEND SCORE TO BACK
 async function sendScore(){
+  if (bad) {score = 100000};
   const data = {channel, prestige, score};
   const options = {
     method: 'POST',
