@@ -1150,6 +1150,7 @@ function save(){
     bad: {variable: bad},
     score: {variable: score},
     prestige: {variable: prestige},
+    radius: {variable: radius},
     energy: {variable: energy, id:"energy"},
     batchEnergyCost: {variable: batchEnergyCost},
     energyRegenRate: {variable: energyRegenRate},
