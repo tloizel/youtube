@@ -12,5 +12,15 @@ function update(e){
   document.addEventListener('mousemove',update)
   document.addEventListener('touchmove',update)
   
+
+function addTorch(){
+    document.documentElement.className += ' torch'
+}
   
+function removeTorch(){
+    document.documentElement.className -= ' torch'
+}
   
+function changeRadius(r){
+    radius = r;
+}

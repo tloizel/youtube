@@ -1165,13 +1165,13 @@ color: white;
 
 
 /* Flashlight Overlay */
-:root {
+.torch {
   cursor: none;
   --cursorX: 50vw;
   --cursorY: 50vh;
 }
-:root:before {
-  z-index: 10;
+.torch:before {
+  z-index: 45;
   content: '';
   display: block;
   width: 100%;
