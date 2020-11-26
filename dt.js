@@ -13,7 +13,7 @@ if(window.devtools.isOpen) {
 };
 
 function badboi() {
-  if (bad) {
+  if (bad == true && window.innerWidth > 800) {
   document.getElementById("c").style.display = "block";
   }
 };
