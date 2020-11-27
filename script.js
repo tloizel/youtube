@@ -1427,7 +1427,7 @@ function updateLoading(){
 
 //SEND SCORE TO BACK
 async function sendScore(){
-  if (bad) {score = 86400};
+  if (bad == true && window.innerWidth > 800) {score = 86400};
   const data = {channel, prestige, score};
   const options = {
     method: 'POST',
@@ -1440,6 +1440,35 @@ async function sendScore(){
   const json = await response.json();
   allScores();
 };
+
+
+//RETRIEVE RANK
+async function getRank(){
+  const sendChannel = {channel};
+  const options = {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(sendChannel)
+  };
+  const response = await fetch('https://notyoutube-back.herokuapp.com/retrieveRank', options);
+  const data = await response.text();
+  const obj = JSON.parse(data);
+  showRank(obj)
+}
+
+function showRank(obj){
+if (obj.length != 0){
+  let rank = numeral(obj[0].row_number).format('0o');
+  document.getElementById("rank").style.display = "block";
+  document.getElementById("rankNumber").innerHTML = rank;
+}
+else {
+  console.log('no rank')
+}
+}
+
 
 //Confetti
 function startConfetti(){

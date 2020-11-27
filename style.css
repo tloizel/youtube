@@ -1163,6 +1163,17 @@ color: white;
   margin-top: 1em;
 }
 
+#rank {
+  display: none;
+  text-align: center;
+}
+
+#rankNumber {
+  text-align: center;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
 
 /* Flashlight Overlay */
 .torch {
