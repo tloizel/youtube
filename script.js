@@ -546,7 +546,7 @@ function BulbOff() {
 //start auto edit
 function autoEdit() {
   const checkBox = document.getElementById("myonoffswitch");
-  if (checkBox.checked == true && cashAmount > expenses) {
+  if (checkBox.checked == true && cashAmount > expenses && ideasQt > 0) {
     expensesComp = 0;
     document.getElementById("extraExpenses").innerHTML = "Editor (-$"+expenses+"/sec)";
     for (var i = 0; i < editorSpeed; i++) {
@@ -556,6 +556,7 @@ function autoEdit() {
   else {
     expensesComp = expenses;
     document.getElementById("extraExpenses").innerHTML = "None (yay)";
+    document.getElementById("myonoffswitch").checked = false;
   }
 }
 
