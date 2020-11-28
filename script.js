@@ -1479,6 +1479,7 @@ function startConfetti(){
 //END OF GAME FUNCTION
 function endGame(){
   sendScore(); //send score to db
+  getRank(); //get rank
   clickablePrestigeOptions(); //which bonus have already been used
   prestigeOptions(); //open modal with final score
   scoreModalOpen(); //open score modal (underneath beacause of html order)
@@ -1530,5 +1531,5 @@ function prestigeOptionSelect(option) {
   prestige+=1;
   save();
   localStorage.removeItem("NYsave");
-  location.reload();
+  window.location.reload();
 }
