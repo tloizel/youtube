@@ -373,6 +373,7 @@ loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem-solving. Get out of here!");
 refreshFitty();
 if(emptyArrayUsed == false){emptyArray()};
+if(torch){addTorch()}; //to turn torch on on page reloads
 
 //inital comment before first flash
 function helpBeforeBulbStory() {
@@ -1182,6 +1183,7 @@ function save(){
     score: {variable: score},
     prestige: {variable: prestige},
     radius: {variable: radius},
+    torch: {variable: torch},
     energy: {variable: energy, id:"energy"},
     batchEnergyCost: {variable: batchEnergyCost},
     energyRegenRate: {variable: energyRegenRate},
