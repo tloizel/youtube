@@ -1439,6 +1439,7 @@ async function sendScore(){
   const response = await fetch('https://notyoutube-back.herokuapp.com/newScore', options);
   const json = await response.json();
   allScores();
+  getRank(); //get rank
 };
 
 
@@ -1479,7 +1480,6 @@ function startConfetti(){
 //END OF GAME FUNCTION
 function endGame(){
   sendScore(); //send score to db
-  getRank(); //get rank
   clickablePrestigeOptions(); //which bonus have already been used
   prestigeOptions(); //open modal with final score
   scoreModalOpen(); //open score modal (underneath beacause of html order)
