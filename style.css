@@ -79,6 +79,19 @@ h2 {
   margin-left: .3em;
 }
 
+.donateButton {
+  width: auto;
+  height: 2em;
+}
+
+.donateButton:hover {
+  transform: translateY(2px);
+}
+
+.text-align-right {
+  text-align: right;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
