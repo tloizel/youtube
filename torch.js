@@ -1,4 +1,4 @@
-var radius = 10;
+/* var radius = 10;
 var torch = false;
 
 function update(e){
@@ -25,4 +25,4 @@ function removeTorch(){
   
 function changeRadius(r){
     radius = r;
-}
+} */

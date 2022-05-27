@@ -1,3 +1,5 @@
+var confetti={maxCount:150,speed:2,frameInterval:15,alpha:1,gradient:!1,start:null,stop:null,toggle:null,pause:null,resume:null,togglePause:null,remove:null,isPaused:null,isRunning:null};!function(){confetti.start=c,confetti.stop=w,confetti.toggle=function(){e?w():c()},confetti.pause=u,confetti.resume=m,confetti.togglePause=function(){i?m():u()},confetti.isPaused=function(){return i},confetti.remove=function(){stop(),i=!1,a=[]},confetti.isRunning=function(){return e};var t=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame,n=["rgba(30,144,255,","rgba(107,142,35,","rgba(255,215,0,","rgba(255,192,203,","rgba(106,90,205,","rgba(173,216,230,","rgba(238,130,238,","rgba(152,251,152,","rgba(70,130,180,","rgba(244,164,96,","rgba(210,105,30,","rgba(220,20,60,"],e=!1,i=!1,o=Date.now(),a=[],r=0,l=null;function d(t,e,i){return t.color=n[Math.random()*n.length|0]+(confetti.alpha+")"),t.color2=n[Math.random()*n.length|0]+(confetti.alpha+")"),t.x=Math.random()*e,t.y=Math.random()*i-i,t.diameter=10*Math.random()+5,t.tilt=10*Math.random()-10,t.tiltAngleIncrement=.07*Math.random()+.05,t.tiltAngle=0,t}function u(){i=!0}function m(){i=!1,s()}function s(){if(!i)if(0===a.length)l.clearRect(0,0,window.innerWidth,window.innerHeight),null;else{var n=Date.now(),u=n-o;(!t||u>confetti.frameInterval)&&(l.clearRect(0,0,window.innerWidth,window.innerHeight),function(){var t,n=window.innerWidth,i=window.innerHeight;r+=.01;for(var o=0;o<a.length;o++)t=a[o],!e&&t.y<-15?t.y=i+100:(t.tiltAngle+=t.tiltAngleIncrement,t.x+=Math.sin(r),t.y+=.5*(Math.cos(r)+t.diameter+confetti.speed),t.tilt=15*Math.sin(t.tiltAngle)),(t.x>n+20||t.x<-20||t.y>i)&&(e&&a.length<=confetti.maxCount?d(t,n,i):(a.splice(o,1),o--))}(),function(t){for(var n,e,i,o,r=0;r<a.length;r++){if(n=a[r],t.beginPath(),t.lineWidth=n.diameter,i=n.x+n.tilt,e=i+n.diameter/2,o=n.y+n.tilt+n.diameter/2,confetti.gradient){var l=t.createLinearGradient(e,n.y,i,o);l.addColorStop("0",n.color),l.addColorStop("1.0",n.color2),t.strokeStyle=l}else t.strokeStyle=n.color;t.moveTo(e,n.y),t.lineTo(i,o),t.stroke()}}(l),o=n-u%confetti.frameInterval),requestAnimationFrame(s)}}function c(t,n,o){var r=window.innerWidth,u=window.innerHeight;window.requestAnimationFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(t){return window.setTimeout(t,confetti.frameInterval)};var m=document.getElementById("confetti-canvas");null===m&&((m=document.createElement("canvas")).setAttribute("id","confetti-canvas"),m.setAttribute("style","display:block;z-index:999999;pointer-events:none;position:absolute;top:0"),document.body.appendChild(m),m.width=r,m.height=u,window.addEventListener("resize",function(){m.width=window.innerWidth,m.height=window.innerHeight},!0),l=m.getContext("2d"));var c=confetti.maxCount;if(n)if(o)if(n==o)c=a.length+o;else{if(n>o){var f=n;n=o,o=f}c=a.length+(Math.random()*(o-n)+n|0)}else c=a.length+n;else o&&(c=a.length+o);for(;a.length<c;)a.push(d({},r,u));e=!0,i=!1,s(),t&&window.setTimeout(w,t)}function w(){e=!1}}();
+
 //GENERAL
 var testTimer = setInterval(testProjects,500);
 var checkChequeTimer = setInterval(donationButtonState, 500); //see charityBox.js
@@ -324,7 +326,7 @@ var cashProjects = [
   ["Steal from mum's purse","Reach 10k views","views>=10000","cashAmount+=500","Sacrifices for the better good <span class='boldRed'>[+$500]</span>","0","0"],
   ["Steal from dad's wallet","Reach 15k views","views>=15000","cashAmount+=500","Ready for a whoppin' <span class='boldRed'>[+$500]</span>","0","0"],
   ["Sly fox","Be a YouTube Partner & Reach 6 average video quality","averageQl>=6 && youtubePartner==1","adLoadMax+=1","Nothing too intrusive for now... <span class='boldRed'>[+1 Ad Amount]</span>","story","channelReplace now entering the ad game..."],
-  ["Loan from friends","Reach 6.3 average video quality","averageQl>=6.3","cashAmount+=2000","...and never pay them back <span class='boldRed'>[+$2k]</span>","0","0"],
+  ["Loan from friends","Reach 6.3 average video quality","averageQl>=6.3","cashAmount+=2000;toggleDonation('flex')","...and never pay them back <span class='boldRed'>[+$2k]</span>","0","0"],
   ["Greedy pig","Reach 1.5M views","views>=1500000","adLoadMax+=3","Those ads are getting kind of intrusive now <span class='boldRed'>[+3 Ad Amount]</span>","0","0"],
   ["Sell merch","Reach 2M views","views>=2000000","income+=1;incomeAppear();incomeUpdate()","That's all you wear from now on <span class='boldRed'>[+$1/s]</span>","story","Finally some stable income, you're gaining mum's trust"],
   ["Sign up to a 'get rich quick' course","Reach 5M views","views>=5000000","cashAmount+=5000","Definitely wasn't worth your time <span class='boldRed'>[+$5k]</span>","0","0"],
@@ -373,8 +375,8 @@ loadVisibleDivs(); //if visible variables are true
 console.log("This isn't what we meant by problem-solving. Get out of here!");
 refreshFitty();
 if(emptyArrayUsed == false){emptyArray()};
-if(torch){addTorch()}; //to turn torch on on page reloads
-
+/* if(torch){addTorch()}; //to turn torch on on page reloads
+ */
 //inital comment before first flash
 function helpBeforeBulbStory() {
   if (commentBox[0].comment !== "Patience is a virtue - it will always take you 1 minute of thinking to generate ideas."){
@@ -1183,8 +1185,8 @@ function save(){
     bad: {variable: bad},
     score: {variable: score},
     prestige: {variable: prestige},
-    radius: {variable: radius},
-    torch: {variable: torch},
+/*     radius: {variable: radius},
+    torch: {variable: torch}, */
     energy: {variable: energy, id:"energy"},
     batchEnergyCost: {variable: batchEnergyCost},
     energyRegenRate: {variable: energyRegenRate},
@@ -1502,6 +1504,15 @@ if (obj.length != 0){
 else {
   console.log('no rank')
 }
+}
+
+//Donate
+function toggleDonation(arg){
+  document.getElementsByClassName('donateMessage')[0].style.display = arg
+
+  document.getElementById("donateMessage1").innerHTML = `Hey ${channel} 🖖`;
+  document.getElementById("donateMessage2").innerHTML = `If not, we might be tempted to steal from your Piggy Bank (${numeral(cashAmount).format('$0,0')} is a lot 💰)`;
+
 }
 
 

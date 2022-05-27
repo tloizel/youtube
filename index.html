@@ -50,8 +50,8 @@
     <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="numeral.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<!--     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+ -->    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
   </head>
   
   <body>
@@ -76,7 +76,7 @@
             <button class="settingsButton" onclick=deleteLocalStorage()><i class="fa fa-2x fa-trash" aria-hidden="true"></i></button>
             <button class="settingsButton" onclick=scoreModalOpen();allScores()><i class="fa fa-2x fa-trophy" aria-hidden="true"></i></button>
             <p id="prestige" class="reveal">P1</p>
-            <a href="https://paypal.me/notyoutubegame" target="_blank"><img src="https://notyoutube.dev/paypal-donate-button.png" class="hidden donateButton"></a>
+            <img src="https://notyoutube.dev/paypal-donate-button.png" class="hidden donateButton" onclick="toggleDonation('flex')">
           </div>
         </div>
       </div>
@@ -311,6 +311,21 @@
         </div>
       </div>
 
+      <!-- INSERT NAME MODAL --> 
+      <div class="donateMessage">
+        <div style="margin: auto 20px;">
+          <p id="donateMessage1">Hey player 🖖</p>
+          <p>Glad you're enjoying our game, this is the project that kept us going through lockdown.</p>
+          <p>As you see, this game is totally free.</p>
+          <p>If you're feeling generous, hit that donate button, it'll help cover our server costs.</p>
+          <p id="donateMessage2">If not, we might be tempted to steal from your Piggy Bank</p>
+          <div style="text-align: center; margin-top: 3em;">
+            <p><a href="https://paypal.me/notyoutubegame" target="_blank"><img src="https://notyoutube.dev/paypal-donate-button.png" class="donateButton" style="height: 4em;"></a></p>
+            <p style="color: grey; text-decoration: underline; cursor: pointer; margin-top: 3em;" onclick="toggleDonation('none')">Take me back</p>
+          </div>
+        </div>
+      </div>
+
       <!-- INSERT NAME MODAL -->     
       <!-- The Modal -->
       <div id="channelModal" class="modal">
@@ -488,7 +503,7 @@
             <p id="reddit">Join our subreddit for future updates <a href="https://www.reddit.com/r/notyoutube/" target="_blank">r/notyoutube</a></p>
           </div>
           <div class="modal-footer">
-            <button class="button" id="gotoprestige" onclick="scoreModalClose()">Select prestige bonus</button>
+            <button class="button" id="gotoprestige" onclick="scoreModalClose();toggleDonation('flex')">Select prestige bonus</button>
           </div>
         </div>
       </div>
