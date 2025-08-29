@@ -1438,7 +1438,7 @@ function scoreModalClose(){
 
 //RETRIEVE ALL SCORE FROM BACK
 async function allScores(){
-  const response = await fetch('https://notyoutube-back.herokuapp.com/retrieveScore');
+  const response = await fetch('https://notyoutubeback.onrender.com/retrieveScore');
   const data = await response.text();
   const obj = JSON.parse(data);
   updateTable(obj);
@@ -1472,7 +1472,7 @@ async function sendScore(){
         },
     body: JSON.stringify(data)
     };
-  const response = await fetch('https://notyoutube-back.herokuapp.com/newScore', options);
+  const response = await fetch('https://notyoutubeback.onrender.com/newScore', options);
   const json = await response.json();
   allScores();
   getRank(); //get rank
@@ -1489,7 +1489,7 @@ async function getRank(){
     },
     body: JSON.stringify(sendChannel)
   };
-  const response = await fetch('https://notyoutube-back.herokuapp.com/retrieveRank', options);
+  const response = await fetch('https://notyoutubeback.onrender.com/retrieveRank', options);
   const data = await response.text();
   const obj = JSON.parse(data);
   showRank(obj)
